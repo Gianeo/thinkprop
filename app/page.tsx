@@ -1,65 +1,84 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { useRouter } from 'next/navigation'
+import { ArrowRight, Shield, User } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+
+const personas = [
+  {
+    name: 'Reem Al Mansoori',
+    subtitle: 'Real Estate Agent · Learner Journey',
+    description: 'Follow Reem through a compliance alert and the full enrollment flow.',
+    cta: 'Enter Learner View',
+    href: '/learner/dashboard',
+    icon: User,
+    iconWrapClass: 'bg-state-enrolled-bg',
+    iconClass: 'text-state-enrolled',
+    ctaClass: 'text-state-enrolled',
+  },
+  {
+    name: 'Tariq Hamdan',
+    subtitle: 'Training Manager · Admin Journey',
+    description: 'Manage team compliance, send reminders, and monitor risk in real time.',
+    cta: 'Enter Admin View',
+    href: '/admin/compliance',
+    icon: Shield,
+    iconWrapClass: 'bg-brand-amber/10',
+    iconClass: 'text-brand-amber',
+    ctaClass: 'text-brand-amber',
+  },
+]
+
+export default function Page() {
+  const router = useRouter()
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-admin-surface p-8">
+      <div className="mb-12 text-center">
+        <div className="flex items-center justify-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-amber">
+            <span className="font-display text-sm font-bold text-white">T</span>
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="type-display-md text-[18px]">ThinkProp</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-amber">LMS</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-admin-faint">Prototype Navigator</p>
+      </div>
+
+      <div className="grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+        {personas.map((persona) => {
+          const Icon = persona.icon
+
+          return (
+            <Card
+              key={persona.name}
+              onClick={() => router.push(persona.href)}
+              className="group cursor-pointer border-admin-border shadow-card transition-all duration-200 hover:shadow-card-hover"
+            >
+              <CardContent className="p-8">
+                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${persona.iconWrapClass}`}>
+                  <Icon size={22} className={persona.iconClass} />
+                </div>
+
+                <h2 className="font-display text-lg font-bold text-admin-heading">{persona.name}</h2>
+                <p className="mt-0.5 text-sm text-admin-muted">{persona.subtitle}</p>
+                <p className="mt-3 text-sm leading-relaxed text-admin-body">{persona.description}</p>
+
+                <Button
+                  variant="ghost"
+                  className={`mt-6 h-auto p-0 text-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
+                >
+                  {persona.cta}
+                  <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-0.5" />
+                </Button>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </div>
+    </main>
+  )
 }

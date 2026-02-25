@@ -1,0 +1,112 @@
+'use client'
+
+import { useEffect, useMemo } from 'react'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { CalendarPlus, CheckCircle } from 'lucide-react'
+import SidebarNav from '@/components/shared/SidebarNav'
+import ComplianceCard from '@/components/shared/ComplianceCard'
+import { complianceItems, courses } from '@/lib/mockData'
+import { ComplianceItem, ComplianceState } from '@/lib/types'
+
+const STORAGE_KEY = 'thinkprop_enrollment_state'
+const SESSION_DATE_KEY = 'thinkprop_enrollment_session_date'
+
+export default function ConfirmationPage() {
+  const params = useParams<{ id: string }>()
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
+  const course = useMemo(() => courses.find((entry) => entry.id === params.id), [params.id])
+  const sessionId = searchParams.get('session')
+  const selectedSession = course?.sessions.find((session) => session.id === sessionId) ?? course?.sessions[0]
+
+  useEffect(() => {
+    if (!selectedSession) {
+      return
+    }
+
+    try {
+      const rawState = window.localStorage.getItem(STORAGE_KEY)
+      const parsed = rawState ? (JSON.parse(rawState) as Record<string, ComplianceState>) : {}
+      parsed['rera-cpd'] = 'ENROLLED'
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed))
+      window.localStorage.setItem(SESSION_DATE_KEY, selectedSession.date)
+    } catch {
+      // Ignore storage errors.
+    }
+  }, [selectedSession])
+
+  if (!course || !selectedSession) {
+    return (
+      <div className="min-h-screen bg-wire-bg p-8">
+        <p className="text-sm text-wire-label">Enrollment summary unavailable.</p>
+      </div>
+    )
+  }
+
+  const reraItem = complianceItems.find((item) => item.id === 'rera-cpd')
+  const enrolledPreview: ComplianceItem | null =
+    reraItem
+      ? {
+          ...reraItem,
+          state: 'ENROLLED',
+          expiryDate: selectedSession.date,
+        }
+      : null
+
+  return (
+    <div className="min-h-screen bg-wire-bg">
+      <SidebarNav variant="learner" activePath="/learner/courses" />
+
+      <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
+        <div className="mx-auto max-w-2xl space-y-6 p-8">
+          <section className="text-center">
+            <CheckCircle className="mx-auto h-16 w-16 text-state-compliant" />
+            <h1 className="mt-4 font-heading text-3xl font-bold text-wire-text">You&apos;re enrolled!</h1>
+            <p className="mt-2 text-sm text-wire-label">We&apos;ll send your joining instructions to your email.</p>
+          </section>
+
+          <section className="rounded-xl border border-wire-border bg-white p-6">
+            <div className="space-y-2 text-sm">
+              <p>
+                <span className="text-wire-label">Course:</span> <span className="text-wire-text">{course.title}</span>
+              </p>
+              <p>
+                <span className="text-wire-label">Session:</span>{' '}
+                <span className="text-wire-text">
+                  {selectedSession.date} at {selectedSession.time}
+                </span>
+              </p>
+              <p>
+                <span className="text-wire-label">Format:</span>{' '}
+                <span className="text-wire-text">
+                  {selectedSession.format} · {selectedSession.location}
+                </span>
+              </p>
+              <p>
+                <span className="text-wire-label">Price:</span> <span className="text-wire-text">AED {course.price}</span>
+              </p>
+            </div>
+          </section>
+
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-white px-4 py-2.5 text-sm font-semibold text-wire-text"
+          >
+            <CalendarPlus className="h-4 w-4" />
+            Add to Calendar
+          </button>
+
+          <section>
+            <h2 className="mb-3 font-heading text-lg font-semibold text-wire-text">Your compliance status has been updated</h2>
+            {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
+          </section>
+
+          <button type="button" onClick={() => router.push('/learner/dashboard')} className="text-sm font-semibold text-brand-navy">
+            ← Return to Dashboard
+          </button>
+        </div>
+      </main>
+    </div>
+  )
+}

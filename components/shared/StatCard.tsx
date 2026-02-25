@@ -1,0 +1,24 @@
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
+
+interface StatCardProps {
+  label: string
+  value: string | number
+  trend?: string
+  trendUp?: boolean
+  color: string
+}
+
+export default function StatCard({ label, value, trend, trendUp = true, color }: StatCardProps) {
+  return (
+    <div className="rounded-xl border border-wire-border bg-wire-card p-5">
+      <p className="text-sm text-wire-label">{label}</p>
+      <p className={`mt-2 font-heading text-3xl font-bold ${color}`}>{value}</p>
+      {trend && (
+        <p className={`mt-2 flex items-center gap-1 text-xs ${trendUp ? 'text-state-compliant' : 'text-state-critical'}`}>
+          {trendUp ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
+          {trend}
+        </p>
+      )}
+    </div>
+  )
+}
