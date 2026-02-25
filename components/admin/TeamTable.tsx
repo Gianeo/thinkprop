@@ -70,31 +70,31 @@ export default function TeamTable({ data }: TeamTableProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-admin-border bg-admin-card shadow-card">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-admin-border px-6 py-4">
+    <div className="overflow-hidden rounded-2xl border border-neutral-weaker bg-level-1 shadow">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-weaker px-6 py-4">
         <div>
-          <h3 className="font-display text-[15px] font-semibold text-admin-heading">Team Compliance</h3>
-          <p className="mt-0.5 text-sm text-admin-muted">Full compliance status for all team members</p>
+          <h3 className="type-title-sm">Team Compliance</h3>
+          <p className="type-caption">Full compliance status for all team members</p>
         </div>
 
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search
               size={14}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-admin-faint"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-base"
             />
             <Input
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-9 w-52 rounded-xl border-admin-border bg-admin-surface pl-9 text-sm placeholder:text-admin-faint focus-visible:ring-brand-amber/30"
+              className="h-9 w-52 rounded-xl border-neutral-weaker bg-level-0 pl-9 text-sm placeholder:text-neutral-base focus-visible:ring-brand-amber/30"
             />
           </div>
 
           <Button
             variant="outline"
             size="sm"
-            className="h-9 gap-2 rounded-xl border-admin-border font-medium text-admin-body hover:border-admin-border-strong hover:text-admin-heading"
+            className="h-9 gap-2 rounded-xl border-neutral-weaker font-medium text-neutral-strong hover:border-neutral-weak hover:text-neutral-strongest"
           >
             <Download size={13} />
             Export
@@ -103,37 +103,39 @@ export default function TeamTable({ data }: TeamTableProps) {
       </div>
 
       <Table>
-        <TableHeader className="bg-admin-surface">
-          <TableRow className="border-admin-border hover:bg-transparent">
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">
-              <button
-                type="button"
+        <TableHeader className="bg-level-0">
+          <TableRow className="border-neutral-weaker hover:bg-transparent">
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => handleSort('name')}
-                className={`flex select-none items-center gap-1.5 transition-colors hover:text-admin-body ${
-                  sortKey === 'name' ? 'text-admin-heading' : ''
+                className={`h-auto p-0 text-[11px] font-semibold uppercase tracking-wider hover:bg-transparent hover:text-neutral-strong ${
+                  sortKey === 'name' ? 'text-neutral-strongest' : ''
                 }`}
               >
                 TEAM MEMBER
                 {renderSortIcon('name')}
-              </button>
+              </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">ROLE</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">DEPARTMENT</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">
-              <button
-                type="button"
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">ROLE</TableHead>
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">DEPARTMENT</TableHead>
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => handleSort('score')}
-                className={`flex select-none items-center gap-1.5 transition-colors hover:text-admin-body ${
-                  sortKey === 'score' ? 'text-admin-heading' : ''
+                className={`h-auto p-0 text-[11px] font-semibold uppercase tracking-wider hover:bg-transparent hover:text-neutral-strong ${
+                  sortKey === 'score' ? 'text-neutral-strongest' : ''
                 }`}
               >
                 COMPLIANCE SCORE
                 {renderSortIcon('score')}
-              </button>
+              </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">AT RISK</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-admin-faint">LAST ACTIVE</TableHead>
-            <TableHead className="h-11 px-6 text-right text-[11px] font-semibold uppercase tracking-wider text-admin-faint">ACTIONS</TableHead>
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">AT RISK</TableHead>
+            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-neutral-base">LAST ACTIVE</TableHead>
+            <TableHead className="h-11 px-6 text-right text-[11px] font-semibold uppercase tracking-wider text-neutral-base">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -141,41 +143,35 @@ export default function TeamTable({ data }: TeamTableProps) {
           {filteredAndSorted.map((member) => (
             <TableRow
               key={member.id}
-              className="border-admin-border transition-colors duration-100 hover:bg-admin-surface/60"
+              className="border-neutral-weaker transition-colors duration-100 hover:bg-level-0/60"
             >
               <TableCell className="px-6 py-4">
                 <div className="flex items-center gap-3">
-                  <Avatar className="h-8 w-8 border">
+                  <Avatar>
                     <AvatarFallback
-                      className={
-                        member.status === 'Compliant'
-                          ? 'border-score-high/20 bg-score-high-bg font-display text-[11px] font-semibold text-score-high'
-                          : 'border-score-low/20 bg-score-low-bg font-display text-[11px] font-semibold text-score-low'
-                      }
+                      variant={member.status === 'Compliant' ? 'success' : 'destructive'}
+                      className="text-[11px]"
                     >
                       {member.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="text-sm font-medium text-admin-heading">{member.name}</span>
+                  <span className="text-sm font-medium text-neutral-strongest">{member.name}</span>
                 </div>
               </TableCell>
 
               <TableCell className="px-6 py-4">
-                <span className="text-sm text-admin-body">{member.role}</span>
+                <span className="text-sm text-neutral-strong">{member.role}</span>
               </TableCell>
 
               <TableCell className="px-6 py-4">
-                <Badge
-                  variant="outline"
-                  className="rounded-md border-admin-border bg-admin-surface px-2.5 py-0.5 text-xs font-medium text-admin-body"
-                >
+                <Badge variant="default">
                   {member.department}
                 </Badge>
               </TableCell>
 
               <TableCell className="px-6 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="h-1.5 w-20 overflow-hidden rounded-full bg-admin-border">
+                  <div className="h-1.5 w-20 overflow-hidden rounded-full bg-neutral-weaker">
                     <div
                       className={`h-full rounded-full transition-all duration-500 ${
                         member.score >= 80
@@ -203,7 +199,7 @@ export default function TeamTable({ data }: TeamTableProps) {
 
               <TableCell className="px-6 py-4">
                 {member.atRisk === 0 ? (
-                  <span className="text-sm text-admin-faint">—</span>
+                  <span className="text-sm text-neutral-base">—</span>
                 ) : (
                   <span className="text-sm font-medium text-state-critical">
                     {member.atRisk} credential{member.atRisk > 1 ? 's' : ''}
@@ -212,7 +208,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               </TableCell>
 
               <TableCell className="px-6 py-4">
-                <span className="font-mono text-sm text-admin-muted">{member.lastActivity}</span>
+                <span className="font-mono text-sm text-neutral-strong">{member.lastActivity}</span>
               </TableCell>
 
               <TableCell className="px-6 py-4 text-right">
@@ -229,7 +225,7 @@ export default function TeamTable({ data }: TeamTableProps) {
       </Table>
 
       {filteredAndSorted.length === 0 && (
-        <div className="flex items-center gap-2 px-6 py-5 text-sm text-admin-muted">
+        <div className="flex items-center gap-2 px-6 py-5 text-sm text-neutral-strong">
           <AlertTriangle size={14} className="text-score-mid" />
           No team members match your search.
         </div>

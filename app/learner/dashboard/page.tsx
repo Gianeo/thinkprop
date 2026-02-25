@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { AlertTriangle, Bell } from 'lucide-react'
 import ComplianceCard from '@/components/shared/ComplianceCard'
 import SidebarNav from '@/components/shared/SidebarNav'
+import { Button } from '@/components/ui/button'
 import { complianceItems, learnerProfile } from '@/lib/mockData'
 import { ComplianceState } from '@/lib/types'
 
@@ -70,7 +71,7 @@ export default function LearnerDashboardPage() {
   const criticalCount = datedItems.filter((item) => item.state === 'CRITICAL').length
 
   return (
-    <div className="min-h-screen bg-wire-bg">
+    <div className="min-h-screen bg-level-0">
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
@@ -88,10 +89,10 @@ export default function LearnerDashboardPage() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <button type="button" className="rounded-lg border border-wire-border bg-white p-2.5 text-wire-label">
+              <Button variant="outline" size="icon" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-wire-label">
                 <Bell className="h-5 w-5" />
-              </button>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-white">
+              </Button>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-neutral-weakest">
                 {learnerProfile.initials}
               </div>
             </div>
@@ -106,13 +107,13 @@ export default function LearnerDashboardPage() {
                   license may be at risk.
                 </p>
               </div>
-              <button
-                type="button"
+              <Button
+                variant="link"
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
-                className="text-sm font-semibold text-brand-navy"
+                className="h-auto p-0 text-sm font-semibold text-brand-navy hover:no-underline"
               >
                 View Details →
-              </button>
+              </Button>
             </section>
           )}
 
@@ -135,7 +136,7 @@ export default function LearnerDashboardPage() {
 
           <section className="hidden md:block">
             <h2 className="mb-4 font-heading text-lg font-semibold text-wire-text">Your Learning Pathway</h2>
-            <div className="rounded-xl border border-wire-border bg-white p-6">
+            <div className="rounded-xl border border-wire-border bg-level-1 p-6">
               <div className="grid grid-cols-4 gap-4">
                 {[
                   { step: '1', label: 'Complete Mandatory Training', state: 'done', helper: 'Done ✓' },
@@ -148,16 +149,16 @@ export default function LearnerDashboardPage() {
                     <div
                       className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${
                         item.state === 'done'
-                          ? 'border-brand-navy bg-brand-navy text-white'
+                          ? 'border-brand-navy bg-brand-navy text-neutral-weakest'
                           : item.state === 'progress'
-                            ? 'border-brand-amber bg-brand-amber text-white'
-                            : 'border-wire-border bg-white text-wire-label'
+                            ? 'border-brand-amber bg-brand-amber text-warning-strongest'
+                            : 'border-wire-border bg-level-1 text-wire-label'
                       }`}
                     >
                       {item.state === 'done' ? '✓' : item.step}
                     </div>
                     <p className="mt-3 text-sm font-semibold text-wire-text">{item.label}</p>
-                    <p className={`text-xs ${item.state === 'progress' ? 'text-brand-amber' : 'text-wire-label'}`}>{item.helper}</p>
+                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-stronger' : 'text-wire-label'}`}>{item.helper}</p>
                   </div>
                 ))}
               </div>

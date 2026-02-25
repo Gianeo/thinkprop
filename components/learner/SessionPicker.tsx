@@ -1,4 +1,5 @@
 import { MapPin, Video } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { Session } from '@/lib/types'
 
 interface SessionPickerProps {
@@ -15,12 +16,12 @@ export default function SessionPicker({ sessions, selectedId, onSelect }: Sessio
         const FormatIcon = session.format === 'Virtual' ? Video : MapPin
 
         return (
-          <button
+          <Button
             key={session.id}
-            type="button"
+            variant="ghost"
             onClick={() => onSelect(session.id)}
             className={`w-full rounded-lg border-2 p-4 text-left transition ${
-              isSelected ? 'border-brand-navy bg-wire-bg' : 'border-wire-border hover:border-wire-muted'
+              isSelected ? 'border-brand-navy bg-level-0' : 'border-wire-border hover:border-wire-muted'
             }`}
           >
             <p className="font-semibold text-wire-text">
@@ -35,7 +36,7 @@ export default function SessionPicker({ sessions, selectedId, onSelect }: Sessio
                 ? `${session.seatsLeft} seats left — filling fast`
                 : `${session.seatsLeft} seats left`}
             </p>
-          </button>
+          </Button>
         )
       })}
     </div>

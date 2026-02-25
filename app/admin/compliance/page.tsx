@@ -47,20 +47,20 @@ export default function AdminCompliancePage() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-admin-surface font-body">
+    <div className="flex h-screen overflow-hidden bg-level-0 font-body">
       <AdminSidebar activePath="/admin/compliance" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-admin-border bg-admin-card px-8 md:flex">
+        <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-1 px-8 md:flex">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-admin-faint">{adminProfile.company}</span>
-            <ChevronRight size={14} className="text-admin-faint" />
-            <span className="font-medium text-admin-heading">Compliance</span>
+            <span className="text-neutral-base">{adminProfile.company}</span>
+            <ChevronRight size={14} className="text-neutral-base" />
+            <span className="font-medium text-neutral-strongest">Compliance</span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-admin-faint">Last updated: just now</span>
-            <Button className="h-9 gap-2 rounded-xl bg-brand-amber font-semibold text-white hover:bg-amber-600">
+            <span className="font-mono text-xs text-neutral-base">Last updated: just now</span>
+            <Button className="h-9 gap-2 rounded-xl bg-primary font-semibold text-primary-foreground hover:bg-primary-stronger">
               <Download size={14} />
               Export Report
             </Button>
@@ -71,15 +71,15 @@ export default function AdminCompliancePage() {
           <div className="max-w-[1400px] space-y-6 p-8">
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="type-display-lg">Compliance Overview</h1>
-                <p className="mt-1 text-sm text-admin-muted">
+                <h1 className="type-title">Compliance Overview</h1>
+                <p className="mt-1 text-sm text-neutral-strong">
                   Real-time compliance status · {adminProfile.company}
                 </p>
               </div>
 
-              <div className="flex self-start rounded-xl border border-admin-border bg-admin-card px-4 py-2">
-                <Calendar size={13} className="mr-2 text-admin-faint" />
-                <span className="font-mono text-sm text-admin-body">Wed, 25 Feb 2026</span>
+              <div className="flex self-start rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2">
+                <Calendar size={13} className="mr-2 text-neutral-base" />
+                <span className="font-mono text-sm text-neutral-strong">Wed, 25 Feb 2026</span>
               </div>
             </div>
 
@@ -88,7 +88,7 @@ export default function AdminCompliancePage() {
             <section>
               <div className="mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <h2 className="type-display-md text-[15px]">Priority Risk List</h2>
+                  <h2 className="type-title-sm text-[15px]">Priority Risk List</h2>
                 </div>
                 <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               </div>
@@ -97,7 +97,7 @@ export default function AdminCompliancePage() {
             </section>
 
             <div className="flex items-center justify-between pt-1">
-              <span className="text-sm text-admin-muted">
+              <span className="text-sm text-neutral-strong">
                 Showing {filteredList.length} of {atRiskList.length} at-risk members
               </span>
               <Button

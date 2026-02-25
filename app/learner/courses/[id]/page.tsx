@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { Check, ChevronRight, LoaderCircle } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import SessionPicker from '@/components/learner/SessionPicker'
+import { Button } from '@/components/ui/button'
 import { complianceItems, courses } from '@/lib/mockData'
 
 export default function CourseDetailPage() {
@@ -17,7 +18,7 @@ export default function CourseDetailPage() {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-wire-bg p-8">
+      <div className="min-h-screen bg-level-0 p-8">
         <p className="text-sm text-wire-label">Course not found.</p>
       </div>
     )
@@ -38,7 +39,7 @@ export default function CourseDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-wire-bg">
+    <div className="min-h-screen bg-level-0">
       <SidebarNav variant="learner" activePath="/learner/courses" />
 
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
@@ -54,14 +55,14 @@ export default function CourseDetailPage() {
           </nav>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
-            <section className="md:col-span-3 rounded-xl border border-wire-border bg-white p-6">
+            <section className="md:col-span-3 rounded-xl border border-wire-border bg-level-1 p-6">
               <h1 className="font-heading text-2xl font-bold text-wire-text">{course.title}</h1>
               <p className="mt-2 text-sm text-wire-label">
                 {course.provider} · Instructor: {course.instructor}
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2 text-sm">
-                <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-white">{course.credits} CPD Credits</span>
+                <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-warning-strongest">{course.credits} CPD Credits</span>
                 <span className="rounded-full border border-wire-border px-2.5 py-1 text-wire-text">AED {course.price}</span>
                 {course.format.map((entry) => (
                   <span key={entry} className="rounded-full border border-wire-border px-2.5 py-1 text-wire-label">
@@ -86,29 +87,28 @@ export default function CourseDetailPage() {
               </ul>
             </section>
 
-            <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-white p-6">
+            <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-level-1 p-6">
               <h2 className="mb-4 font-heading text-lg font-semibold text-wire-text">Select a Session</h2>
               <SessionPicker sessions={course.sessions} selectedId={selectedSession} onSelect={setSelectedSession} />
 
               <div className="mt-4">
                 {loading ? (
-                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-white py-3 text-sm font-semibold text-wire-label">
+                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-1 py-3 text-sm font-semibold text-wire-label">
                     <LoaderCircle className="h-4 w-4 animate-spin" />
                     Processing...
                   </div>
                 ) : (
-                  <button
-                    type="button"
+                  <Button
                     onClick={handleEnroll}
                     disabled={!selectedSession}
                     className={`w-full rounded-xl py-3 font-semibold ${
                       selectedSession
-                        ? 'bg-brand-amber text-white'
+                        ? 'bg-primary text-primary-foreground hover:bg-primary-stronger'
                         : 'cursor-not-allowed bg-wire-border text-wire-muted'
                     }`}
                   >
                     Enroll Now — AED {course.price}
-                  </button>
+                  </Button>
                 )}
               </div>
             </aside>

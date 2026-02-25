@@ -5,6 +5,7 @@ import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { CalendarPlus, CheckCircle } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import ComplianceCard from '@/components/shared/ComplianceCard'
+import { Button } from '@/components/ui/button'
 import { complianceItems, courses } from '@/lib/mockData'
 import { ComplianceItem, ComplianceState } from '@/lib/types'
 
@@ -38,7 +39,7 @@ export default function ConfirmationPage() {
 
   if (!course || !selectedSession) {
     return (
-      <div className="min-h-screen bg-wire-bg p-8">
+      <div className="min-h-screen bg-level-0 p-8">
         <p className="text-sm text-wire-label">Enrollment summary unavailable.</p>
       </div>
     )
@@ -55,7 +56,7 @@ export default function ConfirmationPage() {
       : null
 
   return (
-    <div className="min-h-screen bg-wire-bg">
+    <div className="min-h-screen bg-level-0">
       <SidebarNav variant="learner" activePath="/learner/courses" />
 
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
@@ -66,7 +67,7 @@ export default function ConfirmationPage() {
             <p className="mt-2 text-sm text-wire-label">We&apos;ll send your joining instructions to your email.</p>
           </section>
 
-          <section className="rounded-xl border border-wire-border bg-white p-6">
+          <section className="rounded-xl border border-wire-border bg-level-1 p-6">
             <div className="space-y-2 text-sm">
               <p>
                 <span className="text-wire-label">Course:</span> <span className="text-wire-text">{course.title}</span>
@@ -89,22 +90,22 @@ export default function ConfirmationPage() {
             </div>
           </section>
 
-          <button
-            type="button"
-            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-white px-4 py-2.5 text-sm font-semibold text-wire-text"
+          <Button
+            variant="outline"
+            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 text-sm font-semibold text-wire-text"
           >
             <CalendarPlus className="h-4 w-4" />
             Add to Calendar
-          </button>
+          </Button>
 
           <section>
             <h2 className="mb-3 font-heading text-lg font-semibold text-wire-text">Your compliance status has been updated</h2>
             {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
           </section>
 
-          <button type="button" onClick={() => router.push('/learner/dashboard')} className="text-sm font-semibold text-brand-navy">
+          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 text-sm font-semibold text-brand-navy hover:no-underline">
             ← Return to Dashboard
-          </button>
+          </Button>
         </div>
       </main>
     </div>

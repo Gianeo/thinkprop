@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { AlertTriangle, ChevronRight } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import UrgencyBadge from '@/components/shared/UrgencyBadge'
+import { Button } from '@/components/ui/button'
 import { complianceItems } from '@/lib/mockData'
 
 export default function ComplianceDetailPage() {
@@ -15,7 +16,7 @@ export default function ComplianceDetailPage() {
 
   if (!item) {
     return (
-      <div className="min-h-screen bg-wire-bg p-8">
+      <div className="min-h-screen bg-level-0 p-8">
         <p className="text-sm text-wire-label">Compliance item not found.</p>
       </div>
     )
@@ -29,7 +30,7 @@ export default function ComplianceDetailPage() {
   const countdownClass = stateIsCritical ? 'text-state-critical' : 'text-state-at-risk'
 
   return (
-    <div className="min-h-screen bg-wire-bg">
+    <div className="min-h-screen bg-level-0">
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
@@ -61,8 +62,8 @@ export default function ComplianceDetailPage() {
               <table className="mt-4 w-full max-w-md border border-wire-border text-sm">
                 <tbody>
                   <tr className="border-b border-wire-border">
-                    <td className="bg-wire-bg px-3 py-2 font-semibold text-wire-label">Requirement</td>
-                    <td className="bg-wire-bg px-3 py-2 font-semibold text-wire-label">Value</td>
+                    <td className="bg-level-0 px-3 py-2 font-semibold text-wire-label">Requirement</td>
+                    <td className="bg-level-0 px-3 py-2 font-semibold text-wire-label">Value</td>
                   </tr>
                   <tr className="border-b border-wire-border">
                     <td className="px-3 py-2 text-wire-text">Credits Required</td>
@@ -83,13 +84,12 @@ export default function ComplianceDetailPage() {
 
           <p className="text-sm text-wire-label">Issued by: {item.requirementBody}</p>
 
-          <button
-            type="button"
+          <Button
             onClick={() => router.push(`/learner/courses?requirement=${item.id}`)}
-            className="rounded-xl bg-brand-amber px-8 py-4 text-lg font-semibold text-white"
+            className="rounded-xl bg-brand-amber px-8 py-4 text-lg font-semibold text-warning-strongest hover:bg-warning-strong"
           >
             Browse Qualifying Courses →
-          </button>
+          </Button>
         </div>
       </main>
     </div>

@@ -25,8 +25,8 @@ const personas = [
     href: '/admin/compliance',
     icon: Shield,
     iconWrapClass: 'bg-brand-amber/10',
-    iconClass: 'text-brand-amber',
-    ctaClass: 'text-brand-amber',
+    iconClass: 'text-warning-strong',
+    ctaClass: 'text-warning-stronger',
   },
 ]
 
@@ -34,18 +34,18 @@ export default function Page() {
   const router = useRouter()
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-admin-surface p-8">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-level-0 p-8">
       <div className="mb-12 text-center">
         <div className="flex items-center justify-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-amber">
-            <span className="font-display text-sm font-bold text-white">T</span>
+            <span className="font-display text-sm font-bold text-warning-strongest">T</span>
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="type-display-md text-[18px]">ThinkProp</span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-amber">LMS</span>
+            <span className="type-title-sm text-[18px]">ThinkProp</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-warning-stronger">LMS</span>
           </div>
         </div>
-        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-admin-faint">Prototype Navigator</p>
+        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-neutral-base">Prototype Navigator</p>
       </div>
 
       <div className="grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
@@ -53,29 +53,31 @@ export default function Page() {
           const Icon = persona.icon
 
           return (
-            <Card
+            <div
               key={persona.name}
               onClick={() => router.push(persona.href)}
-              className="group cursor-pointer border-admin-border shadow-card transition-all duration-200 hover:shadow-card-hover"
+              className="group cursor-pointer transition-all duration-200 hover:shadow-lg"
             >
-              <CardContent className="p-8">
-                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${persona.iconWrapClass}`}>
-                  <Icon size={22} className={persona.iconClass} />
-                </div>
+              <Card>
+                <CardContent className="p-8">
+                  <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${persona.iconWrapClass}`}>
+                    <Icon size={22} className={persona.iconClass} />
+                  </div>
 
-                <h2 className="font-display text-lg font-bold text-admin-heading">{persona.name}</h2>
-                <p className="mt-0.5 text-sm text-admin-muted">{persona.subtitle}</p>
-                <p className="mt-3 text-sm leading-relaxed text-admin-body">{persona.description}</p>
+                  <h2 className="font-display text-lg font-bold text-neutral-strongest">{persona.name}</h2>
+                  <p className="mt-0.5 text-sm text-neutral-strong">{persona.subtitle}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-strong">{persona.description}</p>
 
-                <Button
-                  variant="ghost"
-                  className={`mt-6 h-auto p-0 text-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
-                >
-                  {persona.cta}
-                  <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </CardContent>
-            </Card>
+                  <Button
+                    variant="ghost"
+                    className={`mt-6 h-auto p-0 text-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
+                  >
+                    {persona.cta}
+                    <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-0.5" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           )
         })}
       </div>

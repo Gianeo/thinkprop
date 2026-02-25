@@ -17,17 +17,17 @@ export default function AdminComplianceTeamPage() {
   const router = useRouter()
 
   return (
-    <div className="flex h-screen overflow-hidden bg-admin-surface font-body">
+    <div className="flex h-screen overflow-hidden bg-level-0 font-body">
       <AdminSidebar activePath="/admin/compliance/team" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center border-b border-admin-border bg-admin-card px-8 md:flex">
+        <div className="hidden h-16 flex-shrink-0 items-center border-b border-neutral-weaker bg-level-1 px-8 md:flex">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-admin-faint">{adminProfile.company}</span>
-            <ChevronRight size={14} className="text-admin-faint" />
-            <span className="text-admin-faint">Compliance</span>
-            <ChevronRight size={14} className="text-admin-faint" />
-            <span className="font-medium text-admin-heading">Team</span>
+            <span className="text-neutral-base">{adminProfile.company}</span>
+            <ChevronRight size={14} className="text-neutral-base" />
+            <span className="text-neutral-base">Compliance</span>
+            <ChevronRight size={14} className="text-neutral-base" />
+            <span className="font-medium text-neutral-strongest">Team</span>
           </div>
         </div>
 
@@ -43,24 +43,24 @@ export default function AdminComplianceTeamPage() {
             </Button>
 
             <div>
-              <h1 className="type-display-lg">Team Compliance</h1>
-              <p className="mt-1 text-sm text-admin-muted">
+              <h1 className="type-title">Team Compliance</h1>
+              <p className="mt-1 text-sm text-neutral-strong">
                 Full status for all 40 team members · {adminProfile.company}
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 rounded-xl border border-admin-border bg-admin-card px-4 py-2 text-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <CheckCircle size={14} className="text-score-high" />
-                <span className="font-medium text-admin-body">31 Compliant</span>
+                <span className="font-medium text-neutral-strong">31 Compliant</span>
               </div>
-              <div className="flex items-center gap-2 rounded-xl border border-admin-border bg-admin-card px-4 py-2 text-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <AlertTriangle size={14} className="text-score-low" />
-                <span className="font-medium text-admin-body">7 At Risk</span>
+                <span className="font-medium text-neutral-strong">7 At Risk</span>
               </div>
-              <div className="flex items-center gap-2 rounded-xl border border-admin-border bg-admin-card px-4 py-2 text-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <Clock size={14} className="text-score-mid" />
-                <span className="font-medium text-admin-body">3 Expiring This Week</span>
+                <span className="font-medium text-neutral-strong">3 Expiring This Week</span>
               </div>
             </div>
 

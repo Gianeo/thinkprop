@@ -1,0 +1,283 @@
+'use client'
+
+import { useMemo, useState } from 'react'
+import Link from 'next/link'
+import { ArrowLeft, Palette, Type } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import KpiStrip from '@/components/admin/KpiStrip'
+import DepartmentFilter from '@/components/admin/DepartmentFilter'
+import RiskTable from '@/components/admin/RiskTable'
+import TeamTable from '@/components/admin/TeamTable'
+import ReminderModal from '@/components/admin/ReminderModal'
+import { adminTeam, atRiskList } from '@/lib/mockData'
+import type { AtRiskPerson } from '@/lib/types'
+
+const palettes = [
+  {
+    title: 'Neutral',
+    token: 'neutral',
+    swatches: [
+      { name: 'weakest', className: 'bg-neutral-weakest text-neutral-strongest' },
+      { name: 'weaker', className: 'bg-neutral-weaker text-neutral-strongest' },
+      { name: 'weak', className: 'bg-neutral-weak text-neutral-strongest' },
+      { name: 'base', className: 'bg-neutral-base text-neutral-strongest' },
+      { name: 'strong', className: 'bg-neutral-strong text-neutral-weakest' },
+      { name: 'stronger', className: 'bg-neutral-stronger text-neutral-weakest' },
+      { name: 'strongest', className: 'bg-neutral-strongest text-neutral-weakest' },
+    ],
+  },
+  {
+    title: 'Primary',
+    token: 'primary',
+    swatches: [
+      { name: 'weakest', className: 'bg-primary-weakest text-primary-strongest' },
+      { name: 'weaker', className: 'bg-primary-weaker text-primary-strongest' },
+      { name: 'weak', className: 'bg-primary-weak text-primary-strongest' },
+      { name: 'base', className: 'bg-primary-base text-primary-strongest' },
+      { name: 'strong', className: 'bg-primary-strong text-neutral-weakest' },
+      { name: 'stronger', className: 'bg-primary-stronger text-neutral-weakest' },
+      { name: 'strongest', className: 'bg-primary-strongest text-neutral-weakest' },
+    ],
+  },
+  {
+    title: 'Destructive',
+    token: 'destructive',
+    swatches: [
+      { name: 'weakest', className: 'bg-destructive-weakest text-destructive-strongest' },
+      { name: 'weaker', className: 'bg-destructive-weaker text-destructive-strongest' },
+      { name: 'weak', className: 'bg-destructive-weak text-destructive-strongest' },
+      { name: 'base', className: 'bg-destructive-base text-neutral-weakest' },
+      { name: 'strong', className: 'bg-destructive-strong text-neutral-weakest' },
+      { name: 'stronger', className: 'bg-destructive-stronger text-neutral-weakest' },
+      { name: 'strongest', className: 'bg-destructive-strongest text-neutral-weakest' },
+    ],
+  },
+  {
+    title: 'Warning',
+    token: 'warning',
+    swatches: [
+      { name: 'weakest', className: 'bg-warning-weakest text-warning-strongest' },
+      { name: 'weaker', className: 'bg-warning-weaker text-warning-strongest' },
+      { name: 'weak', className: 'bg-warning-weak text-warning-strongest' },
+      { name: 'base', className: 'bg-warning-base text-warning-strongest' },
+      { name: 'strong', className: 'bg-warning-strong text-warning-strongest' },
+      { name: 'stronger', className: 'bg-warning-stronger text-neutral-weakest' },
+      { name: 'strongest', className: 'bg-warning-strongest text-neutral-weakest' },
+    ],
+  },
+  {
+    title: 'Success',
+    token: 'success',
+    swatches: [
+      { name: 'weakest', className: 'bg-success-weakest text-success-strongest' },
+      { name: 'weaker', className: 'bg-success-weaker text-success-strongest' },
+      { name: 'weak', className: 'bg-success-weak text-success-strongest' },
+      { name: 'base', className: 'bg-success-base text-neutral-weakest' },
+      { name: 'strong', className: 'bg-success-strong text-success-strongest' },
+      { name: 'stronger', className: 'bg-success-stronger text-neutral-weakest' },
+      { name: 'strongest', className: 'bg-success-strongest text-neutral-weakest' },
+    ],
+  },
+] as const
+
+export default function DesignSystemPage() {
+  const [selectedDept, setSelectedDept] = useState('All')
+  const [remindedIds, setRemindedIds] = useState<string[]>([])
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalPerson, setModalPerson] = useState<AtRiskPerson | null>(null)
+
+  const filtered = useMemo(
+    () =>
+      selectedDept === 'All'
+        ? atRiskList
+        : atRiskList.filter((person) => person.department === selectedDept),
+    [selectedDept],
+  )
+
+  return (
+    <main className="min-h-screen bg-level-0 p-6 md:p-8">
+      <div className="mx-auto max-w-350 space-y-12">
+        <header className="pb-4">
+          <Link href="/" className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-primary-strong">
+            <ArrowLeft size={14} />
+            Back to Navigator
+          </Link>
+          <h1 className="type-display mt-4">ThinkProp Design System</h1>
+          <p className="mt-4 type-body max-w-md">
+            Reference page for tokenized colors, typography scale, and shadcn-based components used in the prototype.
+          </p>
+        </header>
+
+        <section className="space-y-4">
+          <div className="flex items-center gap-2">
+            <Palette size={16} className="text-primary-strong" />
+            <h2 className="type-title">Color Tokens</h2>
+          </div>
+
+          <Card>
+            <CardHeader className="pb-4">
+              <CardTitle className="text-base text-neutral-strongest">Semantic Color Palettes</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:grid-cols-5">
+                {palettes.map((palette) => (
+                  <div key={palette.title} className="space-y-2">
+                    <div>
+                      <h3 className="text-sm font-semibold text-neutral-strongest">{palette.title}</h3>
+                      {/* <p className="type-caption">`{palette.token}` semantic ramp</p> */}
+                    </div>
+                    <div className="overflow-hidden">
+                      {palette.swatches.map((swatch) => (
+                        <div key={`${palette.title}-${swatch.name}`} className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className}`}>
+                          <span>{swatch.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="space-y-4">
+          <div className="flex items-center gap-2">
+            <Type size={16} className="text-primary-strong" />
+            <h2 className="type-title">Typography</h2>
+          </div>
+
+          <Card>
+            <CardContent className="space-y-6 p-6">
+              <div className='space-y-2'>
+                <p className="type-label">type-display</p>
+                <p className="type-display">Display</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-title</p>
+                <p className="type-title">Section Title</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-title-sm</p>
+                <p className="type-title-sm">Subsection Title</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-body</p>
+                <p className="type-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-body-sm</p>
+                <p className="type-body-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s.</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-caption</p>
+                <p className="type-caption">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <div className='space-y-2'>
+                <p className="type-label">type-data</p>
+                <p className="type-data">74% · 18d · Wed, 25 Feb 2026</p>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="type-title">Core Components</h2>
+
+          <Card>
+            <CardContent className="space-y-6 p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary-stronger">Primary</Button>
+                <Button variant="outline">Outline</Button>
+                <Button variant="ghost">Ghost</Button>
+                <Button variant="link">Link Action</Button>
+                <Button variant="destructive">Destructive</Button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge variant="default">Default</Badge>
+                <Badge variant="primary">Primary</Badge>
+                <Badge variant="success">Compliant</Badge>
+                <Badge variant="warning">At Risk</Badge>
+                <Badge variant="destructive">Critical</Badge>
+              </div>
+
+              <div className="max-w-sm">
+                <Input placeholder="Search team..." />
+              </div>
+
+              <Table>
+                <TableHeader className="bg-level-0">
+                  <TableRow className="border-neutral-weaker hover:bg-transparent">
+                    <TableHead className="type-label">Token</TableHead>
+                    <TableHead className="type-label">Usage</TableHead>
+                    <TableHead className="type-label">Example</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className="border-neutral-weaker">
+                    <TableCell className="font-mono text-sm">primary-base</TableCell>
+                    <TableCell>Primary button backgrounds</TableCell>
+                    <TableCell className="text-primary-strong">Active CTA</TableCell>
+                  </TableRow>
+                  <TableRow className="border-neutral-weaker">
+                    <TableCell className="font-mono text-sm">neutral-weaker</TableCell>
+                    <TableCell>Borders and subtle surfaces</TableCell>
+                    <TableCell className="text-neutral-strong">Structural scaffolding</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="type-title">Composite Components</h2>
+
+          <KpiStrip />
+
+          <Card>
+            <CardContent className="space-y-4 p-6">
+              <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
+              <RiskTable
+                data={filtered}
+                remindedIds={remindedIds}
+                onRemind={(person) => {
+                  setModalPerson(person)
+                  setModalOpen(true)
+                }}
+              />
+            </CardContent>
+          </Card>
+
+          <TeamTable data={adminTeam} />
+        </section>
+      </div>
+
+      <ReminderModal
+        isOpen={modalOpen}
+        person={modalPerson}
+        onCancel={() => {
+          setModalOpen(false)
+          setModalPerson(null)
+        }}
+        onConfirm={() => {
+          if (!modalPerson) return
+          setRemindedIds((prev) => Array.from(new Set([...prev, modalPerson.id])))
+          setModalOpen(false)
+          setModalPerson(null)
+        }}
+      />
+    </main>
+  )
+}
