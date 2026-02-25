@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Palette, Type } from 'lucide-react'
+import { ArrowLeft, Moon, Palette, Sun, Type } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -92,6 +92,7 @@ const palettes = [
 ] as const
 
 export default function DesignSystemPage() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [selectedDept, setSelectedDept] = useState('All')
   const [remindedIds, setRemindedIds] = useState<string[]>([])
   const [modalOpen, setModalOpen] = useState(false)
@@ -106,13 +107,35 @@ export default function DesignSystemPage() {
   )
 
   return (
-    <main className="min-h-screen bg-level-0 p-6 md:p-8">
+    <main className={`${theme} min-h-screen bg-level-0 p-6 md:p-8`}>
       <div className="mx-auto max-w-350 space-y-12">
-        <header className="pb-4">
-          <Link href="/" className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-primary-strong">
-            <ArrowLeft size={14} />
-            Back to Navigator
-          </Link>
+        <header className="pb-4 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-strong">
+              <ArrowLeft size={14} />
+              Back to Navigator
+            </Link>
+            <div className="inline-flex items-center rounded-lg border border-neutral-weaker bg-level-1 p-1">
+              <Button
+                variant={theme === 'light' ? 'default' : 'ghost'}
+                size="sm"
+                className="h-8 gap-1.5 px-3"
+                onClick={() => setTheme('light')}
+              >
+                <Sun size={13} />
+                Light
+              </Button>
+              <Button
+                variant={theme === 'dark' ? 'default' : 'ghost'}
+                size="sm"
+                className="h-8 gap-1.5 px-3"
+                onClick={() => setTheme('dark')}
+              >
+                <Moon size={13} />
+                Dark
+              </Button>
+            </div>
+          </div>
           <h1 className="type-display mt-4">ThinkProp Design System</h1>
           <p className="mt-4 type-body max-w-md">
             Reference page for tokenized colors, typography scale, and shadcn-based components used in the prototype.

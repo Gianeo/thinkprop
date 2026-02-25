@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --radius: 0.75rem;
 
     /* Primary */
@@ -94,6 +95,48 @@
   }
 
   .dark {
+    color-scheme: dark;
+    /* Invert all palette ramps in dark mode while keeping the same class names. */
+    --primary-weakest: 215 100% 10%;
+    --primary-weaker: 215 100% 21%;
+    --primary-weak: 215 100% 46%;
+    --primary-base: 215 100% 56%;
+    --primary-strong: 215 100% 78%;
+    --primary-stronger: 215 100% 92%;
+    --primary-strongest: 215 100% 98%;
+
+    --neutral-weakest: 24 4% 10%;
+    --neutral-weaker: 24 4% 21%;
+    --neutral-weak: 24 4% 42%;
+    --neutral-base: 24 4% 56%;
+    --neutral-strong: 24 4% 78%;
+    --neutral-stronger: 24 4% 92%;
+    --neutral-strongest: 24 4% 97%;
+
+    --destructive-weakest: 5 78% 10%;
+    --destructive-weaker: 5 78% 21%;
+    --destructive-weak: 5 78% 42%;
+    --destructive-base: 5 78% 56%;
+    --destructive-strong: 5 78% 78%;
+    --destructive-stronger: 5 78% 92%;
+    --destructive-strongest: 5 78% 97%;
+
+    --warning-weakest: 48 89% 10%;
+    --warning-weaker: 48 89% 21%;
+    --warning-weak: 48 89% 38%;
+    --warning-base: 48 89% 56%;
+    --warning-strong: 48 89% 78%;
+    --warning-stronger: 48 89% 92%;
+    --warning-strongest: 48 89% 97%;
+
+    --success-weakest: 145 63% 10%;
+    --success-weaker: 145 63% 21%;
+    --success-weak: 145 63% 38%;
+    --success-base: 145 63% 56%;
+    --success-strong: 145 63% 78%;
+    --success-stronger: 145 63% 92%;
+    --success-strongest: 145 63% 97%;
+
     --bg-0: var(--neutral-strongest);
     --bg-1: var(--neutral-stronger);
     --foreground: var(--neutral-weakest);
@@ -129,6 +172,10 @@
     --sidebar-accent-foreground: var(--neutral-weakest);
     --sidebar-border: var(--neutral-strong);
     --sidebar-ring: var(--primary-base);
+  }
+
+  .light {
+    color-scheme: light;
   }
 
   * {

@@ -27,7 +27,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="font-body text-neutral-strong antialiased"
+        className="font-body text-foreground antialiased"
       >
         {children}
         <Toaster richColors position="bottom-right" />
