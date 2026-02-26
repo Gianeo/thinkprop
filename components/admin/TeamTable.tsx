@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import {
   AlertTriangle,
+  ArrowRight,
   CheckCircle,
   ChevronDown,
   ChevronUp,
@@ -94,6 +95,7 @@ export default function TeamTable({ data }: TeamTableProps) {
           <Button
             variant="outline"
             size="sm"
+            withIcon="before"
             className="h-9 gap-2 rounded-xl border-neutral-weaker font-medium text-calm hover:border-neutral-weak hover:text-loud"
           >
             <Download size={13} />
@@ -109,6 +111,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               <Button
                 variant="ghost"
                 size="sm"
+                withIcon="after"
                 onClick={() => handleSort('name')}
                 className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'name' ? 'text-loud' : ''
@@ -124,6 +127,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               <Button
                 variant="ghost"
                 size="sm"
+                withIcon="after"
                 onClick={() => handleSort('score')}
                 className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'score' ? 'text-loud' : ''
@@ -214,9 +218,11 @@ export default function TeamTable({ data }: TeamTableProps) {
               <TableCell className="px-6 py-4 text-right">
                 <Button
                   variant="link"
+                  withIcon="after"
                   className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
                 >
-                  View →
+                  View
+                  <ArrowRight size={12} />
                 </Button>
               </TableCell>
             </TableRow>

@@ -35,6 +35,7 @@ export default function AdminComplianceTeamPage() {
           <div className="max-w-[1400px] space-y-6 p-8">
             <Button
               variant="link"
+              withIcon="before"
               className="mb-2 h-auto gap-1.5 p-0 font-semibold text-primary-default hover:no-underline"
               onClick={() => router.push('/admin/compliance')}
             >

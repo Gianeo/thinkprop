@@ -121,10 +121,11 @@ export default function ReminderModal({
             </Button>
 
             <Button
+              withIcon="before"
               className="rounded-xl bg-brand-amber font-semibold text-contrast transition-all duration-150 hover:bg-warning-strong active:scale-[0.98]"
               onClick={onConfirm}
             >
-              <Send size={13} className="mr-2" />
+              <Send size={13} />
               Send Reminder
             </Button>
           </div>

@@ -133,6 +133,7 @@ export default function DesignSystemPage() {
               <Button
                 variant={theme === 'light' ? 'default' : 'ghost'}
                 size="sm"
+                withIcon="before"
                 className="h-8 gap-1.5 px-3"
                 onClick={() => setTheme('light')}
               >
@@ -142,6 +143,7 @@ export default function DesignSystemPage() {
               <Button
                 variant={theme === 'dark' ? 'default' : 'ghost'}
                 size="sm"
+                withIcon="before"
                 className="h-8 gap-1.5 px-3"
                 onClick={() => setTheme('dark')}
               >

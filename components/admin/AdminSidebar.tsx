@@ -35,6 +35,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
         <Button
           variant="ghost"
           size="icon"
+          withIcon="only"
           className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted"
           onClick={() => setIsMobileOpen(true)}
         >
@@ -59,6 +60,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               <Button
                 variant="ghost"
                 size="icon"
+                withIcon="only"
                 className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted md:hidden"
                 onClick={() => setIsMobileOpen(false)}
               >
@@ -93,6 +95,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               <Button
                 variant="ghost"
                 size="icon"
+                withIcon="only"
                 className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted"
                 onClick={() => setIsMobileOpen(false)}
               >
@@ -161,6 +164,7 @@ function NavSection({
           <Button
             key={item.label}
             variant="ghost"
+            withIcon="before"
             onClick={() => {
               onNavigate()
               router.push(item.href)
@@ -190,6 +194,7 @@ function NavSection({
 
       <Button
         variant="ghost"
+        withIcon="before"
         onClick={() => {
           onNavigate()
           router.push('/admin/settings')

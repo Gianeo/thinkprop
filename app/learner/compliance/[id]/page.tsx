@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { AlertTriangle, ChevronRight } from 'lucide-react'
+import { AlertTriangle, ArrowRight, ChevronRight } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import UrgencyBadge from '@/components/shared/UrgencyBadge'
 import { Button } from '@/components/ui/button'
@@ -85,10 +85,12 @@ export default function ComplianceDetailPage() {
           <p className="type-body-sm text-muted">Issued by: {item.requirementBody}</p>
 
           <Button
+            withIcon="after"
             onClick={() => router.push(`/learner/courses?requirement=${item.id}`)}
             className="rounded-xl bg-brand-amber px-8 py-4 type-title-sm font-semibold text-contrast hover:bg-warning-strong"
           >
-            Browse Qualifying Courses →
+            Browse Qualifying Courses
+            <ArrowRight size={16} />
           </Button>
         </div>
       </main>

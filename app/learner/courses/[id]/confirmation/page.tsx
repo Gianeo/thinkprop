@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from 'react'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
-import { CalendarPlus, CheckCircle } from 'lucide-react'
+import { ArrowLeft, CalendarPlus, CheckCircle } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import ComplianceCard from '@/components/shared/ComplianceCard'
 import { Button } from '@/components/ui/button'
@@ -92,6 +92,7 @@ export default function ConfirmationPage() {
 
           <Button
             variant="outline"
+            withIcon="before"
             className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 type-body-sm font-semibold text-default"
           >
             <CalendarPlus className="h-4 w-4" />
@@ -103,8 +104,9 @@ export default function ConfirmationPage() {
             {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
           </section>
 
-          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 type-body-sm font-semibold text-primary-loud hover:no-underline">
-            ← Return to Dashboard
+          <Button variant="link" withIcon="before" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 type-body-sm font-semibold text-primary-loud hover:no-underline">
+            <ArrowLeft size={14} />
+            Return to Dashboard
           </Button>
         </div>
       </main>

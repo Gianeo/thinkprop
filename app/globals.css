@@ -63,7 +63,7 @@
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
-    --text-contrast: 0 0% 100% / 0.8;
+    --text-contrast: 0 0% 100% / 0.9;
     --text-primary-loud: var(--primary-stronger);
     --text-primary-default: var(--primary-strong);
     --text-primary-calm: var(--primary-base);
@@ -298,18 +298,17 @@
   }
 
   .type-title {
-    @apply font-display text-xl font-semibold tracking-[-1.2] antialiased;
+    @apply font-display text-xl font-semibold tracking-[-1.6] antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-title-sm {
-    @apply font-display text-lg font-semibold tracking-tight antialiased;
+    @apply font-display text-lg font-semibold tracking-[-0.8] antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-title-upper {
-    @apply text-xs font-semibold tracking-wider leading-none;
-    text-transform: uppercase;
+    @apply text-xs font-semibold tracking-wider leading-none uppercase;
     color: hsl(var(--text-calm));
   }
 
@@ -319,12 +318,12 @@
   }
 
   .type-body-sm {
-    @apply text-sm leading-snug subpixel-antialiased max-w-xl;
+    @apply text-sm leading-snug tracking-wide subpixel-antialiased max-w-xl;
     color: hsl(var(--text-default));
   }
 
   .type-caption {
-    @apply text-xs leading-snug subpixel-antialiased max-w-xl;
+    @apply text-xs leading-snug tracking-wider subpixel-antialiased max-w-xl;
     color: hsl(var(--text-muted));
   }
 

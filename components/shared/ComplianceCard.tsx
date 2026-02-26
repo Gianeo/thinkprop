@@ -1,3 +1,4 @@
+import { ArrowRight } from 'lucide-react'
 import UrgencyBadge from '@/components/shared/UrgencyBadge'
 import { Button } from '@/components/ui/button'
 import { ComplianceItem } from '@/lib/types'
@@ -68,10 +69,12 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
 
       {(item.state === 'CRITICAL' || item.state === 'AT_RISK') && onCtaClick && (
         <Button
+          withIcon="after"
           onClick={onCtaClick}
           className="w-full rounded-lg bg-brand-amber px-4 py-2.5 font-semibold text-contrast hover:bg-warning-strong"
         >
-          Find a Course →
+          Find a Course
+          <ArrowRight size={14} />
         </Button>
       )}
     </article>

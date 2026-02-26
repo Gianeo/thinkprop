@@ -70,10 +70,11 @@ export default function Page() {
 
                   <Button
                     variant="ghost"
+                    withIcon="after"
                     className={`mt-6 h-auto p-0 type-body-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
                   >
                     {persona.cta}
-                    <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   </Button>
                 </CardContent>
               </Card>

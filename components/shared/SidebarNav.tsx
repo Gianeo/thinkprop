@@ -59,7 +59,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
             LMS
           </span>
         </p>
-        <Button variant="outline" size="icon" onClick={() => setMobileOpen(true)} className="rounded-lg border border-wire-border p-2">
+        <Button variant="outline" size="icon" withIcon="only" onClick={() => setMobileOpen(true)} className="rounded-lg border border-wire-border p-2">
           <Menu className="h-5 w-5" />
         </Button>
       </header>
@@ -84,7 +84,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
                   LMS
                 </span>
               </p>
-              <Button variant="outline" size="icon" onClick={() => setMobileOpen(false)} className="rounded-lg border border-wire-border p-2">
+              <Button variant="outline" size="icon" withIcon="only" onClick={() => setMobileOpen(false)} className="rounded-lg border border-wire-border p-2">
                 <X className="h-5 w-5" />
               </Button>
             </div>

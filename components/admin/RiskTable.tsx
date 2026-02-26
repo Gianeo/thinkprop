@@ -1,6 +1,6 @@
 'use client'
 
-import { Bell, BookOpen, CheckCircle, MoreHorizontal } from 'lucide-react'
+import { ArrowRight, Bell, BookOpen, CheckCircle, MoreHorizontal } from 'lucide-react'
 import type { AtRiskPerson } from '@/lib/types'
 import {
   Table,
@@ -155,14 +155,17 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   ) : row.status === 'Enrolled' ? (
                     <Button
                       variant="link"
+                      withIcon="after"
                       className="h-auto p-0 type-caption text-primary-default hover:no-underline"
                     >
-                      View Progress →
+                      View Progress
+                      <ArrowRight size={12} />
                     </Button>
                   ) : (
                     <div className="flex items-center gap-2">
                       <Button
                         variant="outline"
+                        withIcon="before"
                         className=""
                         onClick={() => onRemind(row)}
                       >

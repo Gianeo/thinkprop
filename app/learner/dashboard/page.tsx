@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { AlertTriangle, Bell } from 'lucide-react'
+import { AlertTriangle, ArrowRight, Bell } from 'lucide-react'
 import ComplianceCard from '@/components/shared/ComplianceCard'
 import SidebarNav from '@/components/shared/SidebarNav'
 import { Button } from '@/components/ui/button'
@@ -89,7 +89,7 @@ export default function LearnerDashboardPage() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="icon" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-muted">
+              <Button variant="outline" size="icon" withIcon="only" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-muted">
                 <Bell className="h-5 w-5" />
               </Button>
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy type-body-sm font-semibold text-muted">
@@ -109,10 +109,12 @@ export default function LearnerDashboardPage() {
               </div>
               <Button
                 variant="link"
+                withIcon="after"
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
                 className="h-auto p-0 type-body-sm font-semibold text-primary-loud hover:no-underline"
               >
-                View Details →
+                View Details
+                <ArrowRight size={14} />
               </Button>
             </section>
           )}
