@@ -145,7 +145,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               key={member.id}
               className="border-neutral-weaker transition-colors duration-100 hover:bg-level-0/60"
             >
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 <div className="flex items-center gap-3">
                   <Avatar>
                     <AvatarFallback
@@ -159,17 +159,17 @@ export default function TeamTable({ data }: TeamTableProps) {
                 </div>
               </TableCell>
 
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 <span className="text-sm text-neutral-strong">{member.role}</span>
               </TableCell>
 
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 <Badge variant="default">
                   {member.department}
                 </Badge>
               </TableCell>
 
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 <div className="flex items-center gap-3">
                   <div className="h-1.5 w-20 overflow-hidden rounded-full bg-neutral-weaker">
                     <div
@@ -197,7 +197,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                 </div>
               </TableCell>
 
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 {member.atRisk === 0 ? (
                   <span className="text-sm text-neutral-base">—</span>
                 ) : (
@@ -207,7 +207,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                 )}
               </TableCell>
 
-              <TableCell className="px-6 py-4">
+              <TableCell>
                 <span className="font-mono text-sm text-neutral-strong">{member.lastActivity}</span>
               </TableCell>
 

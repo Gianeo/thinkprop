@@ -210,6 +210,15 @@ export default function DesignSystemPage() {
                 <p className="type-label">type-data</p>
                 <p className="type-data">74% · 18d · Wed, 25 Feb 2026</p>
               </div>
+              <div className='space-y-2'>
+                <p className="type-label">foreground styles</p>
+                <div className="space-y-1 text-sm">
+                  <p className="text-loud">text-loud</p>
+                  <p className="text-default">text-default</p>
+                  <p className="text-calm">text-calm</p>
+                  <p className="text-muted">text-muted</p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </section>
@@ -249,14 +258,14 @@ export default function DesignSystemPage() {
                 </TableHeader>
                 <TableBody>
                   <TableRow className="border-neutral-weaker">
-                    <TableCell className="font-mono text-sm">primary-base</TableCell>
-                    <TableCell>Primary button backgrounds</TableCell>
+                    <TableCell>primary-base</TableCell>
+                    <TableCell className="text-muted">Primary button backgrounds</TableCell>
                     <TableCell className="text-primary-strong">Active CTA</TableCell>
                   </TableRow>
                   <TableRow className="border-neutral-weaker">
-                    <TableCell className="font-mono text-sm">neutral-weaker</TableCell>
-                    <TableCell>Borders and subtle surfaces</TableCell>
-                    <TableCell className="text-neutral-strong">Structural scaffolding</TableCell>
+                    <TableCell>neutral-weaker</TableCell>
+                    <TableCell className="text-muted">Borders and subtle surfaces</TableCell>
+                    <TableCell className="text-muted">Structural scaffolding</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

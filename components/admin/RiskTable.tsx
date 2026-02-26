@@ -76,7 +76,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 key={row.id}
                 className={`border-neutral-weaker transition-colors duration-100 ${getRowBg(row.daysLeft, row.status)}`}
               >
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   <div className="flex items-center gap-3">
                     <Avatar>
                       <AvatarFallback
@@ -96,18 +96,18 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   </div>
                 </TableCell>
 
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   <Badge variant="default">
                     {row.department}
                   </Badge>
                 </TableCell>
 
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   <div className="type-body-sm text-neutral-strong">{row.credential}</div>
                   <div className="mt-0.5 type-caption text-neutral-base">RERA · Mandatory</div>
                 </TableCell>
 
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   <div
                     className={`font-mono text-sm font-bold ${
                       urgency === 'enrolled'
@@ -134,7 +134,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   )}
                 </TableCell>
 
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   {row.status === 'Not Enrolled' ? (
                     <Badge variant="default">
                       ● Not Enrolled
@@ -147,7 +147,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   )}
                 </TableCell>
 
-                <TableCell className="px-6 py-4">
+                <TableCell>
                   {isReminded ? (
                     <span className="flex items-center gap-1.5 text-xs font-semibold text-score-high">
                       <CheckCircle size={12} />

@@ -24,8 +24,8 @@
     --neutral-weak: 24 4% 78%;
     --neutral-base: 24 4% 56%;
     --neutral-strong: 24 4% 42%;
-    --neutral-stronger: 24 4% 21%;
-    --neutral-strongest: 24 4% 10%;
+    --neutral-stronger: 24 4% 24%;
+    --neutral-strongest: 24 4% 12%;
 
     /* Destructive */
     --destructive-weakest: 5 78% 97%;
@@ -59,6 +59,10 @@
     /* shadcn semantic aliases from the palette */
     --bg-0: var(--neutral-weaker);
     --bg-1: var(--neutral-weakest);
+    --text-loud: var(--neutral-strongest);
+    --text-default: var(--neutral-stronger);
+    --text-calm: var(--neutral-strong);
+    --text-muted: var(--neutral-base);
     --foreground: var(--neutral-strong);
     --card: var(--neutral-weakest);
     --card-foreground: var(--neutral-strong);
@@ -137,21 +141,25 @@
     --success-stronger: 145 63% 92%;
     --success-strongest: 145 63% 97%;
 
-    --bg-0: var(--neutral-strongest);
-    --bg-1: var(--neutral-stronger);
-    --foreground: var(--neutral-weakest);
-    --card: var(--neutral-stronger);
-    --card-foreground: var(--neutral-weakest);
-    --popover: var(--neutral-stronger);
-    --popover-foreground: var(--neutral-weakest);
+    --bg-0: var(--neutral-weakest);
+    --bg-1: var(--neutral-weaker);
+    --text-loud: var(--neutral-strongest);
+    --text-default: var(--neutral-stronger);
+    --text-calm: var(--neutral-strong);
+    --text-muted: var(--neutral-base);
+    --foreground: var(--neutral-strongest);
+    --card: var(--neutral-weaker);
+    --card-foreground: var(--neutral-strongest);
+    --popover: var(--neutral-weaker);
+    --popover-foreground: var(--neutral-strongest);
     --primary: var(--primary-weak);
     --primary-foreground: var(--neutral-strongest);
-    --secondary: var(--neutral-stronger);
-    --secondary-foreground: var(--neutral-weakest);
-    --muted: var(--neutral-stronger);
-    --muted-foreground: var(--neutral-weak);
-    --accent: var(--neutral-stronger);
-    --accent-foreground: var(--neutral-weakest);
+    --secondary: var(--neutral-weaker);
+    --secondary-foreground: var(--neutral-strongest);
+    --muted: var(--neutral-weaker);
+    --muted-foreground: var(--neutral-strong);
+    --accent: var(--neutral-weaker);
+    --accent-foreground: var(--neutral-strongest);
     --destructive: var(--destructive-weak);
     --destructive-foreground: var(--neutral-weakest);
     --border: var(--neutral-strong);
@@ -205,7 +213,11 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--bg-0);
-  --color-foreground: var(--foreground);
+  --color-foreground: hsl(var(--foreground));
+  --color-loud: hsl(var(--text-loud));
+  --color-default: hsl(var(--text-default));
+  --color-calm: hsl(var(--text-calm));
+  --color-text-muted: hsl(var(--text-muted));
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -242,35 +254,43 @@
 
 @layer components {
   .type-display {
-    @apply font-display text-4xl font-semibold tracking-[-2] text-neutral-stronger md:text-5xl antialiased;
+    @apply font-display text-4xl font-semibold tracking-[-2] md:text-5xl antialiased;
+    color: hsl(var(--text-loud));
   }
 
   .type-title {
-    @apply font-display text-2xl font-semibold tracking-[-1.2] text-neutral-stronger antialiased;
+    @apply font-display text-2xl font-semibold tracking-[-1.2] antialiased;
+    color: hsl(var(--text-loud));
   }
 
   .type-title-sm {
-    @apply font-display text-xl font-semibold tracking-tight text-neutral-stronger antialiased;
+    @apply font-display text-xl font-semibold tracking-tight antialiased;
+    color: hsl(var(--text-loud));
   }
 
   .type-label {
-    @apply text-[11px] font-semibold uppercase tracking-wider leading-none text-neutral-strong;
+    @apply text-[11px] font-semibold uppercase tracking-wider leading-none;
+    color: hsl(var(--text-calm));
   }
 
   .type-body {
-    @apply text-base leading-snug text-neutral-strong subpixel-antialiased max-w-2xl;
+    @apply text-base leading-snug subpixel-antialiased max-w-2xl;
+    color: hsl(var(--text-default));
   }
 
   .type-body-sm {
-    @apply text-sm leading-snug text-neutral-strong subpixel-antialiased max-w-xl;
+    @apply text-sm leading-snug subpixel-antialiased max-w-xl;
+    color: hsl(var(--text-default));
   }
 
   .type-caption {
-    @apply text-xs leading-snug text-neutral-base subpixel-antialiased max-w-xl;
+    @apply text-xs leading-snug subpixel-antialiased max-w-xl;
+    color: hsl(var(--text-muted));
   }
 
   .type-data {
-    @apply font-mono text-sm font-semibold text-neutral-stronger subpixel-antialiased;
+    @apply font-mono text-sm font-semibold subpixel-antialiased;
+    color: hsl(var(--text-default));
   }
 }
 
@@ -281,6 +301,22 @@
 
   .text-foreground {
     color: hsl(var(--foreground));
+  }
+
+  .text-loud {
+    color: hsl(var(--text-loud));
+  }
+
+  .text-default {
+    color: hsl(var(--text-default));
+  }
+
+  .text-calm {
+    color: hsl(var(--text-calm));
+  }
+
+  .text-muted {
+    color: hsl(var(--text-muted));
   }
 
   .border-border {
