@@ -88,15 +88,13 @@ export default function TeamTable({ data }: TeamTableProps) {
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-9 w-52 rounded-xl border-neutral-weaker bg-level-0 pl-9 type-body-sm placeholder:text-muted focus-visible:ring-brand-amber/30"
+              className="h-9 w-52 rounded-xl bg-level-0 pl-9 placeholder:text-muted focus-visible:ring-neutral-weak"
             />
           </div>
 
           <Button
             variant="outline"
-            size="sm"
             withIcon="before"
-            className="h-9 gap-2 rounded-xl border-neutral-weaker font-medium text-calm hover:border-neutral-weak hover:text-loud"
           >
             <Download size={13} />
             Export
@@ -106,8 +104,8 @@ export default function TeamTable({ data }: TeamTableProps) {
 
       <Table>
         <TableHeader className="bg-level-0">
-          <TableRow className="border-neutral-weaker hover:bg-transparent">
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">
+          <TableRow>
+            <TableHead>
               <Button
                 variant="ghost"
                 size="sm"
@@ -121,9 +119,9 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('name')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">ROLE</TableHead>
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">DEPARTMENT</TableHead>
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">
+            <TableHead>ROLE</TableHead>
+            <TableHead>DEPARTMENT</TableHead>
+            <TableHead>
               <Button
                 variant="ghost"
                 size="sm"
@@ -137,8 +135,8 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('score')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">AT RISK</TableHead>
-            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">LAST ACTIVE</TableHead>
+            <TableHead>AT RISK</TableHead>
+            <TableHead>LAST ACTIVE</TableHead>
             <TableHead className="h-11 px-6 text-right type-caption font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
