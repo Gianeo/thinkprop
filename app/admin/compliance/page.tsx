@@ -79,7 +79,7 @@ export default function AdminCompliancePage() {
 
           <div className="flex items-center gap-4">
             <span className="font-mono type-caption text-muted">Last updated: just now</span>
-            <Button withIcon="before" className="h-9 gap-2 rounded-xl bg-primary font-semibold text-contrast hover:bg-primary-stronger">
+            <Button withIcon="before" variant="outline">
               <Download size={14} />
               Export Report
             </Button>
