@@ -5,4 +5,3 @@ export default function LearnerLayout({
 }>) {
   return <div className="light min-h-screen bg-level-0 text-foreground">{children}</div>
 }
-

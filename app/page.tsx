@@ -69,7 +69,7 @@ export default function Page() {
           <div />
         </section>
 
-        <section className="grid min-h-[60vh] grid-rows-2 gap-px lg:min-h-screen">
+        <section className="grid min-h-[60vh] grid-rows-2 gap-px lg:min-h-screen p-8">
           {personas.map((persona) => {
             return (
               <div
@@ -78,7 +78,7 @@ export default function Page() {
                 className="group relative cursor-pointer transition-all duration-200 hover:shadow-lg"
               >
                 <div className="relative h-full overflow-hidden bg-transparent text-card-foreground shadow">
-                  <div className="absolute inset-0 bg-white/40 backdrop-blur-md" />
+                  <div className="absolute inset-0 bg-white/50 backdrop-blur-md rounded-xl" />
                   <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
                       <span className="type-title text-white">{persona.index}</span>
@@ -86,8 +86,8 @@ export default function Page() {
 
                     <div className='flex gap-16 justify-between items-start'>
                       <div>
-                        <h2 className="font-display type-title-sm font-bold text-loud">{persona.name}</h2>
-                        <p className="mt-0.5 type-body-sm text-default">{persona.subtitle}</p>
+                        <h2 className="font-display type-title font-bold text-loud">{persona.name}</h2>
+                        <p className="mt-0.5 type-body text-default">{persona.subtitle}</p>
                       </div>
                       <div className="overflow-hidden mt-2">
                         <Image
@@ -99,15 +99,14 @@ export default function Page() {
                         />
                       </div>
                     </div>
-                    <div className='space-y-4'>
-                      <p className="type-body-sm leading-relaxed text-default max-w-xs pr-8">{persona.description}</p>
-
+                    <div className='space-y-2'>
                       <Button
                         variant="ghost"
                         className={`h-auto justify-start p-0 type-body-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
                       >
                         {persona.cta}
                       </Button>
+                      <p className="type-body-sm leading-relaxed text-calm max-w-xs pr-8">{persona.description}</p>
                     </div>
                   </div>
                 </div>

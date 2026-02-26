@@ -5,4 +5,3 @@ export default function AdminLayout({
 }>) {
   return <div className="dark min-h-screen bg-level-0 text-foreground">{children}</div>
 }
-
