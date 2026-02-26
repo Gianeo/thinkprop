@@ -26,7 +26,7 @@ export function Pills({ options, selected, onChange, size = 'base', className }:
             className={
               isSelected
                 ? cn(
-                    'rounded-full border border-primary-weak bg-primary-weaker type-caption font-normal text-primary-default hover:bg-primary-stronger',
+                    'rounded-full border border-primary-weak bg-primary-weaker type-caption font-normal text-primary-default hover:bg-primary-weak',
                     sizeClasses,
                   )
                 : cn(

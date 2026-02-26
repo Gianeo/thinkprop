@@ -8,17 +8,17 @@ export default function KpiStrip() {
   const circumference = 2 * Math.PI * 32
   const ringColor =
     orgStats.complianceScore >= 80
-      ? 'hsl(var(--success-base))'
+      ? 'hsl(var(--success-strong))'
       : orgStats.complianceScore >= 60
-        ? 'hsl(var(--warning-base))'
-        : 'hsl(var(--destructive-base))'
+        ? 'hsl(var(--warning-strong))'
+        : 'hsl(var(--destructive-strong))'
 
   return (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
 
       <Card overTitle="Org Compliance Score">
         <CardContent className="p-6 pt-4 pb-4 space-y-3">
-          <div className="flex items-center gap-4">
+          <div className="flex items-start gap-4">
             <div className="relative size-18">
               <svg className="size-18" viewBox="0 0 80 80">
                 <circle
@@ -49,13 +49,13 @@ export default function KpiStrip() {
                 <span className="type-display leading-none text-warning-default">{orgStats.complianceScore}</span>
                 <span className="type-body text-warning-default">%</span>
               </div>
-              <span
+              {/* <span
                 className={`flex items-center gap-1 type-body font-medium ${orgStats.complianceScoreDeltaUp ? 'text-success-default' : 'text-destructive-default'
                   }`}
               >
                 {orgStats.complianceScoreDeltaUp ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
                 {orgStats.complianceScoreDelta}
-              </span>
+              </span> */}
             </div>
           </div>
         </CardContent>

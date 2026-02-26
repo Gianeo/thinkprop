@@ -53,7 +53,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
       <aside
         className="fixed left-0 top-0 z-40 hidden h-screen w-56 select-none flex-col bg-level-0 md:flex"
       >
-        <div className="px-5 pb-4 pt-6">
+        <div className="px-5 pb-4 pt-5">
           <div className="flex items-center justify-between">
             <Logo />
             {isMobileOpen && (
@@ -128,12 +128,12 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
 function Logo() {
   return (
     <div className="flex items-center gap-2.5">
-      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-amber">
+      {/* <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-amber">
         <span className="font-display type-body-sm font-bold text-contrast">T</span>
-      </div>
+      </div> */}
       <div className="flex items-baseline gap-1">
-        <span className="font-display type-body font-semibold text-default">ThinkProp</span>
-        <span className="type-caption font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
+        <span className="type-body font-semibold text-loud">ThinkProp</span>
+        <span className="type-caption font-bold uppercase text-primary-base">LMS</span>
       </div>
     </div>
   )
@@ -151,7 +151,7 @@ function NavSection({
   return (
     <div className="flex-1 space-y-0.5 px-3 pt-4">
       <div className="mb-2 px-3">
-        <p className="type-caption font-semibold uppercase tracking-[0.15em] text-weak">
+        <p className="type-title-upper text-muted">
           MAIN
         </p>
       </div>
@@ -169,14 +169,14 @@ function NavSection({
               onNavigate()
               router.push(item.href)
             }}
-            className={`relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 type-body-sm font-medium transition-all duration-150 ${
+            className={`relative flex cursor-pointer items-center gap-3 rounded-l-none rounded-r-full px-3.5 pr-5 py-2.5 type-body-sm transition-all duration-150 ${
               isActive
-                ? 'bg-level-1 text-loud'
+                ? 'bg-level-2 text-loud'
                 : 'text-calm hover:bg-level-1 hover:text-loud'
             }`}
           >
             {isActive && (
-              <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-brand-amber" />
+              <span className="absolute left-0 top-1/2 h-9 w-0.75 -translate-y-1/2 bg-primary-base" />
             )}
             <Icon size={16} />
             {item.label}
@@ -187,7 +187,7 @@ function NavSection({
       <div className="mx-3 mb-3 mt-4 h-px bg-border" />
 
       <div className="mb-2 px-3">
-        <p className="type-caption font-semibold uppercase tracking-[0.15em] text-weak">
+       <p className="type-title-upper text-muted">
           ACCOUNT
         </p>
       </div>

@@ -53,9 +53,9 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
   return (
     <>
       <header className={`fixed top-0 z-40 flex h-16 w-full items-center justify-between px-4 md:hidden ${topBarClasses}`}>
-        <p className="font-heading type-body font-bold">
+        <p className="type-body font-bold">
           ThinkProp{' '}
-          <span className={isLearner ? 'text-warning-loud type-caption align-middle' : 'text-warning-loud type-caption align-middle'}>
+          <span className={isLearner ? 'text-primary-loud type-caption align-middle' : 'text-primary-loud type-caption align-middle'}>
             LMS
           </span>
         </p>
@@ -80,7 +80,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
             <div className="flex h-16 items-center justify-between border-b border-wire-border px-4">
               <p className="font-heading type-body font-bold">
                 ThinkProp{' '}
-                <span className={isLearner ? 'text-warning-loud type-caption align-middle' : 'text-warning-loud type-caption align-middle'}>
+                <span className={isLearner ? 'text-primary-loud type-caption align-middle' : 'text-primary-loud type-caption align-middle'}>
                   LMS
                 </span>
               </p>
@@ -116,7 +116,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
       <div className="hidden border-b border-wire-border px-5 py-5 md:block">
         <p className={`font-heading type-title-sm font-bold ${isLearner ? 'text-primary-loud' : 'text-muted'}`}>
           ThinkProp{' '}
-          <span className={`type-caption align-middle ${isLearner ? 'text-warning-loud' : 'text-warning-loud'}`}>LMS</span>
+          <span className={`type-caption align-middle ${isLearner ? 'text-primary-loud' : 'text-primary-loud'}`}>LMS</span>
         </p>
       </div>
 

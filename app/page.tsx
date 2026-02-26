@@ -48,11 +48,11 @@ export default function Page() {
 
       <div className="relative mx-auto grid min-h-screen w-full max-w-400 grid-cols-1 lg:grid-cols-2">
         <section className="flex flex-col justify-between p-8 md:p-12 lg:p-16 relative">
-          <div className="pointer-events-none absolute left-0 top-0 h-0.5 w-32 bg-warning-base md:top-12 md:w-48" />
+          {/* <div className="pointer-events-none absolute left-0 top-0 h-0.5 w-32 bg-primary-base md:top-12 md:w-48" /> */}
           <div>
             <div className="flex items-baseline gap-1">
               <span className="type-title-sm">ThinkProp</span>
-              <span className="type-caption font-bold uppercase text-warning-loud">LMS</span>
+              <span className="type-caption font-bold uppercase text-primary-base">LMS</span>
             </div>
             <div className="mt-8 space-y-2">
               <p className="type-title-upper text-calm">Prototype Navigator</p>
@@ -86,19 +86,19 @@ export default function Page() {
                       <span className="type-title text-muted">{persona.index}</span>
                     </div>
 
-                    <div className='flex gap-16 justify-between items-start h-full'>
+                    <div className='flex gap-16 justify-between items-stretch h-full'>
                       <div>
                         <h1 className="type-title-upper text-muted mb-3">Persona</h1>
                         <h2 className="type-title font-bold text-loud">{persona.name}</h2>
-                        <p className="mt-0.5 type-body text-default">{persona.subtitle}</p>
+                        <p className="mt-0.5 type-body-sm text-calm">{persona.subtitle}</p>
                       </div>
-                      <div className="overflow-hidden">
+                      <div className="self-stretch overflow-hidden">
                         <Image
                           src={persona.image}
                           alt={persona.name}
                           width={120}
                           height={120}
-                          className="size-30 object-cover"
+                          className="h-full w-auto object-contain object-top"
                         />
                       </div>
                     </div>
@@ -109,7 +109,7 @@ export default function Page() {
                       >
                         {persona.cta}
                       </Button>
-                      <p className="type-body-sm leading-relaxed text-calm max-w-xs pr-8">{persona.description}</p>
+                      <p className="type-body text-default max-w-xs pr-8">{persona.description}</p>
                     </div>
                   </div>
                 </div>
