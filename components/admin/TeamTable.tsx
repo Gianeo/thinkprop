@@ -19,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
@@ -66,7 +65,7 @@ export default function TeamTable({ data }: TeamTableProps) {
   }
 
   const renderSortIcon = (key: Exclude<SortKey, null>) => {
-    if (sortKey !== key) return null
+    if (sortKey !== key) return <ChevronDown size={13} />
     return sortDir === 'asc' ? <ChevronUp size={13} /> : <ChevronDown size={13} />
   }
 
@@ -88,7 +87,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-9 w-52 rounded-xl bg-level-0 pl-9 placeholder:text-muted focus-visible:ring-neutral-weak"
+              className="h-9 w-52 rounded-xl pl-9"
             />
           </div>
 
@@ -111,9 +110,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                 size="sm"
                 withIcon="after"
                 onClick={() => handleSort('name')}
-                className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
-                  sortKey === 'name' ? 'text-loud' : ''
-                }`}
+                className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
               >
                 TEAM MEMBER
                 {renderSortIcon('name')}
@@ -127,9 +124,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                 size="sm"
                 withIcon="after"
                 onClick={() => handleSort('score')}
-                className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
-                  sortKey === 'score' ? 'text-loud' : ''
-                }`}
+                className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
               >
                 COMPLIANCE SCORE
                 {renderSortIcon('score')}
@@ -166,9 +161,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               </TableCell>
 
               <TableCell>
-                <Badge variant="default">
-                  {member.department}
-                </Badge>
+                <span className="type-body-sm text-calm">{member.department}</span>
               </TableCell>
 
               <TableCell>
