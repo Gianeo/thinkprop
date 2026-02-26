@@ -1,7 +1,7 @@
 'use client'
 
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { Shield, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const personas = [
@@ -11,10 +11,8 @@ const personas = [
     description: 'Manage team compliance, send reminders, and monitor risk in real time.',
     cta: 'Enter Admin View',
     href: '/admin/compliance',
-    icon: Shield,
-    iconWrapClass: 'bg-brand-amber/10',
-    iconClass: 'text-warning-default',
     ctaClass: 'text-warning-loud',
+    image: '/images/Tariq.png',
     index: '01',
   },
   {
@@ -23,10 +21,8 @@ const personas = [
     description: 'Follow Reem through a compliance alert and the full enrollment flow.',
     cta: 'Enter Learner View',
     href: '/learner/dashboard',
-    icon: User,
-    iconWrapClass: 'bg-state-enrolled-bg',
-    iconClass: 'text-primary-default',
     ctaClass: 'text-primary-default',
+    image: '/images/Reem.png',
     index: '02',
   },
 ]
@@ -75,8 +71,6 @@ export default function Page() {
 
         <section className="grid min-h-[60vh] grid-rows-2 gap-px lg:min-h-screen">
           {personas.map((persona) => {
-            const Icon = persona.icon
-
             return (
               <div
                 key={persona.name}
@@ -85,7 +79,7 @@ export default function Page() {
               >
                 <div className="relative h-full overflow-hidden bg-transparent text-card-foreground shadow">
                   <div className="absolute inset-0 bg-white/40 backdrop-blur-md" />
-                  <div className="relative flex h-full flex-col justify-between space-y-5 p-7">
+                  <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
                       <span className="type-title-upper text-weak">{persona.index}</span>
                     </div>
@@ -95,12 +89,18 @@ export default function Page() {
                         <h2 className="font-display type-title-sm font-bold text-loud">{persona.name}</h2>
                         <p className="mt-0.5 type-body-sm text-default">{persona.subtitle}</p>
                       </div>
-                      <div className=''>
-                        {/* Place image here */}
+                      <div className="overflow-hidden mt-2">
+                        <Image
+                          src={persona.image}
+                          alt={persona.name}
+                          width={120}
+                          height={120}
+                          className="size-30 object-cover"
+                        />
                       </div>
                     </div>
 
-                    <p className="type-body-sm leading-relaxed text-calm max-w-xs">{persona.description}</p>
+                    <p className="type-body-sm leading-relaxed text-default max-w-xs pr-8">{persona.description}</p>
 
                     <Button
                       variant="ghost"
