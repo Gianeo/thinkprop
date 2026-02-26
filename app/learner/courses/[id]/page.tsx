@@ -55,7 +55,7 @@ export default function CourseDetailPage() {
           </nav>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
-            <section className="md:col-span-3 rounded-xl border border-wire-border bg-level-1 p-6">
+            <section className="md:col-span-3 rounded-xl border border-wire-border bg-level-2 p-6">
               <h1 className="font-heading type-title-sm font-bold text-default">{course.title}</h1>
               <p className="mt-2 type-body-sm text-muted">
                 {course.provider} · Instructor: {course.instructor}
@@ -87,13 +87,13 @@ export default function CourseDetailPage() {
               </ul>
             </section>
 
-            <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-level-1 p-6">
+            <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-level-2 p-6">
               <h2 className="mb-4 font-heading type-title-sm font-semibold text-default">Select a Session</h2>
               <SessionPicker sessions={course.sessions} selectedId={selectedSession} onSelect={setSelectedSession} />
 
               <div className="mt-4">
                 {loading ? (
-                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-1 py-3 type-body-sm font-semibold text-muted">
+                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-2 py-3 type-body-sm font-semibold text-muted">
                     <LoaderCircle className="h-4 w-4 animate-spin" />
                     Processing...
                   </div>

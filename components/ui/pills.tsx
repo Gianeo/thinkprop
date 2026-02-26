@@ -23,7 +23,7 @@ export function Pills({ options, selected, onChange, className }: PillsProps) {
             className={
               isSelected
                 ? 'rounded-full border border-primary-weak bg-primary-weaker px-4 py-2.5 type-caption font-normal text-primary-default hover:bg-primary-stronger'
-                : 'rounded-full border-neutral-weak bg-level-1 px-4 py-2.5 type-caption font-normal text-calm hover:border-neutral-weak hover:text-loud'
+                : 'rounded-full border-neutral-weak bg-level-2 px-4 py-2.5 type-caption font-normal text-calm hover:border-neutral-weak hover:text-loud'
             }
             onClick={() => onChange(option)}
           >

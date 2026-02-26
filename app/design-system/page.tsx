@@ -129,7 +129,7 @@ export default function DesignSystemPage() {
               <ArrowLeft size={14} />
               Back to Navigator
             </Link>
-            <div className="inline-flex items-center rounded-full border border-neutral-weaker bg-level-1 p-1">
+            <div className="inline-flex items-center rounded-full border border-neutral-weaker bg-level-2 p-1">
               <Button
                 variant={theme === 'light' ? 'default' : 'ghost'}
                 size="sm"
@@ -274,7 +274,7 @@ export default function DesignSystemPage() {
 
           <KpiStrip />
 
-          <div className='bg-neutral-weakest/50 rounded-lg'>
+          <div className='bg-level-1 rounded-lg'>
             <div className="space-y-4 p-6">
               <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               <RiskTable

@@ -49,7 +49,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
   })
 
   return (
-    <div className="overflow-hidden rounded-xl bg-level-1 shadow-sm">
+    <div className="overflow-hidden rounded-xl bg-level-2 shadow-sm">
       <div className="flex items-center justify-between shadow px-6 py-4">
         <div>
           <h3 className="type-title-sm">Immediate Attention Required</h3>

@@ -31,7 +31,7 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
       : 0
 
   return (
-    <article className={`rounded-xl border border-wire-border border-l-4 bg-level-1 p-5 ${borderStateMap[item.state]}`}>
+    <article className={`rounded-xl border border-wire-border border-l-4 bg-level-2 p-5 ${borderStateMap[item.state]}`}>
       <div className="mb-3 flex items-center justify-between gap-3">
         <UrgencyBadge state={item.state} />
         <span className="font-mono type-caption text-muted">{item.expiryDate}</span>

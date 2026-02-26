@@ -70,7 +70,7 @@ export default function TeamTable({ data }: TeamTableProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-weak bg-level-1 shadow">
+    <div className="overflow-hidden rounded-2xl border border-weak bg-level-2 shadow">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-weak px-6 py-4">
         <div>
           <h3 className="type-title-sm">Team Compliance</h3>

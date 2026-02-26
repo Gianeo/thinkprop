@@ -10,7 +10,7 @@ interface StatCardProps {
 
 export default function StatCard({ label, value, trend, trendUp = true, color }: StatCardProps) {
   return (
-    <div className="rounded-xl border border-wire-border bg-level-1 p-5">
+    <div className="rounded-xl border border-wire-border bg-level-2 p-5">
       <p className="type-body-sm text-muted">{label}</p>
       <p className={`mt-2 font-heading type-title-sm font-bold ${color}`}>{value}</p>
       {trend && (

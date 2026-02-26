@@ -43,11 +43,11 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
   const sidebarWidthClass = isLearner ? 'w-60' : 'w-56'
 
   const rootClasses = isLearner
-    ? `${sidebarWidthClass} bg-level-1 border-r border-wire-border text-default`
+    ? `${sidebarWidthClass} bg-level-2 border-r border-wire-border text-default`
     : `${sidebarWidthClass} bg-brand-navy text-muted`
 
   const topBarClasses = isLearner
-    ? 'bg-level-1 border-b border-wire-border text-default'
+    ? 'bg-level-2 border-b border-wire-border text-default'
     : 'bg-brand-navy text-muted'
 
   return (

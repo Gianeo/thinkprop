@@ -71,7 +71,7 @@ export default function AdminCompliancePage() {
       <AdminSidebar activePath="/admin/compliance" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-1 px-8 md:flex">
+        <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-2 px-8 md:flex">
           <div className="flex items-center gap-2 type-body-sm">
             <span className="text-muted">{adminProfile.company}</span>
             <ChevronRight size={14} className="text-muted" />
@@ -97,7 +97,7 @@ export default function AdminCompliancePage() {
                 </p>
               </div>
 
-              <div className="flex self-start rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2">
+              <div className="flex self-start rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2">
                 <Calendar size={13} className="mr-2 text-muted" />
                 <span className="font-mono type-body-sm text-calm">Wed, 25 Feb 2026</span>
               </div>

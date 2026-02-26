@@ -21,7 +21,7 @@ export default function AdminComplianceTeamPage() {
       <AdminSidebar activePath="/admin/compliance/team" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center border-b border-neutral-weaker bg-level-1 px-8 md:flex">
+        <div className="hidden h-16 flex-shrink-0 items-center border-b border-neutral-weaker bg-level-2 px-8 md:flex">
           <div className="flex items-center gap-2 type-body-sm">
             <span className="text-muted">{adminProfile.company}</span>
             <ChevronRight size={14} className="text-muted" />
@@ -51,15 +51,15 @@ export default function AdminComplianceTeamPage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 type-body-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2 type-body-sm">
                 <CheckCircle size={14} className="text-success-default" />
                 <span className="font-medium text-calm">31 Compliant</span>
               </div>
-              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 type-body-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2 type-body-sm">
                 <AlertTriangle size={14} className="text-destructive-default" />
                 <span className="font-medium text-calm">7 At Risk</span>
               </div>
-              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 type-body-sm">
+              <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2 type-body-sm">
                 <Clock size={14} className="text-warning-default" />
                 <span className="font-medium text-calm">3 Expiring This Week</span>
               </div>

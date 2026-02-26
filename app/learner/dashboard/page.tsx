@@ -89,7 +89,7 @@ export default function LearnerDashboardPage() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="icon" withIcon="only" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-muted">
+              <Button variant="outline" size="icon" withIcon="only" className="rounded-lg border border-wire-border bg-level-2 p-2.5 text-muted">
                 <Bell className="h-5 w-5" />
               </Button>
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy type-body-sm font-semibold text-muted">
@@ -138,7 +138,7 @@ export default function LearnerDashboardPage() {
 
           <section className="hidden md:block">
             <h2 className="mb-4 font-heading type-title-sm font-semibold text-default">Your Learning Pathway</h2>
-            <div className="rounded-xl border border-wire-border bg-level-1 p-6">
+            <div className="rounded-xl border border-wire-border bg-level-2 p-6">
               <div className="grid grid-cols-4 gap-4">
                 {[
                   { step: '1', label: 'Complete Mandatory Training', state: 'done', helper: 'Done ✓' },
@@ -154,7 +154,7 @@ export default function LearnerDashboardPage() {
                           ? 'border-brand-navy bg-brand-navy text-muted'
                           : item.state === 'progress'
                             ? 'border-brand-amber bg-brand-amber text-contrast'
-                            : 'border-wire-border bg-level-1 text-muted'
+                            : 'border-wire-border bg-level-2 text-muted'
                       }`}
                     >
                       {item.state === 'done' ? '✓' : item.step}

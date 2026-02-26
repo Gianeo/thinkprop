@@ -8,7 +8,7 @@ interface CourseCardProps {
 
 export default function CourseCard({ course, href }: CourseCardProps) {
   return (
-    <article className="rounded-xl border border-wire-border bg-level-1 p-5 transition hover:border-brand-navy hover:shadow-sm">
+    <article className="rounded-xl border border-wire-border bg-level-2 p-5 transition hover:border-brand-navy hover:shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h3 className="font-heading type-title-sm font-semibold text-default">{course.title}</h3>
         <div className="flex flex-wrap gap-2">

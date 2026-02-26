@@ -67,7 +67,7 @@ export default function ConfirmationPage() {
             <p className="mt-2 type-body-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
           </section>
 
-          <section className="rounded-xl border border-wire-border bg-level-1 p-6">
+          <section className="rounded-xl border border-wire-border bg-level-2 p-6">
             <div className="space-y-2 type-body-sm">
               <p>
                 <span className="text-muted">Course:</span> <span className="text-default">{course.title}</span>
@@ -93,7 +93,7 @@ export default function ConfirmationPage() {
           <Button
             variant="outline"
             withIcon="before"
-            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 type-body-sm font-semibold text-default"
+            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-2 px-4 py-2.5 type-body-sm font-semibold text-default"
           >
             <CalendarPlus className="h-4 w-4" />
             Add to Calendar

@@ -18,6 +18,7 @@ const config: Config = {
         level: {
           0: 'hsl(var(--bg-0) / <alpha-value>)',
           1: 'hsl(var(--bg-1) / <alpha-value>)',
+          2: 'hsl(var(--bg-2) / <alpha-value>)',
         },
         primary: {
           weakest: 'hsl(var(--primary-weakest) / <alpha-value>)',

@@ -58,7 +58,8 @@
 
     /* shadcn semantic aliases from the palette */
     --bg-0: var(--neutral-weaker);
-    --bg-1: var(--neutral-weakest);
+    --bg-1: var(--neutral-weakest) / 0.5;
+    --bg-2: var(--neutral-weakest);
     --text-loud: var(--neutral-strongest);
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
@@ -157,7 +158,8 @@
     --success-strongest: 145 63% 76%;
 
     --bg-0: var(--neutral-weakest);
-    --bg-1: var(--neutral-weaker);
+    --bg-1: var(--neutral-weaker) / 0.5;
+    --bg-2: var(--neutral-weaker);
     --text-loud: var(--neutral-strongest);
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
@@ -282,6 +284,7 @@
   --color-ring: var(--ring);
   --color-level-0: var(--bg-0);
   --color-level-1: var(--bg-1);
+  --color-level-2: var(--bg-2);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -442,6 +445,10 @@
 
   .bg-level-1 {
     background-color: hsl(var(--bg-1));
+  }
+
+  .bg-level-2 {
+    background-color: hsl(var(--bg-2));
   }
 
   .bg-card {
