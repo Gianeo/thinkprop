@@ -58,7 +58,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead
                 key={header}
-                className="h-10 text-[11px] font-semibold uppercase tracking-wider text-muted"
+                className="h-10 text-xs font-semibold uppercase tracking-wider text-muted"
               >
                 {header}
               </TableHead>

@@ -45,7 +45,7 @@ export default function ComplianceDetailPage() {
 
           <section>
             <UrgencyBadge state={item.state} />
-            <h1 className="mt-3 font-heading text-3xl font-bold text-default">{item.title}</h1>
+            <h1 className="mt-3 font-heading text-lg font-bold text-default">{item.title}</h1>
             {item.daysRemaining !== null && (
               <p className={`mt-4 font-mono text-6xl font-bold ${countdownClass}`}>{item.daysRemaining} days remaining</p>
             )}

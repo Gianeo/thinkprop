@@ -56,7 +56,7 @@ export default function CourseDetailPage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
             <section className="md:col-span-3 rounded-xl border border-wire-border bg-level-1 p-6">
-              <h1 className="font-heading text-2xl font-bold text-default">{course.title}</h1>
+              <h1 className="font-heading text-lg font-bold text-default">{course.title}</h1>
               <p className="mt-2 text-sm text-muted">
                 {course.provider} · Instructor: {course.instructor}
               </p>

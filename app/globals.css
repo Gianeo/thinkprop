@@ -293,22 +293,22 @@
 
 @layer components {
   .type-display {
-    @apply font-display text-4xl font-semibold tracking-[-2] md:text-5xl antialiased;
+    @apply font-display text-2xl font-semibold tracking-[-2] md:text-lg antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-title {
-    @apply font-display text-2xl font-semibold tracking-[-1.2] antialiased;
+    @apply font-display text-xl font-semibold tracking-[-1.2] antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-title-sm {
-    @apply font-display text-xl font-semibold tracking-tight antialiased;
+    @apply font-display text-lg font-semibold tracking-tight antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-label {
-    @apply text-[11px] font-semibold uppercase tracking-wider leading-none;
+    @apply text-xs font-semibold uppercase tracking-wider leading-none;
     color: hsl(var(--text-calm));
   }
 

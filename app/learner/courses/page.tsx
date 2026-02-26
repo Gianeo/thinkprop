@@ -32,7 +32,7 @@ export default function CoursesPage() {
 
           <section>
             <div className="mb-4 flex items-center gap-2">
-              <h1 className="font-heading text-2xl font-bold text-default">Available Courses</h1>
+              <h1 className="font-heading text-lg font-bold text-default">Available Courses</h1>
               <span className="rounded-full border border-wire-border bg-level-1 px-2.5 py-1 text-xs text-muted">{courses.length}</span>
             </div>
             <div className="grid grid-cols-1 gap-4">

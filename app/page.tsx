@@ -41,8 +41,8 @@ export default function Page() {
             <span className="font-display text-sm font-bold text-contrast">T</span>
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="type-title-sm text-[18px]">ThinkProp</span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
+            <span className="type-title-sm text-lg">ThinkProp</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
           </div>
         </div>
         <p className="mt-2 font-mono text-sm uppercase tracking-widest text-muted">Prototype Navigator</p>

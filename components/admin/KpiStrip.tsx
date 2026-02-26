@@ -53,7 +53,7 @@ export default function KpiStrip() {
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display text-xl font-bold text-default">{orgStats.complianceScore}</span>
+                <span className="font-display text-lg font-bold text-default">{orgStats.complianceScore}</span>
                 <span className="ml-0.5 text-sm text-calm">%</span>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function KpiStrip() {
       <Card>
         <CardContent className="p-5">
           <p className="type-label">At Risk</p>
-          <p className="mt-2 font-display text-[42px] font-bold leading-none text-destructive-default">{orgStats.atRisk}</p>
+          <p className="mt-2 font-display text-2xl font-bold leading-none text-destructive-default">{orgStats.atRisk}</p>
           <p className="mt-1 text-xs text-calm">team members</p>
           <span className="mt-3 inline-flex rounded-full bg-score-low-bg px-2.5 py-0.5 text-xs font-semibold text-destructive-default">
             {orgStats.atRiskDelta}
@@ -79,7 +79,7 @@ export default function KpiStrip() {
       <Card>
         <CardContent className="p-5">
           <p className="type-label">Expiring This Week</p>
-          <p className="mt-2 font-display text-[42px] font-bold leading-none text-warning-default">{orgStats.expiringThisWeek}</p>
+          <p className="mt-2 font-display text-2xl font-bold leading-none text-warning-default">{orgStats.expiringThisWeek}</p>
           <p className="mt-1 type-caption">credentials</p>
 
           <div className="mt-3 flex h-1.5 w-full overflow-hidden rounded-full bg-neutral-weaker">
@@ -95,8 +95,8 @@ export default function KpiStrip() {
         <CardContent className="p-5">
           <p className="type-label">Fully Compliant</p>
           <div className="mt-1 flex items-baseline gap-1">
-            <span className="font-display text-[42px] font-bold leading-none text-success-default">{orgStats.fullyCompliant}</span>
-            <span className="font-display text-xl text-calm">/ {orgStats.totalTeam}</span>
+            <span className="font-display text-2xl font-bold leading-none text-success-default">{orgStats.fullyCompliant}</span>
+            <span className="font-display text-lg text-calm">/ {orgStats.totalTeam}</span>
           </div>
 
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-neutral-weaker">

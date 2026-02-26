@@ -129,8 +129,8 @@ function Logo() {
         <span className="font-display text-sm font-bold text-contrast">T</span>
       </div>
       <div className="flex items-baseline gap-1">
-        <span className="font-display text-[15px] font-semibold text-muted">ThinkProp</span>
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
+        <span className="font-display text-base font-semibold text-muted">ThinkProp</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
       </div>
     </div>
   )
@@ -148,7 +148,7 @@ function NavSection({
   return (
     <div className="flex-1 space-y-0.5 px-3 pt-4">
       <div className="mb-2 px-3">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
           MAIN
         </p>
       </div>
@@ -183,7 +183,7 @@ function NavSection({
       <div className="mx-3 mb-3 mt-4 h-px bg-[hsl(var(--neutral-weakest)/0.1)]" />
 
       <div className="mb-2 px-3">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
           ACCOUNT
         </p>
       </div>

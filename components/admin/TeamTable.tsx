@@ -105,12 +105,12 @@ export default function TeamTable({ data }: TeamTableProps) {
       <Table>
         <TableHeader className="bg-level-0">
           <TableRow className="border-neutral-weaker hover:bg-transparent">
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSort('name')}
-                className={`h-auto p-0 text-[11px] font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
+                className={`h-auto p-0 text-xs font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'name' ? 'text-loud' : ''
                 }`}
               >
@@ -118,14 +118,14 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('name')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">ROLE</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">DEPARTMENT</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">ROLE</TableHead>
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">DEPARTMENT</TableHead>
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSort('score')}
-                className={`h-auto p-0 text-[11px] font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
+                className={`h-auto p-0 text-xs font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'score' ? 'text-loud' : ''
                 }`}
               >
@@ -133,9 +133,9 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('score')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">AT RISK</TableHead>
-            <TableHead className="h-11 px-6 text-[11px] font-semibold uppercase tracking-wider text-muted">LAST ACTIVE</TableHead>
-            <TableHead className="h-11 px-6 text-right text-[11px] font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">AT RISK</TableHead>
+            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">LAST ACTIVE</TableHead>
+            <TableHead className="h-11 px-6 text-right text-xs font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -150,7 +150,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                   <Avatar>
                     <AvatarFallback
                       variant={member.status === 'Compliant' ? 'success' : 'destructive'}
-                      className="text-[11px]"
+                      className="text-xs"
                     >
                       {member.initials}
                     </AvatarFallback>

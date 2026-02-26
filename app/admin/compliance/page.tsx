@@ -88,7 +88,7 @@ export default function AdminCompliancePage() {
             <section>
               <div className="mb-3 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <h2 className="type-title-sm text-[15px]">Priority Risk List</h2>
+                  <h2 className="type-title-sm text-base">Priority Risk List</h2>
                 </div>
                 <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               </div>

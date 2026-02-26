@@ -63,7 +63,7 @@ export default function ConfirmationPage() {
         <div className="mx-auto max-w-2xl space-y-6 p-8">
           <section className="text-center">
             <CheckCircle className="mx-auto h-16 w-16 text-success-default" />
-            <h1 className="mt-4 font-heading text-3xl font-bold text-default">You&apos;re enrolled!</h1>
+            <h1 className="mt-4 font-heading text-lg font-bold text-default">You&apos;re enrolled!</h1>
             <p className="mt-2 text-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
           </section>
 

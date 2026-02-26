@@ -48,7 +48,7 @@ export default function ReminderModal({
                 <Bell size={18} className="text-warning-loud" />
               </div>
 
-              <DialogTitle className="mt-3 text-[17px] font-bold leading-snug text-loud font-display">
+              <DialogTitle className="mt-3 text-base font-bold leading-snug text-loud font-display">
                 Send Compliance Reminder
               </DialogTitle>
               <DialogDescription className="mt-1 text-sm text-calm">
@@ -62,7 +62,7 @@ export default function ReminderModal({
 
         <div className="space-y-5 px-6 py-5">
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">To</div>
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">To</div>
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2">
                 <AvatarFallback variant="destructive" className="text-sm">
@@ -77,7 +77,7 @@ export default function ReminderModal({
           </div>
 
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
             <div className="flex items-center gap-3 rounded-xl border border-neutral-weaker bg-level-0 p-3">
               <AlertTriangle size={15} className="shrink-0 text-destructive-default" />
               <span className="flex-1 text-sm font-medium text-loud">{person.credential}</span>
@@ -88,7 +88,7 @@ export default function ReminderModal({
           </div>
 
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">
               Message Preview
             </div>
             <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body text-sm leading-relaxed text-calm">

@@ -78,7 +78,7 @@ export default function LearnerDashboardPage() {
         <div className="space-y-8 p-8">
           <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="font-heading text-2xl font-bold text-default">Good morning, {learnerProfile.firstName}</h1>
+              <h1 className="font-heading text-lg font-bold text-default">Good morning, {learnerProfile.firstName}</h1>
               <p className="mt-1 text-sm text-muted">
                 {new Intl.DateTimeFormat('en-AE', {
                   weekday: 'long',

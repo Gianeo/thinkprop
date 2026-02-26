@@ -143,6 +143,14 @@ const config: Config = {
           label: 'hsl(var(--neutral-strong) / <alpha-value>)',
         },
       },
+      fontSize: {
+        xs: '11px',
+        sm: '12.5px',
+        base: '15px',
+        lg: '21px',
+        xl: '31px',
+        '2xl': '45px',
+      },
       fontFamily: {
         display: ['var(--font-display)', 'DM Sans', 'sans-serif'],
         body: ['var(--font-display)', 'DM Sans', 'sans-serif'],
