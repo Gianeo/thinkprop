@@ -6,7 +6,6 @@ import { ArrowRight, Calendar, ChevronRight, Download } from 'lucide-react'
 import { toast } from 'sonner'
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import KpiStrip from '@/components/admin/KpiStrip'
-import DepartmentFilter from '@/components/admin/DepartmentFilter'
 import RiskTable from '@/components/admin/RiskTable'
 import ReminderModal from '@/components/admin/ReminderModal'
 import { atRiskList, adminProfile } from '@/lib/mockData'
@@ -71,7 +70,7 @@ export default function AdminCompliancePage() {
       <AdminSidebar activePath="/admin/compliance" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-2 px-8 md:flex">
+        <div className="hidden h-16 shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-0 px-8 md:flex">
           <div className="flex items-center gap-2 type-body-sm">
             <span className="text-muted">{adminProfile.company}</span>
             <ChevronRight size={14} className="text-muted" />
@@ -92,7 +91,7 @@ export default function AdminCompliancePage() {
             <div className="flex items-start justify-between">
               <div>
                 <h1 className="type-title">Compliance Overview</h1>
-                <p className="mt-1 type-body-sm text-calm">
+                <p className="mt-1 type-caption">
                   Real-time compliance status · {adminProfile.company}
                 </p>
               </div>
@@ -110,10 +109,15 @@ export default function AdminCompliancePage() {
                 <div className="flex items-center gap-4">
                   <h2 className="type-title-sm type-body">Priority Risk List</h2>
                 </div>
-                <DepartmentFilter selected={selectedFilter} onChange={setSelectedFilter} />
               </div>
 
-              <RiskTable data={filteredList} onRemind={onRemind} remindedIds={remindedIds} />
+              <RiskTable
+                data={filteredList}
+                selectedFilter={selectedFilter}
+                onFilterChange={setSelectedFilter}
+                onRemind={onRemind}
+                remindedIds={remindedIds}
+              />
             </section>
 
             <div className="flex items-center justify-between pt-1">

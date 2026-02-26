@@ -16,7 +16,6 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import KpiStrip from '@/components/admin/KpiStrip'
-import DepartmentFilter from '@/components/admin/DepartmentFilter'
 import RiskTable from '@/components/admin/RiskTable'
 import TeamTable from '@/components/admin/TeamTable'
 import ReminderModal from '@/components/admin/ReminderModal'
@@ -107,18 +106,27 @@ function getSwatchTextTone(paletteToken: string, swatchName: string) {
 
 export default function DesignSystemPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
-  const [selectedDept, setSelectedDept] = useState('All')
+  const [selectedFilter, setSelectedFilter] = useState('All')
   const [remindedIds, setRemindedIds] = useState<string[]>([])
   const [modalOpen, setModalOpen] = useState(false)
   const [modalPerson, setModalPerson] = useState<AtRiskPerson | null>(null)
 
-  const filtered = useMemo(
-    () =>
-      selectedDept === 'All'
-        ? atRiskList
-        : atRiskList.filter((person) => person.department === selectedDept),
-    [selectedDept],
-  )
+  const filtered = useMemo(() => {
+    const isEnrolled = (person: AtRiskPerson) => person.status.toLowerCase().trim() === 'enrolled'
+    const getDaysLeft = (person: AtRiskPerson) => Number(person.daysLeft)
+
+    if (selectedFilter === 'All') return atRiskList
+    if (selectedFilter === 'Critical') {
+      return atRiskList.filter((person) => !isEnrolled(person) && getDaysLeft(person) < 14)
+    }
+    if (selectedFilter === 'Urgent') {
+      return atRiskList.filter((person) => !isEnrolled(person) && getDaysLeft(person) >= 15 && getDaysLeft(person) <= 30)
+    }
+    if (selectedFilter === 'Not Enrolled') {
+      return atRiskList.filter((person) => !isEnrolled(person))
+    }
+    return atRiskList.filter((person) => isEnrolled(person))
+  }, [selectedFilter])
 
   return (
     <main className={`${theme} min-h-screen bg-level-0 p-6 md:p-8`}>
@@ -276,9 +284,10 @@ export default function DesignSystemPage() {
 
           <div className='bg-level-1 rounded-lg'>
             <div className="space-y-4 p-6">
-              <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               <RiskTable
                 data={filtered}
+                selectedFilter={selectedFilter}
+                onFilterChange={setSelectedFilter}
                 remindedIds={remindedIds}
                 onRemind={(person) => {
                   setModalPerson(person)

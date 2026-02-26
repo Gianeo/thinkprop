@@ -13,6 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import DepartmentFilter from '@/components/admin/DepartmentFilter'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +23,8 @@ import {
 
 interface RiskTableProps {
   data: AtRiskPerson[]
+  selectedFilter: string
+  onFilterChange: (filter: string) => void
   onRemind: (person: AtRiskPerson) => void
   remindedIds: string[]
 }
@@ -38,7 +41,13 @@ function getRowBg(daysLeft: number, status: string) {
   return ''
 }
 
-export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProps) {
+export default function RiskTable({
+  data,
+  selectedFilter,
+  onFilterChange,
+  onRemind,
+  remindedIds,
+}: RiskTableProps) {
   const sortedRows = [...data].sort((a, b) => {
     const aEnrolled = a.status === 'Enrolled'
     const bEnrolled = b.status === 'Enrolled'
@@ -56,9 +65,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
           <p className="type-caption">Credentials expiring soon — action required</p>
         </div>
 
-        <Badge variant="destructive">
-          2 members need critical attention
-        </Badge>
+        <DepartmentFilter selected={selectedFilter} onChange={onFilterChange} />
       </div>
 
       <Table>
