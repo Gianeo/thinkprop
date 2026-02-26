@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { ArrowRight, Shield, User } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 const personas = [
@@ -34,12 +33,15 @@ export default function Page() {
   const router = useRouter()
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-level-0 p-8">
-      <div className="mb-12 text-center">
+    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-level-0 p-8">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-level-0/70 backdrop-blur-[1px]" />
+
+      <div className="relative mb-12 text-center">
         <div className="flex items-center justify-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-amber">
-            <span className="font-display type-body-sm font-bold text-contrast">T</span>
-          </div>
           <div className="flex items-baseline gap-1">
             <span className="type-title-sm type-title-sm">ThinkProp</span>
             <span className="type-caption font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
@@ -48,7 +50,7 @@ export default function Page() {
         <p className="mt-2 font-mono type-body-sm uppercase tracking-widest text-muted">Prototype Navigator</p>
       </div>
 
-      <div className="grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="relative grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
         {personas.map((persona) => {
           const Icon = persona.icon
 
@@ -58,8 +60,9 @@ export default function Page() {
               onClick={() => router.push(persona.href)}
               className="group cursor-pointer transition-all duration-200 hover:shadow-lg"
             >
-              <Card>
-                <CardContent className="p-8">
+              <div className="relative overflow-hidden rounded-xl bg-transparent text-card-foreground shadow">
+                <div className="absolute inset-0 bg-white/50 backdrop-blur-md" />
+                <div className="relative p-8">
                   <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${persona.iconWrapClass}`}>
                     <Icon size={22} className={persona.iconClass} />
                   </div>
@@ -76,8 +79,8 @@ export default function Page() {
                     {persona.cta}
                     <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           )
         })}
