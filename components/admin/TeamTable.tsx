@@ -41,7 +41,9 @@ export default function TeamTable({ data }: TeamTableProps) {
       member.name.toLowerCase().includes(searchQuery.toLowerCase().trim()),
     )
 
-    if (!sortKey) return filtered
+    if (!sortKey) {
+      return [...filtered].sort((a, b) => a.score - b.score)
+    }
 
     return [...filtered].sort((a, b) => {
       if (sortKey === 'name') {
@@ -87,7 +89,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-52 pl-9"
+              className="w-52 pl-9 rounded-full"
             />
           </div>
 

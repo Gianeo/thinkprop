@@ -1,6 +1,5 @@
 'use client'
 
-import { TrendingDown, TrendingUp } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { orgStats } from '@/lib/mockData'
 

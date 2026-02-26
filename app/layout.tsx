@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { TikTok_Sans } from 'next/font/google'
 import { Toaster } from 'sonner'
+import RouteTheme from '@/components/shared/RouteTheme'
 import './globals.css'
 
 const tiktokSans = TikTok_Sans({
@@ -30,6 +31,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="font-body text-foreground antialiased"
       >
+        <RouteTheme />
         {children}
         <Toaster richColors position="bottom-right" />
       </body>
