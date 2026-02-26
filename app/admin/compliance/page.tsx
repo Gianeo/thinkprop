@@ -122,7 +122,7 @@ export default function AdminCompliancePage() {
                 variant="link"
                 withIcon="after"
                 className="gap-1.5 p-0 font-semibold text-primary-default hover:no-underline"
-                onClick={() => router.push('/admin/compliance/team')}
+                // onClick={() => router.push('/admin/compliance/team')}
               >
                 View all 40 team members
                 <ArrowRight size={14} />

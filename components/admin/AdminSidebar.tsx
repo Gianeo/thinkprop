@@ -68,7 +68,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               </Button>
             )}
           </div>
-          <div className="mt-5 h-px w-full bg-border" />
+          <div className="mt-5 h-px w-full bg-transparent" />
         </div>
 
         <NavSection activePath={activePath} onNavigate={() => setIsMobileOpen(false)} />
@@ -184,7 +184,7 @@ function NavSection({
         )
       })}
 
-      <div className="mx-3 mb-3 mt-4 h-px bg-border" />
+      <div className="mx-3 mb-3 mt-4 h-px bg-transparent" />
 
       <div className="mb-2 px-3">
        <p className="type-title-upper text-muted">

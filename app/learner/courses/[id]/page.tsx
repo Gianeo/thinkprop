@@ -87,7 +87,7 @@ export default function CourseDetailPage() {
               </ul>
             </section>
 
-            <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-level-2 p-6">
+            <aside className="md:col-span-2 md:self-start md:max-h-[calc(100vh-6rem)] md:overflow-y-auto rounded-xl border border-wire-border bg-level-2 p-6">
               <h2 className="mb-4 font-heading type-title-sm font-semibold text-default">Select a Session</h2>
               <SessionPicker sessions={course.sessions} selectedId={selectedSession} onSelect={setSelectedSession} />
 
