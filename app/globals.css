@@ -10,7 +10,7 @@
     --radius: 0.75rem;
 
     /* Primary */
-    --primary-weakest: 215 100% 98%;
+    --primary-weakest: 215 100% 97%;
     --primary-weaker: 215 100% 92%;
     --primary-weak: 215 100% 78%;
     --primary-base: 215 100% 56%;
@@ -37,7 +37,7 @@
     --destructive-strongest: 5 78% 10%;
 
     /* Warning */
-    --warning-weakest: 48 89% 97%;
+    --warning-weakest: 48 89% 96%;
     --warning-weaker: 48 89% 92%;
     --warning-weak: 48 89% 78%;
     --warning-base: 48 89% 56%;
@@ -47,7 +47,7 @@
     --warning-foreground: 48 89% 10%;
 
     /* Success */
-    --success-weakest: 145 63% 97%;
+    --success-weakest: 145 63% 96%;
     --success-weaker: 145 63% 92%;
     --success-weak: 145 63% 78%;
     --success-base: 145 63% 56%;

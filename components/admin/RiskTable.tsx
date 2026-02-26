@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Bell, BookOpen, CheckCircle, MoreVertical } from 'lucide-react'
+import { ArrowRight, Bell, BookOpen, Check, CheckCircle, MoreVertical } from 'lucide-react'
 import type { AtRiskPerson } from '@/lib/types'
 import {
   Table,
@@ -137,17 +137,17 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 <TableCell>
                   {row.status === 'Not Enrolled' ? (
                     <Badge variant="default">
-                      ● Not Enrolled
+                      Not Enrolled
                     </Badge>
                   ) : (
                     <Badge variant="primary">
-                      <BookOpen className="mr-1" size={10} />
+                      <Check className="mr-1 size-4" />
                       Enrolled
                     </Badge>
                   )}
                 </TableCell>
 
-                <TableCell className='flex justify-end'>
+                <TableCell className='flex justify-end items-center py-4'>
                   {isReminded ? (
                     <span className="flex items-center gap-1.5 type-caption text-success-default">
                       <CheckCircle size={12} />
