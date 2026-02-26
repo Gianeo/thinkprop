@@ -78,8 +78,8 @@ export default function LearnerDashboardPage() {
         <div className="space-y-8 p-8">
           <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="font-heading text-lg font-bold text-default">Good morning, {learnerProfile.firstName}</h1>
-              <p className="mt-1 text-sm text-muted">
+              <h1 className="font-heading type-title-sm font-bold text-default">Good morning, {learnerProfile.firstName}</h1>
+              <p className="mt-1 type-body-sm text-muted">
                 {new Intl.DateTimeFormat('en-AE', {
                   weekday: 'long',
                   day: 'numeric',
@@ -92,7 +92,7 @@ export default function LearnerDashboardPage() {
               <Button variant="outline" size="icon" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-muted">
                 <Bell className="h-5 w-5" />
               </Button>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-muted">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy type-body-sm font-semibold text-muted">
                 {learnerProfile.initials}
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function LearnerDashboardPage() {
             <section className="flex flex-col gap-3 rounded-xl border border-state-critical bg-state-critical-bg p-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-2">
                 <AlertTriangle className="mt-0.5 h-5 w-5 text-destructive-default" />
-                <p className="text-sm text-default">
+                <p className="type-body-sm text-default">
                   <span className="font-semibold">Action Required:</span> 1 certification expires in 18 days. Your RERA broker
                   license may be at risk.
                 </p>
@@ -110,7 +110,7 @@ export default function LearnerDashboardPage() {
               <Button
                 variant="link"
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
-                className="h-auto p-0 text-sm font-semibold text-primary-loud hover:no-underline"
+                className="h-auto p-0 type-body-sm font-semibold text-primary-loud hover:no-underline"
               >
                 View Details →
               </Button>
@@ -118,7 +118,7 @@ export default function LearnerDashboardPage() {
           )}
 
           <section>
-            <h2 className="mb-4 font-heading text-lg font-semibold text-default">Your Compliance</h2>
+            <h2 className="mb-4 font-heading type-title-sm font-semibold text-default">Your Compliance</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {datedItems.map((item) => (
                 <ComplianceCard
@@ -135,7 +135,7 @@ export default function LearnerDashboardPage() {
           </section>
 
           <section className="hidden md:block">
-            <h2 className="mb-4 font-heading text-lg font-semibold text-default">Your Learning Pathway</h2>
+            <h2 className="mb-4 font-heading type-title-sm font-semibold text-default">Your Learning Pathway</h2>
             <div className="rounded-xl border border-wire-border bg-level-1 p-6">
               <div className="grid grid-cols-4 gap-4">
                 {[
@@ -147,7 +147,7 @@ export default function LearnerDashboardPage() {
                   <div key={item.step} className="relative">
                     {index < 3 && <div className="absolute left-[55%] top-5 h-0.5 w-full bg-wire-border" />}
                     <div
-                      className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${
+                      className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border type-body-sm font-semibold ${
                         item.state === 'done'
                           ? 'border-brand-navy bg-brand-navy text-muted'
                           : item.state === 'progress'
@@ -157,8 +157,8 @@ export default function LearnerDashboardPage() {
                     >
                       {item.state === 'done' ? '✓' : item.step}
                     </div>
-                    <p className="mt-3 text-sm font-semibold text-default">{item.label}</p>
-                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-loud' : 'text-muted'}`}>{item.helper}</p>
+                    <p className="mt-3 type-body-sm font-semibold text-default">{item.label}</p>
+                    <p className={`type-caption ${item.state === 'progress' ? 'text-warning-loud' : 'text-muted'}`}>{item.helper}</p>
                   </div>
                 ))}
               </div>

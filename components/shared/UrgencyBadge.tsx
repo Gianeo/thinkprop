@@ -38,7 +38,7 @@ export default function UrgencyBadge({ state }: UrgencyBadgeProps) {
   const Icon = config.icon
 
   return (
-    <span className={`rounded-full px-3 py-1 text-xs font-semibold flex items-center gap-1.5 ${config.className}`}>
+    <span className={`rounded-full px-3 py-1 type-caption font-semibold flex items-center gap-1.5 ${config.className}`}>
       <Icon className="h-3.5 w-3.5" />
       {config.label}
     </span>

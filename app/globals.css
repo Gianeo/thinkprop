@@ -293,7 +293,7 @@
 
 @layer components {
   .type-display {
-    @apply font-display text-2xl font-semibold tracking-[-2] md:text-lg antialiased;
+    @apply font-display text-2xl font-semibold tracking-[-2] antialiased;
     color: hsl(var(--text-loud));
   }
 
@@ -307,8 +307,9 @@
     color: hsl(var(--text-loud));
   }
 
-  .type-label {
-    @apply text-xs font-semibold uppercase tracking-wider leading-none;
+  .type-title-upper {
+    @apply text-xs font-semibold tracking-wider leading-none;
+    text-transform: uppercase;
     color: hsl(var(--text-calm));
   }
 

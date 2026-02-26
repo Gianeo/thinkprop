@@ -48,10 +48,10 @@ export default function ReminderModal({
                 <Bell size={18} className="text-warning-loud" />
               </div>
 
-              <DialogTitle className="mt-3 text-base font-bold leading-snug text-loud font-display">
+              <DialogTitle className="mt-3 type-body font-bold leading-snug text-loud font-display">
                 Send Compliance Reminder
               </DialogTitle>
-              <DialogDescription className="mt-1 text-sm text-calm">
+              <DialogDescription className="mt-1 type-body-sm text-calm">
                 Sent via email and in-app notification.
               </DialogDescription>
             </div>
@@ -62,36 +62,36 @@ export default function ReminderModal({
 
         <div className="space-y-5 px-6 py-5">
           <div>
-            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">To</div>
+            <div className="mb-2 type-caption font-semibold uppercase tracking-[0.15em] text-muted">To</div>
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2">
-                <AvatarFallback variant="destructive" className="text-sm">
+                <AvatarFallback variant="destructive" className="type-body-sm">
                   {person.initials}
                 </AvatarFallback>
               </Avatar>
               <div>
-                <div className="text-sm font-semibold text-loud">{person.name}</div>
-                <div className="text-xs text-calm">Real Estate Agent · {person.department}</div>
+                <div className="type-body-sm font-semibold text-loud">{person.name}</div>
+                <div className="type-caption text-calm">Real Estate Agent · {person.department}</div>
               </div>
             </div>
           </div>
 
           <div>
-            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
+            <div className="mb-2 type-caption font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
             <div className="flex items-center gap-3 rounded-xl border border-neutral-weaker bg-level-0 p-3">
               <AlertTriangle size={15} className="shrink-0 text-destructive-default" />
-              <span className="flex-1 text-sm font-medium text-loud">{person.credential}</span>
-              <span className="ml-auto rounded-full bg-state-critical-bg px-2.5 py-1 font-mono text-xs font-bold text-destructive-default">
+              <span className="flex-1 type-body-sm font-medium text-loud">{person.credential}</span>
+              <span className="ml-auto rounded-full bg-state-critical-bg px-2.5 py-1 font-mono type-caption font-bold text-destructive-default">
                 {person.daysLeft}d
               </span>
             </div>
           </div>
 
           <div>
-            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted">
+            <div className="mb-2 type-caption font-semibold uppercase tracking-[0.15em] text-muted">
               Message Preview
             </div>
-            <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body text-sm leading-relaxed text-calm">
+            <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body type-body-sm leading-relaxed text-calm">
               Hi {person.name.split(' ')[0]}, this is a reminder that your{' '}
               <span className="font-semibold text-loud">{person.credential}</span> expires in{' '}
               <span className="font-mono font-semibold text-destructive-default">{person.daysLeft} days</span>. Please log in to
@@ -108,7 +108,7 @@ export default function ReminderModal({
         <div className="px-6 py-4">
           <div className="mb-4 flex items-center gap-1.5">
             <Info size={12} className="shrink-0 text-muted" />
-            <span className="text-xs text-muted">This action will be logged to the compliance audit trail.</span>
+            <span className="type-caption text-muted">This action will be logged to the compliance audit trail.</span>
           </div>
 
           <div className="flex items-center justify-end gap-3">

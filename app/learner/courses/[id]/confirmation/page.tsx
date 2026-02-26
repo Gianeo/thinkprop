@@ -40,7 +40,7 @@ export default function ConfirmationPage() {
   if (!course || !selectedSession) {
     return (
       <div className="min-h-screen bg-level-0 p-8">
-        <p className="text-sm text-muted">Enrollment summary unavailable.</p>
+        <p className="type-body-sm text-muted">Enrollment summary unavailable.</p>
       </div>
     )
   }
@@ -63,12 +63,12 @@ export default function ConfirmationPage() {
         <div className="mx-auto max-w-2xl space-y-6 p-8">
           <section className="text-center">
             <CheckCircle className="mx-auto h-16 w-16 text-success-default" />
-            <h1 className="mt-4 font-heading text-lg font-bold text-default">You&apos;re enrolled!</h1>
-            <p className="mt-2 text-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
+            <h1 className="mt-4 font-heading type-title-sm font-bold text-default">You&apos;re enrolled!</h1>
+            <p className="mt-2 type-body-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
           </section>
 
           <section className="rounded-xl border border-wire-border bg-level-1 p-6">
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 type-body-sm">
               <p>
                 <span className="text-muted">Course:</span> <span className="text-default">{course.title}</span>
               </p>
@@ -92,18 +92,18 @@ export default function ConfirmationPage() {
 
           <Button
             variant="outline"
-            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 text-sm font-semibold text-default"
+            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 type-body-sm font-semibold text-default"
           >
             <CalendarPlus className="h-4 w-4" />
             Add to Calendar
           </Button>
 
           <section>
-            <h2 className="mb-3 font-heading text-lg font-semibold text-default">Your compliance status has been updated</h2>
+            <h2 className="mb-3 font-heading type-title-sm font-semibold text-default">Your compliance status has been updated</h2>
             {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
           </section>
 
-          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 text-sm font-semibold text-primary-loud hover:no-underline">
+          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 type-body-sm font-semibold text-primary-loud hover:no-underline">
             ← Return to Dashboard
           </Button>
         </div>

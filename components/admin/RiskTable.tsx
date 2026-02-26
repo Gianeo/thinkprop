@@ -58,7 +58,6 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead
                 key={header}
-                className="h-10 text-xs font-semibold uppercase tracking-wider text-muted"
               >
                 {header}
               </TableHead>
@@ -74,7 +73,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
             return (
               <TableRow
                 key={row.id}
-                className={`border-neutral-weaker transition-colors duration-100 ${getRowBg(row.daysLeft, row.status)}`}
+                className={` ${getRowBg(row.daysLeft, row.status)}`}
               >
                 <TableCell>
                   <div className="flex items-center gap-3">
@@ -87,12 +86,12 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                               ? 'destructive'
                               : 'warning'
                         }
-                        className="text-xs"
+                        className="type-caption"
                       >
                         {row.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="type-body text-default">{row.name}</span>
+                    <span>{row.name}</span>
                   </div>
                 </TableCell>
 
@@ -103,13 +102,13 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  <div className="type-body-sm text-calm">{row.credential}</div>
-                  <div className="mt-0.5 type-caption text-muted">RERA · Mandatory</div>
+                  <div className="type-body-sm">{row.credential}</div>
+                  <div className="type-caption text-muted">RERA · Mandatory</div>
                 </TableCell>
 
                 <TableCell>
                   <div
-                    className={`font-mono text-sm font-bold ${
+                    className={`type-body-sm ${
                       urgency === 'enrolled'
                         ? 'text-primary-default'
                         : urgency === 'critical'
@@ -119,7 +118,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   >
                     {row.status === 'Enrolled' ? 'Enrolled' : `${row.daysLeft}`}
                     {row.status !== 'Enrolled' && (
-                      <span className="ml-1 text-xs font-normal text-muted">days</span>
+                      <span className="ml-1 type-caption">days</span>
                     )}
                   </div>
                   {row.status !== 'Enrolled' && (
@@ -149,14 +148,14 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
 
                 <TableCell>
                   {isReminded ? (
-                    <span className="flex items-center gap-1.5 text-xs font-semibold text-success-default">
+                    <span className="flex items-center gap-1.5 type-caption text-success-default">
                       <CheckCircle size={12} />
                       Reminded
                     </span>
                   ) : row.status === 'Enrolled' ? (
                     <Button
                       variant="link"
-                      className="h-auto p-0 text-xs font-semibold text-primary-default hover:no-underline"
+                      className="h-auto p-0 type-caption text-primary-default hover:no-underline"
                     >
                       View Progress →
                     </Button>
@@ -164,17 +163,14 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                     <div className="flex items-center gap-2">
                       <Button
                         variant="outline"
-                        size="sm"
                         className=""
                         onClick={() => onRemind(row)}
                       >
-                        <Bell size={11} className="mr-1.5" />
+                        <Bell />
                         Remind
                       </Button>
 
-                      <Button
-                        size="sm"
-                      >
+                      <Button>
                         Enroll
                       </Button>
 

@@ -21,8 +21,8 @@ export default function DepartmentFilter({ selected, onChange }: DepartmentFilte
             variant={isSelected ? 'default' : 'outline'}
             className={
               isSelected
-                ? 'h-8 rounded-full bg-primary-weaker border border-primary-weak px-4 text-xs font-semibold text-primary-default hover:bg-primary-stronger'
-                : 'h-8 rounded-full border-neutral-weak bg-level-1 px-4 text-xs font-medium text-calm hover:border-neutral-weak hover:text-loud'
+                ? 'h-8 rounded-full bg-primary-weaker border border-primary-weak px-4 type-caption font-semibold text-primary-default hover:bg-primary-stronger'
+                : 'h-8 rounded-full border-neutral-weak bg-level-1 px-4 type-caption font-medium text-calm hover:border-neutral-weak hover:text-loud'
             }
             onClick={() => onChange(department)}
           >

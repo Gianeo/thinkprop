@@ -38,14 +38,14 @@ export default function Page() {
       <div className="mb-12 text-center">
         <div className="flex items-center justify-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-amber">
-            <span className="font-display text-sm font-bold text-contrast">T</span>
+            <span className="font-display type-body-sm font-bold text-contrast">T</span>
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="type-title-sm text-lg">ThinkProp</span>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
+            <span className="type-title-sm type-title-sm">ThinkProp</span>
+            <span className="type-caption font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
           </div>
         </div>
-        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-muted">Prototype Navigator</p>
+        <p className="mt-2 font-mono type-body-sm uppercase tracking-widest text-muted">Prototype Navigator</p>
       </div>
 
       <div className="grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
@@ -64,13 +64,13 @@ export default function Page() {
                     <Icon size={22} className={persona.iconClass} />
                   </div>
 
-                  <h2 className="font-display text-lg font-bold text-loud">{persona.name}</h2>
-                  <p className="mt-0.5 text-sm text-calm">{persona.subtitle}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-calm">{persona.description}</p>
+                  <h2 className="font-display type-title-sm font-bold text-loud">{persona.name}</h2>
+                  <p className="mt-0.5 type-body-sm text-calm">{persona.subtitle}</p>
+                  <p className="mt-3 type-body-sm leading-relaxed text-calm">{persona.description}</p>
 
                   <Button
                     variant="ghost"
-                    className={`mt-6 h-auto p-0 text-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
+                    className={`mt-6 h-auto p-0 type-body-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
                   >
                     {persona.cta}
                     <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-0.5" />

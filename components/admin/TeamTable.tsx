@@ -87,7 +87,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-9 w-52 rounded-xl border-neutral-weaker bg-level-0 pl-9 text-sm placeholder:text-muted focus-visible:ring-brand-amber/30"
+              className="h-9 w-52 rounded-xl border-neutral-weaker bg-level-0 pl-9 type-body-sm placeholder:text-muted focus-visible:ring-brand-amber/30"
             />
           </div>
 
@@ -105,12 +105,12 @@ export default function TeamTable({ data }: TeamTableProps) {
       <Table>
         <TableHeader className="bg-level-0">
           <TableRow className="border-neutral-weaker hover:bg-transparent">
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSort('name')}
-                className={`h-auto p-0 text-xs font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
+                className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'name' ? 'text-loud' : ''
                 }`}
               >
@@ -118,14 +118,14 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('name')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">ROLE</TableHead>
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">DEPARTMENT</TableHead>
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">ROLE</TableHead>
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">DEPARTMENT</TableHead>
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSort('score')}
-                className={`h-auto p-0 text-xs font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
+                className={`h-auto p-0 type-caption font-semibold uppercase tracking-wider hover:bg-transparent hover:text-calm ${
                   sortKey === 'score' ? 'text-loud' : ''
                 }`}
               >
@@ -133,9 +133,9 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {renderSortIcon('score')}
               </Button>
             </TableHead>
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">AT RISK</TableHead>
-            <TableHead className="h-11 px-6 text-xs font-semibold uppercase tracking-wider text-muted">LAST ACTIVE</TableHead>
-            <TableHead className="h-11 px-6 text-right text-xs font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">AT RISK</TableHead>
+            <TableHead className="h-11 px-6 type-caption font-semibold uppercase tracking-wider text-muted">LAST ACTIVE</TableHead>
+            <TableHead className="h-11 px-6 text-right type-caption font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -150,17 +150,17 @@ export default function TeamTable({ data }: TeamTableProps) {
                   <Avatar>
                     <AvatarFallback
                       variant={member.status === 'Compliant' ? 'success' : 'destructive'}
-                      className="text-xs"
+                      className="type-caption"
                     >
                       {member.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="text-sm font-medium text-loud">{member.name}</span>
+                  <span className="type-body-sm font-medium text-loud">{member.name}</span>
                 </div>
               </TableCell>
 
               <TableCell>
-                <span className="text-sm text-calm">{member.role}</span>
+                <span className="type-body-sm text-calm">{member.role}</span>
               </TableCell>
 
               <TableCell>
@@ -184,7 +184,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                     />
                   </div>
                   <span
-                    className={`font-mono text-sm font-bold ${
+                    className={`font-mono type-body-sm font-bold ${
                       member.score >= 80
                         ? 'text-success-default'
                         : member.score >= 60
@@ -199,22 +199,22 @@ export default function TeamTable({ data }: TeamTableProps) {
 
               <TableCell>
                 {member.atRisk === 0 ? (
-                  <span className="text-sm text-muted">—</span>
+                  <span className="type-body-sm text-muted">—</span>
                 ) : (
-                  <span className="text-sm font-medium text-destructive-default">
+                  <span className="type-body-sm font-medium text-destructive-default">
                     {member.atRisk} credential{member.atRisk > 1 ? 's' : ''}
                   </span>
                 )}
               </TableCell>
 
               <TableCell>
-                <span className="font-mono text-sm text-calm">{member.lastActivity}</span>
+                <span className="font-mono type-body-sm text-calm">{member.lastActivity}</span>
               </TableCell>
 
               <TableCell className="px-6 py-4 text-right">
                 <Button
                   variant="link"
-                  className="h-auto p-0 text-xs font-semibold text-primary-default hover:no-underline"
+                  className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
                 >
                   View →
                 </Button>
@@ -225,7 +225,7 @@ export default function TeamTable({ data }: TeamTableProps) {
       </Table>
 
       {filteredAndSorted.length === 0 && (
-        <div className="flex items-center gap-2 px-6 py-5 text-sm text-calm">
+        <div className="flex items-center gap-2 px-6 py-5 type-body-sm text-calm">
           <AlertTriangle size={14} className="text-warning-default" />
           No team members match your search.
         </div>

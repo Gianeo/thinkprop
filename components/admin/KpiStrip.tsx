@@ -18,10 +18,10 @@ export default function KpiStrip() {
       <Card>
         <CardContent className="p-5">
           <div className="mb-4 flex items-center justify-between">
-            <span className="type-label">
+            <span className="type-title-upper">
               Org Compliance Score
             </span>
-            <span className="flex items-center gap-1 text-xs font-medium text-success-default">
+            <span className="flex items-center gap-1 type-caption font-medium text-success-default">
               {orgStats.complianceScoreDeltaUp ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
               {orgStats.complianceScoreDelta}
             </span>
@@ -53,12 +53,12 @@ export default function KpiStrip() {
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display text-lg font-bold text-default">{orgStats.complianceScore}</span>
-                <span className="ml-0.5 text-sm text-calm">%</span>
+                <span className="font-display type-title-sm font-bold text-default">{orgStats.complianceScore}</span>
+                <span className="ml-0.5 type-body-sm text-calm">%</span>
               </div>
             </div>
 
-            <span className="rounded-full bg-score-high-bg px-2.5 py-0.5 text-xs font-semibold text-success-default">
+            <span className="rounded-full bg-score-high-bg px-2.5 py-0.5 type-caption font-semibold text-success-default">
               {orgStats.complianceScoreDelta}
             </span>
           </div>
@@ -67,10 +67,10 @@ export default function KpiStrip() {
 
       <Card>
         <CardContent className="p-5">
-          <p className="type-label">At Risk</p>
-          <p className="mt-2 font-display text-2xl font-bold leading-none text-destructive-default">{orgStats.atRisk}</p>
-          <p className="mt-1 text-xs text-calm">team members</p>
-          <span className="mt-3 inline-flex rounded-full bg-score-low-bg px-2.5 py-0.5 text-xs font-semibold text-destructive-default">
+          <p className="type-title-upper">At Risk</p>
+          <p className="mt-2 type-display leading-none text-destructive-default">{orgStats.atRisk}</p>
+          <p className="mt-1 type-caption text-calm">team members</p>
+          <span className="mt-3 inline-flex rounded-full bg-score-low-bg px-2.5 py-0.5 type-caption font-semibold text-destructive-default">
             {orgStats.atRiskDelta}
           </span>
         </CardContent>
@@ -78,8 +78,8 @@ export default function KpiStrip() {
 
       <Card>
         <CardContent className="p-5">
-          <p className="type-label">Expiring This Week</p>
-          <p className="mt-2 font-display text-2xl font-bold leading-none text-warning-default">{orgStats.expiringThisWeek}</p>
+          <p className="type-title-upper">Expiring This Week</p>
+          <p className="mt-2 type-display leading-none text-warning-default">{orgStats.expiringThisWeek}</p>
           <p className="mt-1 type-caption">credentials</p>
 
           <div className="mt-3 flex h-1.5 w-full overflow-hidden rounded-full bg-neutral-weaker">
@@ -93,10 +93,10 @@ export default function KpiStrip() {
 
       <Card>
         <CardContent className="p-5">
-          <p className="type-label">Fully Compliant</p>
+          <p className="type-title-upper">Fully Compliant</p>
           <div className="mt-1 flex items-baseline gap-1">
-            <span className="font-display text-2xl font-bold leading-none text-success-default">{orgStats.fullyCompliant}</span>
-            <span className="font-display text-lg text-calm">/ {orgStats.totalTeam}</span>
+            <span className="type-display leading-none text-success-default">{orgStats.fullyCompliant}</span>
+            <span className="font-display type-title-sm text-calm">/ {orgStats.totalTeam}</span>
           </div>
 
           <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-neutral-weaker">

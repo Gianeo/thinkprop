@@ -125,7 +125,7 @@ export default function DesignSystemPage() {
       <div className="mx-auto max-w-350 space-y-12">
         <header className="pb-4 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-default">
+            <Link href="/" className="inline-flex items-center gap-2 type-body-sm font-semibold text-primary-default">
               <ArrowLeft size={14} />
               Back to Navigator
             </Link>
@@ -164,21 +164,21 @@ export default function DesignSystemPage() {
 
           <Card>
             <CardHeader className="pb-4">
-              <CardTitle className="text-base text-loud">Semantic Color Palettes</CardTitle>
+              <CardTitle>Color Palettes</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:grid-cols-5">
                 {palettes.map((palette) => (
                   <div key={palette.title} className="space-y-2">
                     <div>
-                      <h3 className="text-sm font-semibold text-loud">{palette.title}</h3>
+                      <h3 className="type-body-sm font-semibold text-loud">{palette.title}</h3>
                       {/* <p className="type-caption">`{palette.token}` semantic ramp</p> */}
                     </div>
                     <div className="overflow-hidden">
                       {palette.swatches.map((swatch) => (
                         <div
                           key={`${palette.title}-${swatch.name}`}
-                          className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className} ${getSwatchTextTone(
+                          className={`flex items-center justify-between px-3 py-2 type-caption font-medium ${swatch.className} ${getSwatchTextTone(
                             palette.token,
                             swatch.name,
                           )}`}
@@ -203,40 +203,40 @@ export default function DesignSystemPage() {
           <Card>
             <CardContent className="space-y-6 p-6">
               <div className='space-y-2'>
-                <p className="type-label">type-display</p>
+                <p className="type-title-upper">type-display</p>
                 <p className="type-display">Display</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-title</p>
+                <p className="type-title-upper">type-title</p>
                 <p className="type-title">Section Title</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-title-sm</p>
+                <p className="type-title-upper">type-title-sm</p>
                 <p className="type-title-sm">Subsection Title</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-body</p>
+                <p className="type-title-upper">type-body</p>
                 <p className="type-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-body-sm</p>
+                <p className="type-title-upper">type-body-sm</p>
                 <p className="type-body-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s.</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-caption</p>
+                <p className="type-title-upper">type-caption</p>
                 <p className="type-caption">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">type-data</p>
+                <p className="type-title-upper">type-data</p>
                 <p className="type-data">74% · 18d · Wed, 25 Feb 2026</p>
               </div>
               <div className='space-y-2'>
-                <p className="type-label">foreground styles</p>
-                <div className="space-y-1 text-sm">
-                  <p className="text-loud">text-loud</p>
-                  <p className="text-default">text-default</p>
-                  <p className="text-calm">text-calm</p>
-                  <p className="text-calm">text-calm</p>
+                <p className="type-title-upper">Tone styles</p>
+                <div className="space-y-1 type-body">
+                  <p className="text-loud">Loud (text-loud)</p>
+                  <p className="text-default">Normal (text-default)</p>
+                  <p className="text-calm">Calm (text-calm)</p>
+                  <p className="text-muted">Muted (text-muted)</p>
                 </div>
               </div>
             </CardContent>
@@ -271,9 +271,9 @@ export default function DesignSystemPage() {
               <Table>
                 <TableHeader className="bg-level-0">
                   <TableRow className="border-neutral-weaker hover:bg-transparent">
-                    <TableHead className="type-label">Token</TableHead>
-                    <TableHead className="type-label">Usage</TableHead>
-                    <TableHead className="type-label">Example</TableHead>
+                    <TableHead className="type-title-upper">Token</TableHead>
+                    <TableHead className="type-title-upper">Usage</TableHead>
+                    <TableHead className="type-title-upper">Example</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

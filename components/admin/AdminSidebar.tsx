@@ -74,11 +74,11 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
         <div className="border-t border-[hsl(var(--neutral-weakest)/0.1)] p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-              <span className="font-display text-xs font-semibold text-warning-loud">TH</span>
+              <span className="font-display type-caption font-semibold text-warning-loud">TH</span>
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
-              <p className="truncate text-xs text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
+              <p className="truncate type-body-sm font-medium text-muted">Tariq Hamdan</p>
+              <p className="truncate type-caption text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
             </div>
             <LogOut className="h-3.5 w-3.5 cursor-pointer text-[hsl(var(--neutral-weakest)/0.25)] transition-colors hover:text-[hsl(var(--neutral-weakest)/0.6)]" />
           </div>
@@ -107,11 +107,11 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
           <div className="border-t border-[hsl(var(--neutral-weakest)/0.1)] p-4">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-                <span className="font-display text-xs font-semibold text-warning-loud">TH</span>
+                <span className="font-display type-caption font-semibold text-warning-loud">TH</span>
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
-                <p className="truncate text-xs text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
+                <p className="truncate type-body-sm font-medium text-muted">Tariq Hamdan</p>
+                <p className="truncate type-caption text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
               </div>
               <LogOut className="h-3.5 w-3.5 cursor-pointer text-[hsl(var(--neutral-weakest)/0.25)] transition-colors hover:text-[hsl(var(--neutral-weakest)/0.6)]" />
             </div>
@@ -126,11 +126,11 @@ function Logo() {
   return (
     <div className="flex items-center gap-2.5">
       <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-amber">
-        <span className="font-display text-sm font-bold text-contrast">T</span>
+        <span className="font-display type-body-sm font-bold text-contrast">T</span>
       </div>
       <div className="flex items-baseline gap-1">
-        <span className="font-display text-base font-semibold text-muted">ThinkProp</span>
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
+        <span className="font-display type-body font-semibold text-muted">ThinkProp</span>
+        <span className="type-caption font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
       </div>
     </div>
   )
@@ -148,7 +148,7 @@ function NavSection({
   return (
     <div className="flex-1 space-y-0.5 px-3 pt-4">
       <div className="mb-2 px-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
+        <p className="type-caption font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
           MAIN
         </p>
       </div>
@@ -165,7 +165,7 @@ function NavSection({
               onNavigate()
               router.push(item.href)
             }}
-            className={`relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150 ${
+            className={`relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 type-body-sm font-medium transition-all duration-150 ${
               isActive
                 ? 'bg-[hsl(var(--neutral-weakest)/0.15)] text-muted'
                 : 'text-[hsl(var(--neutral-weakest)/0.45)] hover:bg-[hsl(var(--neutral-weakest)/0.08)] hover:text-[hsl(var(--neutral-weakest)/0.8)]'
@@ -183,7 +183,7 @@ function NavSection({
       <div className="mx-3 mb-3 mt-4 h-px bg-[hsl(var(--neutral-weakest)/0.1)]" />
 
       <div className="mb-2 px-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
+        <p className="type-caption font-semibold uppercase tracking-[0.15em] text-[hsl(var(--neutral-weakest)/0.25)]">
           ACCOUNT
         </p>
       </div>
@@ -194,7 +194,7 @@ function NavSection({
           onNavigate()
           router.push('/admin/settings')
         }}
-        className="relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-[hsl(var(--neutral-weakest)/0.45)] transition-all duration-150 hover:bg-[hsl(var(--neutral-weakest)/0.08)] hover:text-[hsl(var(--neutral-weakest)/0.8)]"
+        className="relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 type-body-sm font-medium text-[hsl(var(--neutral-weakest)/0.45)] transition-all duration-150 hover:bg-[hsl(var(--neutral-weakest)/0.08)] hover:text-[hsl(var(--neutral-weakest)/0.8)]"
       >
         <Settings size={16} />
         Settings
