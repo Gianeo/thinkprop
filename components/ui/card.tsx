@@ -2,10 +2,14 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  overTitle?: React.ReactNode
+}
+
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  CardProps
+>(({ className, overTitle, children, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
@@ -13,7 +17,14 @@ const Card = React.forwardRef<
       className
     )}
     {...props}
-  />
+  >
+    {overTitle && (
+      <div className="px-6 pt-4">
+        <p className="type-title-upper">{overTitle}</p>
+      </div>
+    )}
+    {children}
+  </div>
 ))
 Card.displayName = "Card"
 

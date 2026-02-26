@@ -13,6 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Card } from '@/components/ui/card'
 import DepartmentFilter from '@/components/admin/DepartmentFilter'
 import {
   DropdownMenu,
@@ -58,8 +59,8 @@ export default function RiskTable({
   })
 
   return (
-    <div className="overflow-hidden rounded-xl bg-level-2 shadow-sm">
-      <div className="flex items-center justify-between shadow px-6 py-4">
+    <Card overTitle="Priority Risk List" className="overflow-hidden rounded-xl bg-level-2 shadow-sm">
+      <div className="flex items-center justify-between shadow px-6 pt-2 pb-4">
         <div>
           <h3 className="type-title-sm">Immediate Attention Required</h3>
           <p className="type-caption">Credentials expiring soon — action required</p>
@@ -209,6 +210,6 @@ export default function RiskTable({
           })}
         </TableBody>
       </Table>
-    </div>
+    </Card>
   )
 }

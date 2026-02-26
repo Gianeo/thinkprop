@@ -105,12 +105,6 @@ export default function AdminCompliancePage() {
             <KpiStrip />
 
             <section>
-              <div className="mb-3 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <h2 className="type-title-sm type-body">Priority Risk List</h2>
-                </div>
-              </div>
-
               <RiskTable
                 data={filteredList}
                 selectedFilter={selectedFilter}
