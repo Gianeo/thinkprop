@@ -33,24 +33,25 @@ export default function AdminComplianceTeamPage() {
 
         <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
           <div className="max-w-350 space-y-6 p-8">
-            <Button
-              variant="link"
+            {/* <Button
+              variant="ghost"
+              size="sm"
               withIcon="before"
-              className="mb-2 h-auto gap-1.5 p-0 font-semibold text-primary-default hover:no-underline"
+              className="mb-2"
               onClick={() => router.push('/admin/compliance')}
             >
               <ArrowLeft size={14} />
               Back to Overview
-            </Button>
+            </Button> */}
 
             <div>
               <h1 className="type-title">Team Compliance</h1>
-              <p className="mt-1 type-body-sm text-calm">
+              <p className="mt-1 type-caption">
                 Full status for all 40 team members · {adminProfile.company}
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            {/* <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2 type-body-sm">
                 <CheckCircle size={14} className="text-success-default" />
                 <span className="font-medium text-calm">31 Compliant</span>
@@ -63,7 +64,7 @@ export default function AdminComplianceTeamPage() {
                 <Clock size={14} className="text-warning-default" />
                 <span className="font-medium text-calm">3 Expiring This Week</span>
               </div>
-            </div>
+            </div> */}
 
             <TeamTable data={adminTeam} />
           </div>

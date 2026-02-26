@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import {
   AlertTriangle,
+  Clock,
   CheckCircle,
   ChevronDown,
   ChevronRight,
@@ -22,6 +23,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { orgStats } from '@/lib/mockData'
 
 interface TeamTableProps {
   data: TeamMember[]
@@ -74,16 +76,26 @@ export default function TeamTable({ data }: TeamTableProps) {
   return (
     <div className="overflow-hidden rounded-2xl border border-weak bg-level-2 shadow">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-weak px-6 py-4">
-        <div>
-          <h3 className="type-title-sm">Team Compliance</h3>
-          <p className="type-caption">Full compliance status for all team members</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2 rounded-xl bg-level-1 px-4 py-2 type-body-sm">
+            <CheckCircle size={14} className="text-success-default" />
+            <span className="font-medium text-calm">{orgStats.fullyCompliant} Compliant</span>
+          </div>
+          <div className="flex items-center gap-2 rounded-xl bg-level-1 px-4 py-2 type-body-sm">
+            <AlertTriangle size={14} className="text-destructive-default" />
+            <span className="font-medium text-calm">{orgStats.atRisk} At Risk</span>
+          </div>
+          <div className="flex items-center gap-2 rounded-xl bg-level-1 px-4 py-2 type-body-sm">
+            <Clock size={14} className="text-warning-default" />
+            <span className="font-medium text-calm">{orgStats.expiringThisWeek} Expiring This Week</span>
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search
               size={14}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-default"
             />
             <Input
               placeholder="Search team..."
