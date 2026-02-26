@@ -58,6 +58,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead
                 key={header}
+                className={header === 'ACTIONS' ? 'text-right' : undefined}
               >
                 {header}
               </TableHead>
@@ -102,13 +103,13 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  <div className="type-body-sm">{row.credential}</div>
+                  <div className="type-body">{row.credential}</div>
                   <div className="type-caption text-muted">RERA · Mandatory</div>
                 </TableCell>
 
                 <TableCell>
                   <div
-                    className={`type-body-sm ${
+                    className={`type-body font-medium ${
                       urgency === 'enrolled'
                         ? 'text-primary-default'
                         : urgency === 'critical'
@@ -165,7 +166,6 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                       <Button
                         variant="outline"
                         withIcon="before"
-                        className=""
                         onClick={() => onRemind(row)}
                       >
                         <Bell />
