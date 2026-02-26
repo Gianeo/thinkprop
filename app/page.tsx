@@ -83,16 +83,16 @@ export default function Page() {
                   <div className={`absolute inset-0 bg-white/50 backdrop-blur-md ${cornerClass}`} />
                   <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
-                      <span className="type-title text-white">{persona.index}</span>
+                      <span className="type-title text-muted">{persona.index}</span>
                     </div>
 
-                    <div className='flex gap-16 justify-between items-start'>
+                    <div className='flex gap-16 justify-between items-start h-full'>
                       <div>
                         <h1 className="type-title-upper text-muted mb-3">Persona</h1>
                         <h2 className="type-title font-bold text-loud">{persona.name}</h2>
                         <p className="mt-0.5 type-body text-default">{persona.subtitle}</p>
                       </div>
-                      <div className="overflow-hidden mt-2">
+                      <div className="overflow-hidden">
                         <Image
                           src={persona.image}
                           alt={persona.name}
