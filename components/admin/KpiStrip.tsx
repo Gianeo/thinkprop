@@ -16,11 +16,8 @@ export default function KpiStrip() {
   return (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
 
-      <Card>
-        <CardContent className="p-6 pt-2 pb-4 space-y-3">
-          <div>
-            <span className="type-title-upper">Org Compliance Score</span>
-          </div>
+      <Card overTitle="Org Compliance Score">
+        <CardContent className="p-6 pt-4 pb-4 space-y-3">
           <div className="flex items-center gap-4">
             <div className="relative size-18">
               <svg className="size-18" viewBox="0 0 80 80">
@@ -64,11 +61,8 @@ export default function KpiStrip() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardContent className="p-6 pt-2 pb-4 space-y-3">
-          <div>
-            <span className="type-title-upper">At Risk</span>
-          </div>
+      <Card overTitle="At Risk">
+        <CardContent className="p-6 pt-4 pb-4 space-y-3">
           <div className='space-y-2'>
             <div className="flex items-end gap-3">
               <p className="type-display leading-none text-destructive-default">{orgStats.atRisk}</p>
@@ -81,11 +75,8 @@ export default function KpiStrip() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardContent className="p-6 pt-2 pb-4 space-y-3">
-          <div>
-            <span className="type-title-upper">Expiring This Week</span>
-          </div>
+      <Card overTitle="Expiring This Week">
+        <CardContent className="p-6 pt-4 pb-4 space-y-3">
           <div className='space-y-2'>
             <div className="flex items-end gap-3">
               <p className="type-display leading-none text-destructive-default">{orgStats.expiringThisWeek}</p>
@@ -102,11 +93,8 @@ export default function KpiStrip() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardContent className="p-6 pt-2 pb-4 space-y-3">
-          <div>
-            <span className="type-title-upper">Fully Compliant</span>
-          </div>
+      <Card overTitle="Fully Compliant">
+        <CardContent className="p-6 pt-4 pb-4 space-y-3">
           <div className='space-y-2'>
             <div className="flex items-end gap-2">
               <p className="type-display leading-none text-success-default">{orgStats.fullyCompliant}</p>
