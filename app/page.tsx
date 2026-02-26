@@ -9,9 +9,9 @@ const personas = [
     name: 'Tariq Hamdan',
     subtitle: 'Training Manager · Admin Journey',
     description: 'Manage team compliance, send reminders, and monitor risk in real time.',
-    cta: 'Enter Admin View',
+    cta: 'Enter Admin',
     href: '/admin/compliance',
-    ctaClass: 'text-warning-loud',
+    ctaClass: 'text-primary-default',
     image: '/images/Tariq.png',
     index: '01',
   },
@@ -19,9 +19,9 @@ const personas = [
     name: 'Reem Al Mansoori',
     subtitle: 'Real Estate Agent · Learner Journey',
     description: 'Follow Reem through a compliance alert and the full enrollment flow.',
-    cta: 'Enter Learner View',
+    cta: 'Enter Learner',
     href: '/learner/dashboard',
-    ctaClass: 'text-warning-loud',
+    ctaClass: 'text-primary-default',
     image: '/images/Reem.png',
     index: '02',
   },
@@ -70,15 +70,17 @@ export default function Page() {
         </section>
 
         <section className="grid min-h-[60vh] grid-rows-2 gap-px lg:min-h-screen p-8">
-          {personas.map((persona) => {
+          {personas.map((persona, index) => {
+            const cornerClass = index === 0 ? 'rounded-t-xl' : 'rounded-b-xl'
+
             return (
               <div
                 key={persona.name}
                 onClick={() => router.push(persona.href)}
                 className="group relative cursor-pointer transition-all duration-200 hover:shadow-lg"
               >
-                <div className="relative h-full overflow-hidden bg-transparent text-card-foreground shadow">
-                  <div className="absolute inset-0 bg-white/50 backdrop-blur-md rounded-xl" />
+                <div className={`relative h-full overflow-hidden bg-transparent text-card-foreground shadow ${cornerClass}`}>
+                  <div className={`absolute inset-0 bg-white/50 backdrop-blur-md ${cornerClass}`} />
                   <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
                       <span className="type-title text-white">{persona.index}</span>
@@ -86,7 +88,8 @@ export default function Page() {
 
                     <div className='flex gap-16 justify-between items-start'>
                       <div>
-                        <h2 className="font-display type-title font-bold text-loud">{persona.name}</h2>
+                        <h1 className="type-title-upper text-muted mb-3">Persona</h1>
+                        <h2 className="type-title font-bold text-loud">{persona.name}</h2>
                         <p className="mt-0.5 type-body text-default">{persona.subtitle}</p>
                       </div>
                       <div className="overflow-hidden mt-2">
