@@ -45,7 +45,7 @@ export default function Page() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-warning-stronger">LMS</span>
           </div>
         </div>
-        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-neutral-base">Prototype Navigator</p>
+        <p className="mt-2 font-mono text-sm uppercase tracking-widest text-muted">Prototype Navigator</p>
       </div>
 
       <div className="grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
@@ -64,9 +64,9 @@ export default function Page() {
                     <Icon size={22} className={persona.iconClass} />
                   </div>
 
-                  <h2 className="font-display text-lg font-bold text-neutral-strongest">{persona.name}</h2>
-                  <p className="mt-0.5 text-sm text-neutral-strong">{persona.subtitle}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-strong">{persona.description}</p>
+                  <h2 className="font-display text-lg font-bold text-loud">{persona.name}</h2>
+                  <p className="mt-0.5 text-sm text-calm">{persona.subtitle}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-calm">{persona.description}</p>
 
                   <Button
                     variant="ghost"

@@ -38,7 +38,7 @@ export default function ReminderModal({
       }}
     >
       <DialogContent
-        className="gap-0 overflow-hidden rounded-3xl border-neutral-weaker p-0 shadow-lg sm:max-w-md [&>button]:right-5 [&>button]:top-5 [&>button]:text-neutral-base [&>button]:hover:text-neutral-strongest"
+        className="gap-0 overflow-hidden rounded-3xl border-neutral-weaker p-0 shadow-lg sm:max-w-md [&>button]:right-5 [&>button]:top-5 [&>button]:text-muted [&>button]:hover:text-loud"
         onInteractOutside={onCancel}
       >
         <DialogHeader className="p-6 pb-0">
@@ -48,10 +48,10 @@ export default function ReminderModal({
                 <Bell size={18} className="text-brand-amber" />
               </div>
 
-              <DialogTitle className="mt-3 text-[17px] font-bold leading-snug text-neutral-strongest font-display">
+              <DialogTitle className="mt-3 text-[17px] font-bold leading-snug text-loud font-display">
                 Send Compliance Reminder
               </DialogTitle>
-              <DialogDescription className="mt-1 text-sm text-neutral-strong">
+              <DialogDescription className="mt-1 text-sm text-calm">
                 Sent via email and in-app notification.
               </DialogDescription>
             </div>
@@ -62,7 +62,7 @@ export default function ReminderModal({
 
         <div className="space-y-5 px-6 py-5">
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-neutral-base">To</div>
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">To</div>
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2">
                 <AvatarFallback variant="destructive" className="text-sm">
@@ -70,17 +70,17 @@ export default function ReminderModal({
                 </AvatarFallback>
               </Avatar>
               <div>
-                <div className="text-sm font-semibold text-neutral-strongest">{person.name}</div>
-                <div className="text-xs text-neutral-strong">Real Estate Agent · {person.department}</div>
+                <div className="text-sm font-semibold text-loud">{person.name}</div>
+                <div className="text-xs text-calm">Real Estate Agent · {person.department}</div>
               </div>
             </div>
           </div>
 
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-neutral-base">Regarding</div>
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
             <div className="flex items-center gap-3 rounded-xl border border-neutral-weaker bg-level-0 p-3">
               <AlertTriangle size={15} className="shrink-0 text-state-critical" />
-              <span className="flex-1 text-sm font-medium text-neutral-strongest">{person.credential}</span>
+              <span className="flex-1 text-sm font-medium text-loud">{person.credential}</span>
               <span className="ml-auto rounded-full bg-state-critical-bg px-2.5 py-1 font-mono text-xs font-bold text-state-critical">
                 {person.daysLeft}d
               </span>
@@ -88,17 +88,17 @@ export default function ReminderModal({
           </div>
 
           <div>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-neutral-base">
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">
               Message Preview
             </div>
-            <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body text-sm leading-relaxed text-neutral-strong">
+            <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body text-sm leading-relaxed text-calm">
               Hi {person.name.split(' ')[0]}, this is a reminder that your{' '}
-              <span className="font-semibold text-neutral-strongest">{person.credential}</span> expires in{' '}
+              <span className="font-semibold text-loud">{person.credential}</span> expires in{' '}
               <span className="font-mono font-semibold text-state-critical">{person.daysLeft} days</span>. Please log in to
               ThinkProp and enroll in a qualifying course to maintain your license status.
               <br />
               <br />
-              <span className="text-neutral-base">— ThinkProp Compliance System</span>
+              <span className="text-muted">— ThinkProp Compliance System</span>
             </div>
           </div>
         </div>
@@ -107,14 +107,14 @@ export default function ReminderModal({
 
         <div className="px-6 py-4">
           <div className="mb-4 flex items-center gap-1.5">
-            <Info size={12} className="shrink-0 text-neutral-base" />
-            <span className="text-xs text-neutral-base">This action will be logged to the compliance audit trail.</span>
+            <Info size={12} className="shrink-0 text-muted" />
+            <span className="text-xs text-muted">This action will be logged to the compliance audit trail.</span>
           </div>
 
           <div className="flex items-center justify-end gap-3">
             <Button
               variant="outline"
-              className="rounded-xl border-neutral-weaker font-semibold text-neutral-strong hover:border-neutral-weak hover:text-neutral-strongest"
+              className="rounded-xl border-neutral-weaker font-semibold text-calm hover:border-neutral-weak hover:text-loud"
               onClick={onCancel}
             >
               Cancel

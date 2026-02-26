@@ -35,7 +35,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="text-neutral-weakest hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-neutral-weakest"
+          className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted"
           onClick={() => setIsMobileOpen(true)}
         >
           <Menu size={18} />
@@ -59,7 +59,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-neutral-weakest hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-neutral-weakest md:hidden"
+                className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted md:hidden"
                 onClick={() => setIsMobileOpen(false)}
               >
                 <X size={16} />
@@ -77,7 +77,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               <span className="font-display text-xs font-semibold text-brand-amber">TH</span>
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-neutral-weakest">Tariq Hamdan</p>
+              <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
               <p className="truncate text-xs text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
             </div>
             <LogOut className="h-3.5 w-3.5 cursor-pointer text-[hsl(var(--neutral-weakest)/0.25)] transition-colors hover:text-[hsl(var(--neutral-weakest)/0.6)]" />
@@ -93,7 +93,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-neutral-weakest hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-neutral-weakest"
+                className="text-muted hover:bg-[hsl(var(--neutral-weakest)/0.1)] hover:text-muted"
                 onClick={() => setIsMobileOpen(false)}
               >
                 <X size={16} />
@@ -110,7 +110,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
                 <span className="font-display text-xs font-semibold text-brand-amber">TH</span>
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-neutral-weakest">Tariq Hamdan</p>
+                <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
                 <p className="truncate text-xs text-[hsl(var(--neutral-weakest)/0.4)]">Admin</p>
               </div>
               <LogOut className="h-3.5 w-3.5 cursor-pointer text-[hsl(var(--neutral-weakest)/0.25)] transition-colors hover:text-[hsl(var(--neutral-weakest)/0.6)]" />
@@ -129,7 +129,7 @@ function Logo() {
         <span className="font-display text-sm font-bold text-warning-strongest">T</span>
       </div>
       <div className="flex items-baseline gap-1">
-        <span className="font-display text-[15px] font-semibold text-neutral-weakest">ThinkProp</span>
+        <span className="font-display text-[15px] font-semibold text-muted">ThinkProp</span>
         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-amber">LMS</span>
       </div>
     </div>
@@ -167,7 +167,7 @@ function NavSection({
             }}
             className={`relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150 ${
               isActive
-                ? 'bg-[hsl(var(--neutral-weakest)/0.15)] text-neutral-weakest'
+                ? 'bg-[hsl(var(--neutral-weakest)/0.15)] text-muted'
                 : 'text-[hsl(var(--neutral-weakest)/0.45)] hover:bg-[hsl(var(--neutral-weakest)/0.08)] hover:text-[hsl(var(--neutral-weakest)/0.8)]'
             }`}
           >

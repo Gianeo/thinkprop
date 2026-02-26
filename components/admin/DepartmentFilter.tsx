@@ -22,7 +22,7 @@ export default function DepartmentFilter({ selected, onChange }: DepartmentFilte
             className={
               isSelected
                 ? 'h-8 rounded-full bg-primary-weaker border border-primary-weak px-4 text-xs font-semibold text-primary-strong hover:bg-primary-stronger'
-                : 'h-8 rounded-full border-neutral-weak bg-level-1 px-4 text-xs font-medium text-neutral-strong hover:border-neutral-weak hover:text-neutral-strongest'
+                : 'h-8 rounded-full border-neutral-weak bg-level-1 px-4 text-xs font-medium text-calm hover:border-neutral-weak hover:text-loud'
             }
             onClick={() => onChange(department)}
           >

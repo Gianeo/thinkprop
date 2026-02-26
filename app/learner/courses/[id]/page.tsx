@@ -19,7 +19,7 @@ export default function CourseDetailPage() {
   if (!course) {
     return (
       <div className="min-h-screen bg-level-0 p-8">
-        <p className="text-sm text-wire-label">Course not found.</p>
+        <p className="text-sm text-muted">Course not found.</p>
       </div>
     )
   }
@@ -44,7 +44,7 @@ export default function CourseDetailPage() {
 
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
         <div className="space-y-6 p-8">
-          <nav className="flex items-center gap-1 text-sm text-wire-label">
+          <nav className="flex items-center gap-1 text-sm text-muted">
             <span>Dashboard</span>
             <ChevronRight className="h-4 w-4" />
             <span>Compliance</span>
@@ -56,16 +56,16 @@ export default function CourseDetailPage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
             <section className="md:col-span-3 rounded-xl border border-wire-border bg-level-1 p-6">
-              <h1 className="font-heading text-2xl font-bold text-wire-text">{course.title}</h1>
-              <p className="mt-2 text-sm text-wire-label">
+              <h1 className="font-heading text-2xl font-bold text-default">{course.title}</h1>
+              <p className="mt-2 text-sm text-muted">
                 {course.provider} · Instructor: {course.instructor}
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2 text-sm">
                 <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-warning-strongest">{course.credits} CPD Credits</span>
-                <span className="rounded-full border border-wire-border px-2.5 py-1 text-wire-text">AED {course.price}</span>
+                <span className="rounded-full border border-wire-border px-2.5 py-1 text-default">AED {course.price}</span>
                 {course.format.map((entry) => (
-                  <span key={entry} className="rounded-full border border-wire-border px-2.5 py-1 text-wire-label">
+                  <span key={entry} className="rounded-full border border-wire-border px-2.5 py-1 text-muted">
                     {entry}
                   </span>
                 ))}
@@ -73,13 +73,13 @@ export default function CourseDetailPage() {
 
               <div className="my-5 border-t border-wire-border" />
 
-              <h2 className="font-heading text-lg font-semibold text-wire-text">About this course</h2>
-              <p className="mt-2 text-sm text-wire-text">{course.description}</p>
+              <h2 className="font-heading text-lg font-semibold text-default">About this course</h2>
+              <p className="mt-2 text-sm text-default">{course.description}</p>
 
-              <h3 className="mt-5 font-heading text-lg font-semibold text-wire-text">What you&apos;ll learn</h3>
+              <h3 className="mt-5 font-heading text-lg font-semibold text-default">What you&apos;ll learn</h3>
               <ul className="mt-2 space-y-2">
                 {course.learningOutcomes.map((outcome) => (
-                  <li key={outcome} className="flex items-start gap-2 text-sm text-wire-text">
+                  <li key={outcome} className="flex items-start gap-2 text-sm text-default">
                     <Check className="mt-0.5 h-4 w-4 text-state-compliant" />
                     {outcome}
                   </li>
@@ -88,12 +88,12 @@ export default function CourseDetailPage() {
             </section>
 
             <aside className="md:col-span-2 md:sticky md:top-8 md:self-start rounded-xl border border-wire-border bg-level-1 p-6">
-              <h2 className="mb-4 font-heading text-lg font-semibold text-wire-text">Select a Session</h2>
+              <h2 className="mb-4 font-heading text-lg font-semibold text-default">Select a Session</h2>
               <SessionPicker sessions={course.sessions} selectedId={selectedSession} onSelect={setSelectedSession} />
 
               <div className="mt-4">
                 {loading ? (
-                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-1 py-3 text-sm font-semibold text-wire-label">
+                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-1 py-3 text-sm font-semibold text-muted">
                     <LoaderCircle className="h-4 w-4 animate-spin" />
                     Processing...
                   </div>
@@ -104,7 +104,7 @@ export default function CourseDetailPage() {
                     className={`w-full rounded-xl py-3 font-semibold ${
                       selectedSession
                         ? 'bg-primary text-primary-foreground hover:bg-primary-stronger'
-                        : 'cursor-not-allowed bg-wire-border text-wire-muted'
+                        : 'cursor-not-allowed bg-wire-border text-muted'
                     }`}
                   >
                     Enroll Now — AED {course.price}

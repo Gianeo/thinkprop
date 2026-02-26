@@ -28,68 +28,74 @@ const palettes = [
     title: 'Neutral',
     token: 'neutral',
     swatches: [
-      { name: 'weakest', className: 'bg-neutral-weakest text-neutral-strongest' },
-      { name: 'weaker', className: 'bg-neutral-weaker text-neutral-strongest' },
-      { name: 'weak', className: 'bg-neutral-weak text-neutral-strongest' },
-      { name: 'base', className: 'bg-neutral-base text-neutral-strongest' },
-      { name: 'strong', className: 'bg-neutral-strong text-neutral-weakest' },
-      { name: 'stronger', className: 'bg-neutral-stronger text-neutral-weakest' },
-      { name: 'strongest', className: 'bg-neutral-strongest text-neutral-weakest' },
+      { name: 'weakest', className: 'bg-neutral-weakest' },
+      { name: 'weaker', className: 'bg-neutral-weaker' },
+      { name: 'weak', className: 'bg-neutral-weak' },
+      { name: 'base', className: 'bg-neutral-base' },
+      { name: 'strong', className: 'bg-neutral-strong' },
+      { name: 'stronger', className: 'bg-neutral-stronger' },
+      { name: 'strongest', className: 'bg-neutral-strongest' },
     ],
   },
   {
     title: 'Primary',
     token: 'primary',
     swatches: [
-      { name: 'weakest', className: 'bg-primary-weakest text-primary-strongest' },
-      { name: 'weaker', className: 'bg-primary-weaker text-primary-strongest' },
-      { name: 'weak', className: 'bg-primary-weak text-primary-strongest' },
-      { name: 'base', className: 'bg-primary-base text-primary-strongest' },
-      { name: 'strong', className: 'bg-primary-strong text-neutral-weakest' },
-      { name: 'stronger', className: 'bg-primary-stronger text-neutral-weakest' },
-      { name: 'strongest', className: 'bg-primary-strongest text-neutral-weakest' },
+      { name: 'weakest', className: 'bg-primary-weakest' },
+      { name: 'weaker', className: 'bg-primary-weaker' },
+      { name: 'weak', className: 'bg-primary-weak' },
+      { name: 'base', className: 'bg-primary-base' },
+      { name: 'strong', className: 'bg-primary-strong' },
+      { name: 'stronger', className: 'bg-primary-stronger' },
+      { name: 'strongest', className: 'bg-primary-strongest' },
     ],
   },
   {
     title: 'Destructive',
     token: 'destructive',
     swatches: [
-      { name: 'weakest', className: 'bg-destructive-weakest text-destructive-strongest' },
-      { name: 'weaker', className: 'bg-destructive-weaker text-destructive-strongest' },
-      { name: 'weak', className: 'bg-destructive-weak text-destructive-strongest' },
-      { name: 'base', className: 'bg-destructive-base text-neutral-weakest' },
-      { name: 'strong', className: 'bg-destructive-strong text-neutral-weakest' },
-      { name: 'stronger', className: 'bg-destructive-stronger text-neutral-weakest' },
-      { name: 'strongest', className: 'bg-destructive-strongest text-neutral-weakest' },
+      { name: 'weakest', className: 'bg-destructive-weakest' },
+      { name: 'weaker', className: 'bg-destructive-weaker' },
+      { name: 'weak', className: 'bg-destructive-weak' },
+      { name: 'base', className: 'bg-destructive-base' },
+      { name: 'strong', className: 'bg-destructive-strong' },
+      { name: 'stronger', className: 'bg-destructive-stronger' },
+      { name: 'strongest', className: 'bg-destructive-strongest' },
     ],
   },
   {
     title: 'Warning',
     token: 'warning',
     swatches: [
-      { name: 'weakest', className: 'bg-warning-weakest text-warning-strongest' },
-      { name: 'weaker', className: 'bg-warning-weaker text-warning-strongest' },
-      { name: 'weak', className: 'bg-warning-weak text-warning-strongest' },
-      { name: 'base', className: 'bg-warning-base text-warning-strongest' },
-      { name: 'strong', className: 'bg-warning-strong text-warning-strongest' },
-      { name: 'stronger', className: 'bg-warning-stronger text-neutral-weakest' },
-      { name: 'strongest', className: 'bg-warning-strongest text-neutral-weakest' },
+      { name: 'weakest', className: 'bg-warning-weakest' },
+      { name: 'weaker', className: 'bg-warning-weaker' },
+      { name: 'weak', className: 'bg-warning-weak' },
+      { name: 'base', className: 'bg-warning-base' },
+      { name: 'strong', className: 'bg-warning-strong' },
+      { name: 'stronger', className: 'bg-warning-stronger' },
+      { name: 'strongest', className: 'bg-warning-strongest' },
     ],
   },
   {
     title: 'Success',
     token: 'success',
     swatches: [
-      { name: 'weakest', className: 'bg-success-weakest text-success-strongest' },
-      { name: 'weaker', className: 'bg-success-weaker text-success-strongest' },
-      { name: 'weak', className: 'bg-success-weak text-success-strongest' },
-      { name: 'base', className: 'bg-success-base text-neutral-weakest' },
-      { name: 'strong', className: 'bg-success-strong text-success-strongest' },
-      { name: 'stronger', className: 'bg-success-stronger text-neutral-weakest' },
-      { name: 'strongest', className: 'bg-success-strongest text-neutral-weakest' },
+      { name: 'weakest', className: 'bg-success-weakest' },
+      { name: 'weaker', className: 'bg-success-weaker' },
+      { name: 'weak', className: 'bg-success-weak' },
+      { name: 'base', className: 'bg-success-base' },
+      { name: 'strong', className: 'bg-success-strong' },
+      { name: 'stronger', className: 'bg-success-stronger' },
+      { name: 'strongest', className: 'bg-success-strongest' },
     ],
   },
 ] as const
+
+function getSwatchTextTone(swatchName: string) {
+  if (swatchName === 'weakest' || swatchName === 'weaker') return 'text-default'
+  if (swatchName === 'weak' || swatchName === 'base') return 'text-strong'
+  return 'text-contrast'
+}
 
 export default function DesignSystemPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
@@ -150,19 +156,22 @@ export default function DesignSystemPage() {
 
           <Card>
             <CardHeader className="pb-4">
-              <CardTitle className="text-base text-neutral-strongest">Semantic Color Palettes</CardTitle>
+              <CardTitle className="text-base text-loud">Semantic Color Palettes</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:grid-cols-5">
                 {palettes.map((palette) => (
                   <div key={palette.title} className="space-y-2">
                     <div>
-                      <h3 className="text-sm font-semibold text-neutral-strongest">{palette.title}</h3>
+                      <h3 className="text-sm font-semibold text-loud">{palette.title}</h3>
                       {/* <p className="type-caption">`{palette.token}` semantic ramp</p> */}
                     </div>
                     <div className="overflow-hidden">
                       {palette.swatches.map((swatch) => (
-                        <div key={`${palette.title}-${swatch.name}`} className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className}`}>
+                        <div
+                          key={`${palette.title}-${swatch.name}`}
+                          className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className} ${getSwatchTextTone(swatch.name)}`}
+                        >
                           <span>{swatch.name}</span>
                         </div>
                       ))}

@@ -38,7 +38,7 @@ const avatarFallbackVariants = cva(
   {
     variants: {
       variant: {
-        default: "border border-neutral-weaker bg-level-0 text-neutral-strong",
+        default: "border border-neutral-weaker bg-level-0 text-calm",
         primary: "border border-primary-weaker bg-primary-weakest text-primary-strong",
         destructive:
           "border border-destructive-weaker bg-destructive-weakest text-destructive-strong",

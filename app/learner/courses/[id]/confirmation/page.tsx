@@ -40,7 +40,7 @@ export default function ConfirmationPage() {
   if (!course || !selectedSession) {
     return (
       <div className="min-h-screen bg-level-0 p-8">
-        <p className="text-sm text-wire-label">Enrollment summary unavailable.</p>
+        <p className="text-sm text-muted">Enrollment summary unavailable.</p>
       </div>
     )
   }
@@ -63,43 +63,43 @@ export default function ConfirmationPage() {
         <div className="mx-auto max-w-2xl space-y-6 p-8">
           <section className="text-center">
             <CheckCircle className="mx-auto h-16 w-16 text-state-compliant" />
-            <h1 className="mt-4 font-heading text-3xl font-bold text-wire-text">You&apos;re enrolled!</h1>
-            <p className="mt-2 text-sm text-wire-label">We&apos;ll send your joining instructions to your email.</p>
+            <h1 className="mt-4 font-heading text-3xl font-bold text-default">You&apos;re enrolled!</h1>
+            <p className="mt-2 text-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
           </section>
 
           <section className="rounded-xl border border-wire-border bg-level-1 p-6">
             <div className="space-y-2 text-sm">
               <p>
-                <span className="text-wire-label">Course:</span> <span className="text-wire-text">{course.title}</span>
+                <span className="text-muted">Course:</span> <span className="text-default">{course.title}</span>
               </p>
               <p>
-                <span className="text-wire-label">Session:</span>{' '}
-                <span className="text-wire-text">
+                <span className="text-muted">Session:</span>{' '}
+                <span className="text-default">
                   {selectedSession.date} at {selectedSession.time}
                 </span>
               </p>
               <p>
-                <span className="text-wire-label">Format:</span>{' '}
-                <span className="text-wire-text">
+                <span className="text-muted">Format:</span>{' '}
+                <span className="text-default">
                   {selectedSession.format} · {selectedSession.location}
                 </span>
               </p>
               <p>
-                <span className="text-wire-label">Price:</span> <span className="text-wire-text">AED {course.price}</span>
+                <span className="text-muted">Price:</span> <span className="text-default">AED {course.price}</span>
               </p>
             </div>
           </section>
 
           <Button
             variant="outline"
-            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 text-sm font-semibold text-wire-text"
+            className="inline-flex items-center gap-2 rounded-lg border border-wire-border bg-level-1 px-4 py-2.5 text-sm font-semibold text-default"
           >
             <CalendarPlus className="h-4 w-4" />
             Add to Calendar
           </Button>
 
           <section>
-            <h2 className="mb-3 font-heading text-lg font-semibold text-wire-text">Your compliance status has been updated</h2>
+            <h2 className="mb-3 font-heading text-lg font-semibold text-default">Your compliance status has been updated</h2>
             {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
           </section>
 

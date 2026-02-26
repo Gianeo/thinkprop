@@ -8,7 +8,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-neutral-weak bg-level-1 text-neutral-base hover:bg-neutral-weakest",
+        default: "border-neutral-weak bg-level-1 text-muted hover:bg-neutral-weakest",
         primary: "border-primary-weak bg-primary-weakest text-primary-base hover:bg-primary-weaker",
         destructive:
           "border-destructive-weak bg-destructive-weakest text-destructive-base hover:bg-destructive-weaker",

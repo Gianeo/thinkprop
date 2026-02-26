@@ -23,11 +23,11 @@ export default function AdminComplianceTeamPage() {
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
         <div className="hidden h-16 flex-shrink-0 items-center border-b border-neutral-weaker bg-level-1 px-8 md:flex">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-neutral-base">{adminProfile.company}</span>
-            <ChevronRight size={14} className="text-neutral-base" />
-            <span className="text-neutral-base">Compliance</span>
-            <ChevronRight size={14} className="text-neutral-base" />
-            <span className="font-medium text-neutral-strongest">Team</span>
+            <span className="text-muted">{adminProfile.company}</span>
+            <ChevronRight size={14} className="text-muted" />
+            <span className="text-muted">Compliance</span>
+            <ChevronRight size={14} className="text-muted" />
+            <span className="font-medium text-loud">Team</span>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ export default function AdminComplianceTeamPage() {
 
             <div>
               <h1 className="type-title">Team Compliance</h1>
-              <p className="mt-1 text-sm text-neutral-strong">
+              <p className="mt-1 text-sm text-calm">
                 Full status for all 40 team members · {adminProfile.company}
               </p>
             </div>
@@ -52,15 +52,15 @@ export default function AdminComplianceTeamPage() {
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <CheckCircle size={14} className="text-score-high" />
-                <span className="font-medium text-neutral-strong">31 Compliant</span>
+                <span className="font-medium text-calm">31 Compliant</span>
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <AlertTriangle size={14} className="text-score-low" />
-                <span className="font-medium text-neutral-strong">7 At Risk</span>
+                <span className="font-medium text-calm">7 At Risk</span>
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
                 <Clock size={14} className="text-score-mid" />
-                <span className="font-medium text-neutral-strong">3 Expiring This Week</span>
+                <span className="font-medium text-calm">3 Expiring This Week</span>
               </div>
             </div>
 

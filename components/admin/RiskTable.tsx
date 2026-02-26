@@ -58,7 +58,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead
                 key={header}
-                className="h-10 text-[11px] font-semibold uppercase tracking-wider text-neutral-base"
+                className="h-10 text-[11px] font-semibold uppercase tracking-wider text-muted"
               >
                 {header}
               </TableHead>
@@ -92,7 +92,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                         {row.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="type-body text-neutral-stronger">{row.name}</span>
+                    <span className="type-body text-default">{row.name}</span>
                   </div>
                 </TableCell>
 
@@ -103,8 +103,8 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  <div className="type-body-sm text-neutral-strong">{row.credential}</div>
-                  <div className="mt-0.5 type-caption text-neutral-base">RERA · Mandatory</div>
+                  <div className="type-body-sm text-calm">{row.credential}</div>
+                  <div className="mt-0.5 type-caption text-muted">RERA · Mandatory</div>
                 </TableCell>
 
                 <TableCell>
@@ -119,7 +119,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   >
                     {row.status === 'Enrolled' ? 'Enrolled' : `${row.daysLeft}`}
                     {row.status !== 'Enrolled' && (
-                      <span className="ml-1 text-xs font-normal text-neutral-base">days</span>
+                      <span className="ml-1 text-xs font-normal text-muted">days</span>
                     )}
                   </div>
                   {row.status !== 'Enrolled' && (

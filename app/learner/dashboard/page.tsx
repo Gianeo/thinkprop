@@ -78,8 +78,8 @@ export default function LearnerDashboardPage() {
         <div className="space-y-8 p-8">
           <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="font-heading text-2xl font-bold text-wire-text">Good morning, {learnerProfile.firstName}</h1>
-              <p className="mt-1 text-sm text-wire-label">
+              <h1 className="font-heading text-2xl font-bold text-default">Good morning, {learnerProfile.firstName}</h1>
+              <p className="mt-1 text-sm text-muted">
                 {new Intl.DateTimeFormat('en-AE', {
                   weekday: 'long',
                   day: 'numeric',
@@ -89,10 +89,10 @@ export default function LearnerDashboardPage() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="icon" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-wire-label">
+              <Button variant="outline" size="icon" className="rounded-lg border border-wire-border bg-level-1 p-2.5 text-muted">
                 <Bell className="h-5 w-5" />
               </Button>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-neutral-weakest">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-muted">
                 {learnerProfile.initials}
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function LearnerDashboardPage() {
             <section className="flex flex-col gap-3 rounded-xl border border-state-critical bg-state-critical-bg p-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-2">
                 <AlertTriangle className="mt-0.5 h-5 w-5 text-state-critical" />
-                <p className="text-sm text-wire-text">
+                <p className="text-sm text-default">
                   <span className="font-semibold">Action Required:</span> 1 certification expires in 18 days. Your RERA broker
                   license may be at risk.
                 </p>
@@ -118,7 +118,7 @@ export default function LearnerDashboardPage() {
           )}
 
           <section>
-            <h2 className="mb-4 font-heading text-lg font-semibold text-wire-text">Your Compliance</h2>
+            <h2 className="mb-4 font-heading text-lg font-semibold text-default">Your Compliance</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {datedItems.map((item) => (
                 <ComplianceCard
@@ -135,7 +135,7 @@ export default function LearnerDashboardPage() {
           </section>
 
           <section className="hidden md:block">
-            <h2 className="mb-4 font-heading text-lg font-semibold text-wire-text">Your Learning Pathway</h2>
+            <h2 className="mb-4 font-heading text-lg font-semibold text-default">Your Learning Pathway</h2>
             <div className="rounded-xl border border-wire-border bg-level-1 p-6">
               <div className="grid grid-cols-4 gap-4">
                 {[
@@ -149,16 +149,16 @@ export default function LearnerDashboardPage() {
                     <div
                       className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border text-sm font-semibold ${
                         item.state === 'done'
-                          ? 'border-brand-navy bg-brand-navy text-neutral-weakest'
+                          ? 'border-brand-navy bg-brand-navy text-muted'
                           : item.state === 'progress'
                             ? 'border-brand-amber bg-brand-amber text-warning-strongest'
-                            : 'border-wire-border bg-level-1 text-wire-label'
+                            : 'border-wire-border bg-level-1 text-muted'
                       }`}
                     >
                       {item.state === 'done' ? '✓' : item.step}
                     </div>
-                    <p className="mt-3 text-sm font-semibold text-wire-text">{item.label}</p>
-                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-stronger' : 'text-wire-label'}`}>{item.helper}</p>
+                    <p className="mt-3 text-sm font-semibold text-default">{item.label}</p>
+                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-stronger' : 'text-muted'}`}>{item.helper}</p>
                   </div>
                 ))}
               </div>

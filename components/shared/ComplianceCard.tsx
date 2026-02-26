@@ -33,10 +33,10 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
     <article className={`rounded-xl border border-wire-border border-l-4 bg-level-1 p-5 ${borderStateMap[item.state]}`}>
       <div className="mb-3 flex items-center justify-between gap-3">
         <UrgencyBadge state={item.state} />
-        <span className="font-mono text-xs text-wire-muted">{item.expiryDate}</span>
+        <span className="font-mono text-xs text-muted">{item.expiryDate}</span>
       </div>
 
-      <h3 className="mb-3 font-heading text-lg font-semibold text-wire-text">{item.title}</h3>
+      <h3 className="mb-3 font-heading text-lg font-semibold text-default">{item.title}</h3>
 
       {(item.state === 'CRITICAL' || item.state === 'AT_RISK') && (
         <div className="mb-4 space-y-2">
@@ -45,7 +45,7 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
               {item.daysRemaining} days remaining
             </p>
           )}
-          <p className="text-sm italic text-wire-label">{item.consequence}</p>
+          <p className="text-sm italic text-muted">{item.consequence}</p>
         </div>
       )}
 
@@ -57,7 +57,7 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
 
       {item.creditsRequired && item.creditsEarned !== undefined && (
         <div className="mb-4 space-y-2">
-          <p className="text-sm text-wire-label">
+          <p className="text-sm text-muted">
             {item.creditsEarned} / {item.creditsRequired} credits earned
           </p>
           <div className="h-2 rounded-full bg-wire-border">

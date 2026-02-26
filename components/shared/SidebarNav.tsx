@@ -43,12 +43,12 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
   const sidebarWidthClass = isLearner ? 'w-60' : 'w-56'
 
   const rootClasses = isLearner
-    ? `${sidebarWidthClass} bg-level-1 border-r border-wire-border text-wire-text`
-    : `${sidebarWidthClass} bg-brand-navy text-neutral-weakest`
+    ? `${sidebarWidthClass} bg-level-1 border-r border-wire-border text-default`
+    : `${sidebarWidthClass} bg-brand-navy text-muted`
 
   const topBarClasses = isLearner
-    ? 'bg-level-1 border-b border-wire-border text-wire-text'
-    : 'bg-brand-navy text-neutral-weakest'
+    ? 'bg-level-1 border-b border-wire-border text-default'
+    : 'bg-brand-navy text-muted'
 
   return (
     <>
@@ -114,7 +114,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
   return (
     <>
       <div className="hidden border-b border-wire-border px-5 py-5 md:block">
-        <p className={`font-heading text-lg font-bold ${isLearner ? 'text-brand-navy' : 'text-neutral-weakest'}`}>
+        <p className={`font-heading text-lg font-bold ${isLearner ? 'text-brand-navy' : 'text-muted'}`}>
           ThinkProp{' '}
           <span className={`text-xs align-middle ${isLearner ? 'text-warning-stronger' : 'text-brand-amber'}`}>LMS</span>
         </p>
@@ -137,11 +137,11 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
 
           const activeClasses = isLearner
             ? 'border-brand-amber bg-level-0 text-brand-navy font-semibold'
-            : 'border-brand-amber bg-[hsl(var(--neutral-weakest)/0.1)] text-neutral-weakest font-semibold'
+            : 'border-brand-amber bg-[hsl(var(--neutral-weakest)/0.1)] text-muted font-semibold'
 
           const inactiveClasses = isLearner
-            ? 'border-transparent text-wire-label hover:text-wire-text'
-            : 'border-transparent text-[hsl(var(--neutral-weakest)/0.7)] hover:text-neutral-weakest'
+            ? 'border-transparent text-muted hover:text-default'
+            : 'border-transparent text-[hsl(var(--neutral-weakest)/0.7)] hover:text-muted'
 
           return (
             <Link
@@ -160,15 +160,15 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
       <div className={`m-4 mt-auto rounded-xl border p-3 ${isLearner ? 'border-wire-border bg-level-0' : 'border-[hsl(var(--neutral-weakest)/0.2)] bg-[hsl(var(--neutral-weakest)/0.1)]'}`}>
         <div className="flex items-center gap-3">
           <div
-            className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${isLearner ? 'bg-brand-navy text-neutral-weakest' : 'bg-neutral-weakest text-brand-navy'}`}
+            className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${isLearner ? 'bg-brand-navy text-muted' : 'bg-neutral-weakest text-brand-navy'}`}
           >
             {isLearner ? 'RA' : 'TH'}
           </div>
           <div>
-            <p className={`text-sm font-semibold ${isLearner ? 'text-wire-text' : 'text-neutral-weakest'}`}>
+            <p className={`text-sm font-semibold ${isLearner ? 'text-default' : 'text-muted'}`}>
               {isLearner ? 'Reem Al Mansoori' : 'Tariq Hamdan'}
             </p>
-            <p className={`text-xs ${isLearner ? 'text-wire-label' : 'text-[hsl(var(--neutral-weakest)/0.7)]'}`}>
+            <p className={`text-xs ${isLearner ? 'text-muted' : 'text-[hsl(var(--neutral-weakest)/0.7)]'}`}>
               {isLearner ? 'Real Estate Agent' : 'Admin'}
             </p>
           </div>

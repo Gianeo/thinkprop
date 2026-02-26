@@ -11,7 +11,7 @@ interface StatCardProps {
 export default function StatCard({ label, value, trend, trendUp = true, color }: StatCardProps) {
   return (
     <div className="rounded-xl border border-wire-border bg-level-1 p-5">
-      <p className="text-sm text-wire-label">{label}</p>
+      <p className="text-sm text-muted">{label}</p>
       <p className={`mt-2 font-heading text-3xl font-bold ${color}`}>{value}</p>
       {trend && (
         <p className={`mt-2 flex items-center gap-1 text-xs ${trendUp ? 'text-state-compliant' : 'text-state-critical'}`}>

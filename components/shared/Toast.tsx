@@ -30,7 +30,7 @@ export default function Toast({ message, visible, onClose }: ToastProps) {
     >
       <div className="flex items-center gap-3 rounded-xl border border-wire-border border-l-4 border-l-state-compliant bg-level-1 px-4 py-3">
         <CheckCircle className="h-5 w-5 text-state-compliant" />
-        <p className="text-sm text-wire-text">{message}</p>
+        <p className="text-sm text-default">{message}</p>
       </div>
     </div>
   )

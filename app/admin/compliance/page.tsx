@@ -53,13 +53,13 @@ export default function AdminCompliancePage() {
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
         <div className="hidden h-16 flex-shrink-0 items-center justify-between border-b border-neutral-weaker bg-level-1 px-8 md:flex">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-neutral-base">{adminProfile.company}</span>
-            <ChevronRight size={14} className="text-neutral-base" />
-            <span className="font-medium text-neutral-strongest">Compliance</span>
+            <span className="text-muted">{adminProfile.company}</span>
+            <ChevronRight size={14} className="text-muted" />
+            <span className="font-medium text-loud">Compliance</span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-neutral-base">Last updated: just now</span>
+            <span className="font-mono text-xs text-muted">Last updated: just now</span>
             <Button className="h-9 gap-2 rounded-xl bg-primary font-semibold text-primary-foreground hover:bg-primary-stronger">
               <Download size={14} />
               Export Report
@@ -72,14 +72,14 @@ export default function AdminCompliancePage() {
             <div className="flex items-start justify-between">
               <div>
                 <h1 className="type-title">Compliance Overview</h1>
-                <p className="mt-1 text-sm text-neutral-strong">
+                <p className="mt-1 text-sm text-calm">
                   Real-time compliance status · {adminProfile.company}
                 </p>
               </div>
 
               <div className="flex self-start rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2">
-                <Calendar size={13} className="mr-2 text-neutral-base" />
-                <span className="font-mono text-sm text-neutral-strong">Wed, 25 Feb 2026</span>
+                <Calendar size={13} className="mr-2 text-muted" />
+                <span className="font-mono text-sm text-calm">Wed, 25 Feb 2026</span>
               </div>
             </div>
 
@@ -97,7 +97,7 @@ export default function AdminCompliancePage() {
             </section>
 
             <div className="flex items-center justify-between pt-1">
-              <span className="text-sm text-neutral-strong">
+              <span className="text-sm text-calm">
                 Showing {filteredList.length} of {atRiskList.length} at-risk members
               </span>
               <Button
