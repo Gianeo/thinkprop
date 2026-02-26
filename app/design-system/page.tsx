@@ -129,7 +129,7 @@ export default function DesignSystemPage() {
               <ArrowLeft size={14} />
               Back to Navigator
             </Link>
-            <div className="inline-flex items-center rounded-lg border border-neutral-weaker bg-level-1 p-1">
+            <div className="inline-flex items-center rounded-full border border-neutral-weaker bg-level-1 p-1">
               <Button
                 variant={theme === 'light' ? 'default' : 'ghost'}
                 size="sm"

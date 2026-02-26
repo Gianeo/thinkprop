@@ -28,17 +28,26 @@ interface RiskTableProps {
 
 function getUrgencyColor(daysLeft: number, status: string) {
   if (status === 'Enrolled') return 'enrolled'
-  if (daysLeft <= 14) return 'critical'
+  if (daysLeft < 14) return 'critical'
   return 'at-risk'
 }
 
 function getRowBg(daysLeft: number, status: string) {
   if (status === 'Enrolled') return ''
-  if (daysLeft <= 14) return 'bg-state-critical-bg/30'
+  if (daysLeft < 14) return 'bg-destructive-weaker/30'
   return 'bg-state-at-risk-bg/20'
 }
 
 export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProps) {
+  const sortedRows = [...data].sort((a, b) => {
+    const aEnrolled = a.status === 'Enrolled'
+    const bEnrolled = b.status === 'Enrolled'
+
+    if (aEnrolled && !bEnrolled) return 1
+    if (!aEnrolled && bEnrolled) return -1
+    return a.daysLeft - b.daysLeft
+  })
+
   return (
     <div className="overflow-hidden rounded-xl bg-level-1 shadow">
       <div className="flex items-center justify-between shadow px-6 py-4">
@@ -48,7 +57,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
         </div>
 
         <Badge variant="destructive">
-          {data.length} members
+          2 members need critical attention
         </Badge>
       </div>
 
@@ -67,8 +76,14 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
         </TableHeader>
 
         <TableBody>
-          {data.map((row) => {
+          {sortedRows.map((row) => {
             const urgency = getUrgencyColor(row.daysLeft, row.status)
+            const statusBadgeVariant =
+              urgency === 'enrolled'
+                ? 'primary'
+                : urgency === 'critical'
+                  ? 'destructive'
+                  : 'warning'
             const isReminded = remindedIds.includes(row.id)
 
             return (
@@ -97,9 +112,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  <Badge variant="default">
-                    {row.department}
-                  </Badge>
+                  <span className="type-body-sm text-calm">{row.department}</span>
                 </TableCell>
 
                 <TableCell>
@@ -135,16 +148,10 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  {row.status === 'Not Enrolled' ? (
-                    <Badge variant="default">
-                      Not Enrolled
-                    </Badge>
-                  ) : (
-                    <Badge variant="primary">
-                      <Check className="mr-1 size-4" />
-                      Enrolled
-                    </Badge>
-                  )}
+                  <Badge variant={statusBadgeVariant}>
+                    {row.status === 'Enrolled' && <Check className="mr-1 size-4" />}
+                    {row.status}
+                  </Badge>
                 </TableCell>
 
                 <TableCell className='flex justify-end items-center py-4'>
@@ -162,7 +169,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                       <ArrowRight />
                     </Button>
                   ) : (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
                       <Button
                         variant="outline"
                         withIcon="before"

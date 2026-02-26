@@ -114,45 +114,45 @@
   .dark {
     color-scheme: dark;
     /* Invert all palette ramps in dark mode while keeping the same class names. */
-    --primary-weakest: 215 100% 10%;
-    --primary-weaker: 215 100% 21%;
-    --primary-weak: 215 100% 46%;
-    --primary-base: 215 100% 56%;
-    --primary-strong: 215 100% 78%;
-    --primary-stronger: 215 100% 92%;
-    --primary-strongest: 215 100% 98%;
+    --primary-weakest: 215 100% 6%;
+    --primary-weaker: 215 100% 10%;
+    --primary-weak: 215 100% 18%;
+    --primary-base: 215 100% 36%;
+    --primary-strong: 215 100% 48%;
+    --primary-stronger: 215 100% 62%;
+    --primary-strongest: 215 100% 76%;
 
-    --neutral-weakest: 24 4% 10%;
-    --neutral-weaker: 24 4% 21%;
-    --neutral-weak: 24 4% 42%;
-    --neutral-base: 24 4% 56%;
-    --neutral-strong: 24 4% 78%;
-    --neutral-stronger: 24 4% 92%;
-    --neutral-strongest: 24 4% 97%;
+    --neutral-weakest: 24 4% 6%;
+    --neutral-weaker: 24 4% 10%;
+    --neutral-weak: 24 4% 18%;
+    --neutral-base: 24 4% 30%;
+    --neutral-strong: 24 4% 48%;
+    --neutral-stronger: 24 4% 62%;
+    --neutral-strongest: 24 4% 76%;
 
-    --destructive-weakest: 5 78% 10%;
-    --destructive-weaker: 5 78% 21%;
-    --destructive-weak: 5 78% 42%;
-    --destructive-base: 5 78% 56%;
-    --destructive-strong: 5 78% 78%;
-    --destructive-stronger: 5 78% 92%;
-    --destructive-strongest: 5 78% 97%;
+    --destructive-weakest: 5 78% 6%;
+    --destructive-weaker: 5 78% 10%;
+    --destructive-weak: 5 78% 18%;
+    --destructive-base: 5 78% 30%;
+    --destructive-strong: 5 78% 54%;
+    --destructive-stronger: 5 78% 68%;
+    --destructive-strongest: 5 78% 80%;
 
-    --warning-weakest: 48 89% 10%;
-    --warning-weaker: 48 89% 21%;
-    --warning-weak: 48 89% 38%;
-    --warning-base: 48 89% 56%;
-    --warning-strong: 48 89% 78%;
-    --warning-stronger: 48 89% 92%;
-    --warning-strongest: 48 89% 97%;
+    --warning-weakest: 48 89% 6%;
+    --warning-weaker: 48 89% 10%;
+    --warning-weak: 48 89% 18%;
+    --warning-base: 48 89% 30%;
+    --warning-strong: 48 89% 42%;
+    --warning-stronger: 48 89% 58%;
+    --warning-strongest: 48 89% 72%;
 
-    --success-weakest: 145 63% 10%;
-    --success-weaker: 145 63% 21%;
-    --success-weak: 145 63% 38%;
-    --success-base: 145 63% 56%;
-    --success-strong: 145 63% 78%;
-    --success-stronger: 145 63% 92%;
-    --success-strongest: 145 63% 97%;
+    --success-weakest: 145 63% 6%;
+    --success-weaker: 145 63% 10%;
+    --success-weak: 145 63% 18%;
+    --success-base: 145 63% 30%;
+    --success-strong: 145 63% 42%;
+    --success-stronger: 145 63% 62%;
+    --success-strongest: 145 63% 76%;
 
     --bg-0: var(--neutral-weakest);
     --bg-1: var(--neutral-weaker);
@@ -160,7 +160,7 @@
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
-    --text-contrast: 0 0% 100% / 0.8;
+    --text-contrast: 0 0% 0% / 0.8;
     --text-primary-loud: var(--primary-stronger);
     --text-primary-default: var(--primary-strong);
     --text-primary-calm: var(--primary-base);
@@ -178,7 +178,7 @@
     --card-foreground: var(--neutral-strongest);
     --popover: var(--neutral-weaker);
     --popover-foreground: var(--neutral-strongest);
-    --primary: var(--primary-weak);
+    --primary: var(--primary-strong);
     --primary-foreground: var(--neutral-strongest);
     --secondary: var(--neutral-weaker);
     --secondary-foreground: var(--neutral-strongest);

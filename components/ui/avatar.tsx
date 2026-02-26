@@ -13,7 +13,7 @@ const Avatar = React.forwardRef<
   <AvatarPrimitive.Root
     ref={ref}
     className={cn(
-      "relative flex size-8 shrink-0 overflow-hidden rounded-full",
+      "relative flex size-9 shrink-0 overflow-hidden rounded-full",
       className
     )}
     {...props}
@@ -34,16 +34,16 @@ const AvatarImage = React.forwardRef<
 AvatarImage.displayName = AvatarPrimitive.Image.displayName
 
 const avatarFallbackVariants = cva(
-  "flex h-full w-full items-center justify-center rounded-full font-display font-semibold",
+  "flex h-full w-full items-center justify-center rounded-full text-xs font-semibold",
   {
     variants: {
       variant: {
-        default: "border border-neutral-weaker bg-level-0 text-calm",
-        primary: "border border-primary-weaker bg-primary-weakest text-primary-default",
+        default: "border border-neutral-weak bg-level-0 text-calm",
+        primary: "border border-primary-weak bg-primary-weakest text-primary-default",
         destructive:
-          "border border-destructive-weaker bg-destructive-weakest text-destructive-default",
-        warning: "border border-warning-weaker bg-warning-weakest text-warning-default",
-        success: "border border-success-weaker bg-success-weakest text-success-default",
+          "border border-destructive-weak bg-destructive-weakest text-destructive-default",
+        warning: "border border-warning-weak bg-warning-weakest text-warning-default",
+        success: "border border-success-weak bg-success-weakest text-success-default",
       },
     },
     defaultVariants: {

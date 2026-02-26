@@ -15,17 +15,37 @@ import { Button } from '@/components/ui/button'
 
 export default function AdminCompliancePage() {
   const router = useRouter()
-  const [selectedDept, setSelectedDept] = useState('All')
+  const [selectedFilter, setSelectedFilter] = useState('All')
   const [modalOpen, setModalOpen] = useState(false)
   const [modalPerson, setModalPerson] = useState<AtRiskPerson | null>(null)
   const [remindedIds, setRemindedIds] = useState<string[]>([])
 
   const filteredList = useMemo(
-    () =>
-      selectedDept === 'All'
-        ? atRiskList
-        : atRiskList.filter((person) => person.department === selectedDept),
-    [selectedDept],
+    () => {
+      const isEnrolled = (person: AtRiskPerson) =>
+        person.status.toLowerCase().trim() === 'enrolled'
+      const getDaysLeft = (person: AtRiskPerson) => Number(person.daysLeft)
+
+      if (selectedFilter === 'All') return atRiskList
+      if (selectedFilter === 'Critical') {
+        return atRiskList.filter(
+          (person) => !isEnrolled(person) && getDaysLeft(person) < 14,
+        )
+      }
+      if (selectedFilter === 'Urgent') {
+        return atRiskList.filter(
+          (person) =>
+            !isEnrolled(person) &&
+            getDaysLeft(person) >= 15 &&
+            getDaysLeft(person) <= 30,
+        )
+      }
+      if (selectedFilter === 'Not Enrolled') {
+        return atRiskList.filter((person) => !isEnrolled(person))
+      }
+      return atRiskList.filter((person) => isEnrolled(person))
+    },
+    [selectedFilter],
   )
 
   const onRemind = (person: AtRiskPerson) => {
@@ -90,7 +110,7 @@ export default function AdminCompliancePage() {
                 <div className="flex items-center gap-4">
                   <h2 className="type-title-sm type-body">Priority Risk List</h2>
                 </div>
-                <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
+                <DepartmentFilter selected={selectedFilter} onChange={setSelectedFilter} />
               </div>
 
               <RiskTable data={filteredList} onRemind={onRemind} remindedIds={remindedIds} />
