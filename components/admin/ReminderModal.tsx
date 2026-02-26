@@ -10,7 +10,6 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 
 interface ReminderModalProps {
@@ -44,8 +43,8 @@ export default function ReminderModal({
         <DialogHeader className="p-6 pb-0">
           <div className="flex items-start justify-between">
             <div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-amber/10">
-                <Bell size={18} className="text-warning-loud" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-weakest">
+                <Bell size={18} className="text-primary-default" />
               </div>
 
               <DialogTitle className="mt-3 type-body font-bold leading-snug text-loud font-display">
@@ -64,11 +63,6 @@ export default function ReminderModal({
           <div>
             <div className="mb-2 type-caption font-semibold uppercase tracking-[0.15em] text-muted">To</div>
             <div className="flex items-center gap-3">
-              <Avatar className="h-10 w-10 border-2">
-                <AvatarFallback variant="destructive" className="type-body-sm">
-                  {person.initials}
-                </AvatarFallback>
-              </Avatar>
               <div>
                 <div className="type-body-sm font-semibold text-loud">{person.name}</div>
                 <div className="type-caption text-calm">Real Estate Agent · {person.department}</div>
@@ -122,7 +116,7 @@ export default function ReminderModal({
 
             <Button
               withIcon="before"
-              className="rounded-xl bg-brand-amber font-semibold text-contrast transition-all duration-150 hover:bg-warning-strong active:scale-[0.98]"
+              className="rounded-xl bg-primary font-semibold text-contrast transition-all duration-150 hover:bg-primary-strong active:scale-[0.98]"
               onClick={onConfirm}
             >
               <Send size={13} />

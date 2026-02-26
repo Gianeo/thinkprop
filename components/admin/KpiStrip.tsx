@@ -48,6 +48,7 @@ export default function KpiStrip() {
                 <span className="type-display leading-none text-warning-default">{orgStats.complianceScore}</span>
                 <span className="type-body text-warning-default">%</span>
               </div>
+            <p className="mt-1.5 type-body-sm">Team is not in a good shape</p>
               {/* <span
                 className={`flex items-center gap-1 type-body font-medium ${orgStats.complianceScoreDeltaUp ? 'text-success-default' : 'text-destructive-default'
                   }`}
