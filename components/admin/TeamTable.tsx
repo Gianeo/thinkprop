@@ -6,6 +6,7 @@ import {
   ArrowRight,
   CheckCircle,
   ChevronDown,
+  ChevronRight,
   ChevronUp,
   Download,
   Search,
@@ -87,7 +88,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               placeholder="Search team..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-9 w-52 rounded-xl pl-9"
+              className="w-52 pl-9"
             />
           </div>
 
@@ -211,7 +212,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                   className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
                 >
                   View
-                  <ArrowRight size={12} />
+                  <ChevronRight size={12} />
                 </Button>
               </TableCell>
             </TableRow>

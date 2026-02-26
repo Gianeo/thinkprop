@@ -195,7 +195,7 @@
     --border: var(--neutral-weak) / 0.8;
     --border-weak: var(--neutral-weak) / 0.6;
     --border-strong: var(--neutral-weak);
-    --input: var(--neutral-base);
+    --input: var(--neutral-weak);
     --ring: var(--primary-base);
 
     --chart-1: var(--primary-weak);
@@ -364,6 +364,10 @@
   }
 
   .text-muted {
+    color: hsl(var(--text-muted));
+  }
+
+  .text-weak {
     color: hsl(var(--text-muted));
   }
 
