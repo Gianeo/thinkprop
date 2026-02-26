@@ -152,10 +152,10 @@ const config: Config = {
         '2xl': '38px',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'DM Sans', 'sans-serif'],
-        body: ['var(--font-display)', 'DM Sans', 'sans-serif'],
-        mono: ['var(--font-display)', 'DM Sans', 'sans-serif'],
-        heading: ['var(--font-display)', 'DM Sans', 'sans-serif'],
+        display: ['var(--font-display)', 'TikTok Sans', 'sans-serif'],
+        body: ['var(--font-display)', 'TikTok Sans', 'sans-serif'],
+        mono: ['var(--font-display)', 'TikTok Sans', 'sans-serif'],
+        heading: ['var(--font-display)', 'TikTok Sans', 'sans-serif'],
       },
       boxShadow: {
         DEFAULT:

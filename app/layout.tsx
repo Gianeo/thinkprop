@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
+import { TikTok_Sans } from 'next/font/google'
 import { Toaster } from 'sonner'
 import './globals.css'
 
-const dmSans = DM_Sans({
+const tiktokSans = TikTok_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-display',
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={dmSans.variable}
+      className={tiktokSans.variable}
     >
       <body
         suppressHydrationWarning
