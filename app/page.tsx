@@ -21,7 +21,7 @@ const personas = [
     description: 'Follow Reem through a compliance alert and the full enrollment flow.',
     cta: 'Enter Learner View',
     href: '/learner/dashboard',
-    ctaClass: 'text-primary-default',
+    ctaClass: 'text-warning-loud',
     image: '/images/Reem.png',
     index: '02',
   },
@@ -75,13 +75,13 @@ export default function Page() {
               <div
                 key={persona.name}
                 onClick={() => router.push(persona.href)}
-                className="group relative cursor-pointer transition-all duration-200"
+                className="group relative cursor-pointer transition-all duration-200 hover:shadow-lg"
               >
                 <div className="relative h-full overflow-hidden bg-transparent text-card-foreground shadow">
                   <div className="absolute inset-0 bg-white/40 backdrop-blur-md" />
                   <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
-                      <span className="type-title-upper text-weak">{persona.index}</span>
+                      <span className="type-title text-white">{persona.index}</span>
                     </div>
 
                     <div className='flex gap-16 justify-between items-start'>
@@ -99,15 +99,16 @@ export default function Page() {
                         />
                       </div>
                     </div>
+                    <div className='space-y-4'>
+                      <p className="type-body-sm leading-relaxed text-default max-w-xs pr-8">{persona.description}</p>
 
-                    <p className="type-body-sm leading-relaxed text-default max-w-xs pr-8">{persona.description}</p>
-
-                    <Button
-                      variant="ghost"
-                      className={`ml-auto h-auto p-0 type-body-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
-                    >
-                      {persona.cta}
-                    </Button>
+                      <Button
+                        variant="ghost"
+                        className={`h-auto justify-start p-0 type-body-sm font-semibold hover:bg-transparent ${persona.ctaClass}`}
+                      >
+                        {persona.cta}
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
