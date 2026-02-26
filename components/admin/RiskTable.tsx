@@ -35,7 +35,7 @@ function getUrgencyColor(daysLeft: number, status: string) {
 function getRowBg(daysLeft: number, status: string) {
   if (status === 'Enrolled') return ''
   if (daysLeft < 14) return 'bg-destructive-weaker/30'
-  return 'bg-state-at-risk-bg/20'
+  return ''
 }
 
 export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProps) {
