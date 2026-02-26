@@ -21,7 +21,7 @@ export default function AdminComplianceTeamPage() {
       <AdminSidebar activePath="/admin/compliance/team" />
 
       <div className="flex flex-1 flex-col overflow-hidden md:ml-56">
-        <div className="hidden h-16 flex-shrink-0 items-center border-b border-neutral-weaker bg-level-2 px-8 md:flex">
+        <div className="hidden h-16 shrink-0 items-center border-b border-neutral-weaker px-8 md:flex">
           <div className="flex items-center gap-2 type-body-sm">
             <span className="text-muted">{adminProfile.company}</span>
             <ChevronRight size={14} className="text-muted" />
@@ -32,7 +32,7 @@ export default function AdminComplianceTeamPage() {
         </div>
 
         <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
-          <div className="max-w-[1400px] space-y-6 p-8">
+          <div className="max-w-350 space-y-6 p-8">
             <Button
               variant="link"
               withIcon="before"

@@ -23,7 +23,7 @@ const buttonVariants = cva(
       size: {
         default: "h-9 px-5 py-2",
         sm: "h-8 px-4 text-sm",
-        lg: "h-10 px-8",
+        lg: "h-10 px-6",
         icon: "size-8",
       },
     },
@@ -52,12 +52,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ? "size-10 p-0 gap-0"
             : "size-9 p-0 gap-0"
         : ""
+    const iconWithLabelPaddingClass =
+      withIcon && withIcon !== "only"
+        ? size === "sm"
+          ? "pl-3 pr-4"
+          : size === "lg"
+            ? "pl-7 pr-8"
+            : "pl-4 pr-5"
+        : ""
 
     return (
       <Comp
         className={cn(
           buttonVariants({ variant, size }),
           iconOnlyClass,
+          iconWithLabelPaddingClass,
           className
         )}
         data-icon={withIcon}
