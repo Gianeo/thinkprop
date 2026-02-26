@@ -10,33 +10,27 @@ export default function KpiStrip() {
     orgStats.complianceScore >= 80
       ? 'hsl(var(--success-base))'
       : orgStats.complianceScore >= 60
-        ? 'hsl(var(--warning-base))'
+        ? 'hsl(var(--primary-base))'
         : 'hsl(var(--destructive-base))'
 
   return (
     <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-      <Card>
-        <CardContent className="p-5">
-          <div className="mb-4 flex items-center justify-between">
-            <span className="type-title-upper">
-              Org Compliance Score
-            </span>
-            <span className="flex items-center gap-1 type-caption font-medium text-success-default">
-              {orgStats.complianceScoreDeltaUp ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
-              {orgStats.complianceScoreDelta}
-            </span>
-          </div>
 
-          <div className="flex flex-col items-center gap-2">
-            <div className="relative h-20 w-20">
-              <svg className="h-20 w-20" viewBox="0 0 80 80">
+      <Card>
+        <CardContent className="p-6 pt-2 space-y-4">
+          <div>
+            <span className="type-title-upper">Org Compliance Score</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="relative size-18">
+              <svg className="size-18" viewBox="0 0 80 80">
                 <circle
                   cx="40"
                   cy="40"
                   r="32"
                   fill="none"
-                  stroke="hsl(var(--neutral-weaker))"
-                  strokeWidth={7}
+                  stroke="hsl(var(--neutral-weakest))"
+                  strokeWidth={16}
                 />
                 <circle
                   cx="40"
@@ -44,7 +38,7 @@ export default function KpiStrip() {
                   r="32"
                   fill="none"
                   stroke={ringColor}
-                  strokeWidth={7}
+                  strokeWidth={12}
                   strokeLinecap="round"
                   strokeDasharray={`${circumference}`}
                   strokeDashoffset={`${circumference * (1 - orgStats.complianceScore / 100)}`}
@@ -52,27 +46,38 @@ export default function KpiStrip() {
                   className="transition-all duration-700"
                 />
               </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display type-title-sm font-bold text-default">{orgStats.complianceScore}</span>
-                <span className="ml-0.5 type-body-sm text-calm">%</span>
-              </div>
             </div>
-
-            <span className="rounded-full bg-score-high-bg px-2.5 py-0.5 type-caption font-semibold text-success-default">
-              {orgStats.complianceScoreDelta}
-            </span>
+            <div className="flex flex-col items-start gap-2">
+              <div className="flex items-baseline gap-1">
+                <span className="type-display leading-none text-loud">{orgStats.complianceScore}</span>
+                <span className="type-body">%</span>
+              </div>
+              <span
+                className={`flex items-center gap-1 type-body font-medium ${orgStats.complianceScoreDeltaUp ? 'text-success-default' : 'text-destructive-default'
+                  }`}
+              >
+                {orgStats.complianceScoreDeltaUp ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
+                {orgStats.complianceScoreDelta}
+              </span>
+            </div>
           </div>
         </CardContent>
       </Card>
 
       <Card>
-        <CardContent className="p-5">
-          <p className="type-title-upper">At Risk</p>
-          <p className="mt-2 type-display leading-none text-destructive-default">{orgStats.atRisk}</p>
-          <p className="mt-1 type-caption text-calm">team members</p>
-          <span className="mt-3 inline-flex rounded-full bg-score-low-bg px-2.5 py-0.5 type-caption font-semibold text-destructive-default">
-            {orgStats.atRiskDelta}
-          </span>
+        <CardContent className="p-6 pt-2 space-y-4">
+          <div>
+            <span className="type-title-upper">At Risk</span>
+          </div>
+          <div className='space-y-2'>
+            <div className="flex items-end gap-4">
+              <p className="type-display leading-none text-destructive-default">{orgStats.atRisk}</p>
+              <p className="mb-0.5 type-caption text-calm leading-none">team <br />members</p>
+            </div>
+            <div className="inline-flex type-body font-semibold text-destructive-default">
+              {orgStats.atRiskDelta}
+            </div>
+          </div>
         </CardContent>
       </Card>
 

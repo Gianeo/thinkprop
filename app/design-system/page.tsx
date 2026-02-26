@@ -265,32 +265,6 @@ export default function DesignSystemPage() {
                 <Badge variant="warning">At Risk</Badge>
                 <Badge variant="destructive">Critical</Badge>
               </div>
-
-              <div className="max-w-sm">
-                <Input placeholder="Search team..." />
-              </div>
-
-              <Table>
-                <TableHeader className="bg-level-0">
-                  <TableRow className="border-neutral-weaker hover:bg-transparent">
-                    <TableHead className="type-title-upper">Token</TableHead>
-                    <TableHead className="type-title-upper">Usage</TableHead>
-                    <TableHead className="type-title-upper">Example</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow className="border-neutral-weaker">
-                    <TableCell>primary-base</TableCell>
-                    <TableCell className="text-calm">Primary button backgrounds</TableCell>
-                    <TableCell className="text-primary-default">Active CTA</TableCell>
-                  </TableRow>
-                  <TableRow className="border-neutral-weaker">
-                    <TableCell>neutral-weaker</TableCell>
-                    <TableCell className="text-calm">Borders and subtle surfaces</TableCell>
-                    <TableCell className="text-calm">Structural scaffolding</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
             </CardContent>
           </Card>
         </section>
