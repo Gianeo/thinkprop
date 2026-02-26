@@ -88,7 +88,7 @@ export default function AdminCompliancePage() {
         </div>
 
         <div className="flex-1 overflow-y-auto pt-14 md:pt-0">
-          <div className="max-w-[1400px] space-y-6 p-8">
+          <div className="max-w-350 space-y-8 p-8">
             <div className="flex items-start justify-between">
               <div>
                 <h1 className="type-title">Compliance Overview</h1>

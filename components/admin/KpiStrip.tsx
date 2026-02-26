@@ -30,7 +30,7 @@ export default function KpiStrip() {
                   r="32"
                   fill="none"
                   stroke="hsl(var(--neutral-weakest))"
-                  strokeWidth={14}
+                  strokeWidth={16}
                 />
                 <circle
                   cx="40"
@@ -38,7 +38,7 @@ export default function KpiStrip() {
                   r="32"
                   fill="none"
                   stroke={ringColor}
-                  strokeWidth={12}
+                  strokeWidth={8}
                   strokeLinecap="round"
                   strokeDasharray={`${circumference}`}
                   strokeDashoffset={`${circumference * (1 - orgStats.complianceScore / 100)}`}

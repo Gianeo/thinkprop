@@ -3,7 +3,6 @@
 import { useMemo, useState } from 'react'
 import {
   AlertTriangle,
-  ArrowRight,
   CheckCircle,
   ChevronDown,
   ChevronRight,

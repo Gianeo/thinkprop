@@ -10,5 +10,5 @@ interface DepartmentFilterProps {
 const filters = ['All', 'Critical', 'Urgent', 'Not Enrolled', 'Enrolled']
 
 export default function DepartmentFilter({ selected, onChange }: DepartmentFilterProps) {
-  return <Pills options={filters} selected={selected} onChange={onChange} />
+  return <Pills options={filters} selected={selected} onChange={onChange} size='sm' />
 }

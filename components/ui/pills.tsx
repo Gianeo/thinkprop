@@ -7,10 +7,13 @@ interface PillsProps {
   options: string[]
   selected: string
   onChange: (value: string) => void
+  size?: 'sm' | 'base'
   className?: string
 }
 
-export function Pills({ options, selected, onChange, className }: PillsProps) {
+export function Pills({ options, selected, onChange, size = 'base', className }: PillsProps) {
+  const sizeClasses = size === 'sm' ? 'h-8 px-4 text-sm' : 'px-4'
+
   return (
     <div className={cn('flex flex-wrap items-center gap-2', className)}>
       {options.map((option) => {
@@ -22,8 +25,14 @@ export function Pills({ options, selected, onChange, className }: PillsProps) {
             variant={isSelected ? 'default' : 'outline'}
             className={
               isSelected
-                ? 'rounded-full border border-primary-weak bg-primary-weaker px-4 py-2.5 type-caption font-normal text-primary-default hover:bg-primary-stronger'
-                : 'rounded-full border-neutral-weak bg-level-2 px-4 py-2.5 type-caption font-normal text-calm hover:border-neutral-weak hover:text-loud'
+                ? cn(
+                    'rounded-full border border-primary-weak bg-primary-weaker type-caption font-normal text-primary-default hover:bg-primary-stronger',
+                    sizeClasses,
+                  )
+                : cn(
+                    'rounded-full border-neutral-weak bg-level-2 type-caption font-normal text-calm hover:border-neutral-weak hover:text-loud',
+                    sizeClasses,
+                  )
             }
             onClick={() => onChange(option)}
           >
