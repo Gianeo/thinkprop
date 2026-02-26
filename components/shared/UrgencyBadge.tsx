@@ -8,27 +8,27 @@ interface UrgencyBadgeProps {
 const stateConfig = {
   CRITICAL: {
     label: 'Critical',
-    className: 'bg-state-critical-bg text-state-critical',
+    className: 'bg-state-critical-bg text-destructive-default',
     icon: AlertTriangle,
   },
   AT_RISK: {
     label: 'At Risk',
-    className: 'bg-state-at-risk-bg text-state-at-risk',
+    className: 'bg-state-at-risk-bg text-warning-default',
     icon: Clock,
   },
   ENROLLED: {
     label: 'Enrolled',
-    className: 'bg-state-enrolled-bg text-state-enrolled',
+    className: 'bg-state-enrolled-bg text-primary-default',
     icon: BookOpen,
   },
   COMPLIANT: {
     label: 'Compliant',
-    className: 'bg-state-compliant-bg text-state-compliant',
+    className: 'bg-state-compliant-bg text-success-default',
     icon: CheckCircle,
   },
   EXPIRED: {
     label: 'Expired',
-    className: 'bg-state-expired-bg text-state-expired',
+    className: 'bg-state-expired-bg text-muted',
     icon: XCircle,
   },
 } as const

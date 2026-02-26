@@ -60,7 +60,7 @@ export default function AdminCompliancePage() {
 
           <div className="flex items-center gap-4">
             <span className="font-mono text-xs text-muted">Last updated: just now</span>
-            <Button className="h-9 gap-2 rounded-xl bg-primary font-semibold text-primary-foreground hover:bg-primary-stronger">
+            <Button className="h-9 gap-2 rounded-xl bg-primary font-semibold text-contrast hover:bg-primary-stronger">
               <Download size={14} />
               Export Report
             </Button>
@@ -102,7 +102,7 @@ export default function AdminCompliancePage() {
               </span>
               <Button
                 variant="link"
-                className="gap-1.5 p-0 font-semibold text-state-enrolled hover:no-underline"
+                className="gap-1.5 p-0 font-semibold text-primary-default hover:no-underline"
                 onClick={() => router.push('/admin/compliance/team')}
               >
                 View all 40 team members

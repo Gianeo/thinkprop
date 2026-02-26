@@ -16,11 +16,11 @@ const borderStateMap = {
 } as const
 
 const textStateMap = {
-  CRITICAL: 'text-state-critical',
-  AT_RISK: 'text-state-at-risk',
-  ENROLLED: 'text-state-enrolled',
-  COMPLIANT: 'text-state-compliant',
-  EXPIRED: 'text-state-expired',
+  CRITICAL: 'text-destructive-default',
+  AT_RISK: 'text-warning-default',
+  ENROLLED: 'text-primary-default',
+  COMPLIANT: 'text-success-default',
+  EXPIRED: 'text-muted',
 } as const
 
 export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps) {
@@ -50,10 +50,10 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
       )}
 
       {item.state === 'ENROLLED' && (
-        <p className="mb-4 text-sm font-semibold text-state-enrolled">In Progress — Session on {item.expiryDate}</p>
+        <p className="mb-4 text-sm font-semibold text-primary-default">In Progress — Session on {item.expiryDate}</p>
       )}
 
-      {item.state === 'COMPLIANT' && <p className="mb-4 text-sm font-semibold text-state-compliant">Valid until {item.expiryDate}</p>}
+      {item.state === 'COMPLIANT' && <p className="mb-4 text-sm font-semibold text-success-default">Valid until {item.expiryDate}</p>}
 
       {item.creditsRequired && item.creditsEarned !== undefined && (
         <div className="mb-4 space-y-2">
@@ -69,7 +69,7 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
       {(item.state === 'CRITICAL' || item.state === 'AT_RISK') && onCtaClick && (
         <Button
           onClick={onCtaClick}
-          className="w-full rounded-lg bg-brand-amber px-4 py-2.5 font-semibold text-warning-strongest hover:bg-warning-strong"
+          className="w-full rounded-lg bg-brand-amber px-4 py-2.5 font-semibold text-contrast hover:bg-warning-strong"
         >
           Find a Course →
         </Button>

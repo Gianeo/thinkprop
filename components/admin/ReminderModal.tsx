@@ -45,7 +45,7 @@ export default function ReminderModal({
           <div className="flex items-start justify-between">
             <div>
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-amber/10">
-                <Bell size={18} className="text-brand-amber" />
+                <Bell size={18} className="text-warning-loud" />
               </div>
 
               <DialogTitle className="mt-3 text-[17px] font-bold leading-snug text-loud font-display">
@@ -79,9 +79,9 @@ export default function ReminderModal({
           <div>
             <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted">Regarding</div>
             <div className="flex items-center gap-3 rounded-xl border border-neutral-weaker bg-level-0 p-3">
-              <AlertTriangle size={15} className="shrink-0 text-state-critical" />
+              <AlertTriangle size={15} className="shrink-0 text-destructive-default" />
               <span className="flex-1 text-sm font-medium text-loud">{person.credential}</span>
-              <span className="ml-auto rounded-full bg-state-critical-bg px-2.5 py-1 font-mono text-xs font-bold text-state-critical">
+              <span className="ml-auto rounded-full bg-state-critical-bg px-2.5 py-1 font-mono text-xs font-bold text-destructive-default">
                 {person.daysLeft}d
               </span>
             </div>
@@ -94,7 +94,7 @@ export default function ReminderModal({
             <div className="rounded-xl border border-neutral-weaker bg-level-0 p-4 font-body text-sm leading-relaxed text-calm">
               Hi {person.name.split(' ')[0]}, this is a reminder that your{' '}
               <span className="font-semibold text-loud">{person.credential}</span> expires in{' '}
-              <span className="font-mono font-semibold text-state-critical">{person.daysLeft} days</span>. Please log in to
+              <span className="font-mono font-semibold text-destructive-default">{person.daysLeft} days</span>. Please log in to
               ThinkProp and enroll in a qualifying course to maintain your license status.
               <br />
               <br />
@@ -121,7 +121,7 @@ export default function ReminderModal({
             </Button>
 
             <Button
-              className="rounded-xl bg-brand-amber font-semibold text-warning-strongest transition-all duration-150 hover:bg-warning-strong active:scale-[0.98]"
+              className="rounded-xl bg-brand-amber font-semibold text-contrast transition-all duration-150 hover:bg-warning-strong active:scale-[0.98]"
               onClick={onConfirm}
             >
               <Send size={13} className="mr-2" />

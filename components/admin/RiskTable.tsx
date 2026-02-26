@@ -111,10 +111,10 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   <div
                     className={`font-mono text-sm font-bold ${
                       urgency === 'enrolled'
-                        ? 'text-state-enrolled'
+                        ? 'text-primary-default'
                         : urgency === 'critical'
-                          ? 'text-state-critical'
-                          : 'text-state-at-risk'
+                          ? 'text-destructive-default'
+                          : 'text-warning-default'
                     }`}
                   >
                     {row.status === 'Enrolled' ? 'Enrolled' : `${row.daysLeft}`}
@@ -149,14 +149,14 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
 
                 <TableCell>
                   {isReminded ? (
-                    <span className="flex items-center gap-1.5 text-xs font-semibold text-score-high">
+                    <span className="flex items-center gap-1.5 text-xs font-semibold text-success-default">
                       <CheckCircle size={12} />
                       Reminded
                     </span>
                   ) : row.status === 'Enrolled' ? (
                     <Button
                       variant="link"
-                      className="h-auto p-0 text-xs font-semibold text-state-enrolled hover:no-underline"
+                      className="h-auto p-0 text-xs font-semibold text-primary-default hover:no-underline"
                     >
                       View Progress →
                     </Button>

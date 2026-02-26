@@ -101,7 +101,7 @@ export default function LearnerDashboardPage() {
           {criticalCount > 0 && (
             <section className="flex flex-col gap-3 rounded-xl border border-state-critical bg-state-critical-bg p-4 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-2">
-                <AlertTriangle className="mt-0.5 h-5 w-5 text-state-critical" />
+                <AlertTriangle className="mt-0.5 h-5 w-5 text-destructive-default" />
                 <p className="text-sm text-default">
                   <span className="font-semibold">Action Required:</span> 1 certification expires in 18 days. Your RERA broker
                   license may be at risk.
@@ -110,7 +110,7 @@ export default function LearnerDashboardPage() {
               <Button
                 variant="link"
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
-                className="h-auto p-0 text-sm font-semibold text-brand-navy hover:no-underline"
+                className="h-auto p-0 text-sm font-semibold text-primary-loud hover:no-underline"
               >
                 View Details →
               </Button>
@@ -151,14 +151,14 @@ export default function LearnerDashboardPage() {
                         item.state === 'done'
                           ? 'border-brand-navy bg-brand-navy text-muted'
                           : item.state === 'progress'
-                            ? 'border-brand-amber bg-brand-amber text-warning-strongest'
+                            ? 'border-brand-amber bg-brand-amber text-contrast'
                             : 'border-wire-border bg-level-1 text-muted'
                       }`}
                     >
                       {item.state === 'done' ? '✓' : item.step}
                     </div>
                     <p className="mt-3 text-sm font-semibold text-default">{item.label}</p>
-                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-stronger' : 'text-muted'}`}>{item.helper}</p>
+                    <p className={`text-xs ${item.state === 'progress' ? 'text-warning-loud' : 'text-muted'}`}>{item.helper}</p>
                   </div>
                 ))}
               </div>

@@ -31,7 +31,7 @@ export default function SessionPicker({ sessions, selectedId, onSelect }: Sessio
               <FormatIcon className="h-4 w-4" />
               {session.location}
             </p>
-            <p className={`mt-2 text-sm ${session.seatsLeft <= 5 ? 'font-semibold text-state-critical' : 'text-muted'}`}>
+            <p className={`mt-2 text-sm ${session.seatsLeft <= 5 ? 'font-semibold text-destructive-default' : 'text-muted'}`}>
               {session.seatsLeft <= 5
                 ? `${session.seatsLeft} seats left — filling fast`
                 : `${session.seatsLeft} seats left`}

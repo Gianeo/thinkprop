@@ -27,7 +27,7 @@ export default function ComplianceDetailPage() {
     ? 'bg-state-critical-bg border-state-critical'
     : 'bg-state-at-risk-bg border-state-at-risk'
 
-  const countdownClass = stateIsCritical ? 'text-state-critical' : 'text-state-at-risk'
+  const countdownClass = stateIsCritical ? 'text-destructive-default' : 'text-warning-default'
 
   return (
     <div className="min-h-screen bg-level-0">
@@ -86,7 +86,7 @@ export default function ComplianceDetailPage() {
 
           <Button
             onClick={() => router.push(`/learner/courses?requirement=${item.id}`)}
-            className="rounded-xl bg-brand-amber px-8 py-4 text-lg font-semibold text-warning-strongest hover:bg-warning-strong"
+            className="rounded-xl bg-brand-amber px-8 py-4 text-lg font-semibold text-contrast hover:bg-warning-strong"
           >
             Browse Qualifying Courses →
           </Button>

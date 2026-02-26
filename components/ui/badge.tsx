@@ -9,11 +9,11 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default: "border-neutral-weak bg-level-1 text-muted hover:bg-neutral-weakest",
-        primary: "border-primary-weak bg-primary-weakest text-primary-base hover:bg-primary-weaker",
+        primary: "border-primary-weak bg-primary-weakest text-primary-calm hover:bg-primary-weaker",
         destructive:
-          "border-destructive-weak bg-destructive-weakest text-destructive-base hover:bg-destructive-weaker",
-        warning: "border-warning-weak bg-warning-weakest text-warning-base hover:bg-warning-weaker",
-        success: "border-success-weak bg-success-weakest text-success-base hover:bg-success-weaker",
+          "border-destructive-weak bg-destructive-weakest text-destructive-calm hover:bg-destructive-weaker",
+        warning: "border-warning-weak bg-warning-weakest text-warning-calm hover:bg-warning-weaker",
+        success: "border-success-weak bg-success-weakest text-success-calm hover:bg-success-weaker",
       },
     },
     defaultVariants: {

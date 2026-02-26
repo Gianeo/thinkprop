@@ -55,7 +55,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
       <header className={`fixed top-0 z-40 flex h-16 w-full items-center justify-between px-4 md:hidden ${topBarClasses}`}>
         <p className="font-heading text-base font-bold">
           ThinkProp{' '}
-          <span className={isLearner ? 'text-warning-stronger text-xs align-middle' : 'text-brand-amber text-xs align-middle'}>
+          <span className={isLearner ? 'text-warning-loud text-xs align-middle' : 'text-warning-loud text-xs align-middle'}>
             LMS
           </span>
         </p>
@@ -80,7 +80,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
             <div className="flex h-16 items-center justify-between border-b border-wire-border px-4">
               <p className="font-heading text-base font-bold">
                 ThinkProp{' '}
-                <span className={isLearner ? 'text-warning-stronger text-xs align-middle' : 'text-brand-amber text-xs align-middle'}>
+                <span className={isLearner ? 'text-warning-loud text-xs align-middle' : 'text-warning-loud text-xs align-middle'}>
                   LMS
                 </span>
               </p>
@@ -114,9 +114,9 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
   return (
     <>
       <div className="hidden border-b border-wire-border px-5 py-5 md:block">
-        <p className={`font-heading text-lg font-bold ${isLearner ? 'text-brand-navy' : 'text-muted'}`}>
+        <p className={`font-heading text-lg font-bold ${isLearner ? 'text-primary-loud' : 'text-muted'}`}>
           ThinkProp{' '}
-          <span className={`text-xs align-middle ${isLearner ? 'text-warning-stronger' : 'text-brand-amber'}`}>LMS</span>
+          <span className={`text-xs align-middle ${isLearner ? 'text-warning-loud' : 'text-warning-loud'}`}>LMS</span>
         </p>
       </div>
 
@@ -136,7 +136,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
             'flex items-center gap-3 rounded-r-lg border-l-4 px-3 py-2.5 text-sm transition-colors'
 
           const activeClasses = isLearner
-            ? 'border-brand-amber bg-level-0 text-brand-navy font-semibold'
+            ? 'border-brand-amber bg-level-0 text-primary-loud font-semibold'
             : 'border-brand-amber bg-[hsl(var(--neutral-weakest)/0.1)] text-muted font-semibold'
 
           const inactiveClasses = isLearner
@@ -160,7 +160,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
       <div className={`m-4 mt-auto rounded-xl border p-3 ${isLearner ? 'border-wire-border bg-level-0' : 'border-[hsl(var(--neutral-weakest)/0.2)] bg-[hsl(var(--neutral-weakest)/0.1)]'}`}>
         <div className="flex items-center gap-3">
           <div
-            className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${isLearner ? 'bg-brand-navy text-muted' : 'bg-neutral-weakest text-brand-navy'}`}
+            className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ${isLearner ? 'bg-brand-navy text-muted' : 'bg-neutral-weakest text-primary-loud'}`}
           >
             {isLearner ? 'RA' : 'TH'}
           </div>

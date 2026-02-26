@@ -62,7 +62,7 @@ export default function ConfirmationPage() {
       <main className="animate-in fade-in duration-200 md:ml-60 pt-16 md:pt-0">
         <div className="mx-auto max-w-2xl space-y-6 p-8">
           <section className="text-center">
-            <CheckCircle className="mx-auto h-16 w-16 text-state-compliant" />
+            <CheckCircle className="mx-auto h-16 w-16 text-success-default" />
             <h1 className="mt-4 font-heading text-3xl font-bold text-default">You&apos;re enrolled!</h1>
             <p className="mt-2 text-sm text-muted">We&apos;ll send your joining instructions to your email.</p>
           </section>
@@ -103,7 +103,7 @@ export default function ConfirmationPage() {
             {enrolledPreview && <ComplianceCard item={enrolledPreview} />}
           </section>
 
-          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 text-sm font-semibold text-brand-navy hover:no-underline">
+          <Button variant="link" onClick={() => router.push('/learner/dashboard')} className="h-auto p-0 text-sm font-semibold text-primary-loud hover:no-underline">
             ← Return to Dashboard
           </Button>
         </div>

@@ -62,7 +62,7 @@ export default function CourseDetailPage() {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2 text-sm">
-                <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-warning-strongest">{course.credits} CPD Credits</span>
+                <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-contrast">{course.credits} CPD Credits</span>
                 <span className="rounded-full border border-wire-border px-2.5 py-1 text-default">AED {course.price}</span>
                 {course.format.map((entry) => (
                   <span key={entry} className="rounded-full border border-wire-border px-2.5 py-1 text-muted">
@@ -80,7 +80,7 @@ export default function CourseDetailPage() {
               <ul className="mt-2 space-y-2">
                 {course.learningOutcomes.map((outcome) => (
                   <li key={outcome} className="flex items-start gap-2 text-sm text-default">
-                    <Check className="mt-0.5 h-4 w-4 text-state-compliant" />
+                    <Check className="mt-0.5 h-4 w-4 text-success-default" />
                     {outcome}
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export default function CourseDetailPage() {
                     disabled={!selectedSession}
                     className={`w-full rounded-xl py-3 font-semibold ${
                       selectedSession
-                        ? 'bg-primary text-primary-foreground hover:bg-primary-stronger'
+                        ? 'bg-primary text-contrast hover:bg-primary-stronger'
                         : 'cursor-not-allowed bg-wire-border text-muted'
                     }`}
                   >

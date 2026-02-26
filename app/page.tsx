@@ -14,8 +14,8 @@ const personas = [
     href: '/learner/dashboard',
     icon: User,
     iconWrapClass: 'bg-state-enrolled-bg',
-    iconClass: 'text-state-enrolled',
-    ctaClass: 'text-state-enrolled',
+    iconClass: 'text-primary-default',
+    ctaClass: 'text-primary-default',
   },
   {
     name: 'Tariq Hamdan',
@@ -25,8 +25,8 @@ const personas = [
     href: '/admin/compliance',
     icon: Shield,
     iconWrapClass: 'bg-brand-amber/10',
-    iconClass: 'text-warning-strong',
-    ctaClass: 'text-warning-stronger',
+    iconClass: 'text-warning-default',
+    ctaClass: 'text-warning-loud',
   },
 ]
 
@@ -38,11 +38,11 @@ export default function Page() {
       <div className="mb-12 text-center">
         <div className="flex items-center justify-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-amber">
-            <span className="font-display text-sm font-bold text-warning-strongest">T</span>
+            <span className="font-display text-sm font-bold text-contrast">T</span>
           </div>
           <div className="flex items-baseline gap-1">
             <span className="type-title-sm text-[18px]">ThinkProp</span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-warning-stronger">LMS</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
           </div>
         </div>
         <p className="mt-2 font-mono text-sm uppercase tracking-widest text-muted">Prototype Navigator</p>

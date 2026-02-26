@@ -14,7 +14,7 @@ export default function StatCard({ label, value, trend, trendUp = true, color }:
       <p className="text-sm text-muted">{label}</p>
       <p className={`mt-2 font-heading text-3xl font-bold ${color}`}>{value}</p>
       {trend && (
-        <p className={`mt-2 flex items-center gap-1 text-xs ${trendUp ? 'text-state-compliant' : 'text-state-critical'}`}>
+        <p className={`mt-2 flex items-center gap-1 text-xs ${trendUp ? 'text-success-default' : 'text-destructive-default'}`}>
           {trendUp ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
           {trend}
         </p>

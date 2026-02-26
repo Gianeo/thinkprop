@@ -98,11 +98,11 @@ function getSwatchTextTone(paletteToken: string, swatchName: string) {
 
   if (paletteToken === 'neutral') {
     if (swatchName === 'weakest' || swatchName === 'weaker') return 'text-default'
-    return 'text-strong'
+    return 'text-loud'
   }
 
   if (swatchName === 'weakest' || swatchName === 'weaker') return `text-${paletteToken}-default`
-  return `text-${paletteToken}-strong`
+  return `text-${paletteToken}-loud`
 }
 
 export default function DesignSystemPage() {
@@ -125,7 +125,7 @@ export default function DesignSystemPage() {
       <div className="mx-auto max-w-350 space-y-12">
         <header className="pb-4 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-strong">
+            <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-default">
               <ArrowLeft size={14} />
               Back to Navigator
             </Link>
@@ -158,7 +158,7 @@ export default function DesignSystemPage() {
 
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <Palette size={16} className="text-primary-strong" />
+            <Palette size={16} className="text-primary-default" />
             <h2 className="type-title">Color Tokens</h2>
           </div>
 
@@ -196,7 +196,7 @@ export default function DesignSystemPage() {
 
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <Type size={16} className="text-primary-strong" />
+            <Type size={16} className="text-primary-default" />
             <h2 className="type-title">Typography</h2>
           </div>
 
@@ -236,7 +236,7 @@ export default function DesignSystemPage() {
                   <p className="text-loud">text-loud</p>
                   <p className="text-default">text-default</p>
                   <p className="text-calm">text-calm</p>
-                  <p className="text-muted">text-muted</p>
+                  <p className="text-calm">text-calm</p>
                 </div>
               </div>
             </CardContent>
@@ -249,7 +249,7 @@ export default function DesignSystemPage() {
           <Card>
             <CardContent className="space-y-6 p-6">
               <div className="flex flex-wrap items-center gap-3">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary-stronger">Primary</Button>
+                <Button className="bg-primary text-contrast hover:bg-primary-stronger">Primary</Button>
                 <Button variant="outline">Outline</Button>
                 <Button variant="ghost">Ghost</Button>
                 <Button variant="link">Link Action</Button>
@@ -279,13 +279,13 @@ export default function DesignSystemPage() {
                 <TableBody>
                   <TableRow className="border-neutral-weaker">
                     <TableCell>primary-base</TableCell>
-                    <TableCell className="text-muted">Primary button backgrounds</TableCell>
-                    <TableCell className="text-primary-strong">Active CTA</TableCell>
+                    <TableCell className="text-calm">Primary button backgrounds</TableCell>
+                    <TableCell className="text-primary-default">Active CTA</TableCell>
                   </TableRow>
                   <TableRow className="border-neutral-weaker">
                     <TableCell>neutral-weaker</TableCell>
-                    <TableCell className="text-muted">Borders and subtle surfaces</TableCell>
-                    <TableCell className="text-muted">Structural scaffolding</TableCell>
+                    <TableCell className="text-calm">Borders and subtle surfaces</TableCell>
+                    <TableCell className="text-calm">Structural scaffolding</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

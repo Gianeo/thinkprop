@@ -60,7 +60,6 @@
     --bg-0: var(--neutral-weaker);
     --bg-1: var(--neutral-weakest);
     --text-loud: var(--neutral-strongest);
-    --text-strong: var(--neutral-strongest);
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
@@ -158,7 +157,6 @@
     --bg-0: var(--neutral-weakest);
     --bg-1: var(--neutral-weaker);
     --text-loud: var(--neutral-strongest);
-    --text-strong: var(--neutral-strongest);
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
@@ -243,7 +241,6 @@
   --color-background: var(--bg-0);
   --color-foreground: hsl(var(--foreground));
   --color-loud: hsl(var(--text-loud));
-  --color-strong: hsl(var(--text-strong));
   --color-default: hsl(var(--text-default));
   --color-calm: hsl(var(--text-calm));
   --color-text-muted: hsl(var(--text-muted));
@@ -349,10 +346,6 @@
     color: hsl(var(--text-loud));
   }
 
-  .text-strong {
-    color: hsl(var(--text-strong));
-  }
-
   .text-default {
     color: hsl(var(--text-default));
   }
@@ -373,10 +366,6 @@
     color: hsl(var(--text-primary-loud));
   }
 
-  .text-primary-strong {
-    color: hsl(var(--text-primary-loud));
-  }
-
   .text-primary-default {
     color: hsl(var(--text-primary-default));
   }
@@ -386,10 +375,6 @@
   }
 
   .text-destructive-loud {
-    color: hsl(var(--text-destructive-loud));
-  }
-
-  .text-destructive-strong {
     color: hsl(var(--text-destructive-loud));
   }
 
@@ -405,10 +390,6 @@
     color: hsl(var(--text-warning-loud));
   }
 
-  .text-warning-strong {
-    color: hsl(var(--text-warning-loud));
-  }
-
   .text-warning-default {
     color: hsl(var(--text-warning-default));
   }
@@ -418,10 +399,6 @@
   }
 
   .text-success-loud {
-    color: hsl(var(--text-success-loud));
-  }
-
-  .text-success-strong {
     color: hsl(var(--text-success-loud));
   }
 
@@ -443,10 +420,6 @@
 
   .bg-primary {
     background-color: hsl(var(--primary));
-  }
-
-  .text-primary-foreground {
-    color: hsl(var(--primary-foreground));
   }
 
   .bg-level-0 {

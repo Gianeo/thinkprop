@@ -35,7 +35,7 @@ export default function AdminComplianceTeamPage() {
           <div className="max-w-[1400px] space-y-6 p-8">
             <Button
               variant="link"
-              className="mb-2 h-auto gap-1.5 p-0 font-semibold text-state-enrolled hover:no-underline"
+              className="mb-2 h-auto gap-1.5 p-0 font-semibold text-primary-default hover:no-underline"
               onClick={() => router.push('/admin/compliance')}
             >
               <ArrowLeft size={14} />
@@ -51,15 +51,15 @@ export default function AdminComplianceTeamPage() {
 
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
-                <CheckCircle size={14} className="text-score-high" />
+                <CheckCircle size={14} className="text-success-default" />
                 <span className="font-medium text-calm">31 Compliant</span>
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
-                <AlertTriangle size={14} className="text-score-low" />
+                <AlertTriangle size={14} className="text-destructive-default" />
                 <span className="font-medium text-calm">7 At Risk</span>
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-neutral-weaker bg-level-1 px-4 py-2 text-sm">
-                <Clock size={14} className="text-score-mid" />
+                <Clock size={14} className="text-warning-default" />
                 <span className="font-medium text-calm">3 Expiring This Week</span>
               </div>
             </div>

@@ -74,7 +74,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
         <div className="border-t border-[hsl(var(--neutral-weakest)/0.1)] p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-              <span className="font-display text-xs font-semibold text-brand-amber">TH</span>
+              <span className="font-display text-xs font-semibold text-warning-loud">TH</span>
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
@@ -107,7 +107,7 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
           <div className="border-t border-[hsl(var(--neutral-weakest)/0.1)] p-4">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-                <span className="font-display text-xs font-semibold text-brand-amber">TH</span>
+                <span className="font-display text-xs font-semibold text-warning-loud">TH</span>
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-muted">Tariq Hamdan</p>
@@ -126,11 +126,11 @@ function Logo() {
   return (
     <div className="flex items-center gap-2.5">
       <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-amber">
-        <span className="font-display text-sm font-bold text-warning-strongest">T</span>
+        <span className="font-display text-sm font-bold text-contrast">T</span>
       </div>
       <div className="flex items-baseline gap-1">
         <span className="font-display text-[15px] font-semibold text-muted">ThinkProp</span>
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-amber">LMS</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-warning-loud">LMS</span>
       </div>
     </div>
   )

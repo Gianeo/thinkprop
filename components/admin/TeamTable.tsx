@@ -186,10 +186,10 @@ export default function TeamTable({ data }: TeamTableProps) {
                   <span
                     className={`font-mono text-sm font-bold ${
                       member.score >= 80
-                        ? 'text-score-high'
+                        ? 'text-success-default'
                         : member.score >= 60
-                          ? 'text-score-mid'
-                          : 'text-score-low'
+                          ? 'text-warning-default'
+                          : 'text-destructive-default'
                     }`}
                   >
                     {member.score}%
@@ -201,7 +201,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                 {member.atRisk === 0 ? (
                   <span className="text-sm text-muted">—</span>
                 ) : (
-                  <span className="text-sm font-medium text-state-critical">
+                  <span className="text-sm font-medium text-destructive-default">
                     {member.atRisk} credential{member.atRisk > 1 ? 's' : ''}
                   </span>
                 )}
@@ -214,7 +214,7 @@ export default function TeamTable({ data }: TeamTableProps) {
               <TableCell className="px-6 py-4 text-right">
                 <Button
                   variant="link"
-                  className="h-auto p-0 text-xs font-semibold text-state-enrolled hover:no-underline"
+                  className="h-auto p-0 text-xs font-semibold text-primary-default hover:no-underline"
                 >
                   View →
                 </Button>
@@ -226,7 +226,7 @@ export default function TeamTable({ data }: TeamTableProps) {
 
       {filteredAndSorted.length === 0 && (
         <div className="flex items-center gap-2 px-6 py-5 text-sm text-calm">
-          <AlertTriangle size={14} className="text-score-mid" />
+          <AlertTriangle size={14} className="text-warning-default" />
           No team members match your search.
         </div>
       )}

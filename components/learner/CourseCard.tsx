@@ -23,13 +23,13 @@ export default function CourseCard({ course, href }: CourseCardProps) {
       <p className="mt-2 text-sm text-muted">{course.provider}</p>
 
       <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
-        <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-warning-strongest">{course.credits} CPD Credits</span>
+        <span className="rounded-full bg-brand-amber px-2.5 py-1 font-semibold text-contrast">{course.credits} CPD Credits</span>
         <span className="text-default">AED {course.price}</span>
         <span className="text-muted">Next: {course.nextAvailable}</span>
       </div>
 
       <div className="mt-4 text-right">
-        <Link href={href} className="text-sm font-semibold text-brand-navy">
+        <Link href={href} className="text-sm font-semibold text-primary-loud">
           View Details →
         </Link>
       </div>

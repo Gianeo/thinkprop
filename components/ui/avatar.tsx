@@ -39,11 +39,11 @@ const avatarFallbackVariants = cva(
     variants: {
       variant: {
         default: "border border-neutral-weaker bg-level-0 text-calm",
-        primary: "border border-primary-weaker bg-primary-weakest text-primary-strong",
+        primary: "border border-primary-weaker bg-primary-weakest text-primary-default",
         destructive:
-          "border border-destructive-weaker bg-destructive-weakest text-destructive-strong",
-        warning: "border border-warning-weaker bg-warning-weakest text-warning-strong",
-        success: "border border-success-weaker bg-success-weakest text-success-strong",
+          "border border-destructive-weaker bg-destructive-weakest text-destructive-default",
+        warning: "border border-warning-weaker bg-warning-weakest text-warning-default",
+        success: "border border-success-weaker bg-success-weakest text-success-default",
       },
     },
     defaultVariants: {

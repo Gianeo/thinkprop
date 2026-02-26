@@ -24,7 +24,7 @@ export default function CoursesPage() {
                 <Filter className="h-4 w-4 text-muted" />
                 Showing courses that count toward: {requirementTitle}
               </p>
-              <Link href="/learner/courses" className="text-sm font-semibold text-brand-navy">
+              <Link href="/learner/courses" className="text-sm font-semibold text-primary-loud">
                 Clear filter
               </Link>
             </section>
