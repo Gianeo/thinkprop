@@ -1,26 +1,23 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { Toaster as Sonner } from "sonner"
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
-
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme="system"
       className="toaster group"
       toastOptions={{
         classNames: {
           toast:
-            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-muted",
+            "group toast group-[.toaster]:bg-level-2 group-[.toaster]:text-default group-[.toaster]:border-weak group-[.toaster]:shadow-lg dark:group-[.toaster]:bg-level-2 dark:group-[.toaster]:text-default dark:group-[.toaster]:border-strong",
+          description: "group-[.toast]:text-calm dark:group-[.toast]:text-calm",
           actionButton:
-            "group-[.toast]:bg-primary group-[.toast]:text-contrast",
+            "group-[.toast]:bg-primary group-[.toast]:text-contrast hover:group-[.toast]:bg-primary-strong",
           cancelButton:
-            "group-[.toast]:bg-muted group-[.toast]:text-muted",
+            "group-[.toast]:bg-level-1 group-[.toast]:text-calm dark:group-[.toast]:bg-level-1 dark:group-[.toast]:text-calm",
         },
       }}
       {...props}

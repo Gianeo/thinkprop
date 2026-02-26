@@ -128,11 +128,11 @@ const config: Config = {
           'expired-bg': 'hsl(var(--neutral-weakest) / <alpha-value>)',
         },
         score: {
-          high: 'hsl(var(--success-base) / <alpha-value>)',
+          high: 'hsl(var(--success-strong) / <alpha-value>)',
           'high-bg': 'hsl(var(--success-weakest) / <alpha-value>)',
-          mid: 'hsl(var(--warning-base) / <alpha-value>)',
+          mid: 'hsl(var(--warning-strong) / <alpha-value>)',
           'mid-bg': 'hsl(var(--warning-weakest) / <alpha-value>)',
-          low: 'hsl(var(--destructive-base) / <alpha-value>)',
+          low: 'hsl(var(--destructive-strong) / <alpha-value>)',
           'low-bg': 'hsl(var(--destructive-weakest) / <alpha-value>)',
         },
         wire: {

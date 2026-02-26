@@ -164,10 +164,10 @@ export default function RiskTable({
 
                 <TableCell className='flex justify-end items-center py-4'>
                   {isReminded ? (
-                    <span className="flex items-center gap-1.5 type-caption text-success-default">
-                      <CheckCircle size={12} />
+                    <div className="flex items-center gap-1.5 type-body text-success-default mt-1 px-4">
+                      <CheckCircle size={16} />
                       Reminded
-                    </span>
+                    </div>
                   ) : row.status === 'Enrolled' ? (
                     <Button
                       variant="link"
