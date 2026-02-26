@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Bell, BookOpen, Check, CheckCircle, MoreVertical } from 'lucide-react'
+import { ArrowRight, Bell, Check, CheckCircle, MoreVertical } from 'lucide-react'
 import type { AtRiskPerson } from '@/lib/types'
 import {
   Table,
@@ -108,20 +108,20 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                 </TableCell>
 
                 <TableCell>
-                  <div
-                    className={`type-body font-medium ${
-                      urgency === 'enrolled'
-                        ? 'text-primary-default'
-                        : urgency === 'critical'
+                  {row.status === 'Enrolled' ? (
+                    <span className="type-body text-muted">—</span>
+                  ) : (
+                    <div
+                      className={`type-body font-medium ${
+                        urgency === 'critical'
                           ? 'text-destructive-default'
                           : 'text-warning-default'
-                    }`}
-                  >
-                    {row.status === 'Enrolled' ? 'Enrolled' : `${row.daysLeft}`}
-                    {row.status !== 'Enrolled' && (
+                      }`}
+                    >
+                      {row.daysLeft}
                       <span className="ml-1 type-caption">days</span>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   {row.status !== 'Enrolled' && (
                     <div className="mt-1.5 h-1 w-16 overflow-hidden rounded-full bg-neutral-weaker">
                       <div
@@ -178,7 +178,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
 
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="outline" size="icon" withIcon="only">
+                          <Button variant="ghost" size="icon" withIcon="only">
                             <MoreVertical size={12} />
                           </Button>
                         </DropdownMenuTrigger>
