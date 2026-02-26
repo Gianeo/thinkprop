@@ -49,7 +49,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
   })
 
   return (
-    <div className="overflow-hidden rounded-xl bg-level-1 shadow">
+    <div className="overflow-hidden rounded-xl bg-level-1 shadow-sm">
       <div className="flex items-center justify-between shadow px-6 py-4">
         <div>
           <h3 className="type-title-sm">Immediate Attention Required</h3>
@@ -107,7 +107,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                         {row.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <span>{row.name}</span>
+                    <span className='font-medium text-loud'>{row.name}</span>
                   </div>
                 </TableCell>
 

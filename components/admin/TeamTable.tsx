@@ -132,16 +132,14 @@ export default function TeamTable({ data }: TeamTableProps) {
             </TableHead>
             <TableHead>AT RISK</TableHead>
             <TableHead>LAST ACTIVE</TableHead>
-            <TableHead className="h-11 px-6 text-right type-caption font-semibold uppercase tracking-wider text-muted">ACTIONS</TableHead>
+            <TableHead className="text-right">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {filteredAndSorted.map((member) => (
             <TableRow
-              key={member.id}
-              className="transition-colors duration-100"
-            >
+              key={member.id}>
               <TableCell>
                 <div className="flex items-center gap-3">
                   <Avatar>
@@ -152,7 +150,7 @@ export default function TeamTable({ data }: TeamTableProps) {
                       {member.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="type-body-sm font-medium text-loud">{member.name}</span>
+                  <span className="font-medium text-loud">{member.name}</span>
                 </div>
               </TableCell>
 
