@@ -65,6 +65,18 @@
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
     --text-contrast: 0 0% 100% / 0.8;
+    --text-primary-loud: var(--primary-stronger);
+    --text-primary-default: var(--primary-strong);
+    --text-primary-calm: var(--primary-base);
+    --text-destructive-loud: var(--destructive-stronger);
+    --text-destructive-default: var(--destructive-strong);
+    --text-destructive-calm: var(--destructive-base);
+    --text-warning-loud: var(--warning-stronger);
+    --text-warning-default: var(--warning-strong);
+    --text-warning-calm: var(--warning-base);
+    --text-success-loud: var(--success-stronger);
+    --text-success-default: var(--success-strong);
+    --text-success-calm: var(--success-base);
     --foreground: var(--neutral-strong);
     --card: var(--neutral-weakest);
     --card-foreground: var(--neutral-strong);
@@ -151,6 +163,18 @@
     --text-calm: var(--neutral-strong);
     --text-muted: var(--neutral-base);
     --text-contrast: 0 0% 100% / 0.8;
+    --text-primary-loud: var(--primary-stronger);
+    --text-primary-default: var(--primary-strong);
+    --text-primary-calm: var(--primary-base);
+    --text-destructive-loud: var(--destructive-stronger);
+    --text-destructive-default: var(--destructive-strong);
+    --text-destructive-calm: var(--destructive-base);
+    --text-warning-loud: var(--warning-stronger);
+    --text-warning-default: var(--warning-strong);
+    --text-warning-calm: var(--warning-base);
+    --text-success-loud: var(--success-stronger);
+    --text-success-default: var(--success-strong);
+    --text-success-calm: var(--success-base);
     --foreground: var(--neutral-strongest);
     --card: var(--neutral-weaker);
     --card-foreground: var(--neutral-strongest);
@@ -224,6 +248,18 @@
   --color-calm: hsl(var(--text-calm));
   --color-text-muted: hsl(var(--text-muted));
   --color-contrast: hsl(var(--text-contrast));
+  --color-primary-loud: hsl(var(--text-primary-loud));
+  --color-primary-default: hsl(var(--text-primary-default));
+  --color-primary-calm: hsl(var(--text-primary-calm));
+  --color-destructive-loud: hsl(var(--text-destructive-loud));
+  --color-destructive-default: hsl(var(--text-destructive-default));
+  --color-destructive-calm: hsl(var(--text-destructive-calm));
+  --color-warning-loud: hsl(var(--text-warning-loud));
+  --color-warning-default: hsl(var(--text-warning-default));
+  --color-warning-calm: hsl(var(--text-warning-calm));
+  --color-success-loud: hsl(var(--text-success-loud));
+  --color-success-default: hsl(var(--text-success-default));
+  --color-success-calm: hsl(var(--text-success-calm));
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -331,6 +367,54 @@
 
   .text-contrast {
     color: hsl(var(--text-contrast));
+  }
+
+  .text-primary-loud {
+    color: hsl(var(--text-primary-loud));
+  }
+
+  .text-primary-default {
+    color: hsl(var(--text-primary-default));
+  }
+
+  .text-primary-calm {
+    color: hsl(var(--text-primary-calm));
+  }
+
+  .text-destructive-loud {
+    color: hsl(var(--text-destructive-loud));
+  }
+
+  .text-destructive-default {
+    color: hsl(var(--text-destructive-default));
+  }
+
+  .text-destructive-calm {
+    color: hsl(var(--text-destructive-calm));
+  }
+
+  .text-warning-loud {
+    color: hsl(var(--text-warning-loud));
+  }
+
+  .text-warning-default {
+    color: hsl(var(--text-warning-default));
+  }
+
+  .text-warning-calm {
+    color: hsl(var(--text-warning-calm));
+  }
+
+  .text-success-loud {
+    color: hsl(var(--text-success-loud));
+  }
+
+  .text-success-default {
+    color: hsl(var(--text-success-default));
+  }
+
+  .text-success-calm {
+    color: hsl(var(--text-success-calm));
   }
 
   .border-border {
