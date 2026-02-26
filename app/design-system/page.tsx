@@ -171,16 +171,16 @@ export default function DesignSystemPage() {
             <CardContent className="pt-0">
               <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:grid-cols-5">
                 {palettes.map((palette) => (
-                  <div key={palette.title} className="space-y-2">
+                  <div key={palette.title} className="space-y-3">
                     <div>
-                      <h3 className="type-body-sm font-semibold text-loud">{palette.title}</h3>
+                      <h3 className="type-title-upper text-default pl-4">{palette.title}</h3>
                       {/* <p className="type-caption">`{palette.token}` semantic ramp</p> */}
                     </div>
                     <div className="overflow-hidden">
                       {palette.swatches.map((swatch) => (
                         <div
                           key={`${palette.title}-${swatch.name}`}
-                          className={`flex items-center justify-between px-3 py-2 type-caption font-medium ${swatch.className} ${getSwatchTextTone(
+                          className={`flex items-center justify-between px-4 py-4 type-caption ${swatch.className} ${getSwatchTextTone(
                             palette.token,
                             swatch.name,
                           )}`}
@@ -300,7 +300,7 @@ export default function DesignSystemPage() {
 
           <KpiStrip />
 
-          <div className='bg-neutral-weaker/50 rounded-lg'>
+          <div className='bg-neutral-weakest/50 rounded-lg'>
             <div className="space-y-4 p-6">
               <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               <RiskTable
