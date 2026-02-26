@@ -148,8 +148,8 @@ const config: Config = {
         sm: '12.5px',
         base: '15px',
         lg: '21px',
-        xl: '31px',
-        '2xl': '45px',
+        xl: '26px',
+        '2xl': '38px',
       },
       fontFamily: {
         display: ['var(--font-display)', 'DM Sans', 'sans-serif'],

@@ -63,7 +63,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
 
       <Table>
         <TableHeader className="bg-level-0">
-          <TableRow className="border-neutral-weaker hover:bg-transparent">
+          <TableRow>
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead
                 key={header}

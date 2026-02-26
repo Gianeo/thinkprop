@@ -300,8 +300,8 @@ export default function DesignSystemPage() {
 
           <KpiStrip />
 
-          <Card>
-            <CardContent className="space-y-4 p-6">
+          <div className='bg-neutral-weaker/50 rounded-lg'>
+            <div className="space-y-4 p-6">
               <DepartmentFilter selected={selectedDept} onChange={setSelectedDept} />
               <RiskTable
                 data={filtered}
@@ -311,8 +311,8 @@ export default function DesignSystemPage() {
                   setModalOpen(true)
                 }}
               />
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           <TeamTable data={adminTeam} />
         </section>

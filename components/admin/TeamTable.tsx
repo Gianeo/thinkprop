@@ -70,8 +70,8 @@ export default function TeamTable({ data }: TeamTableProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-neutral-weaker bg-level-1 shadow">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-weaker px-6 py-4">
+    <div className="overflow-hidden rounded-2xl border border-weak bg-level-1 shadow">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-weak px-6 py-4">
         <div>
           <h3 className="type-title-sm">Team Compliance</h3>
           <p className="type-caption">Full compliance status for all team members</p>
@@ -140,7 +140,7 @@ export default function TeamTable({ data }: TeamTableProps) {
           {filteredAndSorted.map((member) => (
             <TableRow
               key={member.id}
-              className="border-neutral-weaker transition-colors duration-100 hover:bg-level-0/60"
+              className="transition-colors duration-100"
             >
               <TableCell>
                 <div className="flex items-center gap-3">
