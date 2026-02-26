@@ -373,6 +373,10 @@
     color: hsl(var(--text-primary-loud));
   }
 
+  .text-primary-strong {
+    color: hsl(var(--text-primary-loud));
+  }
+
   .text-primary-default {
     color: hsl(var(--text-primary-default));
   }
@@ -382,6 +386,10 @@
   }
 
   .text-destructive-loud {
+    color: hsl(var(--text-destructive-loud));
+  }
+
+  .text-destructive-strong {
     color: hsl(var(--text-destructive-loud));
   }
 
@@ -397,6 +405,10 @@
     color: hsl(var(--text-warning-loud));
   }
 
+  .text-warning-strong {
+    color: hsl(var(--text-warning-loud));
+  }
+
   .text-warning-default {
     color: hsl(var(--text-warning-default));
   }
@@ -406,6 +418,10 @@
   }
 
   .text-success-loud {
+    color: hsl(var(--text-success-loud));
+  }
+
+  .text-success-strong {
     color: hsl(var(--text-success-loud));
   }
 

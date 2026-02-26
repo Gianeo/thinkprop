@@ -91,10 +91,18 @@ const palettes = [
   },
 ] as const
 
-function getSwatchTextTone(swatchName: string) {
-  if (swatchName === 'weakest' || swatchName === 'weaker') return 'text-default'
-  if (swatchName === 'weak' || swatchName === 'base') return 'text-strong'
-  return 'text-contrast'
+function getSwatchTextTone(paletteToken: string, swatchName: string) {
+  if (swatchName === 'strong' || swatchName === 'stronger' || swatchName === 'strongest') {
+    return 'text-contrast'
+  }
+
+  if (paletteToken === 'neutral') {
+    if (swatchName === 'weakest' || swatchName === 'weaker') return 'text-default'
+    return 'text-strong'
+  }
+
+  if (swatchName === 'weakest' || swatchName === 'weaker') return `text-${paletteToken}-default`
+  return `text-${paletteToken}-strong`
 }
 
 export default function DesignSystemPage() {
@@ -170,7 +178,10 @@ export default function DesignSystemPage() {
                       {palette.swatches.map((swatch) => (
                         <div
                           key={`${palette.title}-${swatch.name}`}
-                          className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className} ${getSwatchTextTone(swatch.name)}`}
+                          className={`flex items-center justify-between px-3 py-2 text-xs font-medium ${swatch.className} ${getSwatchTextTone(
+                            palette.token,
+                            swatch.name,
+                          )}`}
                         >
                           <span>{swatch.name}</span>
                         </div>
