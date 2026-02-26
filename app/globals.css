@@ -163,7 +163,7 @@
     --text-loud: var(--neutral-strongest);
     --text-default: var(--neutral-stronger);
     --text-calm: var(--neutral-strong);
-    --text-muted: var(--neutral-base);
+    --text-muted: var(--neutral-weak);
     --text-contrast: 0 0% 0% / 0.8;
     --text-primary-loud: var(--primary-stronger);
     --text-primary-default: var(--primary-strong);

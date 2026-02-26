@@ -70,7 +70,7 @@ export default function RiskTable({
       </div>
 
       <Table>
-        <TableHeader className="bg-level-0">
+        <TableHeader>
           <TableRow>
             {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
               <TableHead

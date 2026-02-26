@@ -102,7 +102,7 @@ export default function TeamTable({ data }: TeamTableProps) {
       </div>
 
       <Table>
-        <TableHeader className="bg-level-0">
+        <TableHeader>
           <TableRow>
             <TableHead>
               <Button
