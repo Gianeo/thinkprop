@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Bell, BookOpen, CheckCircle, MoreHorizontal } from 'lucide-react'
+import { ArrowRight, Bell, BookOpen, CheckCircle, MoreVertical } from 'lucide-react'
 import type { AtRiskPerson } from '@/lib/types'
 import {
   Table,
@@ -146,7 +146,7 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                   )}
                 </TableCell>
 
-                <TableCell>
+                <TableCell className='flex justify-end'>
                   {isReminded ? (
                     <span className="flex items-center gap-1.5 type-caption text-success-default">
                       <CheckCircle size={12} />
@@ -156,10 +156,9 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                     <Button
                       variant="link"
                       withIcon="after"
-                      className="h-auto p-0 type-caption text-primary-default hover:no-underline"
                     >
                       View Progress
-                      <ArrowRight size={12} />
+                      <ArrowRight />
                     </Button>
                   ) : (
                     <div className="flex items-center gap-2">
@@ -178,8 +177,10 @@ export default function RiskTable({ data, onRemind, remindedIds }: RiskTableProp
                       </Button>
 
                       <DropdownMenu>
-                        <DropdownMenuTrigger>
-                          <MoreHorizontal size={12} />
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="outline" size="icon" withIcon="only">
+                            <MoreVertical size={12} />
+                          </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                           <DropdownMenuItem>View Profile</DropdownMenuItem>
