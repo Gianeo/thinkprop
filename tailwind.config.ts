@@ -145,7 +145,7 @@ const config: Config = {
         },
       },
       fontSize: {
-        xs: '11px',
+        xs: '10px',
         sm: '12.5px',
         base: '15px',
         lg: '21px',
