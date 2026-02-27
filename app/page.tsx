@@ -1,7 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const personas = [
@@ -116,6 +118,15 @@ export default function Page() {
               </div>
             )
           })}
+
+          <div className="mt-6 flex items-center justify-center">
+            <Button variant="outline" asChild className="gap-2 rounded-xl border-admin-border border-border text-admin-muted text-calm hover:border-admin-border-strong hover:text-admin-heading hover:text-loud font-medium">
+              <Link href="/story">
+                <BookOpen size={14} />
+                Read the Story First
+              </Link>
+            </Button>
+          </div>
         </section>
       </div>
     </main>
