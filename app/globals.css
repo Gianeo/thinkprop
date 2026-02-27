@@ -10,13 +10,13 @@
     --radius: 0.75rem;
 
     /* Primary */
-    --primary-weakest: 18 60% 97%;
-    --primary-weaker: 18 60% 92%;
-    --primary-weak: 18 60% 78%;
-    --primary-base: 18 60% 56%;
-    --primary-strong: 18 60% 46%;
-    --primary-stronger: 18 60% 21%;
-    --primary-strongest: 18 60% 10%;
+    --primary-weakest: 18 70% 97%;
+    --primary-weaker: 18 70% 92%;
+    --primary-weak: 18 70% 78%;
+    --primary-base: 18 70% 56%;
+    --primary-strong: 18 70% 46%;
+    --primary-stronger: 18 70% 21%;
+    --primary-strongest: 18 70% 10%;
 
     /* Neutral */
     --neutral-weakest: 24 4% 98%;
@@ -28,33 +28,33 @@
     --neutral-strongest: 24 4% 12%;
 
     /* Destructive */
-    --destructive-weakest: 6 60% 97%;
-    --destructive-weaker: 6 60% 92%;
-    --destructive-weak: 6 60% 78%;
-    --destructive-base: 6 60% 56%;
-    --destructive-strong: 6 60% 42%;
-    --destructive-stronger: 6 60% 21%;
-    --destructive-strongest: 6 60% 10%;
+    --destructive-weakest: 6 70% 97%;
+    --destructive-weaker: 6 70% 92%;
+    --destructive-weak: 6 70% 78%;
+    --destructive-base: 6 70% 56%;
+    --destructive-strong: 6 70% 42%;
+    --destructive-stronger: 6 70% 21%;
+    --destructive-strongest: 6 70% 10%;
 
     /* Warning */
-    --warning-weakest: 42 60% 96%;
-    --warning-weaker: 42 60% 92%;
-    --warning-weak: 42 60% 78%;
-    --warning-base: 42 60% 56%;
-    --warning-strong: 42 60% 38%;
-    --warning-stronger: 42 60% 21%;
-    --warning-strongest: 42 60% 10%;
-    --warning-foreground: 42 60% 10%;
+    --warning-weakest: 42 70% 96%;
+    --warning-weaker: 42 70% 92%;
+    --warning-weak: 42 70% 78%;
+    --warning-base: 42 70% 56%;
+    --warning-strong: 42 70% 38%;
+    --warning-stronger: 42 70% 21%;
+    --warning-strongest: 42 70% 10%;
+    --warning-foreground: 42 70% 10%;
 
     /* Success */
-    --success-weakest: 145 60% 96%;
-    --success-weaker: 145 60% 92%;
-    --success-weak: 145 60% 78%;
-    --success-base: 145 60% 56%;
-    --success-strong: 145 60% 38%;
-    --success-stronger: 145 60% 21%;
-    --success-strongest: 145 60% 10%;
-    --success-foreground: 145 60% 10%;
+    --success-weakest: 145 70% 96%;
+    --success-weaker: 145 70% 92%;
+    --success-weak: 145 70% 78%;
+    --success-base: 145 70% 56%;
+    --success-strong: 145 70% 38%;
+    --success-stronger: 145 70% 21%;
+    --success-strongest: 145 70% 10%;
+    --success-foreground: 145 70% 10%;
 
     /* shadcn semantic aliases from the palette */
     --bg-0: var(--neutral-weaker);

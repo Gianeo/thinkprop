@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button'
 const personas = [
   {
     name: 'Tariq Hamdan',
-    subtitle: 'Training Manager · Admin Journey',
+    subtitle: 'Training Manager',
     description: 'Manage team compliance, send reminders, and monitor risk in real time.',
-    cta: 'Enter Admin',
+    cta: 'Enter Admin Journey',
     href: '/admin/compliance',
     ctaClass: 'text-primary-default',
     image: '/images/Tariq.png',
@@ -17,9 +17,9 @@ const personas = [
   },
   {
     name: 'Reem Al Mansoori',
-    subtitle: 'Real Estate Agent · Learner Journey',
+    subtitle: 'Real Estate Agent',
     description: 'Follow Reem through a compliance alert and the full enrollment flow.',
-    cta: 'Enter Learner',
+    cta: 'Enter Learner Journey',
     href: '/learner/dashboard',
     ctaClass: 'text-primary-default',
     image: '/images/Reem.png',
@@ -48,7 +48,7 @@ export default function Page() {
 
       <div className="relative mx-auto grid min-h-screen w-full max-w-400 grid-cols-1 lg:grid-cols-2">
         <section className="flex flex-col justify-between p-8 md:p-12 lg:p-16 relative">
-          {/* <div className="pointer-events-none absolute left-0 top-0 h-0.5 w-32 bg-primary-base md:top-12 md:w-48" /> */}
+          <div className="pointer-events-none absolute left-0 top-0 h-0.5 w-32 bg-primary-base md:top-12 md:w-48" />
           <div>
             <div className="flex items-baseline gap-1">
               <span className="type-title-sm">ThinkProp</span>
@@ -80,15 +80,15 @@ export default function Page() {
                 className="group relative cursor-pointer transition-all duration-200 hover:shadow-lg"
               >
                 <div className={`relative h-full overflow-hidden bg-transparent text-card-foreground shadow ${cornerClass}`}>
-                  <div className={`absolute inset-0 bg-white/50 backdrop-blur-md ${cornerClass}`} />
+                  <div className={`absolute inset-0 bg-white/50 backdrop-blur-xl ${cornerClass}`} />
                   <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
                     <div className="flex items-center justify-between">
-                      <span className="type-title text-muted">{persona.index}</span>
+                      <span className="type-title-upper text-muted">{persona.index}</span>
                     </div>
 
-                    <div className='flex gap-16 justify-between items-stretch h-full'>
+                    <div className='flex gap-16 justify-between items-stretch h-full mt-8'>
                       <div>
-                        <h1 className="type-title-upper text-muted mb-3">Persona</h1>
+                        {/* <h1 className="type-title-upper text-white mb-3">Persona</h1> */}
                         <h2 className="type-title font-bold text-loud">{persona.name}</h2>
                         <p className="mt-0.5 type-body-sm text-calm">{persona.subtitle}</p>
                       </div>
@@ -98,7 +98,7 @@ export default function Page() {
                           alt={persona.name}
                           width={120}
                           height={120}
-                          className="h-full w-auto object-contain object-top"
+                          className="h-full w-auto object-contain object-top rounded-l-xl"
                         />
                       </div>
                     </div>
