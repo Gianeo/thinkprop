@@ -10,6 +10,7 @@ interface StoryShellProps {
   actLabel: string
   onBack: () => void
   children: React.ReactNode
+  backgroundImage?: string
 }
 
 const actPillClassMap: Record<1 | 2 | 3, string> = {
@@ -25,6 +26,7 @@ export default function StoryShell({
   actLabel,
   onBack,
   children,
+  backgroundImage,
 }: StoryShellProps) {
   const maxIndex = Math.max(totalSteps - 1, 1)
   const safeStep = Math.max(0, Math.min(currentStep, maxIndex))
@@ -40,6 +42,15 @@ export default function StoryShell({
 
   return (
     <div className="min-h-screen bg-admin-surface bg-level-0 font-body">
+      {backgroundImage && (
+        <>
+          <div
+            className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${backgroundImage}')` }}
+          />
+          <div className="pointer-events-none fixed inset-0 z-0 bg-level-0/75 backdrop-blur-[1px]" />
+        </>
+      )}
       <header className="fixed left-0 right-0 top-0 z-50 h-14 border-b border-admin-border border-border bg-admin-card/90 bg-card/90 backdrop-blur-sm">
         <div className="flex h-full items-center justify-between px-6">
           <div className="flex items-center gap-2">
@@ -69,7 +80,7 @@ export default function StoryShell({
         />
       </div>
 
-      <main className="flex min-h-screen items-center justify-center px-6 pb-24 pt-20">
+      <main className="relative z-10 flex min-h-screen items-center justify-center px-6 pb-24 pt-20">
         {children}
       </main>
 

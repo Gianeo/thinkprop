@@ -18,6 +18,8 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  storyImages?: string[]
+  imagePosition?: 'left' | 'right'
   characterData?: {
     name: string
     role: string
@@ -26,6 +28,19 @@ interface StoryStepData {
     colorScheme: 'blue' | 'amber'
     quote: string
     details: string[]
+    image?: string
+    description?: string
+  }
+  secondaryCharacterData?: {
+    name: string
+    role: string
+    company: string
+    initials: string
+    colorScheme: 'blue' | 'amber'
+    quote: string
+    details: string[]
+    image?: string
+    description?: string
   }
 }
 
@@ -40,12 +55,12 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "CPD stands for Continuing Professional Development. Think of it as annual homework that keeps your job legal. It's not optional. It's not flexible. And the clock never stops.",
   },
   {
-    id: 'act1-tariq',
+    id: 'act1-personas',
     act: 1,
     layout: 'intro',
     stepLabel: 'Meet Character 1',
-    headline: "Meet Tariq. He's responsible for all 40 of them.",
-    body: "Tariq is the Training & Compliance Manager at Prestige Properties Dubai. His job is to ensure every single agent on his team maintains valid credentials at all times.\n\nRight now, his tools are a spreadsheet, a lot of WhatsApp messages, and a constant low-level anxiety that someone's license is about to lapse without him knowing.",
+    headline: "Meet Tariq and Reem. One risk owner. One agent under deadline.",
+    body: "Tariq is responsible for the compliance of 40 agents. Reem is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\nThis is where the system either breaks, or saves both of them.",
     characterData: {
       name: 'Tariq Hamdan',
       role: 'Training & Compliance Manager',
@@ -53,24 +68,20 @@ const STORY_STEPS: StoryStepData[] = [
       initials: 'TH',
       colorScheme: 'amber',
       quote: "I always find out too late. By the time someone tells me there's a problem, it's already a crisis.",
+      description: "Tariq is the Training & Compliance Manager at Prestige Properties Dubai. His job is to ensure every single agent on his team maintains valid credentials at all times.\n\nRight now, his tools are a spreadsheet, a lot of WhatsApp messages, and a constant low-level anxiety that someone's license is about to lapse without him knowing.",
       details: ['40 agents to monitor', 'Spreadsheet-based tracking', 'Reactive, not proactive', 'Spends 6hrs/week chasing'],
+      image: '/images/Tariq-profile.png',
     },
-  },
-  {
-    id: 'act1-reem',
-    act: 1,
-    layout: 'intro',
-    stepLabel: 'Meet Character 2',
-    headline: "Meet Reem. She's busy, she's good at her job, and she has 18 days.",
-    body: "Reem is a senior real estate agent at Prestige Properties Dubai. She's managing six active client files, showing apartments three days a week, and closing deals that make her one of the top performers on her team.\n\nThe last thing on her mind is an admin deadline hiding in a platform she barely logs into. She doesn't even know the clock is ticking.",
-    characterData: {
+    secondaryCharacterData: {
       name: 'Reem Al Mansoori',
       role: 'Senior Real Estate Agent',
       company: 'Prestige Properties Dubai',
       initials: 'RA',
       colorScheme: 'blue',
       quote: "I know I need to do the CPD training. I just keep thinking I'll do it next week.",
+      description: "Reem is a senior real estate agent at Prestige Properties Dubai. She's managing six active client files, showing apartments three days a week, and closing deals that make her one of the top performers on her team.\n\nThe last thing on her mind is an admin deadline hiding in a platform she barely logs into. She doesn't even know the clock is ticking.",
       details: ['6 active client files', 'RERA license holder', '18 days until expiry', "Doesn't know yet"],
+      image: '/images/Reem-profile.png',
     },
   },
   {
@@ -83,6 +94,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The KPI strip is designed to answer one question: "Do I have a problem today?" If any of those four numbers looks wrong, Tariq knows before anyone has to tell him.',
     mockupId: 'admin-overview',
     mockupCaption: 'Admin compliance overview — live org-wide status',
+    storyImages: ['/images/Tariq-profile.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act2-step2',
@@ -94,6 +107,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Tariq's old workflow was: export data → cross-reference → figure out who to chase → type a WhatsApp message. This replaces all of that. The work is done for him. He just decides and acts.",
     mockupId: 'reminder-modal',
     mockupCaption: 'Reminder modal — pre-written message ready to send',
+    storyImages: ['/images/Tariq-atwork.png'],
+    imagePosition: 'left',
   },
   {
     id: 'act2-step3',
@@ -103,6 +118,8 @@ const STORY_STEPS: StoryStepData[] = [
     headline: "Sent. Now it's Reem's turn.",
     body: `Tariq clicks Send. The modal closes. A green confirmation toast appears at the corner of his screen: "Reminder sent to Reem Al Mansoori."\n\nHe moves on to the next name on the list. He'll come back later to check who has acted.\n\nMeanwhile, across the office, a notification just landed in Reem's inbox.`,
     insight: "Before ThinkProp, the average time between a compliance alert and a learner enrolling was 11 days. A frictionless reminder plus a one-click enrollment path brings that to under 3. In an 18-day window, that 8-day saving is the difference between compliant and lapsed.",
+    storyImages: ['/images/Tariq-success.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act2-step4',
@@ -112,6 +129,8 @@ const STORY_STEPS: StoryStepData[] = [
     headline: "From reactive to proactive. That's the whole product.",
     body: "Before ThinkProp, Tariq spent approximately 6 hours every week chasing compliance status across his team. He found out about problems when they became crises. He had no visibility until something broke.\n\nNow he opens one screen. He sees everything. He acts in seconds. The feedback loop closes itself.\n\nBut the loop isn't closed yet. Reem still needs to enroll. Let's follow her.",
     insight: 'The admin compliance dashboard is the primary enterprise sales surface. When Tariq shows this screen to his COO in a quarterly review, it\'s the moment the company decides whether to renew the ThinkProp contract.',
+    storyImages: ['/images/Tariq-success.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act3-step1',
@@ -123,6 +142,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "This is the moment the two journeys connect. Tariq's action is what brought Reem here. Without the reminder, she might not have logged in for another two weeks.",
     mockupId: 'learner-dashboard',
     mockupCaption: "Reem's dashboard — compliance cards sorted by urgency",
+    storyImages: ['/images/Tariq-profile.png'],
+    imagePosition: 'left',
   },
   {
     id: 'act3-step2',
@@ -134,6 +155,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The biggest source of learner drop-off in compliance training is confusion about which courses actually count. We eliminate that question entirely before it can be asked.',
     mockupId: 'course-discovery',
     mockupCaption: 'Course list pre-filtered for RERA CPD Credits',
+    storyImages: ['/images/Reem-onphone.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act3-step3',
@@ -145,6 +168,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Showing seat availability creates genuine urgency — Session B only has 4 seats left. That's not a design trick. That's real information that helps Reem make a better decision.",
     mockupId: 'session-picker',
     mockupCaption: 'Session picker — Session A selected, enroll button active',
+    storyImages: ['/images/Reem-worried.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act3-step4',
@@ -156,6 +181,8 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'Under our Model B payment assumption, the company pre-authorises a training budget. When Reem enrolls, the cost is charged automatically to that account. No approval needed. No friction. The most important design decision we made was choosing what NOT to show.',
     mockupId: 'enrollment-confirmation',
     mockupCaption: 'Enrollment confirmed — payment covered by organisation',
+    storyImages: ['/images/Reem-worried.png'],
+    imagePosition: 'right',
   },
   {
     id: 'act3-step5',
@@ -166,6 +193,8 @@ const STORY_STEPS: StoryStepData[] = [
     body: `Reem clicks "Return to Dashboard." The critical red card has transformed into a calm blue one: "RERA CPD — Enrolled · Session 15 Mar."\n\nAt the same moment, without any manual update, without a message, without a report — Tariq's dashboard reflects the change. Her row in his risk table is no longer red.\n\nThe loop is closed.`,
     mockupId: 'dashboard-updated',
     mockupCaption: 'Dashboard updated — RERA CPD now shows Enrolled state',
+    storyImages: ['/images/Reem-success.png'],
+    imagePosition: 'right',
   },
 ]
 
@@ -212,112 +241,124 @@ export default function StoryPage() {
 
   if (currentStepIndex < 0) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-admin-surface bg-level-0 px-6 py-20">
-        <div className="mb-12 flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-base">
-            <span className="font-display text-xs font-bold text-white">T</span>
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="type-body-sm">ThinkProp</span>
-            <span className="type-caption ml-0.5 text-primary-default">LMS</span>
-          </div>
-        </div>
+      <main className="relative min-h-screen overflow-hidden bg-level-0 px-6 py-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-level-0/75 backdrop-blur-[1px]" />
 
-        <span className="mb-6 inline-block rounded-full border border-primary-base/20 bg-primary-weaker px-4 py-1.5">
-          <span className="type-caption text-primary-default">An Interactive Story</span>
-        </span>
-
-        <h1 className="type-display mb-4 max-w-2xl text-center">
-          Don&apos;t Lose Your License
-        </h1>
-        <p className="type-body mb-3 max-w-xl text-center">
-          Two people. One platform. A compliance deadline that could end a career.
-        </p>
-
-        <div className="mb-10 flex flex-col items-center gap-4 sm:flex-row">
-          <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-primary-base/20 bg-primary-weaker font-display font-bold text-primary-default">
-              TH
+        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-10rem)] w-full max-w-7xl grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-5 md:self-start">
+            <div className="mb-12 flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-base">
+                <span className="font-display text-xs font-bold text-white">T</span>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="type-body-sm">ThinkProp</span>
+                <span className="type-caption ml-0.5 text-primary-default">LMS</span>
+              </div>
             </div>
-            <div>
-              <p className="type-body-sm">Tariq Hamdan</p>
-              <p className="type-caption font-mono">40 agents to monitor</p>
+
+            <span className="mb-6 inline-block rounded-full border border-primary-base/20 bg-primary-weaker px-4 py-1.5">
+              <span className="type-caption text-primary-default">An Interactive Story</span>
+            </span>
+
+            <h1 className="type-display mb-4 max-w-2xl">
+              Don&apos;t Lose Your License
+            </h1>
+            <p className="type-body mb-3 max-w-xl">
+              Two people. One platform. A compliance deadline that could end a career.
+            </p>
+          </div>
+
+          <div className="md:col-span-7 md:self-end">
+            <div className="mb-10 flex flex-col items-center gap-4 sm:flex-row">
+              <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-primary-base/20 bg-primary-weaker font-display font-bold text-primary-default">
+                  TH
+                </div>
+                <div>
+                  <p className="type-body-sm">Tariq Hamdan</p>
+                  <p className="type-caption font-mono">40 agents to monitor</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-state-enrolled/20 bg-state-enrolled-bg font-display font-bold text-state-enrolled">
+                  RA
+                </div>
+                <div>
+                  <p className="type-body-sm">Reem Al Mansoori</p>
+                  <p className="type-caption font-mono text-state-critical">18 days to renewal</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-10 flex flex-col items-center gap-8 rounded-2xl border border-admin-border bg-admin-card px-8 py-5 shadow-card sm:flex-row sm:gap-12">
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-3xl font-bold text-state-critical">
+                  6 hrs
+                </span>
+                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
+                  lost per week
+                </span>
+                <span className="mt-0.5 text-xs text-admin-muted">
+                  chasing compliance manually
+                </span>
+              </div>
+
+              <div className="hidden h-10 w-px bg-admin-border sm:block" />
+
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-3xl font-bold text-state-at-risk">
+                  11 days
+                </span>
+                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
+                  average delay
+                </span>
+                <span className="mt-0.5 text-xs text-admin-muted">
+                  from alert to enrollment
+                </span>
+              </div>
+
+              <div className="hidden h-10 w-px bg-admin-border sm:block" />
+
+              <div className="flex flex-col items-center text-center">
+                <span className="font-display text-3xl font-bold text-state-compliant">
+                  AED 50k
+                </span>
+                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
+                  max fine per violation
+                </span>
+                <span className="mt-0.5 text-xs text-admin-muted">
+                  per RERA regulations
+                </span>
+              </div>
+            </div>
+
+            <Button
+              onClick={() => setCurrentStepIndex(0)}
+              className="h-12 gap-2 rounded-xl bg-primary px-10 font-semibold text-white transition-all duration-150 active:scale-[0.98] hover:bg-primary-strong"
+            >
+              <PlayCircle size={18} />
+              Begin the Story
+            </Button>
+
+            <p className="type-caption mb-3 mt-5">Or jump straight to:</p>
+            <div className="flex items-center justify-center gap-3">
+              <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
+                Learner Prototype →
+              </Link>
+              <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
+                Admin Prototype →
+              </Link>
+              <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
+                <BookOpen size={12} />
+                Navigator
+              </Link>
             </div>
           </div>
-
-          <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-state-enrolled/20 bg-state-enrolled-bg font-display font-bold text-state-enrolled">
-              RA
-            </div>
-            <div>
-              <p className="type-body-sm">Reem Al Mansoori</p>
-              <p className="type-caption font-mono text-state-critical">18 days to renewal</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-10 flex flex-col items-center gap-8 rounded-2xl border border-admin-border bg-admin-card px-8 py-5 shadow-card sm:flex-row sm:gap-12">
-          <div className="flex flex-col items-center text-center">
-            <span className="font-display text-3xl font-bold text-state-critical">
-              6 hrs
-            </span>
-            <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-              lost per week
-            </span>
-            <span className="mt-0.5 text-xs text-admin-muted">
-              chasing compliance manually
-            </span>
-          </div>
-
-          <div className="hidden h-10 w-px bg-admin-border sm:block" />
-
-          <div className="flex flex-col items-center text-center">
-            <span className="font-display text-3xl font-bold text-state-at-risk">
-              11 days
-            </span>
-            <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-              average delay
-            </span>
-            <span className="mt-0.5 text-xs text-admin-muted">
-              from alert to enrollment
-            </span>
-          </div>
-
-          <div className="hidden h-10 w-px bg-admin-border sm:block" />
-
-          <div className="flex flex-col items-center text-center">
-            <span className="font-display text-3xl font-bold text-state-compliant">
-              AED 50k
-            </span>
-            <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-              max fine per violation
-            </span>
-            <span className="mt-0.5 text-xs text-admin-muted">
-              per RERA regulations
-            </span>
-          </div>
-        </div>
-
-        <Button
-          onClick={() => setCurrentStepIndex(0)}
-          className="h-12 gap-2 rounded-xl bg-primary px-10 font-semibold text-white transition-all duration-150 active:scale-[0.98] hover:bg-primary-strong"
-        >
-          <PlayCircle size={18} />
-          Begin the Story
-        </Button>
-
-        <p className="type-caption mb-3 mt-5">Or jump straight to:</p>
-        <div className="flex items-center justify-center gap-3">
-          <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
-            Learner Prototype →
-          </Link>
-          <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
-            Admin Prototype →
-          </Link>
-          <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
-            <BookOpen size={12} />
-            Navigator
-          </Link>
         </div>
       </main>
     )
@@ -346,6 +387,7 @@ export default function StoryPage() {
       currentAct={currentAct}
       actLabel={actLabel}
       onBack={() => setCurrentStepIndex(Math.max(0, currentStepIndex - 1))}
+      backgroundImage={currentStepIndex === 0 ? '/images/welcome6.jpg' : undefined}
     >
       <StoryStep
         key={currentStep.id}

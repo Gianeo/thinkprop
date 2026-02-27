@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import {
   CheckCircle,
@@ -17,8 +18,15 @@ export default function StoryEnding() {
   const router = useRouter()
 
   return (
-    <section className="mx-auto w-full max-w-3xl animate-fade-in py-12">
-      <div className="text-center">
+    <section className="relative mx-auto w-full max-w-7xl animate-fade-in overflow-hidden rounded-3xl border border-admin-border py-12">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-level-0/80 backdrop-blur-[1px]" />
+
+      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-12">
+      <div className="text-center md:col-span-8 md:col-start-3">
         <p className="type-title-upper mb-3">The Result</p>
 
         <div className="mb-6 flex w-full items-center gap-4">
@@ -37,7 +45,7 @@ export default function StoryEnding() {
         </p>
       </div>
 
-      <div className="mb-10 rounded-3xl border border-admin-border border-border bg-admin-card bg-card p-8 shadow-card shadow-sm">
+      <div className="mb-10 rounded-3xl border border-admin-border border-border bg-admin-card bg-card p-8 shadow-card shadow-sm md:col-span-12">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto_1fr]">
           <div>
             <div className="mb-3 flex items-center gap-3">
@@ -89,7 +97,7 @@ export default function StoryEnding() {
       </div>
 
       {/* ── METRICS STRIP ─────────────────────────────── */}
-      <div className="mb-10 rounded-3xl border border-admin-border bg-admin-card p-8 shadow-card">
+      <div className="mb-10 rounded-3xl border border-admin-border bg-admin-card p-8 shadow-card md:col-span-12">
         <div className="mb-8 text-center">
           <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-admin-faint">
             The Business Case
@@ -114,7 +122,7 @@ export default function StoryEnding() {
                   before
                 </span>
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-brand-amber">
+              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
                 <path
                   d="M0 6h16M12 1l6 5-6 5"
                   stroke="currentColor"
@@ -153,7 +161,7 @@ export default function StoryEnding() {
                   before
                 </span>
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-brand-amber">
+              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
                 <path
                   d="M0 6h16M12 1l6 5-6 5"
                   stroke="currentColor"
@@ -192,7 +200,7 @@ export default function StoryEnding() {
                   before
                 </span>
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-brand-amber">
+              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
                 <path
                   d="M0 6h16M12 1l6 5-6 5"
                   stroke="currentColor"
@@ -224,7 +232,7 @@ export default function StoryEnding() {
         </p>
       </div>
 
-      <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mb-10 grid grid-cols-1 gap-4 md:col-span-12 md:grid-cols-3">
         <div className="rounded-2xl border border-admin-border border-border bg-admin-card bg-card p-5">
           <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-state-critical-bg text-state-critical">
             <Zap size={16} />
@@ -254,7 +262,18 @@ export default function StoryEnding() {
         </div>
       </div>
 
-      <div className="text-center">
+      <div className="rounded-2xl border border-admin-border bg-admin-card/80 p-4 md:col-span-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="relative min-h-48 overflow-hidden rounded-xl border border-admin-border">
+            <Image src="/images/Reem-success.png" alt="Reem success" fill className="object-cover" />
+          </div>
+          <div className="relative min-h-48 overflow-hidden rounded-xl border border-admin-border">
+            <Image src="/images/Tariq-success.png" alt="Tariq success" fill className="object-cover" />
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center md:col-span-12">
         <h3 className="type-title mb-2">
           Ready to explore the prototype?
         </h3>
@@ -285,6 +304,7 @@ export default function StoryEnding() {
         >
           ← Back to story start
         </button>
+      </div>
       </div>
     </section>
   )
