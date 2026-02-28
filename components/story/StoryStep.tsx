@@ -49,6 +49,16 @@ interface StoryStepProps {
   isLastStep?: boolean
 }
 
+function renderInlineBold(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>
+    }
+    return <span key={`${part}-${index}`}>{part}</span>
+  })
+}
+
 function NarrativeBlock({
   step,
   onContinue,
@@ -57,7 +67,7 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className='space-y-6 py-16'>
+    <div className='space-y-6 py-8 max-w-xl'>
       <Badge variant="primary">{step.stepLabel}</Badge>
 
       <h2 className="type-display">{step.headline}</h2>
@@ -65,7 +75,7 @@ function NarrativeBlock({
       <div className="space-y-4">
         {paragraphs.map((paragraph) => (
           <p key={paragraph} className="type-body">
-            {paragraph}
+            {renderInlineBold(paragraph)}
           </p>
         ))}
       </div>

@@ -52,15 +52,15 @@ const STORY_STEPS: StoryStepData[] = [
     layout: 'narrative',
     stepLabel: 'Context',
     headline: "In Dubai's real estate market, your license is your livelihood.",
-    body: "Every agent, broker, and property manager in Dubai operates under strict regulations enforced by RERA — the Real Estate Regulatory Agency. To keep their license valid, professionals must complete a set number of CPD credits every single year.\n\nMiss the deadline? Your license is suspended. You can't transact. Your deals fall through. Your clients go elsewhere.\n\nThis is the world our two characters live in.",
+    body: "Every agent, broker, and property manager in Dubai operates under strict regulations enforced by RERA — the Real Estate Regulatory Agency. To keep their license valid, professionals must complete a set number of CPD credits every single year.\n\n**Miss the deadline?** Your license is suspended. You can't transact. Your deals fall through. Your clients go elsewhere.\n\nThis is the world our two characters live in.",
     insight: "CPD stands for Continuing Professional Development. Think of it as annual homework that keeps your job legal. It's not optional. It's not flexible. And the clock never stops.",
   },
   {
     id: 'act1-personas',
     act: 1,
     layout: 'intro',
-    stepLabel: 'Meet Character 1',
-    headline: "Meet Tariq and Reem. One risk owner. One agent under deadline.",
+    stepLabel: 'Meet our people',
+    headline: "Meet Tariq and Reem. \nOne risk owner. \nOne agent under deadline.",
     body: "Tariq is responsible for the compliance of 40 agents. Reem is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\nThis is where the system either breaks, or saves both of them.",
     characterData: {
       name: 'Tariq Hamdan',

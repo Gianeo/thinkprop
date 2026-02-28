@@ -72,9 +72,9 @@ export default function StoryShell({
         <div className="flex h-full items-center justify-between px-6">
           <ThinkPropLogo />
 
-          <div className={`rounded-full px-3 py-1 ${actPillClassMap[currentAct]}`}>
+          {/* <div className={`rounded-full px-3 py-1 ${actPillClassMap[currentAct]}`}>
             <p className="type-caption">{resolvedActLabel}</p>
-          </div>
+          </div> */}
 
           <div className="type-caption">
             Step {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
