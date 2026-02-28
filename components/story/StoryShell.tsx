@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import { Button } from '@/components/ui/button'
 
@@ -10,6 +10,7 @@ interface StoryShellProps {
   currentAct: 1 | 2 | 3
   actLabel: string
   onBack: () => void
+  onNext?: () => void
   children: React.ReactNode
   backgroundImage?: string
 }
@@ -26,6 +27,7 @@ export default function StoryShell({
   currentAct,
   actLabel,
   onBack,
+  onNext,
   children,
   backgroundImage,
 }: StoryShellProps) {
@@ -42,7 +44,7 @@ export default function StoryShell({
           : "Act 3 — Reem's Journey"
 
   return (
-    <div className="min-h-screen bg-level-0">
+    <div className="min-h-screen bg-level-0 font-body">
       {backgroundImage && (
         <>
           <div
@@ -59,6 +61,13 @@ export default function StoryShell({
           ))}
         </div>
       </div>
+      <div className="fixed left-0 right-0 top-0 z-[60] h-0.5 bg-transparent">
+        <div
+          className="h-full bg-primary-base transition-all duration-500 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
       <header className="fixed left-0 right-0 top-0 z-50 h-14 bg-admin-card/90 bg-card/90 backdrop-blur-sm">
         <div className="flex h-full items-center justify-between px-6">
           <ThinkPropLogo />
@@ -73,27 +82,39 @@ export default function StoryShell({
         </div>
       </header>
 
-      <div className="fixed left-0 right-0 top-14 z-40 h-0.5 bg-transparent">
-        <div
-          className="h-full bg-primary-base transition-all duration-500 ease-out"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+      <main className="relative z-10 grid min-h-screen grid-cols-12 gap-1 px-1 pb-4 pt-16">
+        <div className="col-span-1 hidden items-center justify-center md:flex">
+          {currentStep >= 0 ? (
+            <Button
+              variant="outline"
+              size="icon"
+              withIcon="only"
+              onClick={onBack}
+              className="h-14 w-14 rounded-full border-admin-border border-border shadow-card shadow-sm"
+            >
+              <ChevronLeft size={30} />
+            </Button>
+          ) : null}
+        </div>
 
-      <main className="relative z-10 flex min-h-screen items-center justify-center px-6 pb-24 pt-20">
-        {children}
+        <div className="col-span-12 md:col-span-10">
+          {children}
+        </div>
+
+        <div className="col-span-1 hidden items-center justify-center md:flex">
+          {onNext ? (
+            <Button
+              variant="default"
+              size="icon"
+              withIcon="only"
+              onClick={onNext}
+              className="h-14 w-14 rounded-full"
+            >
+              <ChevronRight size={30} />
+            </Button>
+          ) : null}
+        </div>
       </main>
-
-      {currentStep > 0 && (
-        <Button
-          variant="outline"
-          onClick={onBack}
-          className="fixed bottom-6 left-6 gap-2 rounded-xl border-admin-border border-border shadow-card shadow-sm"
-        >
-          <ArrowLeft size={14} />
-          Back
-        </Button>
-      )}
     </div>
   )
 }

@@ -78,7 +78,7 @@ function NarrativeBlock({
 
       <Button
         onClick={onContinue}
-        className="h-11 gap-2 rounded-xl bg-primary px-6 font-semibold text-white transition-all duration-150 active:scale-[0.98] hover:bg-primary-strong"
+        className="md:hidden"
       >
         {isLastStep ? 'See the Resolution' : 'Continue'}
         <ArrowRight size={14} />

@@ -342,6 +342,7 @@ export default function StoryPage() {
       currentAct={currentAct}
       actLabel={actLabel}
       onBack={() => setCurrentStepIndex(Math.max(0, currentStepIndex - 1))}
+      onNext={handleContinue}
       backgroundImage={currentStepIndex === 0 ? '/images/welcome6.jpg' : undefined}
     >
       <StoryStep
