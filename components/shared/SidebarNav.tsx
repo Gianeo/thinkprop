@@ -15,6 +15,7 @@ import {
   X,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 
 interface SidebarNavProps {
   variant: 'learner' | 'admin'
@@ -54,12 +55,16 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
   return (
     <>
       <header className={`fixed top-0 z-40 flex h-16 w-full items-center justify-between px-4 md:hidden ${topBarClasses}`}>
-        <p className="type-body font-bold">
-          ThinkProp{' '}
-          <span className={isLearner ? 'text-primary-loud type-caption align-middle' : 'text-primary-loud type-caption align-middle'}>
-            LMS
-          </span>
-        </p>
+        {isLearner ? (
+          <ThinkPropLogo />
+        ) : (
+          <p className="type-body font-bold">
+            ThinkProp{' '}
+            <span className="text-primary-loud type-caption align-middle">
+              LMS
+            </span>
+          </p>
+        )}
         <Button variant="outline" size="icon" withIcon="only" onClick={() => setMobileOpen(true)} className="rounded-lg border border-wire-border p-2">
           <Menu className="h-5 w-5" />
         </Button>
@@ -79,12 +84,16 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
           <div className="absolute inset-0 bg-[hsl(var(--neutral-strongest)/0.4)]" onClick={() => setMobileOpen(false)} />
           <aside className={`relative z-10 flex h-full flex-col ${rootClasses}`}>
             <div className="flex h-16 items-center justify-between border-b border-wire-border px-4">
-              <p className="font-heading type-body font-bold">
-                ThinkProp{' '}
-                <span className={isLearner ? 'text-primary-loud type-caption align-middle' : 'text-primary-loud type-caption align-middle'}>
-                  LMS
-                </span>
-              </p>
+              {isLearner ? (
+                <ThinkPropLogo />
+              ) : (
+                <p className="font-heading type-body font-bold">
+                  ThinkProp{' '}
+                  <span className="text-primary-loud type-caption align-middle">
+                    LMS
+                  </span>
+                </p>
+              )}
               <Button variant="outline" size="icon" withIcon="only" onClick={() => setMobileOpen(false)} className="rounded-lg border border-wire-border p-2">
                 <X className="h-5 w-5" />
               </Button>
@@ -115,10 +124,13 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
   return (
     <>
       <div className="hidden border-b border-wire-border px-5 py-5 md:block">
-        <p className={`font-heading type-title-sm font-bold ${isLearner ? 'text-primary-loud' : 'text-muted'}`}>
-          ThinkProp{' '}
-          <span className={`type-caption align-middle ${isLearner ? 'text-primary-loud' : 'text-primary-loud'}`}>LMS</span>
-        </p>
+        {isLearner ? (
+          <ThinkPropLogo />
+        ) : (
+          <p className="font-heading type-title-sm font-bold text-muted">
+            ThinkProp <span className="type-caption align-middle text-primary-loud">LMS</span>
+          </p>
+        )}
       </div>
 
       <nav className="flex-1 space-y-1 p-4">

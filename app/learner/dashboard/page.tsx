@@ -217,12 +217,12 @@ export default function LearnerDashboardPage() {
               </Card>
           </section>
 
-          <section className='p-8 pt-6 bg-level-1'>
+          <section className='pt-6'>
             <div className="mb-4 flex items-center justify-between gap-3">
               <h2 className="type-title-sm">Your Compliance</h2>
               <p className="type-caption text-muted">Prioritized by urgency</p>
             </div>
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
               {datedItems.map((item) => (
                 <ComplianceCard
                   key={item.id}
