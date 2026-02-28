@@ -61,7 +61,7 @@ const STORY_STEPS: StoryStepData[] = [
     layout: 'intro',
     stepLabel: 'Meet our people',
     headline: "Meet Tariq and Reem. \nOne risk owner. \nOne agent under deadline.",
-    body: "Tariq is responsible for the compliance of 40 agents. Reem is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\nThis is where the system either breaks, or saves both of them.",
+    body: "**Tariq** is responsible for the compliance of 40 agents. \n**Reem** is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\nThis is where the system either breaks, or saves both of them.",
     characterData: {
       name: 'Tariq Hamdan',
       role: 'Training & Compliance Manager',

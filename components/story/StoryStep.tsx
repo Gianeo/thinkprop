@@ -49,14 +49,27 @@ interface StoryStepProps {
   isLastStep?: boolean
 }
 
-function renderInlineBold(text: string) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+function renderInlineStyled(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|_[^_]+_)/g)
   return parts.map((part, index) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>
     }
+    if (part.startsWith('_') && part.endsWith('_')) {
+      return <em key={`${part}-${index}`}>{part.slice(1, -1)}</em>
+    }
     return <span key={`${part}-${index}`}>{part}</span>
   })
+}
+
+function renderStyledText(text: string) {
+  const lines = text.split('\n')
+  return lines.map((line, index) => (
+    <span key={`${line}-${index}`}>
+      {renderInlineStyled(line)}
+      {index < lines.length - 1 ? <br /> : null}
+    </span>
+  ))
 }
 
 function NarrativeBlock({
@@ -70,12 +83,12 @@ function NarrativeBlock({
     <div className='space-y-6 py-8 max-w-xl'>
       <Badge variant="primary">{step.stepLabel}</Badge>
 
-      <h2 className="type-display">{step.headline}</h2>
+      <h2 className="type-display">{renderStyledText(step.headline)}</h2>
 
       <div className="space-y-4">
         {paragraphs.map((paragraph) => (
           <p key={paragraph} className="type-body">
-            {renderInlineBold(paragraph)}
+            {renderStyledText(paragraph)}
           </p>
         ))}
       </div>
@@ -83,7 +96,7 @@ function NarrativeBlock({
       {step.insight && (
         <div className="my-12 flex items-start gap-3">
           <Lightbulb size={16} className="mt-0.5 shrink-0 text-primary-default" />
-          <p className="type-body-sm text-calm italic">{step.insight}</p>
+          <p className="type-body-sm text-calm italic">{renderStyledText(step.insight)}</p>
         </div>
       )}
 
