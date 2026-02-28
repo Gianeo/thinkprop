@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import {
   Award,
@@ -159,11 +160,20 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
 
       <div className={`m-4 mt-auto rounded-xl border p-3 ${isLearner ? 'border-wire-border bg-level-0' : 'border-[hsl(var(--neutral-weakest)/0.2)] bg-[hsl(var(--neutral-weakest)/0.1)]'}`}>
         <div className="flex items-center gap-3">
-          <div
-            className={`flex h-9 w-9 items-center justify-center rounded-full type-body-sm font-semibold ${isLearner ? 'bg-brand-navy text-muted' : 'bg-neutral-weakest text-primary-loud'}`}
-          >
-            {isLearner ? 'RA' : 'TH'}
-          </div>
+          {isLearner ? (
+            <div className="relative h-9 w-9 overflow-hidden rounded-full border border-wire-border">
+              <Image
+                src="/images/Reem-profile.webp"
+                alt="Reem profile"
+                fill
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-weakest text-primary-loud type-body-sm font-semibold">
+              TH
+            </div>
+          )}
           <div>
             <p className={`type-body-sm font-semibold ${isLearner ? 'text-default' : 'text-muted'}`}>
               {isLearner ? 'Reem Al Mansoori' : 'Tariq Hamdan'}

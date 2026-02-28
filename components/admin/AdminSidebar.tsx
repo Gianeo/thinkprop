@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
@@ -75,8 +76,13 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
 
         <div className="border-t border-weak p-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-              <span className="font-display type-caption font-semibold text-warning-loud">TH</span>
+            <div className="relative h-9 w-9 overflow-hidden rounded-full border border-brand-amber/30">
+              <Image
+                src="/images/Tariq-profile.webp"
+                alt="Tariq profile"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate type-body-sm font-medium text-default">Tariq Hamdan</p>
@@ -109,8 +115,13 @@ export default function AdminSidebar({ activePath }: AdminSidebarProps) {
 
           <div className="border-t border-weak p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-amber/30 bg-brand-amber/20">
-                <span className="font-display type-caption font-semibold text-warning-loud">TH</span>
+              <div className="relative h-9 w-9 overflow-hidden rounded-full border border-brand-amber/30">
+                <Image
+                  src="/images/Tariq-profile.webp"
+                  alt="Tariq profile"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate type-body-sm font-medium text-default">Tariq Hamdan</p>

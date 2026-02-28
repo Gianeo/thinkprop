@@ -88,7 +88,7 @@ export default function RiskTable({
             const urgency = getUrgencyColor(row.daysLeft, row.status)
             const statusBadgeVariant =
               urgency === 'enrolled'
-                ? 'primary'
+                ? 'success'
                 : urgency === 'critical'
                   ? 'destructive'
                   : 'warning'
