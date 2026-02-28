@@ -7,17 +7,14 @@ import { Button } from '@/components/ui/button'
 
 export default function StoryEnding() {
   return (
-    <section className="relative -mt-24 ml-[calc(50%-50vw)] min-h-[calc(100vh+6rem)] w-screen overflow-hidden pb-72 animate-fade-in md:pb-64">
+    <section className="relative ml-[calc(50%-50vw)] w-screen overflow-hidden animate-fade-in">
       <div
         className="fixed inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/welcome6.jpg')"}}
+        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
       />
-      <div className="fixed inset-0 bg-level-0/70 backdrop-blur-[1px]"/>
 
-      <div className="pointer-events-none fixed inset-y-0 right-0 z-0 w-1/2 bg-white/90 backdrop-blur-md"/>
-
-      <div className="relative z-10 grid min-h-[calc(100vh+6rem)] grid-cols-1 gap-1 px-4 pt-28 md:grid-cols-12">
-        <div className="md:col-start-2 md:col-span-4">
+      <div className="relative z-10 grid grid-cols-1 gap-1 pb-10 md:grid-cols-12">
+        <div className="md:col-start-2 md:col-span-4 md:pr-4">
           <p className="type-title-upper text-primary">The Result</p>
           <h2 className="type-display mt-4">One system. <br />Zero compliance failures.</h2>
           <p className="type-body mt-6 max-w-sm">
@@ -25,31 +22,26 @@ export default function StoryEnding() {
             Properties Dubai went from 74% compliance to consistently above 90% without changing how
             people work, only what they can see.
           </p>
-        </div>
 
-        <div className="md:col-start-7 md:col-span-6">
-          <div className="bg-white/50 backdrop-blur-sm">
-            <p className="type-title-upper text-muted">The Business Case</p>
-            <p className="type-title mt-2">What changes when the system works.</p>
-
-            <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div className="bg-admin-surface p-4">
+          <div className="mt-16">
+            <p className="type-title-upper text-primary">The Business Case</p>
+            <p className="type-title-sm mt-2">What changes when the system works.</p>
+            <div className="mt-4">
+              <div className="">
                 <p className="type-title-upper text-muted">Completion</p>
                 <p className="type-title mt-2 text-destructive">62% → 88%</p>
                 <p className="type-body-sm mt-2 text-calm">
                   More agents renew on time. Fewer lapses.
                 </p>
               </div>
-
-              <div className="bg-admin-surface p-4">
+              <div className="">
                 <p className="type-title-upper text-muted">Alert to Enroll</p>
                 <p className="type-title mt-2 text-destructive">11d → 3d</p>
                 <p className="type-body-sm mt-2 text-calm">
                   Frictionless path closes the risk window.
                 </p>
               </div>
-
-              <div className="bg-admin-surface p-4">
+              <div className="">
                 <p className="type-title-upper text-muted">Admin Time</p>
                 <p className="type-title mt-2 text-destructive">6h → &lt;1h</p>
                 <p className="type-body-sm mt-2 text-calm">
@@ -57,69 +49,94 @@ export default function StoryEnding() {
                 </p>
               </div>
             </div>
-
             <p className="type-caption mt-4 text-muted">
               Figures based on baseline estimates from ThinkProp platform analytics and UAE compliance
               research.
             </p>
           </div>
         </div>
-      </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-90 bg-white/5 backdrop-blur-md">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-          <article className="md:col-start-2 md:col-span-5">
-            <div className="flex gap-6 p-4">
-              <div className="relative size-40 overflow-hidden">
-                <Image src="/images/Reem-success.png"alt="Reem success"fill className="object-cover"/>
-              </div>
-              <div>
-                <p className="type-title-upper text-muted">Learner Experience</p>
-                <p className="type-title mt-1">Reem&apos;s Journey</p>
-                <div className="mt-2 space-y-1">
-                  {[
-                    'Saw the alert immediately',
-                    'Found the right course in seconds',
-                    'Enrolled with one click',
-                    'License renewed on time',
-                  ].map((item) => (
-                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
-                      <CheckCircle size={14} className="text-success"/>
-                      {item}
-                    </p>
-                  ))}
+        <div className="grid grid-rows-2 gap-px md:col-start-8 md:col-span-5">
+
+          <article className="group relative transition-all duration-200">
+            <div className="relative h-full overflow-hidden bg-transparent shadow">
+              <div className="absolute inset-0 bg-white/50 backdrop-blur-xl" />
+              <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
+                <div className="flex items-center justify-between">
+                  <span className="type-title-upper text-muted">01</span>
                 </div>
-                <Button asChild className="mt-3">
-                  <Link href="/learner/dashboard">Open Learner Prototype</Link>
-                </Button>
+                <div className="mt-6 flex h-full items-stretch justify-between gap-10">
+                  <div>
+                    <p className="type-title-upper text-muted">Admin Experience</p>
+                    <h3 className="type-title mt-2">Tariq&apos;s Journey</h3>
+                    <div className="mt-3 space-y-1">
+                      {[
+                        'Saw at-risk agents instantly',
+                        'Sent reminders in seconds',
+                        'Status updated in real time',
+                        'Closed the week at 88%',
+                      ].map((item) => (
+                        <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                          <CheckCircle size={14} className="text-success" />
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                    <Button asChild className="mt-16">
+                      <Link href="/admin/compliance">Open Admin Prototype</Link>
+                    </Button>
+                  </div>
+                  <div className="size-64 overflow-hidden">
+                    <Image
+                      src="/images/Tariq-profile.png"
+                      alt="Tariq success"
+                      width={180}
+                      height={180}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </article>
-
-          <article className="md:col-span-5">
-            <div className="grid grid-cols-[96px_1fr] gap-3">
-              <div className="relative size-40 overflow-hidden ">
-                <Image src="/images/Tariq-success.png"alt="Tariq success"fill className="object-cover"/>
-              </div>
-              <div>
-                <p className="type-title-upper text-muted">Admin Experience</p>
-                <p className="type-title mt-1">Tariq&apos;s Journey</p>
-                <div className="mt-2 space-y-1">
-                  {[
-                    'Saw at-risk agents instantly',
-                    'Sent reminders in seconds',
-                    'Status updated in real time',
-                    'Closed the week at 88%',
-                  ].map((item) => (
-                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
-                      <CheckCircle size={14} className="text-success"/>
-                      {item}
-                    </p>
-                  ))}
+          <article className="group relative transition-all duration-200">
+            <div className="relative h-full overflow-hidden bg-transparent shadow">
+              <div className="absolute inset-0 bg-white/50 backdrop-blur-xl" />
+              <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
+                <div className="flex items-center justify-between">
+                  <span className="type-title-upper text-muted">02</span>
                 </div>
-                <Button asChild className="mt-3">
-                  <Link href="/admin/compliance">Open Admin Prototype</Link>
-                </Button>
+                <div className="mt-6 flex h-full items-stretch justify-between gap-10">
+                  <div>
+                    <p className="type-title-upper text-muted">Learner Experience</p>
+                    <h3 className="type-title mt-2">Reem&apos;s Journey</h3>
+                    <div className="mt-3 space-y-1">
+                      {[
+                        'Saw the alert immediately',
+                        'Found the right course in seconds',
+                        'Enrolled with one click',
+                        'License renewed on time',
+                      ].map((item) => (
+                        <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                          <CheckCircle size={14} className="text-success" />
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                    <Button asChild className="mt-16">
+                      <Link href="/learner/dashboard">Open Learner Prototype</Link>
+                    </Button>
+                  </div>
+                  <div className="size-64 overflow-hidden">
+                    <Image
+                      src="/images/Reem-profile.png"
+                      alt="Reem success"
+                      width={180}
+                      height={180}
+                      className="h-full w-auto object-contain object-top"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </article>
