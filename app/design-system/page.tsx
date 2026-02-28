@@ -238,7 +238,7 @@ export default function DesignSystemPage() {
               </div>
               <div className='space-y-2'>
                 <p className="type-title-upper">type-data</p>
-                <p className="type-data">74% · 18d · Wed, 25 Feb 2026</p>
+                <p className="type-data">74% · 18d · Sat, 28 Feb 2026</p>
               </div>
               <div className='space-y-2'>
                 <p className="type-title-upper">Tone styles</p>

@@ -98,7 +98,7 @@ export default function AdminCompliancePage() {
 
               <div className="flex self-start rounded-xl border border-neutral-weaker bg-level-2 px-4 py-2">
                 <Calendar size={13} className="mr-2 text-muted" />
-                <span className="font-mono type-body-sm text-calm">Wed, 25 Feb 2026</span>
+                <span className="font-mono type-body-sm text-calm">Sat, 28 Feb 2026</span>
               </div>
             </div>
 
