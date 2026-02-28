@@ -116,9 +116,6 @@ export default function LearnerDashboardPage() {
               <Button variant="outline" size="icon" withIcon="only" className="rounded-lg border border-wire-border bg-level-2 p-2.5 text-muted">
                 <Bell className="h-5 w-5" />
               </Button>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full type-body-sm text-muted">
-                {learnerProfile.initials}
-              </div>
             </div>
           </header>
 
