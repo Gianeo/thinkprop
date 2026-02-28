@@ -68,7 +68,7 @@ export default function StoryShell({
         />
       </div>
 
-      <header className="fixed left-0 right-0 top-0 z-50 h-14 bg-admin-card/90 bg-card/90 backdrop-blur-sm">
+      <header className="fixed left-0 right-0 top-0 z-50 h-14">
         <div className="flex h-full items-center justify-between px-6">
           <ThinkPropLogo />
 
@@ -76,9 +76,13 @@ export default function StoryShell({
             <p className="type-caption">{resolvedActLabel}</p>
           </div> */}
 
-          <div className="type-caption">
-            Step {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
-          </div>
+          {actLabel !== 'The Resolution' ? (
+            <div className="type-caption text-default">
+              Step {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
       </header>
 

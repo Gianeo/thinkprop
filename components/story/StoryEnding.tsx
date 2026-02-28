@@ -58,30 +58,30 @@ export default function StoryEnding() {
 
         <div className="grid grid-rows-2 gap-px md:col-start-8 md:col-span-5">
 
-          <article className="group relative transition-all duration-200 bg-white/50 backdrop-blur-xl flex justify-between gap-8">
-            <div className="flex flex-col h-full items-stretch justify-between gap-8 p-8">
-              <div className="flex items-center justify-between">
-                <span className="type-title-upper text-muted">01</span>
-              </div>
-              <div>
-                <p className="type-title-upper text-muted">Admin Experience</p>
-                <h3 className="type-title mt-2">Tariq&apos;s Journey</h3>
-                <div className="mt-3 space-y-1">
-                  {[
-                    'Saw at-risk agents instantly',
-                    'Sent reminders in seconds',
-                    'Status updated in real time',
-                    'Closed the week at 88%',
-                  ].map((item) => (
-                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
-                      <CheckCircle size={14} className="text-success" />
-                      {item}
-                    </p>
-                  ))}
+          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8">
+            <div className="flex flex-col h-full gap-8 p-8">
+              <div className="type-title-upper text-muted">01</div>
+              <div className="mt-6 flex h-full items-stretch justify-between gap-10">
+                <div>
+                  <p className="type-title-upper text-muted">Admin Experience</p>
+                  <h3 className="type-title mt-2">Tariq&apos;s Journey</h3>
+                  <div className="mt-3 space-y-1">
+                    {[
+                      'Saw at-risk agents instantly',
+                      'Sent reminders in seconds',
+                      'Status updated in real time',
+                      'Closed the week at 88%',
+                    ].map((item) => (
+                      <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                        <CheckCircle size={14} className="text-success" />
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                  <Button asChild className="mt-8">
+                    <Link href="/admin/compliance">Open Admin Prototype</Link>
+                  </Button>
                 </div>
-                <Button asChild className="mt-16">
-                  <Link href="/admin/compliance">Open Admin Prototype</Link>
-                </Button>
               </div>
             </div>
             <div className="w-1/2 h-full overflow-hidden">
@@ -94,11 +94,9 @@ export default function StoryEnding() {
               />
             </div>
           </article>
-          <article className="group relative transition-all duration-200 bg-white/50 backdrop-blur-xl flex justify-between gap-8">
+          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8">
             <div className="flex flex-col h-full items-stretch justify-between gap-8 p-8">
-              <div className="flex items-center justify-between">
-                <span className="type-title-upper text-muted">02</span>
-              </div>
+              <div className="type-title-upper text-muted">02</div>
               <div className="mt-6 flex h-full items-stretch justify-between gap-10">
                 <div>
                   <p className="type-title-upper text-muted">Learner Experience</p>
@@ -116,7 +114,7 @@ export default function StoryEnding() {
                       </p>
                     ))}
                   </div>
-                  <Button asChild className="mt-16">
+                  <Button asChild className="mt-8">
                     <Link href="/learner/dashboard">Open Learner Prototype</Link>
                   </Button>
                 </div>
