@@ -156,8 +156,8 @@ export default function StoryStep({
   }
 
   return (
-    <section className="grid w-full animate-fade-in grid-cols-1 gap-6 md:grid-cols-12">
-      <div className="md:col-span-8 md:col-start-3">
+    <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
+      <div className="md:col-start-2 md:col-span-4">
         <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
       </div>
     </section>

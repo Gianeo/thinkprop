@@ -42,7 +42,7 @@ export default function StoryShell({
           : "Act 3 — Reem's Journey"
 
   return (
-    <div className="min-h-screen bg-admin-surface bg-level-0 font-body">
+    <div className="min-h-screen bg-level-0">
       {backgroundImage && (
         <>
           <div
@@ -53,13 +53,13 @@ export default function StoryShell({
         </>
       )}
       <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
-        <div className="grid h-full w-full grid-cols-12 gap-6 px-6">
+        <div className="grid h-full w-full grid-cols-12 gap-1">
           {Array.from({ length: 12 }).map((_, index) => (
             <div key={index} className="h-full bg-primary-base/8" />
           ))}
         </div>
       </div>
-      <header className="fixed left-0 right-0 top-0 z-50 h-14 border-b border-admin-border border-border bg-admin-card/90 bg-card/90 backdrop-blur-sm">
+      <header className="fixed left-0 right-0 top-0 z-50 h-14 bg-admin-card/90 bg-card/90 backdrop-blur-sm">
         <div className="flex h-full items-center justify-between px-6">
           <ThinkPropLogo />
 
@@ -67,13 +67,13 @@ export default function StoryShell({
             <p className="type-caption">{resolvedActLabel}</p>
           </div>
 
-          <div className="font-mono type-caption">
+          <div className="type-caption">
             Step {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
           </div>
         </div>
       </header>
 
-      <div className="fixed left-0 right-0 top-14 z-40 h-0.5 bg-admin-border bg-border">
+      <div className="fixed left-0 right-0 top-14 z-40 h-0.5 bg-transparent">
         <div
           className="h-full bg-primary-base transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
