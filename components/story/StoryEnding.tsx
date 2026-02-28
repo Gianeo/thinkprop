@@ -80,7 +80,7 @@ export default function StoryEnding() {
                     ))}
                   </div>
                   <Button asChild className="mt-8">
-                    <Link href="/admin/compliance">Open Admin Prototype</Link>
+                    <Link href="/admin/compliance" target="_blank" rel="noopener noreferrer">Open Admin Prototype</Link>
                   </Button>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function StoryEnding() {
                     ))}
                   </div>
                   <Button asChild className="mt-8">
-                    <Link href="/learner/dashboard">Open Learner Prototype</Link>
+                    <Link href="/learner/dashboard" target="_blank" rel="noopener noreferrer">Open Learner Prototype</Link>
                   </Button>
                 </div>
               </div>

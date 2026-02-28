@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import { BookOpen } from 'lucide-react'
 import StoryEnding from '@/components/story/StoryEnding'
 import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import StoryShell from '@/components/story/StoryShell'
@@ -268,10 +267,10 @@ export default function StoryPage() {
 
             <p className="type-caption mt-6">Or jump straight to:</p>
             <div className="mt-2 flex items-center gap-4">
-              <Link href="/admin/compliance" className="type-caption text-primary hover:underline">
+              <Link href="/admin/compliance" target="_blank" rel="noopener noreferrer" className="type-caption text-primary hover:underline">
                 Admin Prototype
               </Link>
-              <Link href="/learner/dashboard" className="type-caption text-primary hover:underline">
+              <Link href="/learner/dashboard" target="_blank" rel="noopener noreferrer" className="type-caption text-primary hover:underline">
                 Learner Prototype
               </Link>
               {/* <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
