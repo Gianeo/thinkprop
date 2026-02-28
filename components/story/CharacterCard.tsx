@@ -23,11 +23,11 @@ export default function CharacterCard({
   description,
 }: CharacterCardProps) {
   return (
-    <div className="animate-scale-in">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div className="animate-scale-in mr-8">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden">
           <div className="absolute inset-x-0 bottom-0 z-10">
-            <div className="space-y-0.5 bg-white/50 p-3 backdrop-blur-md">
+            <div className="space-y-0.5 bg-white/50 px-8 py-7 backdrop-blur-md">
               <h3 className="type-title-sm">{name}</h3>
               <p className="type-body-sm">{role}</p>
               <p className="type-caption">{company}</p>
@@ -43,25 +43,23 @@ export default function CharacterCard({
           )}
         </div>
 
-        <div className="-ml-16 mt-8 max-w-48 flex flex-col items-end">
-          <div className="w-full rounded-lg bg-white/80 p-4 backdrop-blur-md">
+        <div className="flex flex-col">
+
+          <div className="w-full bg-white/40 p-8">
             <p className="type-body italic">{quote}</p>
           </div>
-        </div>
 
-      <div className="space-y-4">
+          {description && (
+            <div className='p-8'>
+              {description.split('\n\n').map((paragraph) => (
+                <p key={paragraph} className="type-body-sm mb-2">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
 
-        {description && (
-          <div>
-            {description.split('\n\n').map((paragraph) => (
-              <p key={paragraph} className="type-body-sm max-w-sm mb-2">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        )}
-
-        <div className="flex flex-wrap gap-2">
+          {/* <div className="flex flex-wrap gap-2">
           {details.map((detail) => (
             <Badge
               key={detail}
@@ -69,8 +67,8 @@ export default function CharacterCard({
               {detail}
             </Badge>
           ))}
+        </div> */}
         </div>
-      </div>
       </div>
     </div>
   )

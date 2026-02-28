@@ -80,7 +80,7 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className='space-y-6 py-4 max-w-md'>
+    <div className='space-y-6 pt-4 pb-12 max-w-md'>
       <Badge variant="primary">{step.stepLabel}</Badge>
 
       <h2 className="type-display">{renderStyledText(step.headline)}</h2>
@@ -121,7 +121,7 @@ function StoryImageRail({
   return (
     <div className="grid gap-3">
       {images.map((img, idx) => (
-        <div key={`${img}-${idx}`} className="relative min-h-48 overflow-hidden rounded-xl border border-admin-border border-border bg-level-1">
+        <div key={`${img}-${idx}`} className="relative min-h-48 overflow-hidden bg-level-1">
           <Image src={img} alt="Story visual" fill className="object-cover" />
         </div>
       ))}
@@ -154,6 +154,31 @@ export default function StoryStep({
   }
 
   if (step.layout === 'screen' && step.mockupId) {
+    if (step.id === 'act2-step1') {
+      return (
+        <section className="grid w-full animate-fade-in grid-cols-1 items-start md:grid-cols-12">
+          <div className="md:row-start-1 md:col-span-4">
+            <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+          </div>
+
+          <div className="relative md:row-start-1 md:col-start-7 md:col-span-6">
+            <div className="w-full">
+              <Image
+                src="/images/Tariq-atwork.png"
+                alt="Tariq at work"
+                width={1400}
+                height={900}
+                className="h-auto w-full"
+              />
+            </div>
+            <div className="absolute -left-16 top-24 z-10 min-w-160">
+              <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     const hasImages = Boolean(step.storyImages?.length)
     const isLeft = step.imagePosition === 'left'
 
