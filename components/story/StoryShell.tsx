@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowLeft } from 'lucide-react'
+import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import { Button } from '@/components/ui/button'
 
 interface StoryShellProps {
@@ -51,17 +52,16 @@ export default function StoryShell({
           <div className="pointer-events-none fixed inset-0 z-0 bg-level-0/75 backdrop-blur-[1px]" />
         </>
       )}
+      <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
+        <div className="grid h-full w-full grid-cols-12 gap-6 px-6">
+          {Array.from({ length: 12 }).map((_, index) => (
+            <div key={index} className="h-full bg-primary-base/8" />
+          ))}
+        </div>
+      </div>
       <header className="fixed left-0 right-0 top-0 z-50 h-14 border-b border-admin-border border-border bg-admin-card/90 bg-card/90 backdrop-blur-sm">
         <div className="flex h-full items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-base">
-              <span className="font-display text-xs font-bold text-white">T</span>
-            </div>
-            <div className="flex items-baseline gap-1">
-              <span className="type-body-sm">ThinkProp</span>
-              <span className="type-caption ml-0.5">LMS</span>
-            </div>
-          </div>
+          <ThinkPropLogo />
 
           <div className={`rounded-full px-3 py-1 ${actPillClassMap[currentAct]}`}>
             <p className="type-caption">{resolvedActLabel}</p>

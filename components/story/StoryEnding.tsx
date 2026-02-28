@@ -18,14 +18,14 @@ export default function StoryEnding() {
   const router = useRouter()
 
   return (
-    <section className="relative mx-auto w-full max-w-7xl animate-fade-in overflow-hidden rounded-3xl border border-admin-border py-12">
+    <section className="relative w-full animate-fade-in overflow-hidden rounded-3xl border border-admin-border py-12">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
       />
       <div className="absolute inset-0 bg-level-0/80 backdrop-blur-[1px]" />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-12">
+      <div className="relative z-10 grid grid-cols-1 gap-8 px-6 md:grid-cols-12">
       <div className="text-center md:col-span-8 md:col-start-3">
         <p className="type-title-upper mb-3">The Result</p>
 
@@ -38,7 +38,7 @@ export default function StoryEnding() {
         <h2 className="type-display mb-4 mt-4">
           One system. Two people. Zero compliance failures.
         </h2>
-        <p className="type-body mx-auto mb-10 max-w-xl">
+        <p className="type-body mx-auto mb-10">
           Reem never missed a renewal again. Tariq stopped chasing people on WhatsApp. And Prestige
           Properties Dubai went from 74% compliance to consistently above 90% — without anyone changing
           how they work, just what they could see.

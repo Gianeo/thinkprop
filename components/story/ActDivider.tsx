@@ -16,7 +16,8 @@ export default function ActDivider({
   character,
 }: ActDividerProps) {
   return (
-    <section className="mx-auto flex max-w-2xl animate-fade-in flex-col items-center py-12 text-center">
+    <section className="grid w-full animate-fade-in grid-cols-1 py-12 md:grid-cols-12">
+      <div className="flex flex-col items-center text-center md:col-span-8 md:col-start-3">
       <p className="type-title-upper mb-3">ACT {actNumber}</p>
 
       <div className="mb-6 flex w-full items-center gap-4">
@@ -55,6 +56,7 @@ export default function ActDivider({
           </p>
         </div>
       )}
+      </div>
     </section>
   )
 }

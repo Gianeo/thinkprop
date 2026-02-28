@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { BookOpen } from 'lucide-react'
+import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import { Button } from '@/components/ui/button'
 
 const personas = [
@@ -34,6 +35,14 @@ export default function Page() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-level-0">
+      <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
+        <div className="grid h-full w-full grid-cols-12 gap-6 px-6">
+          {Array.from({ length: 12 }).map((_, index) => (
+            <div key={index} className="h-full bg-primary-base/8" />
+          ))}
+        </div>
+      </div>
+
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
@@ -52,10 +61,7 @@ export default function Page() {
         <section className="flex flex-col justify-between p-8 md:p-12 lg:p-16 relative">
           <div className="pointer-events-none absolute left-0 top-0 h-0.5 w-32 bg-primary-base md:top-12 md:w-48" />
           <div>
-            <div className="flex items-baseline gap-1">
-              <span className="type-title-sm">ThinkProp</span>
-              <span className="type-caption font-bold uppercase text-primary-base">LMS</span>
-            </div>
+            <ThinkPropLogo />
             <div className="mt-8 space-y-2">
               <p className="type-title-upper text-calm">Prototype Navigator</p>
               <h1 className="type-display leading-none">

@@ -113,7 +113,7 @@ export default function StoryStep({
   if (step.layout === 'intro' && step.characterData) {
     const twoCards = Boolean(step.secondaryCharacterData)
     return (
-      <section className="mx-auto grid w-full max-w-6xl animate-fade-in grid-cols-1 gap-6 md:grid-cols-12">
+      <section className="grid w-full animate-fade-in grid-cols-1 gap-6 md:grid-cols-12">
         <div className={`${twoCards ? 'md:col-span-12' : 'md:col-span-5'}`}>
           <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
         </div>
@@ -134,7 +134,7 @@ export default function StoryStep({
     const isLeft = step.imagePosition === 'left'
 
     return (
-      <section className="mx-auto grid w-full max-w-7xl animate-fade-in grid-cols-1 items-start gap-6 md:grid-cols-12">
+      <section className="grid w-full animate-fade-in grid-cols-1 items-start gap-6 md:grid-cols-12">
         {hasImages && isLeft && (
           <div className="md:col-span-3">
             <StoryImageRail images={step.storyImages ?? []} />
@@ -156,8 +156,10 @@ export default function StoryStep({
   }
 
   return (
-    <section className="mx-auto w-full max-w-2xl animate-fade-in">
-      <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+    <section className="grid w-full animate-fade-in grid-cols-1 gap-6 md:grid-cols-12">
+      <div className="md:col-span-8 md:col-start-3">
+        <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+      </div>
     </section>
   )
 }

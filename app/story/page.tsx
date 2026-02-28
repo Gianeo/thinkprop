@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { BookOpen, PlayCircle } from 'lucide-react'
 import StoryEnding from '@/components/story/StoryEnding'
+import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import StoryShell from '@/components/story/StoryShell'
 import StoryStep from '@/components/story/StoryStep'
 import { Button } from '@/components/ui/button'
@@ -241,122 +242,74 @@ export default function StoryPage() {
 
   if (currentStepIndex < 0) {
     return (
-      <main className="relative min-h-screen overflow-hidden bg-level-0 px-6 py-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-level-0/75 backdrop-blur-[1px]" />
-
-        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-10rem)] w-full max-w-7xl grid-cols-1 gap-10 md:grid-cols-12">
-          <div className="md:col-span-5 md:self-start">
-            <div className="mb-12 flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-base">
-                <span className="font-display text-xs font-bold text-white">T</span>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="type-body-sm">ThinkProp</span>
-                <span className="type-caption ml-0.5 text-primary-default">LMS</span>
-              </div>
-            </div>
-
-            <span className="mb-6 inline-block rounded-full border border-primary-base/20 bg-primary-weaker px-4 py-1.5">
-              <span className="type-caption text-primary-default">An Interactive Story</span>
-            </span>
-
-            <h1 className="type-display mb-4 max-w-2xl">
-              Don&apos;t Lose Your License
-            </h1>
-            <p className="type-body mb-3 max-w-xl">
-              Two people. One platform. A compliance deadline that could end a career.
-            </p>
+      <main className="relative min-h-screen bg-level-0 grid grid-cols-1 grid-rows-2 md:grid-cols-12 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}>
+        <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
+          <div className="grid h-full w-full grid-cols-12 gap-1">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div key={index} className="h-full bg-primary-base/8" />
+            ))}
           </div>
+        </div>
 
-          <div className="md:col-span-7 md:self-end">
-            <div className="mb-10 flex flex-col items-center gap-4 sm:flex-row">
-              <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-primary-base/20 bg-primary-weaker font-display font-bold text-primary-default">
-                  TH
-                </div>
-                <div>
-                  <p className="type-body-sm">Tariq Hamdan</p>
-                  <p className="type-caption font-mono">40 agents to monitor</p>
-                </div>
-              </div>
+        <div className="row-start-1 md:col-start-2 md:col-span-4 h-40 flex items-center">
+          <ThinkPropLogo />
+        </div>
 
-              <div className="flex items-center gap-3 rounded-2xl border border-admin-border border-border bg-admin-card bg-card px-5 py-4 shadow-card shadow-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-state-enrolled/20 bg-state-enrolled-bg font-display font-bold text-state-enrolled">
-                  RA
-                </div>
-                <div>
-                  <p className="type-body-sm">Reem Al Mansoori</p>
-                  <p className="type-caption font-mono text-state-critical">18 days to renewal</p>
-                </div>
-              </div>
+        <div className='row-start-2 md:col-start-2 md:col-span-4'>
+          <h1 className="type-display mb-4">
+            Don&apos;t Lose Your License
+          </h1>
+          <p className="type-body mb-3">
+            Two people. <br />One platform. <br />A compliance deadline that could end a career.
+          </p>
+          <Button
+            onClick={() => setCurrentStepIndex(0)}
+          >
+            Begin the Story
+          </Button>
+
+          <p className="type-caption mt-5">Or jump straight to:</p>
+          <div className="mt-2 flex items-center gap-3">
+            <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
+              Learner Prototype →
+            </Link>
+            <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
+              Admin Prototype →
+            </Link>
+            <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
+              <BookOpen size={12} />
+              Navigator
+            </Link>
+          </div>
+        </div>
+
+        <div className="row-start-2 md:col-start-10 md:col-span-2 pt-2">
+          <div className='max-w-40 space-y-4'>
+            <div className='type-title-upper'>Did you know?</div>
+            <div className="flex flex-col items-start">
+              <span className="type-title">
+                6 hrs
+              </span>
+              <span className="type-body-sm">
+                are lost per week chasing compliance manually.
+              </span>
             </div>
-
-            <div className="mb-10 flex flex-col items-center gap-8 rounded-2xl border border-admin-border bg-admin-card px-8 py-5 shadow-card sm:flex-row sm:gap-12">
-              <div className="flex flex-col items-center text-center">
-                <span className="font-display text-3xl font-bold text-state-critical">
-                  6 hrs
-                </span>
-                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-                  lost per week
-                </span>
-                <span className="mt-0.5 text-xs text-admin-muted">
-                  chasing compliance manually
-                </span>
-              </div>
-
-              <div className="hidden h-10 w-px bg-admin-border sm:block" />
-
-              <div className="flex flex-col items-center text-center">
-                <span className="font-display text-3xl font-bold text-state-at-risk">
-                  11 days
-                </span>
-                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-                  average delay
-                </span>
-                <span className="mt-0.5 text-xs text-admin-muted">
-                  from alert to enrollment
-                </span>
-              </div>
-
-              <div className="hidden h-10 w-px bg-admin-border sm:block" />
-
-              <div className="flex flex-col items-center text-center">
-                <span className="font-display text-3xl font-bold text-state-compliant">
-                  AED 50k
-                </span>
-                <span className="mt-1 text-xs uppercase tracking-wide text-admin-faint">
-                  max fine per violation
-                </span>
-                <span className="mt-0.5 text-xs text-admin-muted">
-                  per RERA regulations
-                </span>
-              </div>
+            <div className="flex flex-col items-start">
+              <span className="type-title">
+                11 days
+              </span>
+              <span className="type-body-sm">
+                average delay from alert to enrollment.
+              </span>
             </div>
-
-            <Button
-              onClick={() => setCurrentStepIndex(0)}
-              className="h-12 gap-2 rounded-xl bg-primary px-10 font-semibold text-white transition-all duration-150 active:scale-[0.98] hover:bg-primary-strong"
-            >
-              <PlayCircle size={18} />
-              Begin the Story
-            </Button>
-
-            <p className="type-caption mb-3 mt-5">Or jump straight to:</p>
-            <div className="flex items-center justify-center gap-3">
-              <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
-                Learner Prototype →
-              </Link>
-              <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
-                Admin Prototype →
-              </Link>
-              <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
-                <BookOpen size={12} />
-                Navigator
-              </Link>
+            <div className="flex flex-col items-start">
+              <span className="type-title">
+                AED 50k
+              </span>
+              <span className="type-body-sm">
+                max fine per violation per RERA regulations.
+              </span>
             </div>
           </div>
         </div>
