@@ -24,8 +24,16 @@ export default function CharacterCard({
 }: CharacterCardProps) {
   return (
     <div className="animate-scale-in">
-      <div className="">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden">
+          <div className="absolute inset-x-0 bottom-0 z-10">
+            <div className="space-y-0.5 bg-white/50 p-3 backdrop-blur-md">
+              <h3 className="type-title-sm">{name}</h3>
+              <p className="type-body-sm">{role}</p>
+              <p className="type-caption">{company}</p>
+            </div>
+          </div>
+
           {image ? (
             <Image src={image} alt={name} fill className="object-cover" />
           ) : (
@@ -35,13 +43,10 @@ export default function CharacterCard({
           )}
         </div>
 
-        <div className="space-y-0.5">
-          <h3 className="type-title-sm">{name}</h3>
-          <p className="type-body-sm">{role}</p>
-          <p className="type-caption">{company}</p>
-          <p className="type-body italic max-w-60 pt-4">{quote}</p>
-        </div>
-      </div>
+        <div className="flex flex-col items-end">
+          <div className="w-full rounded-lg bg-white/80 p-4 backdrop-blur-md">
+            <p className="type-body italic">{quote}</p>
+          </div>
 
       <div className="mt-4 space-y-4">
 
@@ -63,6 +68,8 @@ export default function CharacterCard({
               {detail}
             </Badge>
           ))}
+        </div>
+      </div>
         </div>
       </div>
     </div>
