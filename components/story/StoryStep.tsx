@@ -56,7 +56,7 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className='bg-white/90'>
+    <div className=''>
       <p className="type-title-upper mb-3">{step.stepLabel}</p>
 
       <h2 className="type-title mb-4">{step.headline}</h2>

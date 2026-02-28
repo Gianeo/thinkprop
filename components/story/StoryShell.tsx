@@ -51,7 +51,7 @@ export default function StoryShell({
             className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center"
             style={{ backgroundImage: `url('${backgroundImage}')` }}
           />
-          <div className="pointer-events-none fixed inset-0 z-0 bg-level-0/75 backdrop-blur-[1px]" />
+          <div className="pointer-events-none fixed inset-0 z-0 bg-white/60 backdrop-blur-2xl" />
         </>
       )}
       <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
@@ -61,7 +61,7 @@ export default function StoryShell({
           ))}
         </div>
       </div>
-      <div className="fixed left-0 right-0 top-0 z-[60] h-0.5 bg-transparent">
+      <div className="fixed left-0 right-0 top-0 z-60 h-0.5 bg-transparent">
         <div
           className="h-full bg-primary-base transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
@@ -82,39 +82,45 @@ export default function StoryShell({
         </div>
       </header>
 
-      <main className="relative z-10 grid min-h-screen grid-cols-12 gap-1 px-1 pb-4 pt-16">
-        <div className="col-span-1 hidden items-center justify-center md:flex">
-          {currentStep >= 0 ? (
-            <Button
-              variant="outline"
-              size="icon"
-              withIcon="only"
-              onClick={onBack}
-              className="h-14 w-14 rounded-full border-admin-border border-border shadow-card shadow-sm"
-            >
-              <ChevronLeft size={30} />
-            </Button>
-          ) : null}
-        </div>
-
-        <div className="col-span-12 md:col-span-10">
+      <main className="relative grid min-h-screen grid-cols-12 gap-1 py-24">
+        <div className="col-span-12 md:col-start-2 md:col-span-10">
           {children}
         </div>
-
-        <div className="col-span-1 hidden items-center justify-center md:flex">
-          {onNext ? (
-            <Button
-              variant="default"
-              size="icon"
-              withIcon="only"
-              onClick={onNext}
-              className="h-14 w-14 rounded-full"
-            >
-              <ChevronRight size={30} />
-            </Button>
-          ) : null}
-        </div>
       </main>
+
+      <div className="pointer-events-none fixed inset-0 z-40 hidden md:block">
+        <div className="grid h-full w-full grid-cols-12 gap-1 px-1">
+          <div className="col-span-1 flex items-center justify-center">
+            {currentStep >= 0 ? (
+              <Button
+                variant="outline"
+                size="icon"
+                withIcon="only"
+                onClick={onBack}
+                className="pointer-events-auto h-14 w-14 rounded-full border-admin-border border-border shadow-card shadow-sm"
+              >
+                <ChevronLeft size={30} />
+              </Button>
+            ) : null}
+          </div>
+
+          <div className="col-span-10" />
+
+          <div className="col-span-1 flex items-center justify-center">
+            {onNext ? (
+              <Button
+                variant="default"
+                size="icon"
+                withIcon="only"
+                onClick={onNext}
+                className="pointer-events-auto h-14 w-14 rounded-full"
+              >
+                <ChevronRight size={30} />
+              </Button>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
