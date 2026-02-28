@@ -58,86 +58,78 @@ export default function StoryEnding() {
 
         <div className="grid grid-rows-2 gap-px md:col-start-8 md:col-span-5">
 
-          <article className="group relative transition-all duration-200">
-            <div className="relative h-full overflow-hidden bg-transparent shadow">
-              <div className="absolute inset-0 bg-white/50 backdrop-blur-xl" />
-              <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
-                <div className="flex items-center justify-between">
-                  <span className="type-title-upper text-muted">01</span>
+          <article className="group relative transition-all duration-200 bg-white/50 backdrop-blur-xl flex justify-between gap-8">
+            <div className="flex flex-col h-full items-stretch justify-between gap-8 p-8">
+              <div className="flex items-center justify-between">
+                <span className="type-title-upper text-muted">01</span>
+              </div>
+              <div>
+                <p className="type-title-upper text-muted">Admin Experience</p>
+                <h3 className="type-title mt-2">Tariq&apos;s Journey</h3>
+                <div className="mt-3 space-y-1">
+                  {[
+                    'Saw at-risk agents instantly',
+                    'Sent reminders in seconds',
+                    'Status updated in real time',
+                    'Closed the week at 88%',
+                  ].map((item) => (
+                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                      <CheckCircle size={14} className="text-success" />
+                      {item}
+                    </p>
+                  ))}
                 </div>
-                <div className="mt-6 flex h-full items-stretch justify-between gap-10">
-                  <div>
-                    <p className="type-title-upper text-muted">Admin Experience</p>
-                    <h3 className="type-title mt-2">Tariq&apos;s Journey</h3>
-                    <div className="mt-3 space-y-1">
-                      {[
-                        'Saw at-risk agents instantly',
-                        'Sent reminders in seconds',
-                        'Status updated in real time',
-                        'Closed the week at 88%',
-                      ].map((item) => (
-                        <p key={item} className="type-body-sm flex items-center gap-2 text-default">
-                          <CheckCircle size={14} className="text-success" />
-                          {item}
-                        </p>
-                      ))}
-                    </div>
-                    <Button asChild className="mt-16">
-                      <Link href="/admin/compliance">Open Admin Prototype</Link>
-                    </Button>
+                <Button asChild className="mt-16">
+                  <Link href="/admin/compliance">Open Admin Prototype</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="w-1/2 h-full overflow-hidden">
+              <Image
+                src="/images/Tariq-profile.png"
+                alt="Tariq success"
+                width={180}
+                height={180}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </article>
+          <article className="group relative transition-all duration-200 bg-white/50 backdrop-blur-xl flex justify-between gap-8">
+            <div className="flex flex-col h-full items-stretch justify-between gap-8 p-8">
+              <div className="flex items-center justify-between">
+                <span className="type-title-upper text-muted">02</span>
+              </div>
+              <div className="mt-6 flex h-full items-stretch justify-between gap-10">
+                <div>
+                  <p className="type-title-upper text-muted">Learner Experience</p>
+                  <h3 className="type-title mt-2">Reem&apos;s Journey</h3>
+                  <div className="mt-3 space-y-1">
+                    {[
+                      'Saw the alert immediately',
+                      'Found the right course in seconds',
+                      'Enrolled with one click',
+                      'License renewed on time',
+                    ].map((item) => (
+                      <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                        <CheckCircle size={14} className="text-success" />
+                        {item}
+                      </p>
+                    ))}
                   </div>
-                  <div className="size-64 overflow-hidden">
-                    <Image
-                      src="/images/Tariq-profile.png"
-                      alt="Tariq success"
-                      width={180}
-                      height={180}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
+                  <Button asChild className="mt-16">
+                    <Link href="/learner/dashboard">Open Learner Prototype</Link>
+                  </Button>
                 </div>
               </div>
             </div>
-          </article>
-          <article className="group relative transition-all duration-200">
-            <div className="relative h-full overflow-hidden bg-transparent shadow">
-              <div className="absolute inset-0 bg-white/50 backdrop-blur-xl" />
-              <div className="relative flex h-full flex-col justify-between space-y-5 p-8 pr-0">
-                <div className="flex items-center justify-between">
-                  <span className="type-title-upper text-muted">02</span>
-                </div>
-                <div className="mt-6 flex h-full items-stretch justify-between gap-10">
-                  <div>
-                    <p className="type-title-upper text-muted">Learner Experience</p>
-                    <h3 className="type-title mt-2">Reem&apos;s Journey</h3>
-                    <div className="mt-3 space-y-1">
-                      {[
-                        'Saw the alert immediately',
-                        'Found the right course in seconds',
-                        'Enrolled with one click',
-                        'License renewed on time',
-                      ].map((item) => (
-                        <p key={item} className="type-body-sm flex items-center gap-2 text-default">
-                          <CheckCircle size={14} className="text-success" />
-                          {item}
-                        </p>
-                      ))}
-                    </div>
-                    <Button asChild className="mt-16">
-                      <Link href="/learner/dashboard">Open Learner Prototype</Link>
-                    </Button>
-                  </div>
-                  <div className="size-64 overflow-hidden">
-                    <Image
-                      src="/images/Reem-profile.png"
-                      alt="Reem success"
-                      width={180}
-                      height={180}
-                      className="h-full w-auto object-contain object-top"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="w-1/2 h-full overflow-hidden">
+              <Image
+                src="/images/Reem-profile.png"
+                alt="Reem success"
+                width={180}
+                height={180}
+                className="h-full w-auto object-cover"
+              />
             </div>
           </article>
         </div>
