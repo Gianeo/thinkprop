@@ -55,7 +55,7 @@ export default function StoryShell({
         </>
       )}
       <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
-        <div className="grid h-full w-full grid-cols-12 gap-1">
+        <div className="grid h-full w-full grid-cols-12 gap-0">
           {Array.from({ length: 12 }).map((_, index) => (
             <div key={index} className="h-full bg-primary-base/8" />
           ))}

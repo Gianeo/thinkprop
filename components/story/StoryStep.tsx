@@ -80,7 +80,7 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className='space-y-6 py-8 max-w-xl'>
+    <div className='space-y-6 py-4 max-w-xl'>
       <Badge variant="primary">{step.stepLabel}</Badge>
 
       <h2 className="type-display">{renderStyledText(step.headline)}</h2>
@@ -137,7 +137,7 @@ export default function StoryStep({
   if (step.layout === 'intro' && step.characterData) {
     const twoCards = Boolean(step.secondaryCharacterData)
     return (
-      <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-10">
+      <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
         <div className={`${twoCards ? 'md:col-span-12' : 'md:col-span-5'}`}>
           <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
         </div>
@@ -180,7 +180,7 @@ export default function StoryStep({
   }
 
   return (
-    <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-10">
+    <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
       <div className="md:col-start-2 md:col-span-4">
         <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
       </div>
