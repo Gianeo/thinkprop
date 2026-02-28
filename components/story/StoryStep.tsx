@@ -80,7 +80,7 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className='space-y-6 py-4 max-w-xl'>
+    <div className='space-y-6 py-4 max-w-md'>
       <Badge variant="primary">{step.stepLabel}</Badge>
 
       <h2 className="type-display">{renderStyledText(step.headline)}</h2>

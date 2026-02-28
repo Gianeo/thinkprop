@@ -43,12 +43,13 @@ export default function CharacterCard({
           )}
         </div>
 
-        <div className="flex flex-col items-end">
+        <div className="-ml-16 mt-8 max-w-48 flex flex-col items-end">
           <div className="w-full rounded-lg bg-white/80 p-4 backdrop-blur-md">
             <p className="type-body italic">{quote}</p>
           </div>
+        </div>
 
-      <div className="mt-4 space-y-4">
+      <div className="space-y-4">
 
         {description && (
           <div>
@@ -70,7 +71,6 @@ export default function CharacterCard({
           ))}
         </div>
       </div>
-        </div>
       </div>
     </div>
   )
