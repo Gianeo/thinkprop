@@ -156,26 +156,29 @@ export default function StoryStep({
   if (step.layout === 'screen' && step.mockupId) {
     if (step.id === 'act2-step1') {
       return (
-        <section className="grid w-full animate-fade-in grid-cols-1 items-start md:grid-cols-12">
-          <div className="md:row-start-1 md:col-span-4">
-            <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+        <>
+          <div className="absolute top-0 right-0 w-full z-0">
+            <Image
+              src="/images/Tariq-atwork.png"
+              alt="Tariq at work"
+              width={1400}
+              height={900}
+              className="w-auto h-screen"
+            />
           </div>
+          <section className="grid w-full animate-fade-in grid-cols-1 items-start md:grid-cols-12">
+            <div className="md:row-start-1 md:col-span-4 z-20">
+              <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+            </div>
 
-          <div className="relative md:row-start-1 md:col-start-7 md:col-span-6">
-            <div className="w-full">
-              <Image
-                src="/images/Tariq-atwork.png"
-                alt="Tariq at work"
-                width={1400}
-                height={900}
-                className="h-auto w-full"
-              />
+            <div className="relative md:row-start-1 md:col-start-7 md:col-span-6">
+
+              <div className="absolute -left-16 top-24 z-30 min-w-160">
+                <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+              </div>
             </div>
-            <div className="absolute -left-16 top-24 z-10 min-w-160">
-              <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
-            </div>
-          </div>
-        </section>
+          </section>
+        </>
       )
     }
 
