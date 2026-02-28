@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import { BookOpen, PlayCircle } from 'lucide-react'
+import { BookOpen } from 'lucide-react'
 import StoryEnding from '@/components/story/StoryEnding'
 import ThinkPropLogo from '@/components/story/ThinkPropLogo'
 import StoryShell from '@/components/story/StoryShell'
@@ -242,45 +242,47 @@ export default function StoryPage() {
 
   if (currentStepIndex < 0) {
     return (
-      <main className="relative min-h-screen bg-level-0 grid grid-cols-1 grid-rows-2 md:grid-cols-12 bg-cover bg-center"
+      <main className="relative h-screen bg-level-0 grid grid-cols-1 grid-rows-[25%_75%] md:grid-cols-12 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/welcome6.jpg')" }}>
         <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
-          <div className="grid h-full w-full grid-cols-12 gap-1">
+          <div className="grid h-full w-full grid-cols-12 gap-0">
             {Array.from({ length: 12 }).map((_, index) => (
               <div key={index} className="h-full bg-primary-base/8" />
             ))}
           </div>
         </div>
 
-        <div className="row-start-1 md:col-start-2 md:col-span-4 h-40 flex items-center">
+        <div className="row-start-1 md:col-start-2 md:col-span-4 flex items-center">
           <ThinkPropLogo />
         </div>
 
         <div className='row-start-2 md:col-start-2 md:col-span-4'>
           <h1 className="type-display mb-4">
-            Don&apos;t Lose Your License
+            Don&apos;t Lose Your License.
           </h1>
           <p className="type-body mb-3">
             Two people. <br />One platform. <br />A compliance deadline that could end a career.
           </p>
-          <Button
-            onClick={() => setCurrentStepIndex(0)}
-          >
-            Begin the Story
-          </Button>
+          <div className='pt-8'>
+            <Button
+              onClick={() => setCurrentStepIndex(0)}
+            >
+              Begin the Story
+            </Button>
 
-          <p className="type-caption mt-5">Or jump straight to:</p>
-          <div className="mt-2 flex items-center gap-3">
-            <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
-              Learner Prototype →
-            </Link>
-            <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
-              Admin Prototype →
-            </Link>
-            <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
-              <BookOpen size={12} />
-              Navigator
-            </Link>
+            <p className="type-caption mt-6">Or jump straight to:</p>
+            <div className="mt-2 flex items-center gap-3">
+              <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
+                Learner Prototype →
+              </Link>
+              <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
+                Admin Prototype →
+              </Link>
+              <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
+                <BookOpen size={12} />
+                Navigator
+              </Link>
+            </div>
           </div>
         </div>
 
