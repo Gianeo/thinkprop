@@ -2,309 +2,128 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import {
-  CheckCircle,
-  RefreshCw,
-  Shield,
-  User,
-  Zap,
-} from 'lucide-react'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 
 export default function StoryEnding() {
-  const router = useRouter()
-
   return (
-    <section className="relative w-full animate-fade-in overflow-hidden rounded-3xl border border-admin-border py-12">
+    <section className="relative -mt-24 ml-[calc(50%-50vw)] min-h-[calc(100vh+6rem)] w-screen overflow-hidden pb-72 animate-fade-in md:pb-64">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="fixed inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
       />
-      <div className="absolute inset-0 bg-level-0/80 backdrop-blur-[1px]" />
+      <div className="fixed inset-0 bg-level-0/70 backdrop-blur-[1px]" />
 
-      <div className="relative z-10 grid grid-cols-1 gap-8 px-6 md:grid-cols-12">
-      <div className="text-center md:col-span-8 md:col-start-3">
-        <p className="type-title-upper mb-3">The Result</p>
+      <div className="pointer-events-none fixed inset-y-0 right-0 z-0 w-1/2 bg-white/90 backdrop-blur-md" />
 
-        <div className="mb-6 flex w-full items-center gap-4">
-          <div className="h-px flex-1 bg-admin-border bg-border" />
-          <div className="h-2 w-2 rotate-45 bg-primary-base" />
-          <div className="h-px flex-1 bg-admin-border bg-border" />
-        </div>
-
-        <h2 className="type-display mb-4 mt-4">
-          One system. Two people. Zero compliance failures.
-        </h2>
-        <p className="type-body mx-auto mb-10">
-          Reem never missed a renewal again. Tariq stopped chasing people on WhatsApp. And Prestige
-          Properties Dubai went from 74% compliance to consistently above 90% — without anyone changing
-          how they work, just what they could see.
-        </p>
-      </div>
-
-      <div className="mb-10 rounded-3xl border border-admin-border border-border bg-admin-card bg-card p-8 shadow-card shadow-sm md:col-span-12">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto_1fr]">
-          <div>
-            <div className="mb-3 flex items-center gap-3">
-              <Avatar className="h-10 w-10 rounded-xl border-2 border-state-enrolled/20 bg-state-enrolled-bg text-state-enrolled">
-                <AvatarFallback className="h-10 w-10 rounded-xl border-2 border-state-enrolled/20 bg-state-enrolled-bg font-display font-bold text-state-enrolled">
-                  RA
-                </AvatarFallback>
-              </Avatar>
-              <h3 className="font-display text-sm font-semibold text-admin-heading text-loud">Reem&apos;s Experience</h3>
-            </div>
-            {[
-              'Saw the alert immediately',
-              'Found the right course in seconds',
-              'Enrolled with one click — no payment',
-              'License renewed on time',
-            ].map((item) => (
-              <p key={item} className="flex items-center gap-2 py-2 text-sm text-admin-body text-default">
-                <CheckCircle size={14} className="text-state-compliant" />
-                {item}
-              </p>
-            ))}
-          </div>
-
-          <Separator orientation="vertical" className="hidden self-stretch bg-admin-border bg-border md:block" />
-          <Separator orientation="horizontal" className="block bg-admin-border bg-border md:hidden" />
-
-          <div>
-            <div className="mb-3 flex items-center gap-3">
-              <Avatar className="h-10 w-10 rounded-xl border-2 border-primary-base/20 bg-primary-weaker text-primary-default">
-                <AvatarFallback className="h-10 w-10 rounded-xl border-2 border-primary-base/20 bg-primary-weaker font-display font-bold text-primary-default">
-                  TH
-                </AvatarFallback>
-              </Avatar>
-              <h3 className="type-body-sm">Tariq&apos;s Experience</h3>
-            </div>
-            {[
-              'Saw 7 at-risk agents instantly',
-              'Sent reminders without leaving the page',
-              'Watched status update in real time',
-              'Closed the week at 88% compliance',
-            ].map((item) => (
-              <p key={item} className="flex items-center gap-2 py-2 text-sm text-admin-body text-default">
-                <CheckCircle size={14} className="text-state-compliant" />
-                {item}
-              </p>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── METRICS STRIP ─────────────────────────────── */}
-      <div className="mb-10 rounded-3xl border border-admin-border bg-admin-card p-8 shadow-card md:col-span-12">
-        <div className="mb-8 text-center">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-admin-faint">
-            The Business Case
-          </span>
-          <p className="mt-2 font-display text-base font-semibold text-admin-heading">
-            What changes when the system works.
+      <div className="relative z-10 grid min-h-[calc(100vh+6rem)] grid-cols-1 gap-1 px-4 py-12 md:grid-cols-12">
+        <div className="md:col-start-2 md:col-span-4 md:self-center">
+          <p className="type-title-upper text-muted">The Result</p>
+          <h2 className="type-display mt-4">One system. Two people. Zero compliance failures.</h2>
+          <p className="type-body mt-6">
+            Reem never missed a renewal again. Tariq stopped chasing people on WhatsApp. And Prestige
+            Properties Dubai went from 74% compliance to consistently above 90% without changing how
+            people work, only what they can see.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="flex flex-col items-center rounded-2xl border border-admin-border bg-admin-surface p-5 text-center">
-            <span className="mb-4 text-[10px] font-semibold uppercase tracking-widest text-admin-faint">
-              Compliance Completion
-            </span>
-            <div className="mb-3 flex items-center gap-3">
-              <span className="font-display text-2xl font-bold text-state-critical">
-                62%
-              </span>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  before
-                </span>
+        <div className="md:col-start-7 md:col-span-6 md:self-center">
+          <div className="border border-admin-border bg-admin-card/90 p-6 backdrop-blur-sm">
+            <p className="type-title-upper text-muted">The Business Case</p>
+            <p className="type-title mt-2">What changes when the system works.</p>
+
+            <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div className="border border-admin-border bg-admin-surface p-4">
+                <p className="type-title-upper text-muted">Completion</p>
+                <p className="type-title mt-2 text-destructive">62% → 88%</p>
+                <p className="type-body-sm mt-2 text-calm">
+                  More agents renew on time. Fewer lapses.
+                </p>
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
-                <path
-                  d="M0 6h16M12 1l6 5-6 5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  after
-                </span>
+
+              <div className="border border-admin-border bg-admin-surface p-4">
+                <p className="type-title-upper text-muted">Alert to Enroll</p>
+                <p className="type-title mt-2 text-destructive">11d → 3d</p>
+                <p className="type-body-sm mt-2 text-calm">
+                  Frictionless path closes the risk window.
+                </p>
               </div>
-              <span className="font-display text-2xl font-bold text-state-compliant">
-                88%
-              </span>
+
+              <div className="border border-admin-border bg-admin-surface p-4">
+                <p className="type-title-upper text-muted">Admin Time</p>
+                <p className="type-title mt-2 text-destructive">6h → &lt;1h</p>
+                <p className="type-body-sm mt-2 text-calm">
+                  The dashboard replaces manual chasing.
+                </p>
+              </div>
             </div>
-            <span className="text-xs leading-relaxed text-admin-muted">
-              More agents renew on time. Fewer license lapses. Less legal exposure.
-            </span>
-          </div>
 
-          <div className="flex flex-col items-center rounded-2xl border border-admin-border bg-admin-surface p-5 text-center">
-            <span className="mb-4 text-[10px] font-semibold uppercase tracking-widest text-admin-faint">
-              Days to Enroll After Alert
-            </span>
-            <div className="mb-3 flex items-center gap-3">
-              <span className="font-display text-2xl font-bold text-state-critical">
-                11d
-              </span>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  before
-                </span>
+            <p className="type-caption mt-4 text-muted">
+              Figures based on baseline estimates from ThinkProp platform analytics and UAE compliance
+              research.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="fixed inset-x-0 bottom-0 z-[90] border-t border-admin-border bg-white/90 p-4 backdrop-blur-md">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <article className="border border-admin-border bg-admin-card/80 p-3 md:col-start-2 md:col-span-5">
+            <div className="grid grid-cols-[96px_1fr] gap-3">
+              <div className="relative h-24 w-24 overflow-hidden border border-admin-border">
+                <Image src="/images/Reem-success.png" alt="Reem success" fill className="object-cover" />
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
-                <path
-                  d="M0 6h16M12 1l6 5-6 5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  after
-                </span>
+              <div>
+                <p className="type-title-upper text-muted">Learner Experience</p>
+                <p className="type-title mt-1">Reem&apos;s Journey</p>
+                <div className="mt-2 space-y-1">
+                  {[
+                    'Saw the alert immediately',
+                    'Found the right course in seconds',
+                    'Enrolled with one click',
+                    'License renewed on time',
+                  ].map((item) => (
+                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                      <CheckCircle size={14} className="text-success" />
+                      {item}
+                    </p>
+                  ))}
+                </div>
+                <Button asChild className="mt-3">
+                  <Link href="/learner/dashboard">Open Learner Prototype</Link>
+                </Button>
               </div>
-              <span className="font-display text-2xl font-bold text-state-compliant">
-                3d
-              </span>
             </div>
-            <span className="text-xs leading-relaxed text-admin-muted">
-              Urgency signals and frictionless enrollment close the gap before it becomes a crisis.
-            </span>
-          </div>
+          </article>
 
-          <div className="flex flex-col items-center rounded-2xl border border-admin-border bg-admin-surface p-5 text-center">
-            <span className="mb-4 text-[10px] font-semibold uppercase tracking-widest text-admin-faint">
-              Admin Time on Compliance
-            </span>
-            <div className="mb-3 flex items-center gap-3">
-              <span className="font-display text-2xl font-bold text-state-critical">
-                6h
-              </span>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  before
-                </span>
+          <article className="border border-admin-border bg-admin-card/80 p-3 md:col-span-5">
+            <div className="grid grid-cols-[96px_1fr] gap-3">
+              <div className="relative h-24 w-24 overflow-hidden border border-admin-border">
+                <Image src="/images/Tariq-success.png" alt="Tariq success" fill className="object-cover" />
               </div>
-              <svg width="20" height="12" viewBox="0 0 20 12" className="shrink-0 text-primary-default">
-                <path
-                  d="M0 6h16M12 1l6 5-6 5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              <div className="flex flex-col items-center gap-1">
-                <div className="h-px w-6 bg-admin-border" />
-                <span className="font-mono text-[10px] text-admin-faint">
-                  after
-                </span>
+              <div>
+                <p className="type-title-upper text-muted">Admin Experience</p>
+                <p className="type-title mt-1">Tariq&apos;s Journey</p>
+                <div className="mt-2 space-y-1">
+                  {[
+                    'Saw at-risk agents instantly',
+                    'Sent reminders in seconds',
+                    'Status updated in real time',
+                    'Closed the week at 88%',
+                  ].map((item) => (
+                    <p key={item} className="type-body-sm flex items-center gap-2 text-default">
+                      <CheckCircle size={14} className="text-success" />
+                      {item}
+                    </p>
+                  ))}
+                </div>
+                <Button asChild className="mt-3">
+                  <Link href="/admin/compliance">Open Admin Prototype</Link>
+                </Button>
               </div>
-              <span className="font-display text-2xl font-bold text-state-compliant">
-                &lt;1h
-              </span>
             </div>
-            <span className="text-xs leading-relaxed text-admin-muted">
-              Tariq stops chasing. The dashboard does the work. He focuses on strategy, not admin.
-            </span>
-          </div>
+          </article>
         </div>
-
-        <p className="mt-6 text-center font-mono text-xs text-admin-faint">
-          Figures based on baseline estimates from ThinkProp platform analytics
-          and UAE real estate compliance research.
-        </p>
-      </div>
-
-      <div className="mb-10 grid grid-cols-1 gap-4 md:col-span-12 md:grid-cols-3">
-        <div className="rounded-2xl border border-admin-border border-border bg-admin-card bg-card p-5">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-state-critical-bg text-state-critical">
-            <Zap size={16} />
-          </div>
-          <h4 className="mb-1 font-display text-sm font-semibold text-admin-heading text-loud">Urgency by design</h4>
-          <p className="text-xs leading-relaxed text-admin-muted text-calm">
-            Critical information is the first thing you see, not the last.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-admin-border border-border bg-admin-card bg-card p-5">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-state-compliant-bg text-state-compliant">
-            <Shield size={16} />
-          </div>
-          <h4 className="mb-1 font-display text-sm font-semibold text-admin-heading text-loud">Zero payment friction</h4>
-          <p className="text-xs leading-relaxed text-admin-muted text-calm">
-            The company covers the cost. The learner just acts.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-admin-border border-border bg-admin-card bg-card p-5">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-primary-weaker text-primary-default">
-            <RefreshCw size={16} />
-          </div>
-          <h4 className="mb-1 font-display text-sm font-semibold text-admin-heading text-loud">Real-time truth</h4>
-          <p className="text-xs leading-relaxed text-admin-muted text-calm">
-            When one person acts, the other sees it immediately.
-          </p>
-        </div>
-      </div>
-
-      <div className="rounded-2xl border border-admin-border bg-admin-card/80 p-4 md:col-span-12">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="relative min-h-48 overflow-hidden rounded-xl border border-admin-border">
-            <Image src="/images/Reem-success.png" alt="Reem success" fill className="object-cover" />
-          </div>
-          <div className="relative min-h-48 overflow-hidden rounded-xl border border-admin-border">
-            <Image src="/images/Tariq-success.png" alt="Tariq success" fill className="object-cover" />
-          </div>
-        </div>
-      </div>
-
-      <div className="text-center md:col-span-12">
-        <h3 className="type-title mb-2">
-          Ready to explore the prototype?
-        </h3>
-        <p className="type-body-sm mb-8">Choose a journey and experience it yourself.</p>
-
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Button asChild className="h-12 gap-2 rounded-xl bg-state-enrolled px-8 font-semibold text-white transition-all duration-150 hover:bg-blue-700">
-            <Link href="/learner/dashboard">
-              <User size={16} />
-              Try Reem&apos;s Journey →
-            </Link>
-          </Button>
-          <Button asChild className="h-12 gap-2 rounded-xl bg-primary px-8 font-semibold text-white transition-all duration-150 hover:bg-primary-strong">
-            <Link href="/admin/compliance">
-              <Shield size={16} />
-              Try Tariq&apos;s Journey →
-            </Link>
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          className="mt-6 text-xs text-admin-faint text-muted transition-colors hover:text-admin-muted hover:text-calm"
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-            router.push('/story')
-          }}
-        >
-          ← Back to story start
-        </button>
-      </div>
       </div>
     </section>
   )
