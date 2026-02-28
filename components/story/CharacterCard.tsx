@@ -26,11 +26,11 @@ export default function CharacterCard({
     <div className="animate-scale-in mr-8">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden">
-          <div className="absolute inset-x-0 bottom-0 z-10">
-            <div className="space-y-0.5 bg-white/50 px-8 py-7 backdrop-blur-md">
-              <h3 className="type-title-sm">{name}</h3>
+          <div className="absolute inset-x-0 -bottom-px z-10">
+            <div className="space-y-0 bg-white/50 px-4 py-3 backdrop-blur-md">
+              <h3 className="type-title-sm leading-[1.3]">{name}</h3>
               <p className="type-body-sm">{role}</p>
-              <p className="type-caption">{company}</p>
+              {/* <p className="type-caption">{company}</p> */}
             </div>
           </div>
 

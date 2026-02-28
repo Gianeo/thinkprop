@@ -63,7 +63,7 @@ const STORY_STEPS: StoryStepData[] = [
     layout: 'intro',
     stepLabel: 'Meet our people',
     headline: "Meet Tariq and Reem. \nOne risk owner. \nOne agent under deadline.",
-    body: "**Tariq** is responsible for the compliance of 40 agents. \n**Reem** is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\nThis is where the system either breaks, or saves both of them.",
+    body: "**Tariq** is responsible for the compliance of 40 agents. \n**Reem** is one of the top performers in sales, but she has 18 days before her CPD deadline.\n\n**This is where the system either breaks,** \n**or saves both of them.**",
     characterData: {
       name: 'Tariq Hamdan',
       role: 'Training & Compliance Manager',
@@ -73,7 +73,7 @@ const STORY_STEPS: StoryStepData[] = [
       quote: "I always find out too late. By the time someone tells me there's a problem, it's already a crisis.",
       description: "Tariq is the Training & Compliance Manager at Prestige Properties Dubai. His job is to ensure every single agent on his team maintains valid credentials at all times.\n\nRight now, his tools are a spreadsheet, a lot of WhatsApp messages, and a constant low-level anxiety that someone's license is about to lapse without him knowing.",
       details: ['40 agents to monitor', 'Spreadsheet-based tracking', 'Reactive, not proactive', 'Spends 6hrs/week chasing'],
-      image: '/images/Tariq-profile.png',
+      image: '/images/Tariq-profile.webp',
     },
     secondaryCharacterData: {
       name: 'Reem Al Mansoori',
@@ -84,7 +84,7 @@ const STORY_STEPS: StoryStepData[] = [
       quote: "I know I need to do the CPD training. I just keep thinking I'll do it next week.",
       description: "Reem is a senior real estate agent at Prestige Properties Dubai. She's managing six active client files, showing apartments three days a week, and closing deals that make her one of the top performers on her team.\n\nThe last thing on her mind is an admin deadline hiding in a platform she barely logs into. She doesn't even know the clock is ticking.",
       details: ['6 active client files', 'RERA license holder', '18 days until expiry', "Doesn't know yet"],
-      image: '/images/Reem-profile.png',
+      image: '/images/Reem-profile.webp',
     },
   },
   {
@@ -97,7 +97,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The KPI strip is designed to answer one question: "Do I have a problem today?" If any of those four numbers looks wrong, Tariq knows before anyone has to tell him.',
     mockupId: 'admin-overview',
     mockupCaption: 'Admin compliance overview — live org-wide status',
-    fullViewportImage: '/images/Tariq-atwork.png',
+    fullViewportImage: '/images/Tariq-atwork.webp',
   },
   {
     id: 'act2-step2',
@@ -109,7 +109,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Tariq's old workflow was: export data → cross-reference → figure out who to chase → type a WhatsApp message. This replaces all of that. The work is done for him. He just decides and acts.",
     mockupId: 'reminder-modal',
     mockupCaption: 'Reminder modal — pre-written message ready to send',
-    fullViewportImage: '/images/Tariq-atwork.png',
+    fullViewportImage: '/images/Tariq-atwork.webp',
   },
   {
     id: 'act2-step3',
@@ -121,7 +121,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Before ThinkProp, the average time between a compliance alert and a learner enrolling was 11 days. A frictionless reminder plus a one-click enrollment path brings that to under 3. In an 18-day window, that 8-day saving is the difference between compliant and lapsed.",
     mockupId: 'admin-overview',
     mockupCaption: 'Reminder sent — audit trail updated',
-    fullViewportImage: '/images/Tariq-success.png',
+    fullViewportImage: '/images/Tariq-success.webp',
   },
   {
     id: 'act2-step4',
@@ -131,8 +131,8 @@ const STORY_STEPS: StoryStepData[] = [
     headline: "From reactive to proactive. That's the whole product.",
     body: "Before ThinkProp, Tariq spent approximately 6 hours every week chasing compliance status across his team. He found out about problems when they became crises. He had no visibility until something broke.\n\nNow he opens one screen. He sees everything. He acts in seconds. The feedback loop closes itself.\n\nBut the loop isn't closed yet. Reem still needs to enroll. Let's follow her.",
     insight: 'The admin compliance dashboard is the primary enterprise sales surface. When Tariq shows this screen to his COO in a quarterly review, it\'s the moment the company decides whether to renew the ThinkProp contract.',
-    fullViewportImage: '/images/Tariq-success.png',
-    screenImage: '/images/Reem-onphone.png',
+    fullViewportImage: '/images/Tariq-success.webp',
+    screenImage: '/images/Reem-onphone.webp',
   },
   {
     id: 'act3-step1',
@@ -144,7 +144,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "This is the moment the two journeys connect. Tariq's action is what brought Reem here. Without the reminder, she might not have logged in for another two weeks.",
     mockupId: 'learner-dashboard',
     mockupCaption: "Reem's dashboard — compliance cards sorted by urgency",
-    fullViewportImage: '/images/Reem-worried.png',
+    fullViewportImage: '/images/Reem-worried.webp',
   },
   {
     id: 'act3-step2',
@@ -156,7 +156,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The biggest source of learner drop-off in compliance training is confusion about which courses actually count. We eliminate that question entirely before it can be asked.',
     mockupId: 'course-discovery',
     mockupCaption: 'Course list pre-filtered for RERA CPD Credits',
-    fullViewportImage: '/images/Reem-focused.png',
+    fullViewportImage: '/images/Reem-focused.webp',
   },
   {
     id: 'act3-step3',
@@ -168,7 +168,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Showing seat availability creates genuine urgency — Session B only has 4 seats left. That's not a design trick. That's real information that helps Reem make a better decision.",
     mockupId: 'session-picker',
     mockupCaption: 'Session picker — Session A selected, enroll button active',
-    fullViewportImage: '/images/Reem-focused.png',
+    fullViewportImage: '/images/Reem-focused.webp',
   },
   {
     id: 'act3-step4',
@@ -180,7 +180,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'Under our Model B payment assumption, the company pre-authorises a training budget. When Reem enrolls, the cost is charged automatically to that account. No approval needed. No friction. The most important design decision we made was choosing what NOT to show.',
     mockupId: 'enrollment-confirmation',
     mockupCaption: 'Enrollment confirmed — payment covered by organisation',
-    fullViewportImage: '/images/Reem-success.png',
+    fullViewportImage: '/images/Reem-success.webp',
   },
   {
     id: 'act3-step5',
@@ -191,7 +191,7 @@ const STORY_STEPS: StoryStepData[] = [
     body: `Reem clicks "Return to Dashboard." The critical red card has transformed into a calm blue one: "RERA CPD — Enrolled · Session 15 Mar."\n\nAt the same moment, without any manual update, without a message, without a report — Tariq's dashboard reflects the change. Her row in his risk table is no longer red.\n\nThe loop is closed.`,
     mockupId: 'dashboard-updated',
     mockupCaption: 'Dashboard updated — RERA CPD now shows Enrolled state',
-    fullViewportImage: '/images/Reem-success.png',
+    fullViewportImage: '/images/Reem-success.webp',
   },
 ]
 
@@ -239,14 +239,14 @@ export default function StoryPage() {
   if (currentStepIndex < 0) {
     return (
       <main className="relative h-screen bg-level-0 grid grid-cols-1 grid-rows-[25%_75%] md:grid-cols-12 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}>
-        <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
+        style={{ backgroundImage: "url('/images/welcome.webp')" }}>
+        {/* <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
           <div className="grid h-full w-full grid-cols-12 gap-0">
             {Array.from({ length: 12 }).map((_, index) => (
               <div key={index} className="h-full bg-primary-base/8" />
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="row-start-1 md:col-start-2 md:col-span-4 flex items-center">
           <ThinkPropLogo />
@@ -267,17 +267,17 @@ export default function StoryPage() {
             </Button>
 
             <p className="type-caption mt-6">Or jump straight to:</p>
-            <div className="mt-2 flex items-center gap-3">
-              <Link href="/learner/dashboard" className="type-caption text-state-enrolled hover:underline">
-                Learner Prototype →
+            <div className="mt-2 flex items-center gap-4">
+              <Link href="/admin/compliance" className="type-caption text-primary hover:underline">
+                Admin Prototype
               </Link>
-              <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
-                Admin Prototype →
+              <Link href="/learner/dashboard" className="type-caption text-primary hover:underline">
+                Learner Prototype
               </Link>
-              <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
+              {/* <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
                 <BookOpen size={12} />
                 Navigator
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -344,7 +344,7 @@ export default function StoryPage() {
         })
       }
       onNext={handleContinue}
-      backgroundImage={currentStepIndex >= 0 ? '/images/welcome6.jpg' : undefined}
+      backgroundImage={currentStepIndex >= 0 ? '/images/welcome.webp' : undefined}
     >
       <StoryStep
         key={currentStep.id}

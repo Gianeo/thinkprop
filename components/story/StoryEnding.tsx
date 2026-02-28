@@ -10,8 +10,9 @@ export default function StoryEnding() {
     <section className="relative ml-[calc(50%-50vw)] w-screen overflow-hidden animate-fade-in">
       <div
         className="fixed inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
+        style={{ backgroundImage: "url('/images/welcome.webp')" }}
       />
+      <div className="pointer-events-none fixed inset-0 bg-linear-to-b from-transparent from-20% to-neutral-weakest/95 to-75%" />
 
       <div className="relative z-10 grid grid-cols-1 gap-1 pb-10 md:grid-cols-12">
         <div className="md:col-start-2 md:col-span-4 md:pr-4">
@@ -24,41 +25,41 @@ export default function StoryEnding() {
           </p>
 
           <div className="mt-16">
-            <p className="type-title-upper text-primary">The Business Case</p>
-            <p className="type-title-sm mt-2">What changes when the system works.</p>
-            <div className="mt-4">
+            <p className="type-title-sm">The Business Case</p>
+            <p className="type-body text-calm">What changes when the system works.</p>
+            <div className="mt-4 space-y-4">
               <div className="">
-                <p className="type-title-upper text-muted">Completion</p>
-                <p className="type-title mt-2 text-destructive">62% → 88%</p>
-                <p className="type-body-sm mt-2 text-calm">
+                <p className="type-body-sm text-strong font-bold">Completion</p>
+                <p className="type-title mt-0.5 text-primary">62% → 88%</p>
+                <p className="type-body-sm text-calm">
                   More agents renew on time. Fewer lapses.
                 </p>
               </div>
               <div className="">
-                <p className="type-title-upper text-muted">Alert to Enroll</p>
-                <p className="type-title mt-2 text-destructive">11d → 3d</p>
-                <p className="type-body-sm mt-2 text-calm">
+                <p className="type-body-sm text-strong font-bold">Alert to Enroll</p>
+                <p className="type-title mt-0.5 text-primary">11d → 3d</p>
+                <p className="type-body-sm text-calm">
                   Frictionless path closes the risk window.
                 </p>
               </div>
               <div className="">
-                <p className="type-title-upper text-muted">Admin Time</p>
-                <p className="type-title mt-2 text-destructive">6h → &lt;1h</p>
-                <p className="type-body-sm mt-2 text-calm">
+                <p className="type-body-sm text-strong font-bold">Admin Time</p>
+                <p className="type-title mt-0.5 text-primary">6h → &lt;1h</p>
+                <p className="type-body-sm text-calm">
                   The dashboard replaces manual chasing.
                 </p>
               </div>
             </div>
-            <p className="type-caption mt-4 text-muted">
+            <p className="type-caption mt-4 text-cald italic max-w-xs">
               Figures based on baseline estimates from ThinkProp platform analytics and UAE compliance
               research.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-rows-2 gap-px md:col-start-8 md:col-span-5">
+        <div className="grid grid-rows-2 md:col-start-7 md:col-span-6 shadow-lg rounded-l-xl">
 
-          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8">
+          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8 rounded-tl-xl">
             <div className="flex flex-col h-full gap-8 p-8">
               <div className="type-title-upper text-muted">01</div>
               <div className="mt-6 flex h-full items-stretch justify-between gap-10">
@@ -84,17 +85,16 @@ export default function StoryEnding() {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-full overflow-hidden">
+            <div className="relative h-full w-1/2 overflow-hidden">
               <Image
-                src="/images/Tariq-profile.png"
+                src="/images/Tariq-profile.webp"
                 alt="Tariq success"
-                width={180}
-                height={180}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </article>
-          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8">
+          <article className="group relative transition-all duration-200 bg-white/60 backdrop-blur-xl flex justify-between gap-8 rounded-bl-xl">
             <div className="flex flex-col h-full items-stretch justify-between gap-8 p-8">
               <div className="type-title-upper text-muted">02</div>
               <div className="mt-6 flex h-full items-stretch justify-between gap-10">
@@ -120,13 +120,12 @@ export default function StoryEnding() {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-full overflow-hidden">
+            <div className="relative h-full w-1/2 overflow-hidden">
               <Image
-                src="/images/Reem-profile.png"
+                src="/images/Reem-profile.webp"
                 alt="Reem success"
-                width={180}
-                height={180}
-                className="h-full w-auto object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </article>

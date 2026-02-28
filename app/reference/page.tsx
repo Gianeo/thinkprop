@@ -45,7 +45,7 @@ export default function Page() {
 
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/welcome6.jpg')" }}
+        style={{ backgroundImage: "url('/images/welcome.webp')" }}
       />
       <div className="absolute inset-0 bg-level-0/60" />
       <div

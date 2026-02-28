@@ -54,13 +54,13 @@ export default function StoryShell({
           <div className="pointer-events-none fixed inset-0 z-0 bg-white/60 backdrop-blur-2xl" />
         </>
       )}
-      <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
+      {/* <div className="pointer-events-none fixed inset-0 z-20 hidden md:block">
         <div className="grid h-full w-full grid-cols-12 gap-0">
           {Array.from({ length: 12 }).map((_, index) => (
             <div key={index} className="h-full bg-primary-base/8" />
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="fixed left-0 right-0 top-0 z-60 h-0.5 bg-transparent">
         <div
           className="h-full bg-primary-base transition-all duration-500 ease-out"
