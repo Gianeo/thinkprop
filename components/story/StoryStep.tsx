@@ -5,7 +5,6 @@ import { ArrowRight, Lightbulb } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import CharacterCard from '@/components/story/CharacterCard'
 import ScreenMockup from '@/components/story/ScreenMockup'
-import { Badge } from '../ui/badge'
 
 interface StoryStepData {
   id: string
@@ -17,6 +16,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  screenImage?: string
   fullViewportImage?: string
   storyImages?: string[]
   imagePosition?: 'left' | 'right'
@@ -135,6 +135,41 @@ export default function StoryStep({
   onContinue,
   isLastStep = false,
 }: StoryStepProps) {
+  const renderScreenVisual = () => {
+    if (step.screenImage) {
+      return (
+        <div className="relative size-72 overflow-hidden rounded-full border-8 border-white">
+          <Image src={step.screenImage} alt="Story visual" fill className="object-cover" />
+        </div>
+      )
+    }
+
+    if (step.mockupId) {
+      return <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+    }
+
+    return null
+  }
+
+  const renderNarrativeWithFullViewportImage = () => (
+    <>
+      <div className="pointer-events-none fixed inset-0 z-0 flex justify-end overflow-hidden">
+        <Image
+          src={step.fullViewportImage as string}
+          alt="Story background"
+          width={1400}
+          height={900}
+          className="h-screen w-auto max-w-none"
+        />
+      </div>
+      <section className="relative z-10 grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
+        <div className="md:col-span-4">
+          <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
+        </div>
+      </section>
+    </>
+  )
+
   if (step.layout === 'intro' && step.characterData) {
     const twoCards = Boolean(step.secondaryCharacterData)
     return (
@@ -154,7 +189,7 @@ export default function StoryStep({
     )
   }
 
-  if (step.layout === 'screen' && step.mockupId) {
+  if (step.layout === 'screen') {
     if (step.fullViewportImage) {
       return (
         <>
@@ -174,7 +209,7 @@ export default function StoryStep({
             </div>
 
             <div className="md:col-start-7 md:col-span-6 md:self-center">
-              <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+              {renderScreenVisual()}
             </div>
           </section>
         </>
@@ -195,7 +230,7 @@ export default function StoryStep({
           <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
         </div>
         <div className={`${hasImages ? 'md:col-span-5' : 'md:col-span-8'}`}>
-          <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+          {renderScreenVisual()}
         </div>
         {hasImages && !isLeft && (
           <div className="md:col-span-3">
@@ -204,6 +239,10 @@ export default function StoryStep({
         )}
       </section>
     )
+  }
+
+  if (step.layout === 'narrative' && step.fullViewportImage) {
+    return renderNarrativeWithFullViewportImage()
   }
 
   return (

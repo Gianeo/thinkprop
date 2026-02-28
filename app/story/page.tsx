@@ -19,6 +19,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  screenImage?: string
   fullViewportImage?: string
   storyImages?: string[]
   imagePosition?: 'left' | 'right'
@@ -108,8 +109,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Tariq's old workflow was: export data → cross-reference → figure out who to chase → type a WhatsApp message. This replaces all of that. The work is done for him. He just decides and acts.",
     mockupId: 'reminder-modal',
     mockupCaption: 'Reminder modal — pre-written message ready to send',
-    storyImages: ['/images/Tariq-atwork.png'],
-    imagePosition: 'left',
+    fullViewportImage: '/images/Tariq-atwork.png',
   },
   {
     id: 'act2-step3',
@@ -119,19 +119,18 @@ const STORY_STEPS: StoryStepData[] = [
     headline: "Sent. Now it's Reem's turn.",
     body: `Tariq clicks Send. The modal closes. A green confirmation toast appears at the corner of his screen: "Reminder sent to Reem Al Mansoori."\n\nHe moves on to the next name on the list. He'll come back later to check who has acted.\n\nMeanwhile, across the office, a notification just landed in Reem's inbox.`,
     insight: "Before ThinkProp, the average time between a compliance alert and a learner enrolling was 11 days. A frictionless reminder plus a one-click enrollment path brings that to under 3. In an 18-day window, that 8-day saving is the difference between compliant and lapsed.",
-    storyImages: ['/images/Tariq-success.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Tariq-success.png',
   },
   {
     id: 'act2-step4',
     act: 2,
-    layout: 'narrative',
+    layout: 'screen',
     stepLabel: 'Tariq — Step 4 of 4',
     headline: "From reactive to proactive. That's the whole product.",
     body: "Before ThinkProp, Tariq spent approximately 6 hours every week chasing compliance status across his team. He found out about problems when they became crises. He had no visibility until something broke.\n\nNow he opens one screen. He sees everything. He acts in seconds. The feedback loop closes itself.\n\nBut the loop isn't closed yet. Reem still needs to enroll. Let's follow her.",
     insight: 'The admin compliance dashboard is the primary enterprise sales surface. When Tariq shows this screen to his COO in a quarterly review, it\'s the moment the company decides whether to renew the ThinkProp contract.',
-    storyImages: ['/images/Tariq-success.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Tariq-success.png',
+    screenImage: '/images/Reem-onphone.png',
   },
   {
     id: 'act3-step1',
@@ -143,8 +142,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "This is the moment the two journeys connect. Tariq's action is what brought Reem here. Without the reminder, she might not have logged in for another two weeks.",
     mockupId: 'learner-dashboard',
     mockupCaption: "Reem's dashboard — compliance cards sorted by urgency",
-    storyImages: ['/images/Tariq-profile.png'],
-    imagePosition: 'left',
+    fullViewportImage: '/images/Reem-worried.png',
   },
   {
     id: 'act3-step2',
@@ -156,8 +154,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The biggest source of learner drop-off in compliance training is confusion about which courses actually count. We eliminate that question entirely before it can be asked.',
     mockupId: 'course-discovery',
     mockupCaption: 'Course list pre-filtered for RERA CPD Credits',
-    storyImages: ['/images/Reem-onphone.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Reem-focused.png',
   },
   {
     id: 'act3-step3',
@@ -169,8 +166,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Showing seat availability creates genuine urgency — Session B only has 4 seats left. That's not a design trick. That's real information that helps Reem make a better decision.",
     mockupId: 'session-picker',
     mockupCaption: 'Session picker — Session A selected, enroll button active',
-    storyImages: ['/images/Reem-worried.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Reem-focused.png',
   },
   {
     id: 'act3-step4',
@@ -182,8 +178,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'Under our Model B payment assumption, the company pre-authorises a training budget. When Reem enrolls, the cost is charged automatically to that account. No approval needed. No friction. The most important design decision we made was choosing what NOT to show.',
     mockupId: 'enrollment-confirmation',
     mockupCaption: 'Enrollment confirmed — payment covered by organisation',
-    storyImages: ['/images/Reem-worried.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Reem-success.png',
   },
   {
     id: 'act3-step5',
@@ -194,8 +189,7 @@ const STORY_STEPS: StoryStepData[] = [
     body: `Reem clicks "Return to Dashboard." The critical red card has transformed into a calm blue one: "RERA CPD — Enrolled · Session 15 Mar."\n\nAt the same moment, without any manual update, without a message, without a report — Tariq's dashboard reflects the change. Her row in his risk table is no longer red.\n\nThe loop is closed.`,
     mockupId: 'dashboard-updated',
     mockupCaption: 'Dashboard updated — RERA CPD now shows Enrolled state',
-    storyImages: ['/images/Reem-success.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Reem-success.png',
   },
 ]
 
