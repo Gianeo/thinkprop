@@ -50,7 +50,7 @@ const STORY_STEPS: StoryStepData[] = [
     id: 'act1-intro',
     act: 1,
     layout: 'narrative',
-    stepLabel: 'The Setup',
+    stepLabel: 'Context',
     headline: "In Dubai's real estate market, your license is your livelihood.",
     body: "Every agent, broker, and property manager in Dubai operates under strict regulations enforced by RERA — the Real Estate Regulatory Agency. To keep their license valid, professionals must complete a set number of CPD credits every single year.\n\nMiss the deadline? Your license is suspended. You can't transact. Your deals fall through. Your clients go elsewhere.\n\nThis is the world our two characters live in.",
     insight: "CPD stands for Continuing Professional Development. Think of it as annual homework that keeps your job legal. It's not optional. It's not flexible. And the clock never stops.",
@@ -278,7 +278,7 @@ export default function StoryPage() {
               <Link href="/admin/compliance" className="type-caption text-primary-default hover:underline">
                 Admin Prototype →
               </Link>
-              <Link href="/" className="type-caption inline-flex items-center gap-1 hover:underline">
+              <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
                 <BookOpen size={12} />
                 Navigator
               </Link>
