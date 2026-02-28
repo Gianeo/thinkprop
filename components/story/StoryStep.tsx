@@ -17,6 +17,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  fullViewportImage?: string
   storyImages?: string[]
   imagePosition?: 'left' | 'right'
   characterData?: {
@@ -81,7 +82,7 @@ function NarrativeBlock({
 
   return (
     <div className='space-y-6 pt-4 pb-12 max-w-md'>
-      <Badge variant="primary">{step.stepLabel}</Badge>
+      <h1 className='type-title-upper text-primary'>{step.stepLabel}</h1>
 
       <h2 className="type-display">{renderStyledText(step.headline)}</h2>
 
@@ -154,28 +155,26 @@ export default function StoryStep({
   }
 
   if (step.layout === 'screen' && step.mockupId) {
-    if (step.id === 'act2-step1') {
+    if (step.fullViewportImage) {
       return (
         <>
-          <div className="absolute top-0 right-0 w-full z-0">
+          <div className="pointer-events-none fixed inset-0 z-0 flex justify-end overflow-hidden">
             <Image
-              src="/images/Tariq-atwork.png"
-              alt="Tariq at work"
+              src={step.fullViewportImage}
+              alt="Story background"
               width={1400}
               height={900}
-              className="w-auto h-screen"
+              className="h-screen w-auto max-w-none"
             />
           </div>
-          <section className="grid w-full animate-fade-in grid-cols-1 items-start md:grid-cols-12">
-            <div className="md:row-start-1 md:col-span-4 z-20">
+
+          <section className="relative z-10 grid min-h-[calc(100vh-6rem)] w-full animate-fade-in grid-cols-1 items-start md:grid-cols-12">
+            <div className="md:col-span-4">
               <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
             </div>
 
-            <div className="relative md:row-start-1 md:col-start-7 md:col-span-6">
-
-              <div className="absolute -left-16 top-24 z-30 min-w-160">
-                <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
-              </div>
+            <div className="md:col-start-7 md:col-span-6 md:self-center">
+              <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
             </div>
           </section>
         </>

@@ -19,6 +19,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  fullViewportImage?: string
   storyImages?: string[]
   imagePosition?: 'left' | 'right'
   characterData?: {
@@ -95,8 +96,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The KPI strip is designed to answer one question: "Do I have a problem today?" If any of those four numbers looks wrong, Tariq knows before anyone has to tell him.',
     mockupId: 'admin-overview',
     mockupCaption: 'Admin compliance overview — live org-wide status',
-    storyImages: ['/images/Tariq-atwork.png'],
-    imagePosition: 'right',
+    fullViewportImage: '/images/Tariq-atwork.png',
   },
   {
     id: 'act2-step2',
