@@ -5,6 +5,7 @@ import { ArrowRight, Lightbulb } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import CharacterCard from '@/components/story/CharacterCard'
 import ScreenMockup from '@/components/story/ScreenMockup'
+import { Badge } from '../ui/badge'
 
 interface StoryStepData {
   id: string
@@ -56,23 +57,23 @@ function NarrativeBlock({
   const paragraphs = step.body.split('\n\n')
 
   return (
-    <div className=''>
-      <p className="type-title-upper mb-3">{step.stepLabel}</p>
+    <div className='space-y-6 py-16'>
+      <Badge variant="primary">{step.stepLabel}</Badge>
 
-      <h2 className="type-title mb-4">{step.headline}</h2>
+      <h2 className="type-display">{step.headline}</h2>
 
-      <div className="mb-6">
+      <div className="space-y-4">
         {paragraphs.map((paragraph) => (
-          <p key={paragraph} className="type-body mb-3">
+          <p key={paragraph} className="type-body">
             {paragraph}
           </p>
         ))}
       </div>
 
       {step.insight && (
-        <div className="mb-6 flex items-start gap-3 p-4">
+        <div className="my-12 flex items-start gap-3">
           <Lightbulb size={16} className="mt-0.5 shrink-0 text-primary-default" />
-          <p className="type-body-sm italic">{step.insight}</p>
+          <p className="type-body-sm text-calm italic">{step.insight}</p>
         </div>
       )}
 
@@ -113,7 +114,7 @@ export default function StoryStep({
   if (step.layout === 'intro' && step.characterData) {
     const twoCards = Boolean(step.secondaryCharacterData)
     return (
-      <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
+      <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-10">
         <div className={`${twoCards ? 'md:col-span-12' : 'md:col-span-5'}`}>
           <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
         </div>
@@ -156,7 +157,7 @@ export default function StoryStep({
   }
 
   return (
-    <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-12">
+    <section className="grid w-full animate-fade-in grid-cols-1 md:grid-cols-10">
       <div className="md:col-start-2 md:col-span-4">
         <NarrativeBlock step={step} onContinue={onContinue} isLastStep={isLastStep} />
       </div>

@@ -82,14 +82,14 @@ export default function StoryShell({
         </div>
       </header>
 
-      <main className="relative grid min-h-screen grid-cols-12 gap-1 py-24">
-        <div className="col-span-12 md:col-start-2 md:col-span-10">
+      <main className="relative min-h-screen grid grid-cols-12 gap-1 py-24">
+        <div className="col-span-10 md:col-start-2 md:col-span-10">
           {children}
         </div>
       </main>
 
       <div className="pointer-events-none fixed inset-0 z-40 hidden md:block">
-        <div className="grid h-full w-full grid-cols-12 gap-1 px-1">
+        <div className="grid h-full w-full grid-cols-12">
           <div className="col-span-1 flex items-center justify-center">
             {currentStep >= 0 ? (
               <Button

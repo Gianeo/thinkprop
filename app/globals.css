@@ -302,12 +302,12 @@
 
 @layer components {
   .type-display {
-    @apply font-display text-2xl font-semibold tracking-[-2] antialiased;
+    @apply font-display text-2xl font-semibold tracking-[-2] leading-[1.1] antialiased;
     color: hsl(var(--text-loud));
   }
 
   .type-title {
-    @apply font-display text-xl font-semibold tracking-[-1.6] antialiased;
+    @apply font-display text-xl font-semibold tracking-[-1.6] leading-[1.2] antialiased;
     color: hsl(var(--text-loud));
   }
 
