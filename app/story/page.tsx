@@ -114,11 +114,13 @@ const STORY_STEPS: StoryStepData[] = [
   {
     id: 'act2-step3',
     act: 2,
-    layout: 'narrative',
+    layout: 'screen',
     stepLabel: 'Tariq — Step 3 of 4',
     headline: "Sent. Now it's Reem's turn.",
     body: `Tariq clicks Send. The modal closes. A green confirmation toast appears at the corner of his screen: "Reminder sent to Reem Al Mansoori."\n\nHe moves on to the next name on the list. He'll come back later to check who has acted.\n\nMeanwhile, across the office, a notification just landed in Reem's inbox.`,
     insight: "Before ThinkProp, the average time between a compliance alert and a learner enrolling was 11 days. A frictionless reminder plus a one-click enrollment path brings that to under 3. In an 18-day window, that 8-day saving is the difference between compliant and lapsed.",
+    mockupId: 'admin-overview',
+    mockupCaption: 'Reminder sent — audit trail updated',
     fullViewportImage: '/images/Tariq-success.png',
   },
   {
