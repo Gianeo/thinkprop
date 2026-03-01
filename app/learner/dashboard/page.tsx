@@ -218,8 +218,8 @@ export default function LearnerDashboardPage() {
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
       <div className="flex flex-1 overflow-hidden pt-16 md:ml-56 md:pt-0">
-        <div className="flex-1 w-full overflow-y-auto px-6 shadow">
-          <div className="mx-auto w-full space-y-8 pr-8 py-8">
+        <div className="flex-1 w-full overflow-y-auto px-8 mr-4 shadow">
+          <div className="w-full space-y-8 py-8">
             <header className="flex items-start justify-between">
               <div className=''>
                 <p className="mb-6 type-caption text-muted">
@@ -365,7 +365,7 @@ export default function LearnerDashboardPage() {
                   </TableHeader>
                   <TableBody>
                     {nextComplianceRows.map((row) => (
-                      <TableRow key={row.id}>
+                      <TableRow key={row.id} className={row.status === 'At Risk' ? 'bg-warning-weaker' : undefined}>
                         <TableCell>
                           <Badge variant={row.statusVariant} size="sm">
                             {row.status}

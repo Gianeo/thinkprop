@@ -42,7 +42,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
 
   const isLearner = variant === 'learner'
   const items = isLearner ? learnerItems : adminItems
-  const sidebarWidthClass = isLearner ? 'w-60' : 'w-56'
+  const sidebarWidthClass = isLearner ? 'w-52' : 'w-48'
 
   const rootClasses = isLearner
     ? `${sidebarWidthClass} bg-level-0 text-default`
