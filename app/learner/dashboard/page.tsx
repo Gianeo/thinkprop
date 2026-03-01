@@ -234,7 +234,7 @@ export default function LearnerDashboardPage() {
             </header>
 
             {!isReraEnrolled ? (
-              <section className="animate-fade-in flex items-center gap-3 rounded-lg border border-state-critical/20 bg-state-critical-bg p-4">
+              <section className="animate-fade-in flex items-center gap-3 rounded-lg border border-state-critical/20 bg-state-critical-bg p-4 md:hidden">
                 <AlertTriangle size={16} className="shrink-0 text-state-critical" />
                 <div className="flex-1">
                   <p className="type-body-sm text-state-critical">
@@ -447,6 +447,39 @@ export default function LearnerDashboardPage() {
           <div className="shrink-0 p-4 pt-6">
             <p className="type-title-sm">Reem&apos;s Assistant</p>
             <p className="type-caption text-muted">Personalised to your compliance status</p>
+          </div>
+
+          <div className="p-4 pt-0">
+            <p className="mb-2 type-body font-semibold">Notifications</p>
+            <Card className="shadow-sm">
+              <CardContent className="space-y-3 p-4">
+                {!isReraEnrolled ? (
+                  <div className="flex items-start gap-2">
+                    <AlertTriangle className="mt-0.5 size-4 text-destructive-default" />
+                    <div>
+                      <p className="type-body-sm text-destructive-default">Action Required</p>
+                      <p className="type-caption text-muted">
+                        RERA CPD deadline is in 18 days. Start now to stay compliant.
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
+
+                <div className="flex items-start gap-2">
+                  <Bell className={`mt-0.5 size-4 ${isReraEnrolled ? 'text-success-default' : 'text-warning-default'}`} />
+                  <div>
+                    <p className={`type-body-sm ${isReraEnrolled ? 'text-success-default' : 'text-warning-default'}`}>
+                      {isReraEnrolled ? 'Enrollment confirmed' : 'License renewal reminder'}
+                    </p>
+                    <p className="type-caption text-muted">
+                      {isReraEnrolled
+                        ? 'Session booked for 15 Mar 2026. Calendar invite sent.'
+                        : 'You have enough time to complete your requirement this month.'}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="p-4">
