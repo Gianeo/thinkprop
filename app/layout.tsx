@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { TikTok_Sans } from 'next/font/google'
+import LaunchNotice from '@/components/shared/LaunchNotice'
 import { Toaster } from '@/components/ui/sonner'
 import RouteTheme from '@/components/shared/RouteTheme'
 import './globals.css'
@@ -32,6 +33,7 @@ export default function RootLayout({
         className="font-body text-foreground antialiased"
       >
         <RouteTheme />
+        <LaunchNotice />
         {children}
         <Toaster richColors position="bottom-right" />
       </body>
