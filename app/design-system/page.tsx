@@ -2,11 +2,10 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Moon, Palette, Sun, Type } from 'lucide-react'
+import { ArrowLeft, ChevronRight, Clock, Moon, Palette, Sun, Type } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -298,6 +297,213 @@ export default function DesignSystemPage() {
           </div>
 
           <TeamTable data={adminTeam} />
+
+          <section className="space-y-3">
+            <Card className="animate-fade-in shadow-md">
+              <CardContent className="p-6">
+                <div className="mb-0 flex items-start justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="size-2 rounded-full bg-state-critical" />
+                    <p className="type-title-upper font-bold text-state-critical">Top Priority</p>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-full bg-state-critical-bg px-3 py-1">
+                    <Clock size={11} className="text-state-critical" />
+                    <span className="type-data text-state-critical">18 days left</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+                  <div className="md:col-span-2">
+                    <h3 className="type-title-sm">RERA CPD Credits</h3>
+                    <p className="mb-4 type-body">
+                      Your RERA broker license may be suspended if not completed by 15 Mar 2026.
+                    </p>
+                    <div className="max-w-sm space-y-4">
+                      <div>
+                        <div className="mb-1.5 flex items-center justify-between">
+                          <p className="type-body-sm text-muted">
+                            Credits Progress: <span className="text-loud font-semibold">6 / 15 credits</span>
+                          </p>
+                        </div>
+                        <div className="h-2 w-full rounded-full bg-primary-weaker">
+                          <div className="h-full rounded-full bg-primary" style={{ width: '40%' }} />
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="py-1 type-body-sm text-muted">Why this matters:</p>
+                        {[
+                          'License valid for all transactions',
+                          'Required by RERA regulations',
+                          'Covered by your organisation',
+                        ].map((item) => (
+                          <div key={item} className="flex items-center gap-2">
+                            <div className="size-1.5 shrink-0 rounded-full bg-primary" />
+                            <p className="type-body-sm">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-end justify-end">
+                    <Button>
+                      Enroll to a Course
+                      <ChevronRight />
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section className="space-y-3">
+            <Card className="shadow-sm">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>STATUS</TableHead>
+                    <TableHead>CREDENTIAL</TableHead>
+                    <TableHead>DEADLINE</TableHead>
+                    <TableHead className="text-right" aria-label="Actions" />
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className="bg-warning-weaker">
+                    <TableCell>
+                      <Badge variant="warning" size="sm">
+                        At Risk
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="type-body-sm text-loud">AML Certificate</TableCell>
+                    <TableCell className="type-body-sm text-calm">27 days left</TableCell>
+                    <TableCell className="text-right">
+                      <Button variant="link" size="sm" className="h-auto p-0 type-body-sm">
+                        Take Action
+                        <ChevronRight size={14} />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Badge variant="default" size="sm">
+                        Upcoming
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="type-body-sm text-loud">Property Management License</TableCell>
+                    <TableCell className="type-body-sm text-calm">Due 1 Jun 2026 (in 3 months)</TableCell>
+                    <TableCell className="text-right">
+                      <Button
+                        variant="link"
+                        size="sm"
+                        className="h-auto p-0 type-body-sm text-muted hover:text-default"
+                      >
+                        View Requirement
+                        <ChevronRight size={14} />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Badge variant="default" size="sm">
+                        Upcoming
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="type-body-sm text-loud">Ethics CPD Refresher</TableCell>
+                    <TableCell className="type-body-sm text-calm">Due 15 Jul 2026 (in 4.5 months)</TableCell>
+                    <TableCell className="text-right">
+                      <Button
+                        variant="link"
+                        size="sm"
+                        className="h-auto p-0 type-body-sm text-muted hover:text-default"
+                      >
+                        View Requirement
+                        <ChevronRight size={14} />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Card>
+          </section>
+
+          <section className="space-y-2 pb-6">
+            <div className="space-y-3">
+              <Card className="shadow-sm">
+                <CardContent className="p-6">
+                  <div className="mb-3 flex items-start gap-2">
+                    <Badge size="sm" variant="primary">
+                      Covers 9 of your 15 required credits
+                    </Badge>
+                    <Badge size="sm">
+                      8 CPD Credits
+                    </Badge>
+                  </div>
+                  <h3 className="mb-1 type-title-sm">Property Valuation Fundamentals</h3>
+                  <p className="type-body-sm text-calm">ThinkProp Academy · Sarah Al Mansoori, MRICS</p>
+                  <div className="mt-3 flex items-center justify-between pt-4">
+                    <div className="flex items-center gap-3">
+                      <span className="type-body-sm text-default">Virtual + Classroom</span>
+                      <span className="type-body-sm text-muted">15 Mar 2026</span>
+                    </div>
+                    <Button variant="link" size="sm" className="h-auto p-0 type-body-sm font-semibold text-state-enrolled">
+                      View Details
+                      <ChevronRight />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-sm">
+                <CardContent className="p-6">
+                  <div className="mb-3 flex items-start gap-2">
+                    <Badge size="sm" variant="primary">
+                      Popular with agents in your role
+                    </Badge>
+                    <Badge size="sm">
+                      6 CPD Credits
+                    </Badge>
+                  </div>
+                  <h3 className="mb-1 type-title-sm">Real Estate Market Trends 2026</h3>
+                  <p className="type-body-sm text-calm">ThinkProp Academy · Dr. Khalid Al Hammadi</p>
+                  <div className="mt-3 flex items-center justify-between pt-4">
+                    <div className="flex items-center gap-3">
+                      <span className="type-body-sm text-default">Virtual</span>
+                      <span className="type-body-sm text-muted">18 Mar 2026</span>
+                    </div>
+                    <Button variant="link" size="sm" className="h-auto p-0 type-body-sm font-semibold text-state-enrolled">
+                      View Details
+                      <ChevronRight />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-sm">
+                <CardContent className="p-6">
+                  <div className="mb-3 flex items-start gap-2">
+                    <Badge size="sm" variant="primary">
+                      Required for your license renewal
+                    </Badge>
+                    <Badge size="sm">
+                      4 CPD Credits
+                    </Badge>
+                  </div>
+                  <h3 className="mb-1 type-title-sm">RERA Regulations Update 2026</h3>
+                  <p className="type-body-sm text-calm">ThinkProp Academy · Fatima Al Zaabi</p>
+                  <div className="mt-3 flex items-center justify-between pt-4">
+                    <div className="flex items-center gap-3">
+                      <span className="type-body-sm text-default">Virtual</span>
+                      <span className="type-body-sm text-muted">20 Mar 2026</span>
+                    </div>
+                    <Button variant="link" size="sm" className="h-auto p-0 type-body-sm font-semibold text-state-enrolled">
+                      View Details
+                      <ChevronRight />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
         </section>
       </div>
 

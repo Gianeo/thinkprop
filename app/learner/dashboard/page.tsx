@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   AlertTriangle,
-  ArrowRight,
+  ChevronRight,
   Bell,
   BookOpen,
   CalendarPlus,
@@ -23,7 +23,7 @@ import SidebarNav from '@/components/shared/SidebarNav'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import {
@@ -305,7 +305,7 @@ export default function LearnerDashboardPage() {
                   onClick={() => router.push('/learner/compliance/rera-cpd')}
                 >
                   View Details
-                  <ArrowRight size={12} />
+                  <ChevronRight size={12} />
                 </Button>
               </section>
             ) : null}
@@ -393,7 +393,7 @@ export default function LearnerDashboardPage() {
                           }}
                         >
                           Enroll to a Course
-                          <ArrowRight />
+                          <ChevronRight />
                         </Button>
                       </div>
                     </div>
@@ -440,7 +440,7 @@ export default function LearnerDashboardPage() {
                             onClick={row.actionLabel === 'Take Action' ? () => {} : row.onClick}
                           >
                             {row.actionLabel}
-                            <ArrowRight size={14} />
+                            <ChevronRight size={14} />
                           </Button>
                         </TableCell>
                       </TableRow>
@@ -459,7 +459,7 @@ export default function LearnerDashboardPage() {
                   className=""
                 >
                   Browse all
-                  <ArrowRight />
+                  <ChevronRight />
                 </Button>
               </div>
 
@@ -491,7 +491,7 @@ export default function LearnerDashboardPage() {
                         </div>
                         <Button variant="link" size="sm" className="h-auto p-0 type-body-sm font-semibold text-state-enrolled">
                           View Details
-                          <ArrowRight size={14} />
+                          <ChevronRight />
                         </Button>
                       </div>
                     </CardContent>
@@ -781,7 +781,7 @@ export default function LearnerDashboardPage() {
           <div className="space-y-6 p-8">
             <section className="text-center">
               <CheckCircle className="mx-auto size-16 text-success-default" />
-              <h2 className="mt-4 type-title">You&apos;re enrolled!</h2>
+              <DialogTitle className="mt-4 type-title">You&apos;re enrolled!</DialogTitle>
               <p className="mt-2 type-body-sm mx-auto">
                 We&apos;ll send your joining instructions to your email.
               </p>
