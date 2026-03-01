@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, SquareArrowOutUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function StoryEnding() {
@@ -15,17 +15,6 @@ export default function StoryEnding() {
       <div className="pointer-events-none fixed inset-0 bg-linear-to-b from-transparent from-20% to-neutral-weakest/95 to-75%" />
 
       <div className="relative z-10 grid grid-cols-1 gap-1 pb-10 md:grid-cols-12">
-        <div className="md:col-span-12 flex justify-end md:pr-6">
-          <Link
-            href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="type-caption text-primary hover:underline"
-          >
-            View Figma file
-          </Link>
-        </div>
-
         <div className="md:col-start-2 md:col-span-4 md:pr-4">
           <p className="type-title-upper text-primary">The Result</p>
           <h2 className="type-display mt-4">One system. <br />Zero compliance failures.</h2>
@@ -34,6 +23,17 @@ export default function StoryEnding() {
             Properties Dubai went from 74% compliance to consistently above 90% without changing how
             people work, only what they can see.
           </p>
+
+          <Button variant="secondary" size="sm" asChild withIcon="before" className="mt-6">
+            <Link
+              href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SquareArrowOutUpRight size={14} />
+              View Figma file
+            </Link>
+          </Button>
 
           <div className="mt-16">
             <p className="type-title-sm">The Business Case</p>

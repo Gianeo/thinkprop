@@ -11,40 +11,28 @@ interface StoryShellProps {
   actLabel: string
   onBack: () => void
   onNext?: () => void
+  headerAction?: React.ReactNode
   children: React.ReactNode
   backgroundImage?: string
-}
-
-const actPillClassMap: Record<1 | 2 | 3, string> = {
-  1: 'bg-state-critical-bg text-state-critical',
-  2: 'bg-state-enrolled-bg text-state-enrolled',
-  3: 'bg-primary-weaker text-primary-default',
 }
 
 export default function StoryShell({
   currentStep,
   totalSteps,
-  currentAct,
+  currentAct: _currentAct,
   actLabel,
   onBack,
   onNext,
+  headerAction,
   children,
   backgroundImage,
 }: StoryShellProps) {
   const maxIndex = Math.max(totalSteps - 1, 1)
   const safeStep = Math.max(0, Math.min(currentStep, maxIndex))
   const progress = (safeStep / maxIndex) * 100
-  const resolvedActLabel =
-    actLabel === 'The Resolution'
-      ? actLabel
-      : currentAct === 1
-        ? 'Act 1 — The Problem'
-        : currentAct === 2
-          ? "Act 2 — Tariq's Journey"
-          : "Act 3 — Reem's Journey"
 
   return (
-    <div className="min-h-screen bg-level-0 font-body">
+    <div className="min-h-screen bg-level-0 font-body" data-act={_currentAct}>
       {backgroundImage && (
         <>
           <div
@@ -76,7 +64,9 @@ export default function StoryShell({
             <p className="type-caption">{resolvedActLabel}</p>
           </div> */}
 
-          {actLabel !== 'The Resolution' ? (
+          {headerAction ? (
+            headerAction
+          ) : actLabel !== 'The Resolution' ? (
             <div className="type-caption text-default">
               Step {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
             </div>
