@@ -393,16 +393,17 @@ export default function LearnerDashboardPage() {
               </Card>
             </section>
 
-            <section className="space-y-4 pb-6">
+            <section className="space-y-2 pb-6">
               <div className="flex items-center justify-between">
                 <h2 className="type-body font-semibold">Courses For You</h2>
                 <Button
                   variant="link"
-                  className="h-auto gap-1 p-0 type-body-sm font-semibold text-state-enrolled"
+                  size="sm"
+                  className=""
                   onClick={() => router.push('/learner/courses?requirement=rera-cpd')}
                 >
                   Browse all
-                  <ArrowRight size={12} />
+                  <ArrowRight />
                 </Button>
               </div>
 
@@ -413,27 +414,27 @@ export default function LearnerDashboardPage() {
                     className="cursor-pointer transition-shadow duration-200 shadow-sm hover:shadow-md"
                     onClick={() => router.push(`/learner/courses/${course.id}`)}
                   >
-                    <CardContent className="p-5">
-                      <div className="mb-3 flex items-start justify-between">
-                        <span className="rounded-full border border-state-enrolled/20 bg-state-enrolled-bg px-2.5 py-1 type-caption font-semibold text-state-enrolled">
+                    <CardContent className="p-6">
+                      <div className="mb-3 flex gap-2 items-start">
+                        <Badge size="sm" variant="primary">
                           {course.relevance}
-                        </span>
-                        <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 type-caption font-semibold text-primary">
+                        </Badge>
+                        <Badge size="sm">
                           {course.credits} CPD Credits
-                        </span>
+                        </Badge>
                       </div>
 
                       <h3 className="mb-1 type-title-sm">{course.title}</h3>
-                      <p className="type-caption text-muted">{course.provider}</p>
+                      <p className="type-body-sm text-calm">{course.provider}</p>
 
-                      <div className="mt-3 flex items-center justify-between border-t border-admin-border pt-3">
+                      <div className="mt-3 flex items-center justify-between pt-4">
                         <div className="flex items-center gap-3">
-                          <span className="rounded-md border border-admin-border bg-admin-surface px-2 py-0.5 type-caption text-default">
+                          <span className="type-body-sm text-default">
                             {course.format}
                           </span>
-                          <span className="type-data text-muted">{course.nextDate}</span>
+                          <span className="type-body-sm text-muted">{course.nextDate}</span>
                         </div>
-                        <span className="type-caption font-semibold text-state-enrolled">View Details →</span>
+                        <span className="type-body-sm font-semibold text-state-enrolled">View Details →</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -452,13 +453,13 @@ export default function LearnerDashboardPage() {
           <div className="p-4 pt-0">
             <p className="mb-2 type-body font-semibold">Notifications</p>
             <Card className="shadow-sm">
-              <CardContent className="space-y-3 p-4">
+              <CardContent className="space-y-4 p-4">
                 {!isReraEnrolled ? (
-                  <div className="flex items-start gap-2">
-                    <AlertTriangle className="mt-0.5 size-4 text-destructive-default" />
+                  <div className="flex items-start gap-2 rounded-md bg-destructive-weaker p-2">
+                    <AlertTriangle className="mt-0.5 size-3.5 shrink-0 text-destructive-default" />
                     <div>
                       <p className="type-body-sm text-destructive-default">Action Required</p>
-                      <p className="type-caption text-muted">
+                      <p className="type-caption text-default mt-0.5">
                         RERA CPD deadline is in 18 days. Start now to stay compliant.
                       </p>
                     </div>
@@ -466,12 +467,12 @@ export default function LearnerDashboardPage() {
                 ) : null}
 
                 <div className="flex items-start gap-2">
-                  <Bell className={`mt-0.5 size-4 ${isReraEnrolled ? 'text-success-default' : 'text-warning-default'}`} />
+                  <Bell className={`mt-0.5 size-3.5 shrink-0 ${isReraEnrolled ? 'text-success-default' : 'text-warning-default'}`} />
                   <div>
                     <p className={`type-body-sm ${isReraEnrolled ? 'text-success-default' : 'text-warning-default'}`}>
                       {isReraEnrolled ? 'Enrollment confirmed' : 'License renewal reminder'}
                     </p>
-                    <p className="type-caption text-muted">
+                    <p className="type-caption text-muted mt-0.5">
                       {isReraEnrolled
                         ? 'Session booked for 15 Mar 2026. Calendar invite sent.'
                         : 'You have enough time to complete your requirement this month.'}

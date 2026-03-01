@@ -327,12 +327,12 @@
   }
 
   .type-body-sm {
-    @apply text-sm leading-snug tracking-wide subpixel-antialiased max-w-xl;
+    @apply text-sm leading-snug subpixel-antialiased max-w-xl;
     color: hsl(var(--text-default));
   }
 
   .type-caption {
-    @apply text-xs leading-snug tracking-wider subpixel-antialiased max-w-xl;
+    @apply text-xs leading-snug subpixel-antialiased max-w-xl;
     color: hsl(var(--text-muted));
   }
 
