@@ -64,41 +64,41 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
       : 0
 
   return (
-    <Card className={`overflow-hidden rounded-lg bg-level-2 p-0 ${borderStateMap[item.state]}`}>
-      <div className={`flex items-center justify-between gap-3 px-6 py-2.5 ${headerStateMap[item.state]}`}>
-        <p className={`type-title-upper inline-flex items-center gap-1.5 ${statusTitleTextMap[item.state]}`}>
-          <StatusIcon className="h-3.5 w-3.5" />
+    <Card className={`overflow-hidden shadow-sm p-0 ${borderStateMap[item.state]}`}>
+      <div className={`flex items-center justify-between gap-3 px-6 py-4 ${headerStateMap[item.state]}`}>
+        <p className={`type-title-upper inline-flex items-center gap-2 ${statusTitleTextMap[item.state]}`}>
+          <StatusIcon className="size-4" />
           {statusLabelMap[item.state]}
         </p>
-        <span className="type-caption text-calm">{item.expiryDate}</span>
+        <span className="type-caption text-default">{item.expiryDate}</span>
       </div>
 
-      <div className="p-6">
-        <h3 className="mb-3 type-title-sm text-default">{item.title}</h3>
+      <div className="p-6 pt-4">
+        <h3 className="mb-0 type-title-sm">{item.title}</h3>
 
         {(item.state === 'CRITICAL' || item.state === 'AT_RISK') && (
-          <div className="mb-4 space-y-2">
+          <div className="space-y-2">
             {item.daysRemaining !== null && (
               <p className={`type-body ${textStateMap[item.state]}`}>
                 {item.daysRemaining} days remaining
               </p>
             )}
-            <p className="type-body-sm">{item.consequence}</p>
+            <p className="type-body pt-2">{item.consequence}</p>
           </div>
         )}
 
         {item.state === 'ENROLLED' && (
-          <p className="mb-4 type-body-sm text-primary-default">In Progress — Session on {item.expiryDate}</p>
+          <p className="mb-4 type-body text-primary-default">In Progress — Session on {item.expiryDate}</p>
         )}
 
-        {item.state === 'COMPLIANT' && <p className="mb-4 type-body-sm text-success-default">Valid until {item.expiryDate}</p>}
+        {item.state === 'COMPLIANT' && <p className="mb-4 type-body text-success-default">Valid until {item.expiryDate}</p>}
 
         {item.creditsRequired && item.creditsEarned !== undefined && (
           <div className="mb-4 space-y-2">
-            <p className="type-body-sm">
+            <p className="type-body">
               {item.creditsEarned} / {item.creditsRequired} credits earned
             </p>
-            <div className="h-2 rounded-full bg-wire-border">
+            <div className="h-2 rounded-full bg-primary-weaker">
               <div className="h-2 rounded-full bg-primary-base" style={{ width: `${progress}%` }} />
             </div>
           </div>

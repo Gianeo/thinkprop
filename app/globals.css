@@ -322,7 +322,7 @@
   }
 
   .type-body {
-    @apply text-base leading-snug subpixel-antialiased max-w-2xl;
+    @apply text-base leading-snug tracking-[-0.4] subpixel-antialiased max-w-2xl;
     color: hsl(var(--text-default));
   }
 

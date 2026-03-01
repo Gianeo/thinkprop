@@ -136,15 +136,15 @@ export default function LearnerDashboardPage() {
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
       <div className="flex flex-1 overflow-hidden pt-16 md:ml-60 md:pt-0">
-        <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto w-full space-y-6 pr-8 py-8">
+        <div className="flex-1 overflow-y-auto px-4">
+          <div className="mx-auto w-full space-y-8 pr-8 py-8">
             <header className="flex items-start justify-between">
-              <div>
-                {/* <p className="mb-1 type-title-upper text-muted">
+              <div className=''>
+                <p className="mb-6 type-caption text-muted">
                   Learner Dashboard
-                </p> */}
+                </p>
                 <h1 className="type-title">Good morning, Reem.</h1>
-                <p className="mt-1 type-body-sm text-muted">Saturday, 28 Feb 2026</p>
+                <p className="mt-0.5 type-caption text-muted">Saturday, 28 Feb 2026</p>
               </div>
 
               <button type="button" className="relative cursor-pointer text-admin-muted transition-colors hover:text-admin-heading" aria-label="Notifications">
@@ -183,24 +183,23 @@ export default function LearnerDashboardPage() {
                   <CardContent className="p-6 pt-5">
                     <div className="mb-2 flex items-center gap-3">
                       <CheckCircle size={20} className="text-state-enrolled" />
-                      <p className="type-title-sm text-state-enrolled">Action Complete</p>
+                      <p className="type-title-sm text-state-enrolled">You&apos;re enrolled in Property Valuation Fundamentals.</p>
                     </div>
 
-                    <p className="mb-1 type-body-sm text-loud">You&apos;re enrolled in Property Valuation Fundamentals.</p>
-                    <p className="mb-4 type-body-sm text-muted">Session on 15 Mar 2026 · Virtual (Zoom) · Link sent to your email.</p>
+                    {/* <p className="mb-1 type-body-sm text-loud">You&apos;re enrolled in Property Valuation Fundamentals.</p> */}
+                    <p className="mb-4 type-body">Session on 15 Mar 2026 · Virtual (Zoom) - <span className='text-calm italic'>Link sent to your email.</span></p>
 
                     <div className="flex flex-wrap gap-2 pt-2">
-                      <Button variant="secondary" size="sm">
-                        <CalendarPlus size={13} />
+                      <Button variant="secondary">
+                        <CalendarPlus />
                         Add to Calendar
                       </Button>
                       <Button
                         variant="ghost"
-                        size="sm"
                         className="gap-2 rounded-xl"
                         onClick={() => router.push('/learner/courses/property-valuation')}
                       >
-                        <BookOpen size={13} />
+                        <BookOpen />
                         View Enrolled Course
                       </Button>
                     </div>

@@ -146,9 +146,9 @@ const config: Config = {
       },
       fontSize: {
         xs: '10px',
-        sm: '12.5px',
-        base: '15px',
-        lg: '21px',
+        sm: '12px',
+        base: '14px',
+        lg: '19px',
         xl: '26px',
         '2xl': '38px',
       },
