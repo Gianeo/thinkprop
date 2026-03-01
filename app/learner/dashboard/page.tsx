@@ -18,13 +18,21 @@ import {
   ThumbsDown,
   ThumbsUp,
 } from 'lucide-react'
-import ComplianceCard from '@/components/shared/ComplianceCard'
 import SidebarNav from '@/components/shared/SidebarNav'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { complianceItems } from '@/lib/mockData'
-import { ComplianceItem, ComplianceState } from '@/lib/types'
+import { ComplianceState } from '@/lib/types'
 
 const STORAGE_KEY = 'thinkprop_enrollment_state'
 const SESSION_DATE_KEY = 'thinkprop_enrollment_session_date'
@@ -34,6 +42,17 @@ const assistantResponses = {
   q2: `The fastest path: enroll in Property Valuation Fundamentals (8 credits, next session 15 Mar) and RERA Regulations Update (4 credits, next session 20 Mar). Together they cover your full 15-credit requirement with 2 days to spare. Both are covered by your organisation.`,
   q3: `If your RERA license expires, you will be unable to legally transact property in Dubai until it is renewed. This typically takes 2–4 weeks to resolve and may affect active deals. Your organisation is also notified. The good news: you have 18 days — enough time to complete at least one qualifying course before the deadline.`,
 } as const
+
+type ComplianceTableRow = {
+  id: string
+  status: string
+  statusVariant: 'default' | 'destructive' | 'warning' | 'primary' | 'success'
+  credential: string
+  deadline: string
+  actionLabel: string
+  actionVariant?: 'neutral' | 'default'
+  onClick: () => void
+}
 
 export default function LearnerDashboardPage() {
   const router = useRouter()
@@ -102,15 +121,67 @@ export default function LearnerDashboardPage() {
       ? datedItems.find((item) => item.id === 'rera-cpd' && item.state === 'ENROLLED')
       : datedItems.find((item) => item.id === 'aml-cert')) ??
     datedItems.find((item) => item.id !== 'prop-mgmt')
-  const upcomingNeutralItem: ComplianceItem = {
-    id: 'prop-mgmt-upcoming',
-    title: 'Property Management License',
-    state: 'COMPLIANT',
-    daysRemaining: 90,
-    expiryDate: '1 Jun 2026',
-    requirementBody: 'DLD — Dubai Land Department',
-    consequence: '',
+
+  const nextComplianceRows: ComplianceTableRow[] = []
+
+  if (primaryNextItem) {
+    nextComplianceRows.push({
+      id: primaryNextItem.id,
+      credential: primaryNextItem.title,
+      status:
+        primaryNextItem.state === 'CRITICAL'
+          ? 'Critical'
+          : primaryNextItem.state === 'AT_RISK'
+            ? 'At Risk'
+            : primaryNextItem.state === 'ENROLLED'
+              ? 'Enrolled'
+              : 'Compliant',
+      statusVariant:
+        primaryNextItem.state === 'CRITICAL'
+          ? 'destructive'
+          : primaryNextItem.state === 'AT_RISK'
+            ? 'warning'
+            : primaryNextItem.state === 'ENROLLED'
+              ? 'primary'
+              : 'success',
+      deadline:
+        primaryNextItem.state === 'ENROLLED'
+          ? `Session ${primaryNextItem.expiryDate}`
+          : primaryNextItem.daysRemaining !== null
+            ? `${primaryNextItem.daysRemaining} days left`
+            : `Due ${primaryNextItem.expiryDate}`,
+      actionLabel:
+        primaryNextItem.state === 'ENROLLED' ? 'View Course' : 'Take Action',
+      actionVariant:
+        primaryNextItem.state === 'ENROLLED' ? 'neutral' : 'default',
+      onClick:
+        primaryNextItem.state === 'ENROLLED'
+          ? () => router.push('/learner/courses/property-valuation')
+          : () => router.push('/learner/compliance/rera-cpd'),
+    })
   }
+
+  nextComplianceRows.push({
+    id: 'prop-mgmt-upcoming',
+    credential: 'Property Management License',
+    status: 'Upcoming',
+    statusVariant: 'default',
+    deadline: 'Due 1 Jun 2026 (in 3 months)',
+    actionLabel: 'View Requirement',
+    actionVariant: 'neutral',
+    onClick: () => router.push('/learner/compliance/prop-mgmt'),
+  })
+
+  nextComplianceRows.push({
+    id: 'ethics-cpd-upcoming',
+    status: 'Upcoming',
+    statusVariant: 'default',
+    credential: 'Ethics CPD Refresher',
+    deadline: 'Due 15 Jul 2026 (in 4.5 months)',
+    actionLabel: 'View Requirement',
+    actionVariant: 'neutral',
+    onClick: () => router.push('/learner/courses?requirement=rera-cpd'),
+  })
 
   const coursesForYou = [
     {
@@ -278,27 +349,50 @@ export default function LearnerDashboardPage() {
             <section className="space-y-3">
               <div className="flex flex-col">
                 <h2 className="type-body font-semibold">Next for your Compliance</h2>
+                <p className="type-caption text-muted">
+                  Typical annual compliance load: 9-12 CE hours (about 2-4 courses/year).
+                </p>
               </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {primaryNextItem ? (
-                  <ComplianceCard
-                    key={primaryNextItem.id}
-                    item={primaryNextItem}
-                    onCtaClick={
-                      primaryNextItem.id === 'rera-cpd' && (primaryNextItem.state === 'CRITICAL' || primaryNextItem.state === 'AT_RISK')
-                        ? () => router.push('/learner/compliance/rera-cpd')
-                        : undefined
-                    }
-                  />
-                ) : null}
-
-                <ComplianceCard
-                  item={upcomingNeutralItem}
-                  variant="upcoming"
-                  upcomingLabel="Upcoming"
-                  upcomingDescription="Renewal checkpoint in 3 months. No immediate action required."
-                />
-              </div>
+              <Card className="shadow-sm">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>STATUS</TableHead>
+                      <TableHead>CREDENTIAL</TableHead>
+                      <TableHead>DEADLINE</TableHead>
+                      <TableHead className="text-right" aria-label="Actions" />
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {nextComplianceRows.map((row) => (
+                      <TableRow key={row.id}>
+                        <TableCell>
+                          <Badge variant={row.statusVariant} size="sm">
+                            {row.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="type-body-sm text-loud">{row.credential}</TableCell>
+                        <TableCell className="type-body-sm text-calm">{row.deadline}</TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="link"
+                            size="sm"
+                            className={`h-auto p-0 type-body-sm ${
+                              row.actionVariant === 'neutral'
+                                ? 'text-muted hover:text-default'
+                                : ''
+                            }`}
+                            onClick={row.onClick}
+                          >
+                            {row.actionLabel}
+                            <ArrowRight size={14} />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </Card>
             </section>
 
             <section className="space-y-4">
