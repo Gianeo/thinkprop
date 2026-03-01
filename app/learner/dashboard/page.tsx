@@ -17,7 +17,6 @@ import {
   Target,
   ThumbsDown,
   ThumbsUp,
-  Zap,
 } from 'lucide-react'
 import ComplianceCard from '@/components/shared/ComplianceCard'
 import SidebarNav from '@/components/shared/SidebarNav'
@@ -98,6 +97,9 @@ export default function LearnerDashboardPage() {
 
   const reraItem = datedItems.find((item) => item.id === 'rera-cpd')
   const isReraEnrolled = reraItem?.state === 'ENROLLED'
+  const nextComplianceItems = datedItems.filter((item) =>
+    item.id === 'rera-cpd' ? item.state === 'ENROLLED' : true,
+  ).slice(0, 2)
 
   const coursesForYou = [
     {
@@ -151,15 +153,7 @@ export default function LearnerDashboardPage() {
               </button>
             </header>
 
-            {isReraEnrolled ? (
-              <section className="animate-fade-in flex items-center gap-3 rounded-lg bg-state-compliant-bg p-4">
-                <CheckCircle size={16} className="shrink-0 text-state-compliant" />
-                <div>
-                  <p className="type-body-sm text-state-compliant">You&apos;re on track.</p>
-                  <p className="mt-0.5 type-caption text-state-compliant/70">RERA CPD enrolled — session on 15 Mar 2026.</p>
-                </div>
-              </section>
-            ) : (
+            {!isReraEnrolled ? (
               <section className="animate-fade-in flex items-center gap-3 rounded-lg border border-state-critical/20 bg-state-critical-bg p-4">
                 <AlertTriangle size={16} className="shrink-0 text-state-critical" />
                 <div className="flex-1">
@@ -179,15 +173,15 @@ export default function LearnerDashboardPage() {
                   <ArrowRight size={12} />
                 </Button>
               </section>
-            )}
+            ) : null}
 
             <section className="space-y-3">
               <h2 className="type-body font-semibold">Today&apos;s Focus</h2>
 
               {isReraEnrolled ? (
-                <Card className="animate-fade-in rounded-lg border border-state-enrolled/20 bg-state-enrolled-bg shadow-card">
-                  <CardContent className="p-6">
-                    <div className="mb-4 flex items-center gap-3">
+                <Card className="animate-fade-in shadow-md">
+                  <CardContent className="p-6 pt-5">
+                    <div className="mb-2 flex items-center gap-3">
                       <CheckCircle size={20} className="text-state-enrolled" />
                       <p className="type-title-sm text-state-enrolled">Action Complete</p>
                     </div>
@@ -195,13 +189,13 @@ export default function LearnerDashboardPage() {
                     <p className="mb-1 type-body-sm text-loud">You&apos;re enrolled in Property Valuation Fundamentals.</p>
                     <p className="mb-4 type-body-sm text-muted">Session on 15 Mar 2026 · Virtual (Zoom) · Link sent to your email.</p>
 
-                    <div className="flex flex-wrap gap-2">
-                      <Button variant="outline" size="sm" className="gap-2 rounded-xl">
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      <Button variant="secondary" size="sm">
                         <CalendarPlus size={13} />
                         Add to Calendar
                       </Button>
                       <Button
-                        variant="outline"
+                        variant="ghost"
                         size="sm"
                         className="gap-2 rounded-xl"
                         onClick={() => router.push('/learner/courses/property-valuation')}
@@ -276,7 +270,7 @@ export default function LearnerDashboardPage() {
                 <h2 className="type-body font-semibold">Next for your Compliance</h2>
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {datedItems.map((item) => (
+                {nextComplianceItems.map((item) => (
                   <ComplianceCard
                     key={item.id}
                     item={item}
