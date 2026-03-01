@@ -8,18 +8,22 @@ import {
   Bell,
   BookOpen,
   CalendarPlus,
+  Check,
   CheckCircle,
   Clock,
+  LoaderCircle,
   Lock,
   SendHorizontal,
   Sparkles,
   ThumbsDown,
   ThumbsUp,
 } from 'lucide-react'
+import SessionPicker from '@/components/learner/SessionPicker'
 import SidebarNav from '@/components/shared/SidebarNav'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import {
   Table,
@@ -29,7 +33,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { complianceItems } from '@/lib/mockData'
+import { complianceItems, courses } from '@/lib/mockData'
 import { ComplianceState } from '@/lib/types'
 
 const STORAGE_KEY = 'thinkprop_enrollment_state'
@@ -55,6 +59,9 @@ type ComplianceTableRow = {
 export default function LearnerDashboardPage() {
   const router = useRouter()
   const [activeQuestion, setActiveQuestion] = useState<keyof typeof assistantResponses | null>(null)
+  const [isCourseDrawerOpen, setIsCourseDrawerOpen] = useState(false)
+  const [selectedDrawerSession, setSelectedDrawerSession] = useState<string | null>(null)
+  const [isDrawerEnrolling, setIsDrawerEnrolling] = useState(false)
   const [enrollmentContext, setEnrollmentContext] = useState<{
     state: Record<string, ComplianceState>
     sessionDate: string | null
@@ -115,6 +122,20 @@ export default function LearnerDashboardPage() {
   const reraItem = datedItems.find((item) => item.id === 'rera-cpd')
   const isReraEnrolled = reraItem?.state === 'ENROLLED'
   const isActionRequired = reraItem?.state === 'CRITICAL'
+  const reraRegulationsCourse = courses.find((course) => course.id === 'rera-regulations')
+
+  const handleDrawerEnroll = () => {
+    if (!reraRegulationsCourse || !selectedDrawerSession) {
+      return
+    }
+
+    setIsDrawerEnrolling(true)
+    window.setTimeout(() => {
+      setIsDrawerEnrolling(false)
+      setIsCourseDrawerOpen(false)
+      router.push(`/learner/courses/${reraRegulationsCourse.id}/confirmation?session=${selectedDrawerSession}`)
+    }, 1500)
+  }
   const primaryNextItem =
     (isReraEnrolled
       ? datedItems.find((item) => item.id === 'rera-cpd' && item.state === 'ENROLLED')
@@ -333,7 +354,10 @@ export default function LearnerDashboardPage() {
 
                       <div className="flex items-end justify-end">
                         <Button
-                          onClick={() => router.push('/learner/compliance/rera-cpd')}
+                          onClick={() => {
+                            setSelectedDrawerSession(null)
+                            setIsCourseDrawerOpen(true)
+                          }}
                         >
                           Find a Course Now
                           <ArrowRight size={15} />
@@ -376,11 +400,10 @@ export default function LearnerDashboardPage() {
                           <Button
                             variant="link"
                             size="sm"
-                            className={`h-auto p-0 type-body-sm ${
-                              row.actionVariant === 'neutral'
+                            className={`h-auto p-0 type-body-sm ${row.actionVariant === 'neutral'
                                 ? 'text-muted hover:text-default'
                                 : ''
-                            }`}
+                              }`}
                             onClick={row.onClick}
                           >
                             {row.actionLabel}
@@ -506,15 +529,14 @@ export default function LearnerDashboardPage() {
                   { title: 'Senior Agent Certification', status: '', eta: '~Q4 2026' },
                 ].map((step, index) => (
                   <div key={step.title} className="flex items-start gap-3">
-                    <div className={`mt-0.5 flex size-7 items-center justify-center rounded-full ${
-                      step.done
+                    <div className={`mt-0.5 flex size-7 items-center justify-center rounded-full ${step.done
                         ? 'border-success bg-success'
                         : step.active
                           ? step.actionRequired
                             ? 'text-destructive-default bg-destructive-weaker'
                             : 'text-primary bg-primary-weaker'
                           : 'bg-neutral-weaker'
-                    }`}>
+                      }`}>
                       {step.done ? (
                         <CheckCircle className="size-5 text-weak" />
                       ) : step.active ? (
@@ -526,26 +548,24 @@ export default function LearnerDashboardPage() {
                       )}
                     </div>
                     <div>
-                      <p className={`type-body-sm ${
-                        step.done
+                      <p className={`type-body-sm ${step.done
                           ? 'text-default'
                           : step.active
                             ? step.actionRequired
                               ? 'text-destructive-default'
                               : 'text-primary'
                             : 'text-muted'
-                      }`}>
+                        }`}>
                         {step.title}
                       </p>
-                      <p className={`type-caption ${
-                        step.done
+                      <p className={`type-caption ${step.done
                           ? 'text-default'
                           : step.active
                             ? step.actionRequired
                               ? 'text-destructive-default'
                               : 'text-primary'
                             : 'text-muted'
-                      }`}>
+                        }`}>
                         {step.status}
                       </p>
                       {step.eta ? <p className="type-caption text-muted">{step.eta}</p> : null}
@@ -626,6 +646,105 @@ export default function LearnerDashboardPage() {
           </div>
         </aside>
       </div>
+
+      <Drawer open={isCourseDrawerOpen} onOpenChange={setIsCourseDrawerOpen}>
+        <DrawerContent className="overflow-y-auto rounded-none p-0">
+          <div className="border-b border-admin-border p-6">
+            <DrawerHeader className="space-y-2 text-left">
+              <p className="type-title-upper text-muted">Recommended Course</p>
+              <DrawerTitle className="type-title-sm text-loud">
+                RERA Regulations Update 2026
+              </DrawerTitle>
+            </DrawerHeader>
+            <p className="type-body-sm text-muted">
+              This is the fastest way to reduce compliance risk in your current 18-day window.
+            </p>
+          </div>
+
+          {reraRegulationsCourse ? (
+            <div className="p-8">
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="primary" size="sm">{reraRegulationsCourse.credits} CPD Credits</Badge>
+                  {reraRegulationsCourse.format.map((entry) => (
+                    <Badge key={entry} variant="default" size="sm">{entry}</Badge>
+                  ))}
+                </div>
+
+                <div>
+                  <p className="type-caption text-muted mb-0.5">Provider</p>
+                  <p className="type-body font-semibold text-default">{reraRegulationsCourse.provider} · {reraRegulationsCourse.instructor}</p>
+                </div>
+
+                <div>
+                  <p className="type-caption text-muted mb-0.5">About this course</p>
+                  <p className="type-body">{reraRegulationsCourse.description}</p>
+                </div>
+
+                <div>
+                  <p className="type-caption text-muted mb-0.5">What you&apos;ll learn</p>
+                  <ul className="mt-2 space-y-2">
+                    {reraRegulationsCourse.learningOutcomes.map((outcome) => (
+                      <li key={outcome} className="flex items-center gap-2 type-body-sm text-default">
+                        <Check className="mt-0.5 size-4" />
+                        {outcome}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="type-caption text-muted mb-0.5">Price</p>
+                  <p className="type-body font-semibold text-default">AED {reraRegulationsCourse.price}</p>
+                </div>
+              </div>
+
+              <div className="space-y-2 mt-8 mb-6">
+                <p className="type-title-upper text-muted">Available Sessions</p>
+                <SessionPicker
+                  sessions={reraRegulationsCourse.sessions}
+                  selectedId={selectedDrawerSession}
+                  onSelect={setSelectedDrawerSession}
+                />
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                {isDrawerEnrolling ? (
+                  <div className="flex w-full items-center justify-center gap-2 rounded-xl border border-wire-border bg-level-2 py-3 type-body-sm font-semibold text-muted">
+                    <LoaderCircle className="size-4 animate-spin" />
+                    Processing...
+                  </div>
+                ) : (
+                  <Button
+                    onClick={handleDrawerEnroll}
+                    disabled={!selectedDrawerSession}
+                    className={`w-full rounded-xl py-3 font-semibold ${selectedDrawerSession
+                        ? 'bg-primary text-contrast hover:bg-primary-stronger'
+                        : 'cursor-not-allowed bg-wire-border text-muted'
+                      }`}
+                  >
+                    Enroll Now — Covered by your organisation
+                  </Button>
+                )}
+                <Button
+                  variant="ghost"
+                  className="w-full"
+                  onClick={() => {
+                    setIsCourseDrawerOpen(false)
+                    router.push('/learner/courses?requirement=rera-cpd')
+                  }}
+                >
+                  Browse all courses
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="p-6">
+              <p className="type-body-sm text-muted">Course details unavailable.</p>
+            </div>
+          )}
+        </DrawerContent>
+      </Drawer>
     </div >
   )
 }

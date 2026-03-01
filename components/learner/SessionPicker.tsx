@@ -20,18 +20,18 @@ export default function SessionPicker({ sessions, selectedId, onSelect }: Sessio
             key={session.id}
             variant="ghost"
             onClick={() => onSelect(session.id)}
-            className={`w-full rounded-lg border-2 p-4 text-left transition ${
-              isSelected ? 'border-brand-navy bg-level-0' : 'border-wire-border hover:border-wire-muted'
+            className={`w-full h-auto flex flex-col items-start rounded-sm border-2 p-4 text-left transition ${
+              isSelected ? 'border-primary bg-white' : 'border hover:border-strong'
             }`}
           >
             <p className="font-semibold text-default">
               {session.date} at {session.time}
             </p>
-            <p className="mt-1 flex items-center gap-2 type-body-sm text-muted">
-              <FormatIcon className="h-4 w-4" />
+            <p className="-mt-1 flex items-center gap-2 type-body-sm text-muted">
+              <FormatIcon className="size-4" />
               {session.location}
             </p>
-            <p className={`mt-2 type-body-sm ${session.seatsLeft <= 5 ? 'font-semibold text-destructive-default' : 'text-muted'}`}>
+            <p className={`-mt-1 type-body-sm ${session.seatsLeft <= 5 ? 'font-semibold text-destructive-default' : 'text-muted'}`}>
               {session.seatsLeft <= 5
                 ? `${session.seatsLeft} seats left — filling fast`
                 : `${session.seatsLeft} seats left`}
