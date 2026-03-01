@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { TikTok_Sans } from 'next/font/google'
-import { Toaster } from 'sonner'
+import { Toaster } from '@/components/ui/sonner'
 import RouteTheme from '@/components/shared/RouteTheme'
 import './globals.css'
 
