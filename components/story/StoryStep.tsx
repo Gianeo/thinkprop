@@ -16,6 +16,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  mockupImage?: string
   screenImage?: string
   fullViewportImage?: string
   storyImages?: string[]
@@ -145,7 +146,7 @@ export default function StoryStep({
     }
 
     if (step.mockupId) {
-      return <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} />
+      return <ScreenMockup mockupId={step.mockupId} caption={step.mockupCaption} imageSrc={step.mockupImage} />
     }
 
     return null

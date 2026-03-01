@@ -1,8 +1,11 @@
 'use client'
 
+import Image from 'next/image'
+
 interface ScreenMockupProps {
   mockupId: string
   caption?: string
+  imageSrc?: string
 }
 
 const urlMap: Record<string, string> = {
@@ -18,7 +21,7 @@ const urlMap: Record<string, string> = {
   'admin-updated': 'app.thinkprop.ai/admin/compliance',
 }
 
-export default function ScreenMockup({ mockupId, caption }: ScreenMockupProps) {
+export default function ScreenMockup({ mockupId, caption, imageSrc }: ScreenMockupProps) {
   return (
     <div className="animate-scale-in overflow-hidden rounded-2xl border border-admin-border border-border bg-admin-card bg-card shadow-modal shadow-lg">
       <div className="flex h-9 items-center gap-2 border-b border-admin-border border-border bg-admin-surface bg-level-0 px-3">
@@ -31,12 +34,18 @@ export default function ScreenMockup({ mockupId, caption }: ScreenMockupProps) {
       </div>
 
       <div className="bg-admin-surface bg-level-0 p-4">
-        <div className="flex min-h-72 items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card">
-          <div className="text-center">
-            <p className="type-title-upper">Image Placeholder</p>
-            <p className="type-caption mt-2">{mockupId}</p>
+        {imageSrc ? (
+          <div className="relative min-h-72 overflow-hidden rounded-xl border border-admin-border border-border bg-admin-card bg-card">
+            <Image src={imageSrc} alt={mockupId} fill className="object-cover object-top" />
           </div>
-        </div>
+        ) : (
+          <div className="flex min-h-72 items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card">
+            <div className="text-center">
+              <p className="type-title-upper">Image Placeholder</p>
+              <p className="type-caption mt-2">{mockupId}</p>
+            </div>
+          </div>
+        )}
       </div>
 
       {caption && (

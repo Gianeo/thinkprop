@@ -18,6 +18,7 @@ interface StoryStepData {
   insight?: string
   mockupId?: string
   mockupCaption?: string
+  mockupImage?: string
   screenImage?: string
   fullViewportImage?: string
   storyImages?: string[]
@@ -96,6 +97,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The KPI strip is designed to answer one question: "Do I have a problem today?" If any of those four numbers looks wrong, Tariq knows before anyone has to tell him.',
     mockupId: 'admin-overview',
     mockupCaption: 'Admin compliance overview — live org-wide status',
+    mockupImage: '/images/screens/AdminDashboard-01.webp',
     fullViewportImage: '/images/Tariq-atwork.webp',
   },
   {
@@ -108,6 +110,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Tariq's old workflow was: export data → cross-reference → figure out who to chase → type a WhatsApp message. This replaces all of that. The work is done for him. He just decides and acts.",
     mockupId: 'reminder-modal',
     mockupCaption: 'Reminder modal — pre-written message ready to send',
+    mockupImage: '/images/screens/AdminDashboard-02.webp',
     fullViewportImage: '/images/Tariq-atwork.webp',
   },
   {
@@ -120,6 +123,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "Before ThinkProp, the average time between a compliance alert and a learner enrolling was 11 days. A frictionless reminder plus a one-click enrollment path brings that to under 3. In an 18-day window, that 8-day saving is the difference between compliant and lapsed.",
     mockupId: 'admin-overview',
     mockupCaption: 'Reminder sent — audit trail updated',
+    mockupImage: '/images/screens/AdminDashboard-03.webp',
     fullViewportImage: '/images/Tariq-success.webp',
   },
   {
@@ -143,6 +147,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: "This is the moment the two journeys connect. Tariq's action is what brought Reem here. Without the reminder, she might not have logged in for another two weeks.",
     mockupId: 'learner-dashboard',
     mockupCaption: "Reem's dashboard — compliance cards sorted by urgency",
+    mockupImage: '/images/screens/LearnerApp-01.webp',
     fullViewportImage: '/images/Reem-worried.webp',
   },
   {
@@ -155,6 +160,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'Important signals are repeated in the right places, so urgency is obvious and the next action is one click away.',
     mockupId: 'course-discovery',
     mockupCaption: "Today's Focus drives immediate action",
+    mockupImage: '/images/screens/LearnerApp-01.webp',
     fullViewportImage: '/images/Reem-focused.webp',
   },
   {
@@ -167,6 +173,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'The flow stays in context from start to finish: no page hopping, no payment friction, no extra steps.',
     mockupId: 'session-picker',
     mockupCaption: 'Drawer enrollment flow with modal confirmation',
+    mockupImage: '/images/screens/LearnerApp-02.webp',
     fullViewportImage: '/images/Reem-focused.webp',
   },
   {
@@ -179,6 +186,7 @@ const STORY_STEPS: StoryStepData[] = [
     insight: 'Under our Model B payment assumption, the company pre-authorises a training budget. When Reem enrolls, the cost is charged automatically to that account. No approval needed. No friction. The most important design decision we made was choosing what NOT to show.',
     mockupId: 'enrollment-confirmation',
     mockupCaption: 'Enrollment confirmed — payment covered by organisation',
+    mockupImage: '/images/screens/LearnerApp-03.webp',
     fullViewportImage: '/images/Reem-success.webp',
   },
   {
@@ -190,6 +198,7 @@ const STORY_STEPS: StoryStepData[] = [
     body: `Reem clicks "Return to Dashboard." The critical red card has transformed into a calmer one: "RERA CPD — Enrolled."\n\nAt the same moment, without any manual update, without a message, without a report — Tariq's dashboard reflects the change. Her row in his risk table is no longer red.\n\nThe loop is closed.`,
     mockupId: 'dashboard-updated',
     mockupCaption: 'Dashboard updated — RERA CPD now shows Enrolled state',
+    mockupImage: '/images/screens/LearnerApp-04.webp',
     fullViewportImage: '/images/Reem-success.webp',
   },
 ]
@@ -265,7 +274,7 @@ export default function StoryPage() {
               Begin the Story
             </Button>
 
-            <p className="type-caption mt-6">Or jump straight to:</p>
+            {/* <p className="type-caption mt-6">Or jump straight to:</p>
             <div className="mt-2 flex items-center gap-4">
               <Link href="/admin/compliance" target="_blank" rel="noopener noreferrer" className="type-caption text-primary hover:underline">
                 Admin Prototype
@@ -273,11 +282,11 @@ export default function StoryPage() {
               <Link href="/learner/dashboard" target="_blank" rel="noopener noreferrer" className="type-caption text-primary hover:underline">
                 Learner Prototype
               </Link>
-              {/* <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
+              <Link href="/reference" className="type-caption inline-flex items-center gap-1 hover:underline">
                 <BookOpen size={12} />
                 Navigator
-              </Link> */}
-            </div>
+              </Link>
+            </div> */}
           </div>
         </div>
 
