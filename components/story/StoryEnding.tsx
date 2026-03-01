@@ -15,6 +15,17 @@ export default function StoryEnding() {
       <div className="pointer-events-none fixed inset-0 bg-linear-to-b from-transparent from-20% to-neutral-weakest/95 to-75%" />
 
       <div className="relative z-10 grid grid-cols-1 gap-1 pb-10 md:grid-cols-12">
+        <div className="md:col-span-12 flex justify-end md:pr-6">
+          <Link
+            href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-caption text-primary hover:underline"
+          >
+            View Figma file
+          </Link>
+        </div>
+
         <div className="md:col-start-2 md:col-span-4 md:pr-4">
           <p className="type-title-upper text-primary">The Result</p>
           <h2 className="type-display mt-4">One system. <br />Zero compliance failures.</h2>
