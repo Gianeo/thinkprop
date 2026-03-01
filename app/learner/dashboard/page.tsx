@@ -506,7 +506,7 @@ export default function LearnerDashboardPage() {
             </Card>
           </div>
 
-          <div className="flex-1 p-4">
+          <div className="mt-auto border-t border-admin-border p-4">
             <p className="mb-0.5 type-body font-semibold">Ask ThinkProp</p>
             <p className="mb-4 type-caption text-muted">Your compliance questions, answered.</p>
 
