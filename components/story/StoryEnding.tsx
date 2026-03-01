@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle, SquareArrowOutUpRight } from 'lucide-react'
+import { BookOpen, CheckCircle, SquareArrowOutUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function StoryEnding() {
@@ -24,15 +24,24 @@ export default function StoryEnding() {
             people work, only what they can see.
           </p>
 
-          <Button variant="secondary" size="sm" asChild className="mt-6">
-            <Link
-              href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Figma file
-            </Link>
-          </Button>
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            <Button variant="secondary" size="sm" asChild withIcon="before">
+              <Link
+                href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SquareArrowOutUpRight size={14} />
+                View Figma file
+              </Link>
+            </Button>
+            <Button variant="secondary" size="sm" asChild withIcon="before">
+              <Link href="/documentation" target="_blank" rel="noopener noreferrer">
+                <BookOpen size={14} />
+                Product and Design documentation
+              </Link>
+            </Button>
+          </div>
 
           <div className="mt-16">
             <p className="type-title-sm">The Business Case</p>
