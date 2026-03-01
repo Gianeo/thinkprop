@@ -57,7 +57,7 @@
     --success-foreground: 145 70% 10%;
 
     /* shadcn semantic aliases from the palette */
-    --bg-0: var(--neutral-weaker);
+    --bg-0: var(--neutral-weaker) / 0.25;
     --bg-1: var(--neutral-weakest) / 0.5;
     --bg-2: var(--neutral-weakest);
     --text-loud: var(--neutral-strongest);

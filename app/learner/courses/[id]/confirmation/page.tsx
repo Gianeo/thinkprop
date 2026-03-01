@@ -85,7 +85,8 @@ export default function ConfirmationPage() {
                 </span>
               </p>
               <p>
-                <span className="text-muted">Price:</span> <span className="text-default">AED {course.price}</span>
+                <span className="text-muted">Payment:</span>{' '}
+                <span className="type-body-sm font-semibold text-state-compliant">✓ Covered by Prestige Properties Dubai</span>
               </p>
             </div>
           </section>

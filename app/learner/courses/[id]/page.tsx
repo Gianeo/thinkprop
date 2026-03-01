@@ -107,9 +107,12 @@ export default function CourseDetailPage() {
                         : 'cursor-not-allowed bg-wire-border text-muted'
                     }`}
                   >
-                    Enroll Now — AED {course.price}
+                    Enroll Now — Covered by your organisation
                   </Button>
                 )}
+                <p className="type-caption mt-2 text-center text-muted">
+                  Course fee (AED {course.price}) charged to your organisation&apos;s training account.
+                </p>
               </div>
             </aside>
           </div>
