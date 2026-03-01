@@ -490,7 +490,10 @@ export default function LearnerDashboardPage() {
                           </span>
                           <span className="type-body-sm text-muted">{course.nextDate}</span>
                         </div>
-                        <span className="type-caption text-muted">Preview only</span>
+                        <Button variant="link" size="sm" className="h-auto p-0 type-body-sm font-semibold text-state-enrolled">
+                          View Details
+                          <ArrowRight size={14} />
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -502,7 +505,7 @@ export default function LearnerDashboardPage() {
 
         <aside className="hidden w-80 shrink-0 flex-col overflow-y-auto xl:flex pr-4">
           <div className="shrink-0 p-4 pt-6">
-            <p className="type-title-sm">Reem&apos;s Assistant</p>
+            <p className="type-title-sm">Your Assistant</p>
             <p className="type-caption text-muted">Personalised to your compliance status</p>
           </div>
 
