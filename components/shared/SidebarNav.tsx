@@ -182,13 +182,19 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
             ? 'border-transparent text-calm hover:text-default'
             : 'border-transparent text-[hsl(var(--neutral-weakest)/0.7)] hover:text-calm'
 
-          return (
-            <Link
-              key={`${item.label}-${item.href}`}
-              href={item.href}
-              onClick={closeMobile}
-              className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
-            >
+        return (
+          <Link
+            key={`${item.label}-${item.href}`}
+            href={item.href}
+            onClick={(event) => {
+              if (isLearner && item.label === 'My Learning') {
+                event.preventDefault()
+                return
+              }
+              closeMobile()
+            }}
+            className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
+          >
               <Icon className="size-4" />
               {item.label}
             </Link>

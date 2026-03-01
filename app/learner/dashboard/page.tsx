@@ -437,7 +437,7 @@ export default function LearnerDashboardPage() {
                                 ? 'text-muted hover:text-default'
                                 : ''
                               }`}
-                            onClick={row.onClick}
+                            onClick={row.actionLabel === 'Take Action' ? () => {} : row.onClick}
                           >
                             {row.actionLabel}
                             <ArrowRight size={14} />
@@ -457,7 +457,6 @@ export default function LearnerDashboardPage() {
                   variant="link"
                   size="sm"
                   className=""
-                  onClick={() => router.push('/learner/courses?requirement=rera-cpd')}
                 >
                   Browse all
                   <ArrowRight />
@@ -764,10 +763,6 @@ export default function LearnerDashboardPage() {
                 <Button
                   variant="ghost"
                   className="w-full"
-                  onClick={() => {
-                    setIsCourseDrawerOpen(false)
-                    router.push('/learner/courses?requirement=rera-cpd')
-                  }}
                 >
                   Browse all courses
                 </Button>
