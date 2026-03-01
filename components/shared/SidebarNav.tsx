@@ -123,7 +123,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
 
   return (
     <>
-      <div className="hidden border-b border-wire-border px-5 py-5 md:block">
+      <div className="hidden p-6 md:block">
         {isLearner ? (
           <ThinkPropLogo />
         ) : (
@@ -132,6 +132,32 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
           </p>
         )}
       </div>
+
+      {isLearner ? (
+        <div className="p-6 pt-0">
+          <div className="flex flex-col items-start gap-4">
+            <div className="relative size-24 overflow-hidden rounded-full border border-wire-border">
+              <Image
+                src="/images/Reem-profile.webp"
+                alt="Reem profile"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="type-body-sm font-semibold text-default">Reem Al Mansoori</p>
+              <p className="type-caption text-muted">Real Estate Agent</p>
+              <Link
+                href="/learner/dashboard#profile"
+                onClick={closeMobile}
+                className="type-body-sm mt-1 inline-block text-primary-default hover:underline"
+              >
+                Profile
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <nav className="flex-1 space-y-1 p-4">
         {items.map((item) => {
@@ -170,32 +196,19 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
         })}
       </nav>
 
-      <div className={`m-4 mt-auto rounded-xl border p-3 ${isLearner ? 'border-wire-border bg-level-0' : 'border-[hsl(var(--neutral-weakest)/0.2)] bg-[hsl(var(--neutral-weakest)/0.1)]'}`}>
-        <div className="flex items-center gap-3">
-          {isLearner ? (
-            <div className="relative h-9 w-9 overflow-hidden rounded-full border border-wire-border">
-              <Image
-                src="/images/Reem-profile.webp"
-                alt="Reem profile"
-                fill
-                className="object-cover"
-              />
-            </div>
-          ) : (
+      {!isLearner ? (
+        <div className="m-4 mt-auto rounded-xl border border-[hsl(var(--neutral-weakest)/0.2)] bg-[hsl(var(--neutral-weakest)/0.1)] p-3">
+          <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-weakest text-primary-loud type-body-sm font-semibold">
               TH
             </div>
-          )}
-          <div>
-            <p className={`type-body-sm font-semibold ${isLearner ? 'text-default' : 'text-muted'}`}>
-              {isLearner ? 'Reem Al Mansoori' : 'Tariq Hamdan'}
-            </p>
-            <p className={`type-caption ${isLearner ? 'text-muted' : 'text-[hsl(var(--neutral-weakest)/0.7)]'}`}>
-              {isLearner ? 'Real Estate Agent' : 'Admin'}
-            </p>
+            <div>
+              <p className="type-body-sm font-semibold text-muted">Tariq Hamdan</p>
+              <p className="type-caption text-[hsl(var(--neutral-weakest)/0.7)]">Admin</p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </>
   )
 }
