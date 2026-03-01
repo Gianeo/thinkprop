@@ -282,7 +282,7 @@ export default function LearnerDashboardPage() {
                 <p className="mt-0.5 type-caption text-muted">Saturday, 28 Feb 2026</p>
               </div>
 
-              <button type="button" className="relative cursor-pointer text-admin-muted transition-colors hover:text-admin-heading" aria-label="Notifications">
+              <button type="button" className="relative cursor-pointer text-admin-muted transition-colors hover:text-admin-heading md:hidden" aria-label="Notifications">
                 <Bell size={18} />
                 <span className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-state-critical" />
               </button>
@@ -468,8 +468,7 @@ export default function LearnerDashboardPage() {
                 {coursesForYou.map((course) => (
                   <Card
                     key={course.id}
-                    className="cursor-pointer transition-shadow duration-200 shadow-sm hover:shadow-md"
-                    onClick={() => router.push(`/learner/courses/${course.id}`)}
+                    className="shadow-sm"
                   >
                     <CardContent className="p-6">
                       <div className="mb-3 flex gap-2 items-start">
@@ -491,7 +490,7 @@ export default function LearnerDashboardPage() {
                           </span>
                           <span className="type-body-sm text-muted">{course.nextDate}</span>
                         </div>
-                        <span className="type-body-sm font-semibold text-state-enrolled">View Details →</span>
+                        <span className="type-caption text-muted">Preview only</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -615,7 +614,7 @@ export default function LearnerDashboardPage() {
             </Card>
           </div>
 
-          <div className="mt-auto border-t border-admin-border p-4">
+          <div className="mt-auto p-4">
             <p className="mb-0.5 type-body font-semibold">Ask ThinkProp</p>
             <p className="mb-4 type-caption text-muted">Your compliance questions, answered.</p>
 
@@ -629,7 +628,7 @@ export default function LearnerDashboardPage() {
                   key={question.id}
                   type="button"
                   onClick={() => setActiveQuestion(question.id as keyof typeof assistantResponses)}
-                  className="mb-2 w-full rounded-lg border border-admin-border bg-admin-surface px-3 py-2.5 text-left type-body-sm text-default transition-colors hover:border-admin-border-strong hover:text-loud"
+                  className="mb-2 w-full rounded-lg border border-admin-border bg-admin-surface px-4 py-3 text-left type-body-sm text-default transition-colors hover:border-admin-border-strong hover:text-loud"
                 >
                   {question.label}
                 </button>

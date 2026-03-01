@@ -147,13 +147,13 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
             <div>
               <p className="type-body-sm font-semibold text-default">Reem Al Mansoori</p>
               <p className="type-caption text-muted">Real Estate Agent</p>
-              <Link
+              {/* <Link
                 href="/learner/dashboard#profile"
                 onClick={closeMobile}
                 className="type-body-sm mt-1 inline-block text-strong hover:underline"
               >
                 Profile
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
