@@ -10,13 +10,13 @@
     --radius: 0.75rem;
 
     /* Primary */
-    --primary-weakest: 18 70% 97%;
-    --primary-weaker: 18 70% 92%;
-    --primary-weak: 18 70% 78%;
-    --primary-base: 18 70% 56%;
-    --primary-strong: 18 70% 46%;
-    --primary-stronger: 18 70% 21%;
-    --primary-strongest: 18 70% 10%;
+    --primary-weakest: 22 80% 97%;
+    --primary-weaker: 22 80% 92%;
+    --primary-weak: 22 80% 78%;
+    --primary-base: 22 80% 56%;
+    --primary-strong: 22 80% 46%;
+    --primary-stronger: 22 80% 21%;
+    --primary-strongest: 22 80% 10%;
 
     /* Neutral */
     --neutral-weakest: 24 4% 98%;
@@ -317,7 +317,7 @@
   }
 
   .type-title-upper {
-    @apply text-xs font-semibold tracking-wider leading-none uppercase;
+    @apply text-xs font-semibold tracking-wider leading-none uppercase antialiased;
     color: hsl(var(--text-calm));
   }
 

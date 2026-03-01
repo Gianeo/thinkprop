@@ -211,7 +211,7 @@ export default function LearnerDashboardPage() {
                     <div className="mb-0 flex items-start justify-between">
                       <div className="flex items-center gap-2">
                         <div className="size-2 rounded-full bg-state-critical" />
-                        <p className="type-title-upper text-state-critical">Top Priority</p>
+                        <p className="type-title-upper font-bold text-state-critical">Top Priority</p>
                       </div>
                       <div className="flex items-center gap-1.5 rounded-full bg-state-critical-bg px-3 py-1">
                         <Clock size={11} className="text-state-critical" />
@@ -222,20 +222,20 @@ export default function LearnerDashboardPage() {
                     <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
                       <div className="md:col-span-2">
                         <h3 className="type-title-sm">RERA CPD Credits</h3>
-                        <p className="mb-4 type-body-sm">
+                        <p className="mb-4 type-body">
                           Your RERA broker license may be suspended if not completed by 15 Mar 2026.
                         </p>
                         <div className='max-w-sm space-y-4'>
                           <div>
                             <div className="mb-1.5 flex items-center justify-between">
-                              <p className="type-caption text-calm">Credits Progress: <span className="text-loud font-semibold">6 / 15 credits</span></p>
+                              <p className="type-body-sm text-muted">Credits Progress: <span className="text-loud font-semibold">6 / 15 credits</span></p>
                             </div>
                             <div className="h-2 w-full rounded-full bg-primary-weaker">
                               <div className="h-full rounded-full bg-primary" style={{ width: '40%' }} />
                             </div>
                           </div>
-                          <div>
-                            <p className="py-2 type-title-upper text-loud">Why this matters</p>
+                          <div className='space-y-1'>
+                            <p className="py-1 type-body-sm text-muted">Why this matters:</p>
                             {[
                               'License valid for all transactions',
                               'Required by RERA regulations',
@@ -243,7 +243,7 @@ export default function LearnerDashboardPage() {
                             ].map((item) => (
                               <div key={item} className="flex items-center gap-2">
                                 <div className="size-1.5 shrink-0 rounded-full bg-primary" />
-                                <p className="type-body-sm text-calm">{item}</p>
+                                <p className="type-body-sm">{item}</p>
                               </div>
                             ))}
                           </div>

@@ -65,7 +65,7 @@ export default function ComplianceCard({ item, onCtaClick }: ComplianceCardProps
 
   return (
     <Card className={`overflow-hidden shadow-sm p-0 ${borderStateMap[item.state]}`}>
-      <div className={`flex items-center justify-between gap-3 px-6 py-4 ${headerStateMap[item.state]}`}>
+      <div className={`flex items-center justify-between gap-3 px-6 py-3 ${headerStateMap[item.state]}`}>
         <p className={`type-title-upper inline-flex items-center gap-2 ${statusTitleTextMap[item.state]}`}>
           <StatusIcon className="size-4" />
           {statusLabelMap[item.state]}
