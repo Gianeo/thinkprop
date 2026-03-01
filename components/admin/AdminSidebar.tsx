@@ -22,8 +22,8 @@ interface AdminSidebarProps {
 const navItems = [
   { label: 'Overview', icon: LayoutDashboard, href: '/admin/compliance' },
   { label: 'Team', icon: Users, href: '/admin/compliance/team' },
-  { label: 'Courses', icon: BookOpen, href: '/admin/courses' },
-  { label: 'Reports', icon: BarChart2, href: '/admin/reports' },
+  { label: 'Courses', icon: BookOpen, href: '/admin/courses', disabled: true },
+  { label: 'Reports', icon: BarChart2, href: '/admin/reports', disabled: true },
 ]
 
 export default function AdminSidebar({ activePath }: AdminSidebarProps) {
@@ -177,6 +177,9 @@ function NavSection({
             variant="ghost"
             withIcon="before"
             onClick={() => {
+              if (item.disabled) {
+                return
+              }
               onNavigate()
               router.push(item.href)
             }}
@@ -207,8 +210,7 @@ function NavSection({
         variant="ghost"
         withIcon="before"
         onClick={() => {
-          onNavigate()
-          router.push('/admin/settings')
+          return
         }}
         className="relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 type-body-sm font-medium text-calm transition-all duration-150 hover:bg-level-1 hover:text-loud"
       >

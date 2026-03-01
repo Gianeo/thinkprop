@@ -191,6 +191,10 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
                 event.preventDefault()
                 return
               }
+              if (!isLearner && ['Courses', 'Reports', 'Settings'].includes(item.label)) {
+                event.preventDefault()
+                return
+              }
               closeMobile()
             }}
             className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
