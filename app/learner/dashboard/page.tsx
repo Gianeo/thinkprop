@@ -392,8 +392,8 @@ export default function LearnerDashboardPage() {
                             setIsCourseDrawerOpen(true)
                           }}
                         >
-                          Find a Course Now
-                          <ArrowRight size={15} />
+                          Enroll to a Course
+                          <ArrowRight />
                         </Button>
                       </div>
                     </div>
@@ -564,7 +564,7 @@ export default function LearnerDashboardPage() {
                 ].map((step, index) => (
                   <div key={step.title} className="flex items-start gap-3">
                     <div className={`mt-0.5 flex size-7 items-center justify-center rounded-full ${step.done
-                        ? 'border-success bg-success'
+                        ? 'border-success bg-transparent'
                         : step.active
                           ? step.actionRequired
                             ? 'text-destructive-default bg-destructive-weaker'
@@ -572,7 +572,7 @@ export default function LearnerDashboardPage() {
                           : 'bg-neutral-weaker'
                       }`}>
                       {step.done ? (
-                        <CheckCircle className="size-5 text-weak" />
+                        <CheckCircle className="size-5 text-success-default" />
                       ) : step.active ? (
                         <span className={`type-body-sm ${step.actionRequired ? 'text-destructive-default' : 'text-primary'}`}>
                           {index + 1}
@@ -583,7 +583,7 @@ export default function LearnerDashboardPage() {
                     </div>
                     <div>
                       <p className={`type-body-sm ${step.done
-                          ? 'text-default'
+                          ? 'text-success-default'
                           : step.active
                             ? step.actionRequired
                               ? 'text-destructive-default'
@@ -593,7 +593,7 @@ export default function LearnerDashboardPage() {
                         {step.title}
                       </p>
                       <p className={`type-caption ${step.done
-                          ? 'text-default'
+                          ? 'text-success-default'
                           : step.active
                             ? step.actionRequired
                               ? 'text-destructive-default'
