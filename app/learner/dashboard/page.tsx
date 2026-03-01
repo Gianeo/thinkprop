@@ -88,8 +88,8 @@ export default function LearnerDashboardPage() {
         state: enrollmentContext.state[item.id] ?? item.state,
         expiryDate:
           item.id === 'rera-cpd' &&
-          (enrollmentContext.state[item.id] ?? item.state) === 'ENROLLED' &&
-          enrollmentContext.sessionDate
+            (enrollmentContext.state[item.id] ?? item.state) === 'ENROLLED' &&
+            enrollmentContext.sessionDate
             ? enrollmentContext.sessionDate
             : item.expiryDate,
       })),
@@ -135,24 +135,24 @@ export default function LearnerDashboardPage() {
 
       <div className="flex flex-1 overflow-hidden pt-16 md:ml-60 md:pt-0">
         <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto w-full space-y-8 pr-8 py-8">
+          <div className="mx-auto w-full space-y-6 pr-8 py-8">
             <header className="flex items-start justify-between">
               <div>
-                <p className="mb-1 type-title-upper text-muted">
+                {/* <p className="mb-1 type-title-upper text-muted">
                   Learner Dashboard
-                </p>
-                <h1 className="type-display">Good morning, Reem.</h1>
-                <p className="mt-1 type-data text-muted">Saturday, 28 Feb 2026</p>
+                </p> */}
+                <h1 className="type-title">Good morning, Reem.</h1>
+                <p className="mt-1 type-body-sm text-muted">Saturday, 28 Feb 2026</p>
               </div>
 
               <button type="button" className="relative cursor-pointer text-admin-muted transition-colors hover:text-admin-heading" aria-label="Notifications">
                 <Bell size={18} />
-                <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-state-critical" />
+                <span className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-state-critical" />
               </button>
             </header>
 
             {isReraEnrolled ? (
-              <section className="animate-fade-in flex items-center gap-3 rounded-2xl border border-state-compliant/20 bg-state-compliant-bg p-4">
+              <section className="animate-fade-in flex items-center gap-3 rounded-lg bg-state-compliant-bg p-4">
                 <CheckCircle size={16} className="shrink-0 text-state-compliant" />
                 <div>
                   <p className="type-body-sm text-state-compliant">You&apos;re on track.</p>
@@ -160,7 +160,7 @@ export default function LearnerDashboardPage() {
                 </div>
               </section>
             ) : (
-              <section className="animate-fade-in flex items-center gap-3 rounded-2xl border border-state-critical/20 bg-state-critical-bg p-4">
+              <section className="animate-fade-in flex items-center gap-3 rounded-lg border border-state-critical/20 bg-state-critical-bg p-4">
                 <AlertTriangle size={16} className="shrink-0 text-state-critical" />
                 <div className="flex-1">
                   <p className="type-body-sm text-state-critical">
@@ -181,11 +181,11 @@ export default function LearnerDashboardPage() {
               </section>
             )}
 
-            <section className="space-y-4">
-              <h2 className="type-title-sm">Today&apos;s Focus</h2>
+            <section className="space-y-3">
+              <h2 className="type-body font-semibold">Today&apos;s Focus</h2>
 
               {isReraEnrolled ? (
-                <Card className="animate-fade-in rounded-2xl border border-state-enrolled/20 bg-state-enrolled-bg shadow-card">
+                <Card className="animate-fade-in rounded-lg border border-state-enrolled/20 bg-state-enrolled-bg shadow-card">
                   <CardContent className="p-6">
                     <div className="mb-4 flex items-center gap-3">
                       <CheckCircle size={20} className="text-state-enrolled" />
@@ -215,9 +215,9 @@ export default function LearnerDashboardPage() {
               ) : (
                 <Card className="animate-fade-in shadow-md">
                   <CardContent className="p-6">
-                    <div className="mb-4 flex items-start justify-between">
+                    <div className="mb-0 flex items-start justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="h-2 w-2 animate-pulse rounded-full bg-state-critical" />
+                        <div className="size-2 rounded-full bg-state-critical" />
                         <p className="type-title-upper text-state-critical">Top Priority</p>
                       </div>
                       <div className="flex items-center gap-1.5 rounded-full bg-state-critical-bg px-3 py-1">
@@ -226,43 +226,44 @@ export default function LearnerDashboardPage() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
                       <div className="md:col-span-2">
-                        <h3 className="mb-1 type-title">RERA CPD Credits</h3>
-                        <p className="mb-4 type-body-sm text-muted">
+                        <h3 className="type-title-sm">RERA CPD Credits</h3>
+                        <p className="mb-4 type-body-sm">
                           Your RERA broker license may be suspended if not completed by 15 Mar 2026.
                         </p>
-
-                        <div className="mb-1.5 flex items-center justify-between">
-                          <p className="type-caption text-muted">Credits Progress</p>
-                          <p className="type-data">6 / 15 credits</p>
+                        <div className='max-w-sm space-y-4'>
+                          <div>
+                            <div className="mb-1.5 flex items-center justify-between">
+                              <p className="type-caption text-calm">Credits Progress: <span className="text-loud font-semibold">6 / 15 credits</span></p>
+                            </div>
+                            <div className="h-2 w-full rounded-full bg-primary-weaker">
+                              <div className="h-full rounded-full bg-primary" style={{ width: '40%' }} />
+                            </div>
+                          </div>
+                          <div>
+                            <p className="py-2 type-title-upper text-loud">Why this matters</p>
+                            {[
+                              'License valid for all transactions',
+                              'Required by RERA regulations',
+                              'Covered by your organisation',
+                            ].map((item) => (
+                              <div key={item} className="flex items-center gap-2">
+                                <div className="size-1.5 shrink-0 rounded-full bg-primary" />
+                                <p className="type-body-sm text-calm">{item}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <div className="h-2 w-full rounded-full bg-admin-border">
-                          <div className="h-full rounded-full bg-state-critical" style={{ width: '40%' }} />
-                        </div>
+                      </div>
 
+                      <div className="flex items-end justify-end">
                         <Button
-                          className="mt-4 h-11 w-full gap-2 rounded-xl bg-brand-amber px-6 font-semibold text-white transition-all duration-150 hover:bg-amber-600 active:scale-[0.98] md:w-auto"
                           onClick={() => router.push('/learner/compliance/rera-cpd')}
                         >
-                          <Zap size={15} />
                           Find a Course Now
                           <ArrowRight size={15} />
                         </Button>
-                      </div>
-
-                      <div className="flex flex-col gap-3 rounded-xl border border-admin-border bg-admin-surface p-4">
-                        <p className="mb-1 type-title-upper text-muted">Why this matters</p>
-                        {[
-                          'License valid for all transactions',
-                          'Required by RERA regulations',
-                          'Covered by your organisation',
-                        ].map((item) => (
-                          <div key={item} className="flex items-start gap-2">
-                            <div className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-amber" />
-                            <p className="type-caption text-default">{item}</p>
-                          </div>
-                        ))}
                       </div>
                     </div>
                   </CardContent>
@@ -270,10 +271,9 @@ export default function LearnerDashboardPage() {
               )}
             </section>
 
-            <section className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="type-title-sm">Your Compliance</h2>
-                <p className="type-caption text-muted">Prioritised by urgency</p>
+            <section className="space-y-3">
+              <div className="flex flex-col">
+                <h2 className="type-body font-semibold">Next for your Compliance</h2>
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {datedItems.map((item) => (
@@ -292,7 +292,7 @@ export default function LearnerDashboardPage() {
 
             <section className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="type-title-sm">Your Path</h2>
+                <h2 className="type-body font-semibold">Your Path</h2>
                 <div className="rounded-full border border-admin-border bg-admin-card px-3 py-1 type-caption text-muted">
                   1 of 4 milestones completed
                 </div>
@@ -311,12 +311,12 @@ export default function LearnerDashboardPage() {
                     </div>
 
                     <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
-                      <div className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-amber bg-brand-amber">
+                      <div className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-primary">
                         <span className="type-body-sm font-bold text-white">2</span>
-                        <span className="absolute inset-0 animate-ping rounded-full border-2 border-brand-amber/40" />
+                        <span className="absolute inset-0 animate-ping rounded-full border-2 border-primary/40" />
                       </div>
-                      <p className="mt-3 type-body-sm text-brand-amber">RERA CPD Credits</p>
-                      <p className="mt-0.5 type-caption text-brand-amber">In Progress</p>
+                      <p className="mt-3 type-body-sm text-primary">RERA CPD Credits</p>
+                      <p className="mt-0.5 type-caption text-primary">In Progress</p>
                     </div>
 
                     <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
@@ -338,49 +338,49 @@ export default function LearnerDashboardPage() {
                     </div>
                   </div>
 
-                <div className="space-y-4 md:hidden">
-                  {[
-                    { title: 'Mandatory Training', status: 'Done ✓', done: true },
-                    { title: 'RERA CPD Credits', status: 'In Progress', active: true },
-                    { title: 'Specialisation Elective', status: 'Locked', eta: '~Q3 2026' },
-                    { title: 'Senior Agent Certification', status: 'Locked', eta: '~Q3 2026' },
-                  ].map((step, index) => (
-                    <div key={step.title} className="flex items-start gap-3">
-                      <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-admin-border bg-admin-surface">
-                        {step.done ? (
-                          <CheckCircle size={14} className="text-state-compliant" />
-                        ) : step.active ? (
-                          <span className="type-caption font-bold text-brand-amber">{index + 1}</span>
-                        ) : (
-                          <Lock size={14} className="text-admin-faint" />
-                        )}
+                  <div className="space-y-4 md:hidden">
+                    {[
+                      { title: 'Mandatory Training', status: 'Done ✓', done: true },
+                      { title: 'RERA CPD Credits', status: 'In Progress', active: true },
+                      { title: 'Specialisation Elective', status: 'Locked', eta: '~Q3 2026' },
+                      { title: 'Senior Agent Certification', status: 'Locked', eta: '~Q3 2026' },
+                    ].map((step, index) => (
+                      <div key={step.title} className="flex items-start gap-3">
+                        <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-admin-border bg-admin-surface">
+                          {step.done ? (
+                            <CheckCircle size={14} className="text-state-compliant" />
+                          ) : step.active ? (
+                            <span className="type-caption font-bold text-primary">{index + 1}</span>
+                          ) : (
+                            <Lock size={14} className="text-admin-faint" />
+                          )}
+                        </div>
+                        <div>
+                          <p className={`type-body-sm ${step.active ? 'text-primary' : step.done ? 'text-loud' : 'text-muted'}`}>
+                            {step.title}
+                          </p>
+                          <p className={`type-caption ${step.active ? 'text-primary' : step.done ? 'text-state-compliant' : 'text-muted'}`}>
+                            {step.status}
+                          </p>
+                          {step.eta ? <p className="type-data text-muted">{step.eta}</p> : null}
+                        </div>
                       </div>
-                      <div>
-                        <p className={`type-body-sm ${step.active ? 'text-brand-amber' : step.done ? 'text-loud' : 'text-muted'}`}>
-                          {step.title}
-                        </p>
-                        <p className={`type-caption ${step.active ? 'text-brand-amber' : step.done ? 'text-state-compliant' : 'text-muted'}`}>
-                          {step.status}
-                        </p>
-                        {step.eta ? <p className="type-data text-muted">{step.eta}</p> : null}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="mt-6 flex items-center gap-3 border-t border-admin-border pt-5">
-                  <Lightbulb size={14} className="shrink-0 text-brand-amber" />
-                  <p className="type-caption text-muted">
-                    Complete your RERA CPD Credits to unlock the Specialisation Elective and move one step closer to Senior Agent Certification.
-                  </p>
-                </div>
+                  <div className="mt-6 flex items-center gap-3 border-t border-admin-border pt-5">
+                    <Lightbulb size={14} className="shrink-0 text-primary" />
+                    <p className="type-caption text-muted">
+                      Complete your RERA CPD Credits to unlock the Specialisation Elective and move one step closer to Senior Agent Certification.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             </section>
 
             <section className="space-y-4 pb-6">
               <div className="flex items-center justify-between">
-                <h2 className="type-title-sm">Courses For You</h2>
+                <h2 className="type-body font-semibold">Courses For You</h2>
                 <Button
                   variant="link"
                   className="h-auto gap-1 p-0 type-body-sm font-semibold text-state-enrolled"
@@ -395,7 +395,7 @@ export default function LearnerDashboardPage() {
                 {coursesForYou.map((course) => (
                   <Card
                     key={course.id}
-                    className="cursor-pointer transition-shadow duration-200 hover:shadow-card-hover"
+                    className="cursor-pointer transition-shadow duration-200 shadow-sm hover:shadow-md"
                     onClick={() => router.push(`/learner/courses/${course.id}`)}
                   >
                     <CardContent className="p-5">
@@ -403,7 +403,7 @@ export default function LearnerDashboardPage() {
                         <span className="rounded-full border border-state-enrolled/20 bg-state-enrolled-bg px-2.5 py-1 type-caption font-semibold text-state-enrolled">
                           {course.relevance}
                         </span>
-                        <span className="rounded-full border border-brand-amber/20 bg-brand-amber/10 px-2.5 py-1 type-caption font-semibold text-brand-amber">
+                        <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 type-caption font-semibold text-primary">
                           {course.credits} CPD Credits
                         </span>
                       </div>
@@ -436,10 +436,10 @@ export default function LearnerDashboardPage() {
 
           <div className="border-b border-admin-border px-5 py-5">
             <p className="mb-4 type-title-upper text-muted">Your Goal</p>
-            <div className="rounded-2xl border border-admin-border bg-admin-surface p-4">
+            <div className="rounded-lg border border-admin-border bg-admin-surface p-4">
               <div className="mb-3 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-amber/10">
-                  <Target size={16} className="text-brand-amber" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+                  <Target size={16} className="text-primary" />
                 </div>
                 <div>
                   <p className="type-body-sm text-loud">Senior Agent Certification</p>
@@ -452,7 +452,7 @@ export default function LearnerDashboardPage() {
                 <p className="type-data">25%</p>
               </div>
               <div className="h-1.5 w-full rounded-full bg-admin-border">
-                <div className="h-full w-1/4 rounded-full bg-brand-amber transition-all duration-700" />
+                <div className="h-full w-1/4 rounded-full bg-primary transition-all duration-700" />
               </div>
 
               <div className="mt-3 space-y-2">
@@ -461,7 +461,7 @@ export default function LearnerDashboardPage() {
                   Mandatory Training
                 </div>
                 <div className="flex items-center gap-2 type-caption font-medium text-loud">
-                  <div className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-brand-amber bg-brand-amber/20" />
+                  <div className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-primary bg-primary/20" />
                   RERA CPD Credits
                 </div>
                 <div className="flex items-center gap-2 type-caption text-muted">
@@ -480,7 +480,7 @@ export default function LearnerDashboardPage() {
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
                 className="flex w-full items-start gap-3 rounded-xl border border-admin-border bg-admin-surface p-3 text-left"
               >
-                <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${isReraEnrolled ? 'bg-state-at-risk' : 'animate-pulse bg-state-critical'}`} />
+                <div className={`mt-1.5 size-2 shrink-0 rounded-full ${isReraEnrolled ? 'bg-state-at-risk' : 'animate-pulse bg-state-critical'}`} />
                 <div className="flex-1">
                   <p className="type-body-sm text-loud">Enroll in a RERA CPD course</p>
                   <p className="mt-0.5 type-caption text-muted">18 days remaining · AED 600 covered</p>
@@ -489,7 +489,7 @@ export default function LearnerDashboardPage() {
               </button>
 
               <div className="flex items-start gap-3 rounded-xl border border-admin-border bg-admin-surface p-3">
-                <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-state-at-risk" />
+                <div className="mt-1.5 size-2 shrink-0 rounded-full bg-state-at-risk" />
                 <div className="flex-1">
                   <p className="type-body-sm text-loud">Complete AML Certificate renewal</p>
                   <p className="mt-0.5 type-caption text-muted">27 days remaining · Review options</p>
@@ -532,7 +532,7 @@ export default function LearnerDashboardPage() {
             {activeQuestion ? (
               <div className="animate-fade-in mt-3 rounded-xl border border-admin-border bg-admin-surface p-4">
                 <div className="mb-3 flex items-center gap-2">
-                  <Sparkles size={13} className="text-brand-amber" />
+                  <Sparkles size={13} className="text-primary" />
                   <p className="type-body-sm text-loud">ThinkProp AI</p>
                   <p className="type-caption text-muted">· Based on your profile</p>
                 </div>
@@ -558,11 +558,11 @@ export default function LearnerDashboardPage() {
               <div className="relative">
                 <Input
                   placeholder="Ask a compliance question..."
-                  className="h-10 rounded-xl border-admin-border bg-admin-surface py-3 pl-4 pr-10 type-body-sm placeholder:text-admin-faint focus-visible:ring-brand-amber/30"
+                  className="h-10 rounded-xl border-admin-border bg-admin-surface py-3 pl-4 pr-10 type-body-sm placeholder:text-admin-faint focus-visible:ring-primary/30"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-lg bg-brand-amber"
+                  className="absolute right-2.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-lg bg-primary"
                   aria-label="Send"
                 >
                   <SendHorizontal size={11} className="text-white" />
@@ -572,6 +572,6 @@ export default function LearnerDashboardPage() {
           </div>
         </aside>
       </div>
-    </div>
+    </div >
   )
 }

@@ -45,7 +45,7 @@ export default function SidebarNav({ variant, activePath }: SidebarNavProps) {
   const sidebarWidthClass = isLearner ? 'w-60' : 'w-56'
 
   const rootClasses = isLearner
-    ? `${sidebarWidthClass} bg-level-0 border-r border-wire-border text-default`
+    ? `${sidebarWidthClass} bg-level-0 text-default`
     : `${sidebarWidthClass} bg-brand-navy text-muted`
 
   const topBarClasses = isLearner
@@ -150,7 +150,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
               <Link
                 href="/learner/dashboard#profile"
                 onClick={closeMobile}
-                className="type-body-sm mt-1 inline-block text-primary-default hover:underline"
+                className="type-body-sm mt-1 inline-block text-strong hover:underline"
               >
                 Profile
               </Link>
@@ -159,7 +159,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
         </div>
       ) : null}
 
-      <nav className="flex-1 space-y-1 p-4">
+      <nav className="flex-1 space-y-1 p-4 pt-0">
         {items.map((item) => {
           const Icon = item.icon
           let isActive = false
@@ -172,15 +172,15 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
           }
 
           const baseClasses =
-            'flex items-center gap-3 rounded-r-lg border-l-4 px-3 py-2.5 type-body-sm transition-colors'
+            'flex items-center gap-3 px-2 py-2.5 type-body-sm transition-colors'
 
           const activeClasses = isLearner
-            ? 'border-brand-amber bg-level-0 text-primary-loud font-semibold'
-            : 'border-brand-amber bg-[hsl(var(--neutral-weakest)/0.1)] text-muted font-semibold'
+            ? 'text-primary-calm font-medium'
+            : 'text-calm font-medium'
 
           const inactiveClasses = isLearner
-            ? 'border-transparent text-muted hover:text-default'
-            : 'border-transparent text-[hsl(var(--neutral-weakest)/0.7)] hover:text-muted'
+            ? 'border-transparent text-calm hover:text-default'
+            : 'border-transparent text-[hsl(var(--neutral-weakest)/0.7)] hover:text-calm'
 
           return (
             <Link
@@ -189,7 +189,7 @@ function SidebarContent({ variant, activePath, closeMobile, items }: SidebarCont
               onClick={closeMobile}
               className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="size-4" />
               {item.label}
             </Link>
           )
