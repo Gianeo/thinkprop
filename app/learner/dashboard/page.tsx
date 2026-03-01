@@ -114,6 +114,7 @@ export default function LearnerDashboardPage() {
 
   const reraItem = datedItems.find((item) => item.id === 'rera-cpd')
   const isReraEnrolled = reraItem?.state === 'ENROLLED'
+  const isActionRequired = reraItem?.state === 'CRITICAL'
   const primaryNextItem =
     (isReraEnrolled
       ? datedItems.find((item) => item.id === 'rera-cpd' && item.state === 'ENROLLED')
@@ -495,7 +496,12 @@ export default function LearnerDashboardPage() {
               <CardContent className="space-y-6 p-4">
                 {[
                   { title: 'Mandatory Training', status: 'Done', done: true },
-                  { title: 'RERA CPD Credits', status: 'In Progress', active: true },
+                  {
+                    title: 'RERA CPD Credits',
+                    status: isActionRequired ? 'Action required' : 'In Progress',
+                    active: true,
+                    actionRequired: isActionRequired,
+                  },
                   { title: 'Specialisation Elective', status: '', eta: '~Q3 2026' },
                   { title: 'Senior Agent Certification', status: '', eta: '~Q4 2026' },
                 ].map((step, index) => (
@@ -504,25 +510,41 @@ export default function LearnerDashboardPage() {
                       step.done
                         ? 'border-success bg-success'
                         : step.active
-                          ? 'text-primary bg-primary-weaker'
+                          ? step.actionRequired
+                            ? 'text-destructive-default bg-destructive-weaker'
+                            : 'text-primary bg-primary-weaker'
                           : 'bg-neutral-weaker'
                     }`}>
                       {step.done ? (
                         <CheckCircle className="size-5 text-weak" />
                       ) : step.active ? (
-                        <span className="type-body-sm text-primary">{index + 1}</span>
+                        <span className={`type-body-sm ${step.actionRequired ? 'text-destructive-default' : 'text-primary'}`}>
+                          {index + 1}
+                        </span>
                       ) : (
                         <Lock className="size-3.5 text-admin-faint" />
                       )}
                     </div>
                     <div>
                       <p className={`type-body-sm ${
-                        step.done ? 'text-default' : step.active ? 'text-primary' : 'text-muted'
+                        step.done
+                          ? 'text-default'
+                          : step.active
+                            ? step.actionRequired
+                              ? 'text-destructive-default'
+                              : 'text-primary'
+                            : 'text-muted'
                       }`}>
                         {step.title}
                       </p>
                       <p className={`type-caption ${
-                        step.done ? 'text-default' : step.active ? 'text-primary' : 'text-muted'
+                        step.done
+                          ? 'text-default'
+                          : step.active
+                            ? step.actionRequired
+                              ? 'text-destructive-default'
+                              : 'text-primary'
+                            : 'text-muted'
                       }`}>
                         {step.status}
                       </p>
