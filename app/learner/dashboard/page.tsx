@@ -506,42 +506,6 @@ export default function LearnerDashboardPage() {
             </Card>
           </div>
 
-          {/* <div className="border-b border-admin-border px-5 py-5">
-            <p className="mb-4 type-title-upper text-muted">Today&apos;s Agenda</p>
-            <div className="space-y-3">
-              <button
-                type="button"
-                onClick={() => router.push('/learner/compliance/rera-cpd')}
-                className="flex w-full items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3 text-left"
-              >
-                <div className={`mt-1.5 size-2 shrink-0 rounded-full ${isReraEnrolled ? 'bg-state-at-risk' : 'animate-pulse bg-state-critical'}`} />
-                <div className="flex-1">
-                  <p className="type-body-sm text-loud">Enroll in a RERA CPD course</p>
-                  <p className="mt-0.5 type-caption text-muted">18 days remaining · AED 600 covered</p>
-                </div>
-                <ArrowRight size={11} className="self-center text-admin-faint" />
-              </button>
-
-              <div className="flex items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3">
-                <div className="mt-1.5 size-2 shrink-0 rounded-full bg-state-at-risk" />
-                <div className="flex-1">
-                  <p className="type-body-sm text-loud">Complete AML Certificate renewal</p>
-                  <p className="mt-0.5 type-caption text-muted">27 days remaining · Review options</p>
-                </div>
-              </div>
-
-              {isReraEnrolled ? (
-                <div className="flex items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3">
-                  <CheckCircle size={14} className="mt-0.5 shrink-0 text-state-compliant" />
-                  <div className="flex-1">
-                    <p className="type-body-sm text-loud">RERA CPD enrollment confirmed</p>
-                    <p className="mt-0.5 type-caption text-muted">Session on 15 Mar 2026 · Zoom link sent</p>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          </div> */}
-
           <div className="flex-1 p-4">
             <p className="mb-0.5 type-body font-semibold">Ask ThinkProp</p>
             <p className="mb-4 type-caption text-muted">Your compliance questions, answered.</p>
