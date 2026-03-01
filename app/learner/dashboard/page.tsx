@@ -410,43 +410,75 @@ export default function LearnerDashboardPage() {
                 </p>
               </div>
               <Card className="shadow-sm">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>STATUS</TableHead>
-                      <TableHead>CREDENTIAL</TableHead>
-                      <TableHead>DEADLINE</TableHead>
-                      <TableHead className="text-right" aria-label="Actions" />
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {nextComplianceRows.map((row) => (
-                      <TableRow key={row.id} className={row.status === 'At Risk' ? 'bg-warning-weaker' : undefined}>
-                        <TableCell>
-                          <Badge variant={row.statusVariant} size="sm">
-                            {row.status}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="type-body-sm text-loud">{row.credential}</TableCell>
-                        <TableCell className="type-body-sm text-calm">{row.deadline}</TableCell>
-                        <TableCell className="text-right">
-                          <Button
-                            variant="link"
-                            size="sm"
-                            className={`h-auto p-0 type-body-sm ${row.actionVariant === 'neutral'
-                                ? 'text-muted hover:text-default'
-                                : ''
-                              }`}
-                            onClick={row.actionLabel === 'Take Action' ? () => {} : row.onClick}
-                          >
-                            {row.actionLabel}
-                            <ChevronRight size={14} />
-                          </Button>
-                        </TableCell>
+                <div className="space-y-3 p-4 md:hidden">
+                  {nextComplianceRows.map((row) => (
+                    <div
+                      key={row.id}
+                      className={`rounded-xl border border-weak p-4 ${
+                        row.status === 'At Risk' ? 'bg-warning-weaker' : 'bg-level-2'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <Badge variant={row.statusVariant} size="sm">
+                          {row.status}
+                        </Badge>
+                        <Button
+                          variant="link"
+                          size="sm"
+                          className={`h-auto p-0 type-body-sm ${
+                            row.actionVariant === 'neutral' ? 'text-muted hover:text-default' : ''
+                          }`}
+                          onClick={row.actionLabel === 'Take Action' ? () => {} : row.onClick}
+                        >
+                          {row.actionLabel}
+                          <ChevronRight size={14} />
+                        </Button>
+                      </div>
+                      <p className="mt-3 type-body-sm text-loud">{row.credential}</p>
+                      <p className="mt-1 type-body-sm text-calm">{row.deadline}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="hidden md:block">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>STATUS</TableHead>
+                        <TableHead>CREDENTIAL</TableHead>
+                        <TableHead>DEADLINE</TableHead>
+                        <TableHead className="text-right" aria-label="Actions" />
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {nextComplianceRows.map((row) => (
+                        <TableRow key={row.id} className={row.status === 'At Risk' ? 'bg-warning-weaker' : undefined}>
+                          <TableCell>
+                            <Badge variant={row.statusVariant} size="sm">
+                              {row.status}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="type-body-sm text-loud">{row.credential}</TableCell>
+                          <TableCell className="type-body-sm text-calm">{row.deadline}</TableCell>
+                          <TableCell className="text-right">
+                            <Button
+                              variant="link"
+                              size="sm"
+                              className={`h-auto p-0 type-body-sm ${row.actionVariant === 'neutral'
+                                  ? 'text-muted hover:text-default'
+                                  : ''
+                                }`}
+                              onClick={row.actionLabel === 'Take Action' ? () => {} : row.onClick}
+                            >
+                              {row.actionLabel}
+                              <ChevronRight size={14} />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </Card>
             </section>
 

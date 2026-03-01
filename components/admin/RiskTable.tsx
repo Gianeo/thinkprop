@@ -69,82 +69,64 @@ export default function RiskTable({
         <DepartmentFilter selected={selectedFilter} onChange={onFilterChange} />
       </div>
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
-              <TableHead
-                key={header}
-                className={header === 'ACTIONS' ? 'text-right' : undefined}
-              >
-                {header}
-              </TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
+      <div className="space-y-3 p-4 md:hidden">
+        {sortedRows.map((row) => {
+          const urgency = getUrgencyColor(row.daysLeft, row.status)
+          const statusBadgeVariant =
+            urgency === 'enrolled'
+              ? 'success'
+              : urgency === 'critical'
+                ? 'destructive'
+                : 'warning'
+          const isReminded = remindedIds.includes(row.id)
 
-        <TableBody>
-          {sortedRows.map((row) => {
-            const urgency = getUrgencyColor(row.daysLeft, row.status)
-            const statusBadgeVariant =
-              urgency === 'enrolled'
-                ? 'success'
-                : urgency === 'critical'
-                  ? 'destructive'
-                  : 'warning'
-            const isReminded = remindedIds.includes(row.id)
-
-            return (
-              <TableRow
-                key={row.id}
-                className={` ${getRowBg(row.daysLeft, row.status)}`}
-              >
-                <TableCell>
-                  <div className="flex items-center gap-3">
-                    <Avatar>
-                      <AvatarFallback
-                        variant={
-                          urgency === 'enrolled'
-                            ? 'primary'
-                            : urgency === 'critical'
-                              ? 'destructive'
-                              : 'warning'
-                        }
-                        className="type-caption"
-                      >
-                        {row.initials}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className='font-medium text-loud'>{row.name}</span>
+          return (
+            <div key={row.id} className={`rounded-xl border border-weak bg-level-2 p-4 ${getRowBg(row.daysLeft, row.status)}`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Avatar>
+                    <AvatarFallback
+                      variant={
+                        urgency === 'enrolled'
+                          ? 'primary'
+                          : urgency === 'critical'
+                            ? 'destructive'
+                            : 'warning'
+                      }
+                      className="type-caption"
+                    >
+                      {row.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="type-body font-medium text-loud">{row.name}</p>
+                    <p className="type-caption text-muted">{row.department}</p>
                   </div>
-                </TableCell>
+                </div>
+                <Badge variant={statusBadgeVariant} size="sm">
+                  {row.status === 'Enrolled' && <Check className="mr-1 size-4" />}
+                  {row.status}
+                </Badge>
+              </div>
 
-                <TableCell>
-                  <span className="type-body-sm text-calm">{row.department}</span>
-                </TableCell>
+              <div className="mt-3 space-y-1">
+                <p className="type-body-sm text-loud">{row.credential}</p>
+                <p className="type-caption text-muted">RERA · Mandatory</p>
+              </div>
 
-                <TableCell>
-                  <div className="type-body">{row.credential}</div>
-                  <div className="type-caption text-muted">RERA · Mandatory</div>
-                </TableCell>
-
-                <TableCell>
-                  {row.status === 'Enrolled' ? (
-                    <span className="type-body text-muted">—</span>
-                  ) : (
-                    <div
-                      className={`type-body font-medium ${
-                        urgency === 'critical'
-                          ? 'text-destructive-default'
-                          : 'text-warning-default'
+              <div className="mt-3">
+                {row.status === 'Enrolled' ? (
+                  <p className="type-body-sm text-muted">No days left</p>
+                ) : (
+                  <>
+                    <p
+                      className={`type-body-sm font-medium ${
+                        urgency === 'critical' ? 'text-destructive-default' : 'text-warning-default'
                       }`}
                     >
-                      {row.daysLeft}
-                      <span className="ml-1 type-caption">days</span>
-                    </div>
-                  )}
-                  {row.status !== 'Enrolled' && (
-                    <div className="mt-1.5 h-1 w-16 overflow-hidden rounded-full bg-neutral-weaker">
+                      {row.daysLeft} days left
+                    </p>
+                    <div className="mt-1.5 h-1 w-20 overflow-hidden rounded-full bg-neutral-weaker">
                       <div
                         className={`h-full rounded-full ${
                           urgency === 'critical' ? 'bg-state-critical' : 'bg-state-at-risk'
@@ -152,64 +134,190 @@ export default function RiskTable({
                         style={{ width: `${Math.min(((30 - row.daysLeft) / 30) * 100, 100)}%` }}
                       />
                     </div>
-                  )}
-                </TableCell>
+                  </>
+                )}
+              </div>
 
-                <TableCell>
-                  <Badge variant={statusBadgeVariant}>
-                    {row.status === 'Enrolled' && <Check className="mr-1 size-4" />}
-                    {row.status}
-                  </Badge>
-                </TableCell>
-
-                <TableCell className='flex justify-end items-center py-4'>
-                  {isReminded ? (
-                    <div className="flex items-center gap-1.5 type-body text-success-default mt-1 px-4">
-                      <CheckCircle size={16} />
-                      Reminded
-                    </div>
-                  ) : row.status === 'Enrolled' ? (
-                    <Button
-                      variant="link"
-                      withIcon="after"
-                    >
-                      View Progress
-                      <ArrowRight />
+              <div className="mt-4">
+                {isReminded ? (
+                  <div className="flex items-center gap-1.5 type-body-sm text-success-default">
+                    <CheckCircle size={16} />
+                    Reminded
+                  </div>
+                ) : row.status === 'Enrolled' ? (
+                  <Button variant="link" withIcon="after" size="sm" className="h-auto p-0">
+                    View Progress
+                    <ArrowRight />
+                  </Button>
+                ) : (
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Button variant="outline" withIcon="before" size="sm" onClick={() => onRemind(row)}>
+                      <Bell />
+                      Remind
                     </Button>
-                  ) : (
+                    <Button size="sm">Enroll</Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="icon" withIcon="only">
+                          <MoreVertical size={12} />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>View Profile</DropdownMenuItem>
+                        <DropdownMenuItem>Escalate</DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                )}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="hidden md:block">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              {['TEAM MEMBER', 'DEPARTMENT', 'CREDENTIAL', 'DAYS LEFT', 'STATUS', 'ACTIONS'].map((header) => (
+                <TableHead
+                  key={header}
+                  className={header === 'ACTIONS' ? 'text-right' : undefined}
+                >
+                  {header}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+
+          <TableBody>
+            {sortedRows.map((row) => {
+              const urgency = getUrgencyColor(row.daysLeft, row.status)
+              const statusBadgeVariant =
+                urgency === 'enrolled'
+                  ? 'success'
+                  : urgency === 'critical'
+                    ? 'destructive'
+                    : 'warning'
+              const isReminded = remindedIds.includes(row.id)
+
+              return (
+                <TableRow
+                  key={row.id}
+                  className={` ${getRowBg(row.daysLeft, row.status)}`}
+                >
+                  <TableCell>
                     <div className="flex items-center gap-3">
-                      <Button
-                        variant="outline"
-                        withIcon="before"
-                        onClick={() => onRemind(row)}
-                      >
-                        <Bell />
-                        Remind
-                      </Button>
-
-                      <Button>
-                        Enroll
-                      </Button>
-
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" withIcon="only">
-                            <MoreVertical size={12} />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                          <DropdownMenuItem>View Profile</DropdownMenuItem>
-                          <DropdownMenuItem>Escalate</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      <Avatar>
+                        <AvatarFallback
+                          variant={
+                            urgency === 'enrolled'
+                              ? 'primary'
+                              : urgency === 'critical'
+                                ? 'destructive'
+                                : 'warning'
+                          }
+                          className="type-caption"
+                        >
+                          {row.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className='font-medium text-loud'>{row.name}</span>
                     </div>
-                  )}
-                </TableCell>
-              </TableRow>
-            )
-          })}
-        </TableBody>
-      </Table>
+                  </TableCell>
+
+                  <TableCell>
+                    <span className="type-body-sm text-calm">{row.department}</span>
+                  </TableCell>
+
+                  <TableCell>
+                    <div className="type-body">{row.credential}</div>
+                    <div className="type-caption text-muted">RERA · Mandatory</div>
+                  </TableCell>
+
+                  <TableCell>
+                    {row.status === 'Enrolled' ? (
+                      <span className="type-body text-muted">—</span>
+                    ) : (
+                      <div
+                        className={`type-body font-medium ${
+                          urgency === 'critical'
+                            ? 'text-destructive-default'
+                            : 'text-warning-default'
+                        }`}
+                      >
+                        {row.daysLeft}
+                        <span className="ml-1 type-caption">days</span>
+                      </div>
+                    )}
+                    {row.status !== 'Enrolled' && (
+                      <div className="mt-1.5 h-1 w-16 overflow-hidden rounded-full bg-neutral-weaker">
+                        <div
+                          className={`h-full rounded-full ${
+                            urgency === 'critical' ? 'bg-state-critical' : 'bg-state-at-risk'
+                          }`}
+                          style={{ width: `${Math.min(((30 - row.daysLeft) / 30) * 100, 100)}%` }}
+                        />
+                      </div>
+                    )}
+                  </TableCell>
+
+                  <TableCell>
+                    <Badge variant={statusBadgeVariant}>
+                      {row.status === 'Enrolled' && <Check className="mr-1 size-4" />}
+                      {row.status}
+                    </Badge>
+                  </TableCell>
+
+                  <TableCell className='flex justify-end items-center py-4'>
+                    {isReminded ? (
+                      <div className="flex items-center gap-1.5 type-body text-success-default mt-1 px-4">
+                        <CheckCircle size={16} />
+                        Reminded
+                      </div>
+                    ) : row.status === 'Enrolled' ? (
+                      <Button
+                        variant="link"
+                        withIcon="after"
+                      >
+                        View Progress
+                        <ArrowRight />
+                      </Button>
+                    ) : (
+                      <div className="flex items-center gap-3">
+                        <Button
+                          variant="outline"
+                          withIcon="before"
+                          onClick={() => onRemind(row)}
+                        >
+                          <Bell />
+                          Remind
+                        </Button>
+
+                        <Button>
+                          Enroll
+                        </Button>
+
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="icon" withIcon="only">
+                              <MoreVertical size={12} />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent>
+                            <DropdownMenuItem>View Profile</DropdownMenuItem>
+                            <DropdownMenuItem>Escalate</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    )}
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+          </TableBody>
+        </Table>
+      </div>
     </Card>
   )
 }

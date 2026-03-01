@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { orgStats } from '@/lib/mockData'
 
@@ -115,46 +116,11 @@ export default function TeamTable({ data }: TeamTableProps) {
         </div>
       </div>
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>
-              <Button
-                variant="ghost"
-                size="sm"
-                withIcon="after"
-                onClick={() => handleSort('name')}
-                className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
-              >
-                TEAM MEMBER
-                {renderSortIcon('name')}
-              </Button>
-            </TableHead>
-            <TableHead>ROLE</TableHead>
-            <TableHead>DEPARTMENT</TableHead>
-            <TableHead>
-              <Button
-                variant="ghost"
-                size="sm"
-                withIcon="after"
-                onClick={() => handleSort('score')}
-                className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
-              >
-                COMPLIANCE SCORE
-                {renderSortIcon('score')}
-              </Button>
-            </TableHead>
-            <TableHead>AT RISK</TableHead>
-            <TableHead>LAST ACTIVE</TableHead>
-            <TableHead className="text-right">ACTIONS</TableHead>
-          </TableRow>
-        </TableHeader>
-
-        <TableBody>
-          {filteredAndSorted.map((member) => (
-            <TableRow
-              key={member.id}>
-              <TableCell>
+      <div className="space-y-3 p-4 md:hidden">
+        {filteredAndSorted.map((member) => (
+          <Card key={member.id} className="border-weak bg-level-2 shadow-sm">
+            <CardContent className="space-y-3 p-4">
+              <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <Avatar>
                     <AvatarFallback
@@ -164,21 +130,36 @@ export default function TeamTable({ data }: TeamTableProps) {
                       {member.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="font-medium text-loud">{member.name}</span>
+                  <div>
+                    <p className="type-body font-medium text-loud">{member.name}</p>
+                    <p className="type-caption text-calm">{member.role}</p>
+                  </div>
                 </div>
-              </TableCell>
+                <Button
+                  variant="link"
+                  withIcon="after"
+                  className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
+                >
+                  View
+                  <ChevronRight size={12} />
+                </Button>
+              </div>
 
-              <TableCell>
-                <span className="type-body-sm text-calm">{member.role}</span>
-              </TableCell>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <p className="type-title-upper text-muted">Department</p>
+                  <p className="type-body-sm text-calm">{member.department}</p>
+                </div>
+                <div>
+                  <p className="type-title-upper text-muted">Last Active</p>
+                  <p className="type-body-sm font-mono text-calm">{member.lastActivity}</p>
+                </div>
+              </div>
 
-              <TableCell>
-                <span className="type-body-sm text-calm">{member.department}</span>
-              </TableCell>
-
-              <TableCell>
-                <div className="flex items-center gap-3">
-                  <div className="h-1.5 w-20 overflow-hidden rounded-full bg-neutral-weaker">
+              <div>
+                <p className="type-title-upper text-muted">Compliance Score</p>
+                <div className="mt-1 flex items-center gap-3">
+                  <div className="h-1.5 w-24 overflow-hidden rounded-full bg-neutral-weaker">
                     <div
                       className={`h-full rounded-full transition-all duration-500 ${
                         member.score >= 80
@@ -202,36 +183,142 @@ export default function TeamTable({ data }: TeamTableProps) {
                     {member.score}%
                   </span>
                 </div>
-              </TableCell>
+              </div>
 
-              <TableCell>
+              <div>
+                <p className="type-title-upper text-muted">At Risk</p>
                 {member.atRisk === 0 ? (
-                  <span className="type-body-sm text-muted">—</span>
+                  <p className="type-body-sm text-muted">—</p>
                 ) : (
-                  <span className="type-body-sm font-medium text-destructive-default">
+                  <p className="type-body-sm font-medium text-destructive-default">
                     {member.atRisk} credential{member.atRisk > 1 ? 's' : ''}
-                  </span>
+                  </p>
                 )}
-              </TableCell>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-              <TableCell>
-                <span className="font-mono type-body-sm text-calm">{member.lastActivity}</span>
-              </TableCell>
-
-              <TableCell className="px-6 py-4 text-right">
+      <div className="hidden md:block">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>
                 <Button
-                  variant="link"
+                  variant="ghost"
+                  size="sm"
                   withIcon="after"
-                  className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
+                  onClick={() => handleSort('name')}
+                  className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
                 >
-                  View
-                  <ChevronRight size={12} />
+                  TEAM MEMBER
+                  {renderSortIcon('name')}
                 </Button>
-              </TableCell>
+              </TableHead>
+              <TableHead>ROLE</TableHead>
+              <TableHead>DEPARTMENT</TableHead>
+              <TableHead>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  withIcon="after"
+                  onClick={() => handleSort('score')}
+                  className="h-auto rounded-none p-0 text-xs font-semibold tracking-wider leading-none uppercase text-inherit hover:bg-transparent hover:text-inherit focus-visible:ring-0"
+                >
+                  COMPLIANCE SCORE
+                  {renderSortIcon('score')}
+                </Button>
+              </TableHead>
+              <TableHead>AT RISK</TableHead>
+              <TableHead>LAST ACTIVE</TableHead>
+              <TableHead className="text-right">ACTIONS</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+
+          <TableBody>
+            {filteredAndSorted.map((member) => (
+              <TableRow
+                key={member.id}>
+                <TableCell>
+                  <div className="flex items-center gap-3">
+                    <Avatar>
+                      <AvatarFallback
+                        variant={member.status === 'Compliant' ? 'success' : 'destructive'}
+                        className="type-caption"
+                      >
+                        {member.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="font-medium text-loud">{member.name}</span>
+                  </div>
+                </TableCell>
+
+                <TableCell>
+                  <span className="type-body-sm text-calm">{member.role}</span>
+                </TableCell>
+
+                <TableCell>
+                  <span className="type-body-sm text-calm">{member.department}</span>
+                </TableCell>
+
+                <TableCell>
+                  <div className="flex items-center gap-3">
+                    <div className="h-1.5 w-20 overflow-hidden rounded-full bg-neutral-weaker">
+                      <div
+                        className={`h-full rounded-full transition-all duration-500 ${
+                          member.score >= 80
+                            ? 'bg-score-high'
+                            : member.score >= 60
+                              ? 'bg-score-mid'
+                              : 'bg-score-low'
+                        }`}
+                        style={{ width: `${member.score}%` }}
+                      />
+                    </div>
+                    <span
+                      className={`font-mono type-body-sm font-bold ${
+                        member.score >= 80
+                          ? 'text-success-default'
+                          : member.score >= 60
+                            ? 'text-warning-default'
+                            : 'text-destructive-default'
+                      }`}
+                    >
+                      {member.score}%
+                    </span>
+                  </div>
+                </TableCell>
+
+                <TableCell>
+                  {member.atRisk === 0 ? (
+                    <span className="type-body-sm text-muted">—</span>
+                  ) : (
+                    <span className="type-body-sm font-medium text-destructive-default">
+                      {member.atRisk} credential{member.atRisk > 1 ? 's' : ''}
+                    </span>
+                  )}
+                </TableCell>
+
+                <TableCell>
+                  <span className="font-mono type-body-sm text-calm">{member.lastActivity}</span>
+                </TableCell>
+
+                <TableCell className="px-6 py-4 text-right">
+                  <Button
+                    variant="link"
+                    withIcon="after"
+                    className="h-auto p-0 type-caption font-semibold text-primary-default hover:no-underline"
+                  >
+                    View
+                    <ChevronRight size={12} />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
 
       {filteredAndSorted.length === 0 && (
         <div className="flex items-center gap-2 px-6 py-5 type-body-sm text-calm">

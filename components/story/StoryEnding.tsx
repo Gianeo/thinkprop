@@ -24,13 +24,12 @@ export default function StoryEnding() {
             people work, only what they can see.
           </p>
 
-          <Button variant="secondary" size="sm" asChild withIcon="before" className="mt-6">
+          <Button variant="secondary" size="sm" asChild className="mt-6">
             <Link
               href="https://www.figma.com/design/cvLU2Suz0OS1NsAxgAEA0S/ThinkProp?node-id=4-2&t=LC0wIDxXZVn5oN6p-1"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SquareArrowOutUpRight size={14} />
               View Figma file
             </Link>
           </Button>
