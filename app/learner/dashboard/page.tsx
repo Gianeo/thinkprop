@@ -23,6 +23,7 @@ import SidebarNav from '@/components/shared/SidebarNav'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import {
@@ -60,7 +61,9 @@ export default function LearnerDashboardPage() {
   const router = useRouter()
   const [activeQuestion, setActiveQuestion] = useState<keyof typeof assistantResponses | null>(null)
   const [isCourseDrawerOpen, setIsCourseDrawerOpen] = useState(false)
+  const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false)
   const [selectedDrawerSession, setSelectedDrawerSession] = useState<string | null>(null)
+  const [confirmedSessionId, setConfirmedSessionId] = useState<string | null>(null)
   const [isDrawerEnrolling, setIsDrawerEnrolling] = useState(false)
   const [enrollmentContext, setEnrollmentContext] = useState<{
     state: Record<string, ComplianceState>
@@ -123,6 +126,12 @@ export default function LearnerDashboardPage() {
   const isReraEnrolled = reraItem?.state === 'ENROLLED'
   const isActionRequired = reraItem?.state === 'CRITICAL'
   const reraRegulationsCourse = courses.find((course) => course.id === 'rera-regulations')
+  const confirmedSession = useMemo(
+    () =>
+      reraRegulationsCourse?.sessions.find((session) => session.id === confirmedSessionId) ??
+      null,
+    [reraRegulationsCourse, confirmedSessionId],
+  )
 
   const handleDrawerEnroll = () => {
     if (!reraRegulationsCourse || !selectedDrawerSession) {
@@ -133,7 +142,31 @@ export default function LearnerDashboardPage() {
     window.setTimeout(() => {
       setIsDrawerEnrolling(false)
       setIsCourseDrawerOpen(false)
-      router.push(`/learner/courses/${reraRegulationsCourse.id}/confirmation?session=${selectedDrawerSession}`)
+      setConfirmedSessionId(selectedDrawerSession)
+
+      const selectedSession = reraRegulationsCourse.sessions.find(
+        (session) => session.id === selectedDrawerSession,
+      )
+
+      if (selectedSession) {
+        try {
+          const rawState = window.localStorage.getItem(STORAGE_KEY)
+          const parsed = rawState ? (JSON.parse(rawState) as Record<string, ComplianceState>) : {}
+          parsed['rera-cpd'] = 'ENROLLED'
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed))
+          window.localStorage.setItem(SESSION_DATE_KEY, selectedSession.date)
+        } catch {
+          // Ignore storage parse errors.
+        }
+
+        setEnrollmentContext((prev) => ({
+          state: { ...prev.state, 'rera-cpd': 'ENROLLED' },
+          sessionDate: selectedSession.date,
+        }))
+      }
+
+      setSelectedDrawerSession(null)
+      setIsEnrollmentModalOpen(true)
     }, 1500)
   }
   const primaryNextItem =
@@ -719,7 +752,7 @@ export default function LearnerDashboardPage() {
                     onClick={handleDrawerEnroll}
                     disabled={!selectedDrawerSession}
                     className={`w-full rounded-xl py-3 font-semibold ${selectedDrawerSession
-                        ? 'bg-primary text-contrast hover:bg-primary-stronger'
+                        ? 'bg-primary text-contrast hover:bg-primary/90'
                         : 'cursor-not-allowed bg-wire-border text-muted'
                       }`}
                   >
@@ -745,6 +778,59 @@ export default function LearnerDashboardPage() {
           )}
         </DrawerContent>
       </Drawer>
+
+      <Dialog open={isEnrollmentModalOpen} onOpenChange={setIsEnrollmentModalOpen}>
+        <DialogContent className="max-w-2xl rounded-xl border border-admin-border bg-level-2 p-0">
+          <div className="space-y-6 p-8">
+            <section className="text-center">
+              <CheckCircle className="mx-auto size-16 text-success-default" />
+              <h2 className="mt-4 type-title">You&apos;re enrolled!</h2>
+              <p className="mt-2 type-body-sm mx-auto">
+                We&apos;ll send your joining instructions to your email.
+              </p>
+            </section>
+
+            <Card className="shadow-sm">
+              <CardContent className="space-y-2 p-6">
+                <p className="type-body-sm">
+                  <span className="text-muted">Course:</span>{' '}
+                  <span className="text-default font-semibold">RERA Regulations Update 2026</span>
+                </p>
+                <p className="type-body-sm">
+                  <span className="text-muted">Session:</span>{' '}
+                  <span className="text-default font-semibold">
+                    {confirmedSession ? `${confirmedSession.date} at ${confirmedSession.time}` : 'Session confirmed'}
+                  </span>
+                </p>
+                <p className="type-body-sm">
+                  <span className="text-muted">Format:</span>{' '}
+                  <span className="text-default">
+                    {confirmedSession
+                      ? `${confirmedSession.format} · ${confirmedSession.location}`
+                      : 'Virtual · Zoom link sent on enrollment'}
+                  </span>
+                </p>
+                <p className="type-body-sm">
+                  <span className="text-muted">Payment:</span>{' '}
+                  <span className="type-body-sm">
+                    ✓ Covered by Prestige Properties Dubai
+                  </span>
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="flex flex-wrap gap-2 justify-end">
+              <Button variant="ghost" onClick={() => setIsEnrollmentModalOpen(false)}>
+                Return to Dashboard
+              </Button>
+              <Button>
+                <CalendarPlus size={14} />
+                Add to Calendar
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div >
   )
 }
