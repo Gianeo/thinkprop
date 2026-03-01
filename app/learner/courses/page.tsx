@@ -1,13 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { Filter } from 'lucide-react'
 import SidebarNav from '@/components/shared/SidebarNav'
 import CourseCard from '@/components/learner/CourseCard'
 import { complianceItems, courses } from '@/lib/mockData'
 import { useSearchParams } from 'next/navigation'
 
-export default function CoursesPage() {
+function CoursesPageContent() {
   const searchParams = useSearchParams()
   const requirement = searchParams.get('requirement')
   const requirementTitle = complianceItems.find((item) => item.id === requirement)?.title
@@ -44,5 +45,13 @@ export default function CoursesPage() {
         </div>
       </main>
     </div>
+  )
+}
+
+export default function CoursesPage() {
+  return (
+    <Suspense fallback={null}>
+      <CoursesPageContent />
+    </Suspense>
   )
 }
