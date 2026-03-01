@@ -10,11 +10,9 @@ import {
   CalendarPlus,
   CheckCircle,
   Clock,
-  Lightbulb,
   Lock,
   SendHorizontal,
   Sparkles,
-  Target,
   ThumbsDown,
   ThumbsUp,
 } from 'lucide-react'
@@ -218,7 +216,7 @@ export default function LearnerDashboardPage() {
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
       <div className="flex flex-1 overflow-hidden pt-16 md:ml-56 md:pt-0">
-        <div className="flex-1 w-full overflow-y-auto px-8 mr-4 shadow">
+        <div className="flex-1 w-full overflow-y-auto px-8 mr-4 shadow bg-white/75">
           <div className="w-full space-y-8 py-8">
             <header className="flex items-start justify-between">
               <div className=''>
@@ -248,7 +246,7 @@ export default function LearnerDashboardPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-auto gap-1 rounded-xl type-caption font-semibold text-state-critical hover:bg-state-critical/10 hover:text-state-critical"
+                  className="h-auto gap-1 rounded-lg type-caption font-semibold text-state-critical hover:bg-state-critical/10 hover:text-state-critical"
                   onClick={() => router.push('/learner/compliance/rera-cpd')}
                 >
                   View Details
@@ -278,7 +276,7 @@ export default function LearnerDashboardPage() {
                       </Button>
                       <Button
                         variant="ghost"
-                        className="gap-2 rounded-xl"
+                        className="gap-2 rounded-lg"
                         onClick={() => router.push('/learner/courses/property-valuation')}
                       >
                         <BookOpen />
@@ -395,94 +393,6 @@ export default function LearnerDashboardPage() {
               </Card>
             </section>
 
-            <section className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="type-body font-semibold">Your Path</h2>
-                <div className="rounded-full border border-admin-border bg-admin-card px-3 py-1 type-caption text-muted">
-                  1 of 4 milestones completed
-                </div>
-              </div>
-
-              <Card className="">
-                <CardContent className="p-6">
-                  <div className="relative hidden items-start justify-between md:flex">
-                    <div className="absolute left-0 right-0 top-5 z-0 h-px bg-admin-border" />
-                    <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-navy bg-brand-navy">
-                        <CheckCircle size={18} className="text-white" />
-                      </div>
-                      <p className="mt-3 type-body-sm text-loud">Mandatory Training</p>
-                      <p className="mt-0.5 type-caption text-state-compliant">Done ✓</p>
-                    </div>
-
-                    <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
-                      <div className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-primary">
-                        <span className="type-body-sm font-bold text-white">2</span>
-                        <span className="absolute inset-0 animate-ping rounded-full border-2 border-primary/40" />
-                      </div>
-                      <p className="mt-3 type-body-sm text-primary">RERA CPD Credits</p>
-                      <p className="mt-0.5 type-caption text-primary">In Progress</p>
-                    </div>
-
-                    <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-admin-border bg-admin-surface">
-                        <Lock size={16} className="text-admin-faint" />
-                      </div>
-                      <p className="mt-3 type-body-sm text-muted">Specialisation Elective</p>
-                      <p className="mt-0.5 type-caption text-muted">Locked</p>
-                      <p className="mt-0.5 type-data text-muted">~Q3 2026</p>
-                    </div>
-
-                    <div className="relative z-10 flex w-1/4 flex-col items-center text-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-admin-border bg-admin-surface">
-                        <Lock size={16} className="text-admin-faint" />
-                      </div>
-                      <p className="mt-3 type-body-sm text-muted">Senior Agent Certification</p>
-                      <p className="mt-0.5 type-caption text-muted">Locked</p>
-                      <p className="mt-0.5 type-data text-muted">~Q3 2026</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 md:hidden">
-                    {[
-                      { title: 'Mandatory Training', status: 'Done ✓', done: true },
-                      { title: 'RERA CPD Credits', status: 'In Progress', active: true },
-                      { title: 'Specialisation Elective', status: 'Locked', eta: '~Q3 2026' },
-                      { title: 'Senior Agent Certification', status: 'Locked', eta: '~Q3 2026' },
-                    ].map((step, index) => (
-                      <div key={step.title} className="flex items-start gap-3">
-                        <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-admin-border bg-admin-surface">
-                          {step.done ? (
-                            <CheckCircle size={14} className="text-state-compliant" />
-                          ) : step.active ? (
-                            <span className="type-caption font-bold text-primary">{index + 1}</span>
-                          ) : (
-                            <Lock size={14} className="text-admin-faint" />
-                          )}
-                        </div>
-                        <div>
-                          <p className={`type-body-sm ${step.active ? 'text-primary' : step.done ? 'text-loud' : 'text-muted'}`}>
-                            {step.title}
-                          </p>
-                          <p className={`type-caption ${step.active ? 'text-primary' : step.done ? 'text-state-compliant' : 'text-muted'}`}>
-                            {step.status}
-                          </p>
-                          {step.eta ? <p className="type-data text-muted">{step.eta}</p> : null}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 flex items-center gap-3 border-t border-admin-border pt-5">
-                    <Lightbulb size={14} className="shrink-0 text-primary" />
-                    <p className="type-caption text-muted">
-                      Complete your RERA CPD Credits to unlock the Specialisation Elective and move one step closer to Senior Agent Certification.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
             <section className="space-y-4 pb-6">
               <div className="flex items-center justify-between">
                 <h2 className="type-body font-semibold">Courses For You</h2>
@@ -533,48 +443,67 @@ export default function LearnerDashboardPage() {
           </div>
         </div>
 
-        <aside className="hidden w-80 shrink-0 flex-col overflow-y-auto xl:flex">
-          <div className="shrink-0 px-5 py-5">
+        <aside className="hidden w-80 shrink-0 flex-col overflow-y-auto xl:flex pr-4">
+          <div className="shrink-0 p-4 pt-6">
             <p className="type-title-sm">Reem&apos;s Assistant</p>
-            <p className="mt-0.5 type-caption text-muted">Personalised to your compliance status</p>
+            <p className="type-caption text-muted">Personalised to your compliance status</p>
           </div>
 
-          <div className="border-b border-admin-border px-5 py-5">
-            <p className="mb-4 type-title-upper text-muted">Your Goal</p>
-            <div className="p-4">
-              <div className="mb-3 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
-                  <Target size={16} className="text-primary" />
-                </div>
-                <div>
-                  <p className="type-body-sm text-loud">Senior Agent Certification</p>
-                  <p className="mt-0.5 type-data text-muted">Target: Q4 2026</p>
-                </div>
-              </div>
-
-              <div className="mb-1 flex items-center justify-between">
-                <p className="type-title-upper text-muted">Overall Progress</p>
-                <p className="type-data">25%</p>
-              </div>
-              <div className="h-1.5 w-full rounded-full bg-admin-border">
-                <div className="h-full w-1/4 rounded-full bg-primary transition-all duration-700" />
-              </div>
-
-              <div className="mt-3 space-y-2">
-                <div className="flex items-center gap-2 type-caption text-muted line-through">
-                  <CheckCircle size={11} className="text-state-compliant" />
-                  Mandatory Training
-                </div>
-                <div className="flex items-center gap-2 type-caption font-medium text-loud">
-                  <div className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-primary bg-primary/20" />
-                  RERA CPD Credits
-                </div>
-                <div className="flex items-center gap-2 type-caption text-muted">
-                  <div className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-admin-border" />
-                  Specialisation Elective
-                </div>
-              </div>
+          <div className="p-4">
+            <div className="mb-2 flex items-center justify-between">
+              <p className="type-body font-semibold">Your Path</p>
+              {/* <span className="rounded-full border border-admin-border bg-admin-surface px-2 py-0.5 type-caption text-muted">
+                1 / 4
+              </span> */}
             </div>
+
+            <Card className="shadow-sm">
+              <CardContent className="space-y-6 p-4">
+                {[
+                  { title: 'Mandatory Training', status: 'Done', done: true },
+                  { title: 'RERA CPD Credits', status: 'In Progress', active: true },
+                  { title: 'Specialisation Elective', status: '', eta: '~Q3 2026' },
+                  { title: 'Senior Agent Certification', status: '', eta: '~Q4 2026' },
+                ].map((step, index) => (
+                  <div key={step.title} className="flex items-start gap-3">
+                    <div className={`mt-0.5 flex size-7 items-center justify-center rounded-full ${
+                      step.done
+                        ? 'border-success bg-success'
+                        : step.active
+                          ? 'text-primary bg-primary-weaker'
+                          : 'bg-neutral-weaker'
+                    }`}>
+                      {step.done ? (
+                        <CheckCircle className="size-5 text-weak" />
+                      ) : step.active ? (
+                        <span className="type-body-sm text-primary">{index + 1}</span>
+                      ) : (
+                        <Lock className="size-3.5 text-admin-faint" />
+                      )}
+                    </div>
+                    <div>
+                      <p className={`type-body-sm ${
+                        step.done ? 'text-default' : step.active ? 'text-primary' : 'text-muted'
+                      }`}>
+                        {step.title}
+                      </p>
+                      <p className={`type-caption ${
+                        step.done ? 'text-default' : step.active ? 'text-primary' : 'text-muted'
+                      }`}>
+                        {step.status}
+                      </p>
+                      {step.eta ? <p className="type-caption text-muted">{step.eta}</p> : null}
+                    </div>
+                  </div>
+                ))}
+
+                <div className="border-t border-admin-border pt-3">
+                  <p className="type-caption text-muted">
+                    Complete RERA CPD to unlock the next milestone.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* <div className="border-b border-admin-border px-5 py-5">
@@ -583,7 +512,7 @@ export default function LearnerDashboardPage() {
               <button
                 type="button"
                 onClick={() => router.push('/learner/compliance/rera-cpd')}
-                className="flex w-full items-start gap-3 rounded-xl border border-admin-border bg-admin-surface p-3 text-left"
+                className="flex w-full items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3 text-left"
               >
                 <div className={`mt-1.5 size-2 shrink-0 rounded-full ${isReraEnrolled ? 'bg-state-at-risk' : 'animate-pulse bg-state-critical'}`} />
                 <div className="flex-1">
@@ -593,7 +522,7 @@ export default function LearnerDashboardPage() {
                 <ArrowRight size={11} className="self-center text-admin-faint" />
               </button>
 
-              <div className="flex items-start gap-3 rounded-xl border border-admin-border bg-admin-surface p-3">
+              <div className="flex items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3">
                 <div className="mt-1.5 size-2 shrink-0 rounded-full bg-state-at-risk" />
                 <div className="flex-1">
                   <p className="type-body-sm text-loud">Complete AML Certificate renewal</p>
@@ -602,7 +531,7 @@ export default function LearnerDashboardPage() {
               </div>
 
               {isReraEnrolled ? (
-                <div className="flex items-start gap-3 rounded-xl border border-admin-border bg-admin-surface p-3">
+                <div className="flex items-start gap-3 rounded-lg border border-admin-border bg-admin-surface p-3">
                   <CheckCircle size={14} className="mt-0.5 shrink-0 text-state-compliant" />
                   <div className="flex-1">
                     <p className="type-body-sm text-loud">RERA CPD enrollment confirmed</p>
@@ -613,8 +542,8 @@ export default function LearnerDashboardPage() {
             </div>
           </div> */}
 
-          <div className="flex-1 px-5 py-5">
-            <p className="mb-1 type-title-upper text-muted">Ask ThinkProp</p>
+          <div className="flex-1 p-4">
+            <p className="mb-0.5 type-body font-semibold">Ask ThinkProp</p>
             <p className="mb-4 type-caption text-muted">Your compliance questions, answered.</p>
 
             <div>
@@ -627,7 +556,7 @@ export default function LearnerDashboardPage() {
                   key={question.id}
                   type="button"
                   onClick={() => setActiveQuestion(question.id as keyof typeof assistantResponses)}
-                  className="mb-2 w-full rounded-xl border border-admin-border bg-admin-surface px-3 py-2.5 text-left type-body-sm text-default transition-colors hover:border-admin-border-strong hover:text-loud"
+                  className="mb-2 w-full rounded-lg border border-admin-border bg-admin-surface px-3 py-2.5 text-left type-body-sm text-default transition-colors hover:border-admin-border-strong hover:text-loud"
                 >
                   {question.label}
                 </button>
@@ -635,7 +564,7 @@ export default function LearnerDashboardPage() {
             </div>
 
             {activeQuestion ? (
-              <div className="animate-fade-in mt-3 rounded-xl border border-admin-border bg-admin-surface p-4">
+              <div className="animate-fade-in mt-3 rounded-lg border border-admin-border bg-admin-surface p-4">
                 <div className="mb-3 flex items-center gap-2">
                   <Sparkles size={13} className="text-primary" />
                   <p className="type-body-sm text-loud">ThinkProp AI</p>
@@ -663,7 +592,7 @@ export default function LearnerDashboardPage() {
               <div className="relative">
                 <Input
                   placeholder="Ask a compliance question..."
-                  className="h-10 rounded-xl border-admin-border bg-admin-surface py-3 pl-4 pr-10 type-body-sm placeholder:text-admin-faint focus-visible:ring-primary/30"
+                  className="h-12 bg-white placeholder:text-admin-faint"
                 />
                 <button
                   type="submit"
