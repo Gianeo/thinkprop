@@ -24,7 +24,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { complianceItems } from '@/lib/mockData'
-import { ComplianceState } from '@/lib/types'
+import { ComplianceItem, ComplianceState } from '@/lib/types'
 
 const STORAGE_KEY = 'thinkprop_enrollment_state'
 const SESSION_DATE_KEY = 'thinkprop_enrollment_session_date'
@@ -97,9 +97,20 @@ export default function LearnerDashboardPage() {
 
   const reraItem = datedItems.find((item) => item.id === 'rera-cpd')
   const isReraEnrolled = reraItem?.state === 'ENROLLED'
-  const nextComplianceItems = datedItems.filter((item) =>
-    item.id === 'rera-cpd' ? item.state === 'ENROLLED' : true,
-  ).slice(0, 2)
+  const primaryNextItem =
+    (isReraEnrolled
+      ? datedItems.find((item) => item.id === 'rera-cpd' && item.state === 'ENROLLED')
+      : datedItems.find((item) => item.id === 'aml-cert')) ??
+    datedItems.find((item) => item.id !== 'prop-mgmt')
+  const upcomingNeutralItem: ComplianceItem = {
+    id: 'prop-mgmt-upcoming',
+    title: 'Property Management License',
+    state: 'COMPLIANT',
+    daysRemaining: 90,
+    expiryDate: '1 Jun 2026',
+    requirementBody: 'DLD — Dubai Land Department',
+    consequence: '',
+  }
 
   const coursesForYou = [
     {
@@ -135,8 +146,8 @@ export default function LearnerDashboardPage() {
     <div className="flex h-screen overflow-hidden">
       <SidebarNav variant="learner" activePath="/learner/dashboard" />
 
-      <div className="flex flex-1 overflow-hidden pt-16 md:ml-60 md:pt-0">
-        <div className="flex-1 overflow-y-auto px-4">
+      <div className="flex flex-1 overflow-hidden pt-16 md:ml-56 md:pt-0">
+        <div className="flex-1 w-full overflow-y-auto px-6 shadow">
           <div className="mx-auto w-full space-y-8 pr-8 py-8">
             <header className="flex items-start justify-between">
               <div className=''>
@@ -269,17 +280,24 @@ export default function LearnerDashboardPage() {
                 <h2 className="type-body font-semibold">Next for your Compliance</h2>
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {nextComplianceItems.map((item) => (
+                {primaryNextItem ? (
                   <ComplianceCard
-                    key={item.id}
-                    item={item}
+                    key={primaryNextItem.id}
+                    item={primaryNextItem}
                     onCtaClick={
-                      item.id === 'rera-cpd' && (item.state === 'CRITICAL' || item.state === 'AT_RISK')
+                      primaryNextItem.id === 'rera-cpd' && (primaryNextItem.state === 'CRITICAL' || primaryNextItem.state === 'AT_RISK')
                         ? () => router.push('/learner/compliance/rera-cpd')
                         : undefined
                     }
                   />
-                ))}
+                ) : null}
+
+                <ComplianceCard
+                  item={upcomingNeutralItem}
+                  variant="upcoming"
+                  upcomingLabel="Upcoming"
+                  upcomingDescription="Renewal checkpoint in 3 months. No immediate action required."
+                />
               </div>
             </section>
 
@@ -421,15 +439,15 @@ export default function LearnerDashboardPage() {
           </div>
         </div>
 
-        <aside className="hidden w-80 shrink-0 flex-col overflow-y-auto border-l border-admin-border xl:flex">
-          <div className="shrink-0 border-b border-admin-border px-5 py-5">
+        <aside className="hidden w-80 shrink-0 flex-col overflow-y-auto xl:flex">
+          <div className="shrink-0 px-5 py-5">
             <p className="type-title-sm">Reem&apos;s Assistant</p>
             <p className="mt-0.5 type-caption text-muted">Personalised to your compliance status</p>
           </div>
 
           <div className="border-b border-admin-border px-5 py-5">
             <p className="mb-4 type-title-upper text-muted">Your Goal</p>
-            <div className="rounded-lg border border-admin-border bg-admin-surface p-4">
+            <div className="p-4">
               <div className="mb-3 flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
                   <Target size={16} className="text-primary" />
