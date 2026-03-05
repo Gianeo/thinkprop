@@ -22,7 +22,7 @@ const urlMap: Record<string, string> = {
 }
 
 export default function ScreenMockup({ mockupId, caption, imageSrc }: ScreenMockupProps) {
-  const mockupMinHeight = '19rem'
+  const mockupMinHeight = '20rem'
 
   return (
     <div className="animate-scale-in overflow-hidden rounded-2xl border border-admin-border border-border bg-admin-card bg-card shadow-modal shadow-lg">
