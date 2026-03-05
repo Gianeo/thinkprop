@@ -35,11 +35,11 @@ export default function ScreenMockup({ mockupId, caption, imageSrc }: ScreenMock
 
       <div className="bg-admin-surface bg-level-0 p-4">
         {imageSrc ? (
-          <div className="relative min-h-[19rem] overflow-hidden rounded-xl border border-admin-border border-border bg-admin-card bg-card">
+          <div className="relative min-h-76 overflow-hidden rounded-xl border border-admin-border border-border bg-admin-card bg-card">
             <Image src={imageSrc} alt={mockupId} fill className="object-cover object-top" />
           </div>
         ) : (
-          <div className="flex min-h-[19rem] items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card">
+          <div className="flex min-h-76 items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card">
             <div className="text-center">
               <p className="type-title-upper">Image Placeholder</p>
               <p className="type-caption mt-2">{mockupId}</p>
