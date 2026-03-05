@@ -9,11 +9,11 @@ UAE real estate professionals must renew their credentials annually or lose thei
 
 ThinkProp is built on a different premise: **compliance urgency belongs in the design, not in an email.**
 
-This document describes how we structured the product experience to solve that - the model we chose, the decisions we made, the things we deliberately left out, and how the system grows over time.
+This document describes how I structured the product experience to solve that - the model I chose, the decisions I made, the things I deliberately left out, and how the system grows over time.
 
 ---
 
-## 1. The Problem We Are Solving
+## 1. The Problem I Am Solving
 
 The compliance failure pattern in UAE real estate is consistent and preventable:
 
@@ -23,7 +23,7 @@ The compliance failure pattern in UAE real estate is consistent and preventable:
 
 The root cause is not capability - learners know they need to complete training. It is **informational and motivational**. The system doesn't communicate when the consequences become real.
 
-We call this the **Compliance Urgency Gap**: the distance between when a certification enters a critical window and when the learner actually acts. Before ThinkProp, that gap averaged 11 days. In an 18-day window, that is nearly everything.
+I call this the **Compliance Urgency Gap**: the distance between when a certification enters a critical window and when the learner actually acts. Before ThinkProp, that gap averaged 11 days. In an 18-day window, that is nearly everything.
 
 **Three baseline numbers define the problem:**
 
@@ -39,7 +39,7 @@ We call this the **Compliance Urgency Gap**: the distance between when a certifi
 
 ### The Compliance Urgency Loop
 
-We designed a **closed feedback loop** between two actors - the learner and the admin - connected through a single shared compliance layer. Neither journey is complete without the other.
+I designed a **closed feedback loop** between two actors - the learner and the admin - connected through a single shared compliance layer. Neither journey is complete without the other.
 
 ```
 TARIQ (Admin)                              REEM (Learner)
@@ -167,7 +167,7 @@ Both roles use the same five states, styled consistently across all surfaces:
 |---|---|---|
 | Critical | Red | ≤18 days, not enrolled |
 | At Risk | Amber | 19–30 days, not enrolled |
-| Enrolled | Blue | Enrolled, session upcoming |
+| Enrolled | Brand | Enrolled, session upcoming |
 | Compliant | Green | Certification valid |
 | Expired | Grey | Lapsed - action overdue |
 
@@ -219,7 +219,7 @@ The type system uses two roles within the family: TikTok Sans Display for headin
 
 ### Decision 1 - Model B: Company Pays at Enrollment
 
-We chose to remove the payment step entirely from the learner flow. Prestige Properties Dubai has a pre-authorised training budget. When Reem enrolls, the AED 600 is charged automatically.
+I chose to remove the payment step entirely from the learner flow. Prestige Properties Dubai has a pre-authorised training budget. When Reem enrolls, the AED 600 is charged automatically.
 
 **Reasoning:** Compliance is a company-level legal obligation. A payment form creates hesitation at exactly the moment speed matters most. The most important design decision in the enrollment flow was choosing what *not* to show.
 
@@ -231,13 +231,13 @@ When Reem is in a critical compliance state, her dashboard shows one primary act
 
 **Reasoning:** Reducing decisions increases action - especially under time pressure. The Today's Focus block exists precisely to eliminate the question *what should I do first?*
 
-**Trade-off:** Power users who want to browse freely have less flexibility. We accept this. The audience for this dashboard is not a power user. Reem is managing six client files. She wants to be told what to do.
+**Trade-off:** Power users who want to browse freely have less flexibility. I accept this. The audience for this dashboard is not a power user. Reem is managing six client files. She wants to be told what to do.
 
 ### Decision 3 / Pre-Filtered Course Lists
 
 When Reem clicks Find a Course, she does not land on a course catalogue. She lands on three courses that all satisfy her specific requirement.
 
-**Reasoning:** The highest drop-off point in compliance training enrollment is confusion about which courses actually count. We eliminate that question before it can be asked. The filter state is shown transparently at the top of the list - she can see exactly why these three courses appear.
+**Reasoning:** The highest drop-off point in compliance training enrollment is confusion about which courses actually count. I eliminate that question before it can be asked. The filter state is shown transparently at the top of the list - she can see exactly why these three courses appear.
 
 **Trade-off:** This requires accurate, maintained credential-to-course mapping in the data model. If the mapping is wrong, the trust damage is worse than showing too many courses. This is a data quality dependency, not a design dependency.
 
@@ -257,7 +257,7 @@ The interactive story experience at `/story` presents Tariq's journey in Act 2, 
 
 ---
 
-## 7. What We Chose Not to Design
+## 7. What I Chose Not to Design
 
 Every out-of-scope decision was deliberate. Scope protects the critical path.
 
@@ -323,5 +323,4 @@ The cost of a non-compliant employee in UAE real estate: regulatory fines of AED
 **The admin compliance dashboard is the primary enterprise sales surface.** When Tariq shows this screen to his COO, it is the moment the company decides whether to renew. The design quality of that screen is not a UX concern - it is a revenue concern.
 
 ---
-
 
