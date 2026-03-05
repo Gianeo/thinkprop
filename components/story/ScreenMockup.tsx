@@ -22,6 +22,8 @@ const urlMap: Record<string, string> = {
 }
 
 export default function ScreenMockup({ mockupId, caption, imageSrc }: ScreenMockupProps) {
+  const mockupMinHeight = '19rem'
+
   return (
     <div className="animate-scale-in overflow-hidden rounded-2xl border border-admin-border border-border bg-admin-card bg-card shadow-modal shadow-lg">
       <div className="flex h-9 items-center gap-2 border-b border-admin-border border-border bg-admin-surface bg-level-0 px-3">
@@ -35,11 +37,17 @@ export default function ScreenMockup({ mockupId, caption, imageSrc }: ScreenMock
 
       <div className="bg-admin-surface bg-level-0 p-4">
         {imageSrc ? (
-          <div className="relative min-h-76 overflow-hidden rounded-xl border border-admin-border border-border bg-admin-card bg-card">
+          <div
+            className="relative overflow-hidden rounded-xl border border-admin-border border-border bg-admin-card bg-card"
+            style={{ minHeight: mockupMinHeight }}
+          >
             <Image src={imageSrc} alt={mockupId} fill className="object-cover object-top" />
           </div>
         ) : (
-          <div className="flex min-h-76 items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card">
+          <div
+            className="flex items-center justify-center rounded-xl border border-dashed border-admin-border border-border bg-admin-card bg-card"
+            style={{ minHeight: mockupMinHeight }}
+          >
             <div className="text-center">
               <p className="type-title-upper">Image Placeholder</p>
               <p className="type-caption mt-2">{mockupId}</p>
