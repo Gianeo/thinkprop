@@ -201,17 +201,20 @@ This restraint is what gives those two buttons their weight. When everything els
 
 ### Typography as a Design Tool
 
-The entire system uses a single typeface: **TikTok Sans**, available open-source on Google Fonts.
+I use one typeface across the product: **TikTok Sans**.
 
-TikTok Sans is a geometric grotesque - positioned between Helvetica's utilitarian balance and the clean modernism of geometric sans-serifs. It was developed in close collaboration with Grilli Type and Type Network over an extended period, then open-sourced in 2025. The decision to make it available under the SIL Open Font License is notable: it signals confidence in the typeface as a system asset, not just a brand marker.
+This is intentional for three simple reasons:
 
-For ThinkProp, the choice is grounded in what the typeface does technically and what it communicates tonally.
+- **Readability:** small text and numbers stay clear in dashboards, cards, and tables.
+- **Trust:** headings feel professional, while body text still feels approachable.
+- **Consistency:** one font family keeps admin and learner screens visually connected.
 
-**Technically**, TikTok Sans was built for precisely the conditions ThinkProp operates in: variable font across weight and optical size axes, pixel-perfect hinting across device types, a tall x-height optimised for readability at small sizes, and built-in anti-spoofing features for numbers - making data values in tables and KPI strips clean and unambiguous. The font was engineered to render consistently whether Tariq is reviewing the compliance overview on a 4K desktop monitor or Reem is glancing at her dashboard on a laptop screen.
+Within that same family, I use:
 
-**Tonally**, TikTok Sans sits at an unusual intersection: it feels modern and confident at display sizes, approachable and clear at body sizes. It does not carry the corporate coldness of pure geometric faces, nor the informality of humanist ones. For a product that needs to be trusted by enterprise buyers and accessible to busy professionals simultaneously, that balance matters.
+- **Display styles** for headings and KPI numbers.
+- **Text styles** for paragraphs, labels, and supporting copy.
 
-The type system uses two roles within the family: TikTok Sans Display for headings, KPI numbers, and card titles - where the geometric character sets the tone - and TikTok Sans Text for all body copy, labels, and interface descriptions, where readability and neutrality are the priority. One typeface, two optical registers, complete coherence.
+In short: one font system reduces visual noise and helps users read faster under time pressure.
 
 ---
 
@@ -241,15 +244,7 @@ When Reem clicks Find a Course, she does not land on a course catalogue. She lan
 
 **Trade-off:** This requires accurate, maintained credential-to-course mapping in the data model. If the mapping is wrong, the trust damage is worse than showing too many courses. This is a data quality dependency, not a design dependency.
 
-### Decision 4 / AI Copilot as Static Mockup
-
-The Ask ThinkProp panel in the right column shows three suggested questions and pre-written contextual responses. It does not make live API calls.
-
-**Reasoning:** The concept needed to be visible and evaluable without adding API latency, prompt engineering risk, or compliance considerations to a prototype evaluation. Hardcoded responses demonstrate the value proposition clearly. The questions chosen are the ones Reem would be most likely to ask in her first session.
-
-**Trade-off:** The experience does not respond to arbitrary input. This is clearly a Phase 2 feature - the static mockup earns the conversation about what a live version would require.
-
-### Decision 5 / The Story Opens with Tariq
+### Decision 4 / The Story Opens with Tariq
 
 The interactive story experience at `/story` presents Tariq's journey in Act 2, before Reem's journey in Act 3.
 
@@ -323,4 +318,3 @@ The cost of a non-compliant employee in UAE real estate: regulatory fines of AED
 **The admin compliance dashboard is the primary enterprise sales surface.** When Tariq shows this screen to his COO, it is the moment the company decides whether to renew. The design quality of that screen is not a UX concern - it is a revenue concern.
 
 ---
-
